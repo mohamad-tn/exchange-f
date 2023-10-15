@@ -501,6 +501,7 @@
                                             name='receivedAmount' 
                                             format='N'
                                             [readonly]="outgoingTransfer.paymentType != 1"
+                                            [required]="outgoingTransfer.paymentType == 1"
                                             cssClass="as-sy-input"
                                             [enableRtl]="true" 
                                             [(ngModel)]="outgoingTransfer.receivedAmount"

@@ -60,6 +60,8 @@ export class TreasuryBalanceStatementComponent extends AppComponentBase  impleme
     args.rows.forEach(row => {
       this.data.push(row.data);
     });
+
+    console.log(this.data);
   }
 
   initialCurrencies(){

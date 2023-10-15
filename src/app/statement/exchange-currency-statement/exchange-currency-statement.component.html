@@ -64,12 +64,20 @@
                                 </e-column>
                                 <e-column field="firstCurrency.name" headerText="{{'FirstCurrency' | localize}}"
                                     width="150"></e-column>
-                                <e-column field="amountOfFirstCurrency"
-                                    headerText="{{'AmountOfFirstCurrency' | localize}}" width="200"></e-column>
+                                <e-column
+                                    headerText="{{'AmountOfFirstCurrency' | localize}}" width="200">
+                                    <ng-template #template let-data>
+                                        {{numberWithCommasAndAbs(data.amountOfFirstCurrency)}}
+                                    </ng-template>
+                                </e-column>
                                 <e-column field="secondCurrency.name" headerText="{{'SecondCurrency' | localize}}"
                                     width="150"></e-column>
-                                <e-column field="amoutOfSecondCurrency"
-                                    headerText="{{'AmoutOfSecondCurrency' | localize}}" width="200"></e-column>
+                                <e-column
+                                    headerText="{{'AmoutOfSecondCurrency' | localize}}" width="200">
+                                    <ng-template #template let-data>
+                                        {{numberWithCommasAndAbs(data.amoutOfSecondCurrency)}}
+                                    </ng-template>
+                                </e-column>
                                 <e-column field="date" headerText="{{'Date' | localize}}" format="dd/MM/yyyy"
                                     width="200"></e-column>
                             </e-columns>

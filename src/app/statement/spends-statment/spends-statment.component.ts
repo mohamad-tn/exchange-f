@@ -13,6 +13,8 @@ import { SearchSpendsStatmentComponent } from './search-spends-statment.componen
 export class SpendsStatmentComponent extends AppComponentBase implements OnInit {
 
   treasuryActions: TreasuryActionStatementOutputDto[] = [];
+  sumAmount:number = 0;
+
   constructor(
     injector: Injector,
     private _router: Router,
@@ -28,6 +30,7 @@ export class SpendsStatmentComponent extends AppComponentBase implements OnInit 
   
 
   initialTreasuryActions(data){
+    console.log(data)
     this._treasuryActionAppService.getFroStatment(
       1,
       data.fromDate,
@@ -39,7 +42,13 @@ export class SpendsStatmentComponent extends AppComponentBase implements OnInit 
       data.incomeId,
       undefined).subscribe(result =>{
         this.treasuryActions = result;
+
+        this.sumAmount = 0;
+        this.treasuryActions.forEach((element) => {
+          this.sumAmount = this.sumAmount + element.amount;
+        });
       })
+      
   }
 
   showSearchDialog() {

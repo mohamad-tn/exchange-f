@@ -226,7 +226,7 @@ export class CreateOutgoingTransferComponent extends AppComponentBase implements
         if(this.outgoingTransfer.toCompanyId != undefined)
           {
             this.getToCompanyBalance(this.outgoingTransfer.toCompanyId, args.itemData.id);
-            this.getFromCompanyBalance(this.outgoingTransfer.fromCompanyId, args.itemData.id);
+            // this.getFromCompanyBalance(this.outgoingTransfer.fromCompanyId, args.itemData.id);
           }
       } 
   }
@@ -392,7 +392,8 @@ export class CreateOutgoingTransferComponent extends AppComponentBase implements
           fromClientName: this.getClientName(this.outgoingTransfer.fromClientId),
           senderName: this.getSenderName(),
           paymentTypeName: this.getPaymentTypeName(),
-          beneficiaryName: this.getBeneficiaryName()
+          beneficiaryName: this.getBeneficiaryName(),
+          countryName: this.getCountryName()
         },
       }
     ).onClose.subscribe((e:any) => {
