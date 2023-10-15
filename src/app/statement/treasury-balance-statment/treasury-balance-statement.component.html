@@ -71,23 +71,23 @@
                                 <e-columns>
                                     <e-column field="id" headerText="Id" isPrimaryKey="true" [visible]="false">
                                     </e-column>
-                                    <e-column  headerText="{{l('Balance')}}" textAlign="center">
+                                    <e-column  headerText="{{l('Balance')}}" textAlign="center" width="150">
                                         <ng-template #template let-data>{{ numberWithCommas(data.balance) }}
                                         </ng-template>
                                     </e-column>
-                                    <e-column headerText="{{'Import' | localize}}" textAlign="center">
-                                        <ng-template #template let-data>{{ data.amount > 0 ? (data.amount) : '' }}
+                                    <e-column headerText="{{'Import' | localize}}" textAlign="center" width="150">
+                                        <ng-template #template let-data>{{ data.amount > 0 ? numberWithCommas(data.amount) : '' }}
                                         </ng-template>
                                     </e-column>
-                                    <e-column headerText="{{'Export' | localize}}" textAlign="center">
-                                        <ng-template #template let-data>{{ data.amount < 0 ? (data.amount * -1) : ''
+                                    <e-column headerText="{{'Export' | localize}}" textAlign="center" width="150">
+                                        <ng-template #template let-data>{{ data.amount < 0 ? numberWithCommas(data.amount * -1) : ''
                                                 }}</ng-template>
                                     </e-column>
-                                    <e-column field="type" headerText="{{l('Type')}}" textAlign="center"></e-column>
+                                    <e-column field="type" headerText="{{l('Type')}}" textAlign="center" width="150"></e-column>
                                     <e-column field="name" headerText="{{l('Name')}}" width="200" textAlign="center"></e-column>
                                     <e-column field="date" format='dd/MM/yyyy hh:mm' type='date'
                                         headerText="{{l('Date')}}" width="200" textAlign="center"></e-column>
-                                    <e-column field="note"  headerText="{{l('Note')}}" width="400" textAlign="center"></e-column>
+                                    <e-column field="note"  headerText="{{l('Note')}}" width="300" textAlign="center"></e-column>
 
                                 </e-columns>
                             </ejs-grid>
@@ -135,13 +135,14 @@
                     <th  style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;background-color: #e9ecef;">{{l('Type')}}</th>
                     <th  style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;background-color: #e9ecef;">{{l('Name')}}</th>
                     <th  style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;background-color: #e9ecef;">{{l('Date')}}</th>
+                    <th  style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;background-color: #e9ecef;">{{l('Note')}}</th>
                 </tr>
             </thead>
             <tbody>
             <tr *ngFor="let item of data" >
                 
                 <td style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;">
-                    <span>{{ numberWithCommas(item.currentBalance) }}</span>
+                    <span>{{ item.amount < 0 ? 0: numberWithCommas(item.currentBalance) }}</span>
                 </td>
                 <td style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;">
                     <span>{{ item.amount > 0 ? (item.amount) : '' }}</span>
@@ -158,6 +159,10 @@
                 <td style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;">
                     <span *ngIf="item.date != undefined">{{ getRealDate(item.date) | date:'dd/MM/yyyy'}}</span>
                     <span *ngIf="item.date == undefined"></span>
+                </td>
+                <td
+                    style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;">
+                    <span>{{ item.note }}</span>
                 </td>
             </tr>
         </tbody>
