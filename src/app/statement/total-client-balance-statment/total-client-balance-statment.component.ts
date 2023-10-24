@@ -1,5 +1,5 @@
 import { ConditionalExpr } from '@angular/compiler';
-import { Component, Inject, Injector, OnInit, Optional, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, Injector, OnInit, Optional, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { AppComponentBase } from '@shared/app-component-base';
@@ -8,6 +8,8 @@ import { GridComponent, PageSettingsModel } from '@syncfusion/ej2-angular-grids'
 import { SearchClientBalanceStatmentDialogComponent } from '../client-balance-statement/search-client-balance-statment-dialog.component';
 import { SearchTotalClientBalanceStatmentDialogComponent } from './search-total-client-balance-statment-dialog.component';
 import { TotalClientBalanceStatment } from './total-client-balance-statment';
+// import html2canvas from "../../../../node_modules/html2canvas-1.0.0/src";
+
 
 @Component({
   selector: 'app-total-client-balance-statment',
@@ -15,6 +17,23 @@ import { TotalClientBalanceStatment } from './total-client-balance-statment';
   styleUrls: ['./total-client-balance-statment.component.scss']
 })
 export class TotalClientBalanceStatmentComponent extends AppComponentBase implements OnInit {
+
+
+  // name = "Angular 6";
+
+  // @ViewChild("screen") screen: ElementRef;
+  // @ViewChild("canvas") canvas: ElementRef;
+  // @ViewChild("downloadLink") downloadLink: ElementRef;
+
+  // downloadImage() {
+  //   html2canvas(this.screen.nativeElement).then(canvas => {
+  //     this.canvas.nativeElement.src = canvas.toDataURL();
+  //     this.downloadLink.nativeElement.href = canvas.toDataURL("image/png");
+  //     this.downloadLink.nativeElement.download = "marble-diagram.png";
+  //     this.downloadLink.nativeElement.click();
+  //   });
+  // }
+
 
   // Grid
   @ViewChild('cashFlowGrid') public grid: GridComponent;
