@@ -13,10 +13,9 @@
                             </nb-actions>
                         </div>
                         <div class="col-md-1">
-                            <button type="button" nbButton status="basic" outline useExistingCss="true"
-                                        printTitle="treasury" printSectionId="print-section" ngxPrint>
-                                        <nb-icon icon="printer-outline"></nb-icon>
-                                    </button>
+                            <nb-action class="control-item" (click)="downloadImage()">
+                                <nb-icon icon="printer-outline"></nb-icon>
+                            </nb-action>
                         </div>
                     </div>
                     
@@ -102,6 +101,7 @@
 </form>
 
 <!-- Print ngx print -->
+<div id="t3" class="p-4" #screen>
 <div id="print-section" dir="rtl" style="width:100%;display:none">
     <div style="width:100%;text-align: center;">
         <h3>كشف رصيد الصندوق</h3>
@@ -114,10 +114,10 @@
                     <th style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;background-color: #e9ecef;">{{l('Currency')}}</th>
                     <th style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;">{{currencyName}}</th>
                     
-                    <th style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;background-color: #e9ecef;">{{l('FromDate')}}</th>
+                    <th style="width: 20%; padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;background-color: #e9ecef;">{{l('FromDate')}}</th>
                     <th style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;">{{fromDate | date:'dd/MM/yyyy'}}</th>
                     
-                    <th style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;background-color: #e9ecef;">{{l('ToDate')}}</th>
+                    <th style="width: 20%; padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;background-color: #e9ecef;">{{l('ToDate')}}</th>
                     <th style="padding: 0.5rem;border: 2px solid #dee2e6;text-align: center;vertical-align: middle;border-color: #8a949d91;color: #495057;">{{toDate | date:'dd/MM/yyyy'}}</th>
 
                 </tr>
@@ -167,7 +167,11 @@
             </tr>
         </tbody>
         </table>
-    </div>
-    
+    </div>    
+</div>
+</div>
+<div id="download">
+    <span #canvas></span>
+    <a #downloadLink></a>
 </div>
 

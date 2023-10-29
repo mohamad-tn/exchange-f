@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, Inject, Injector, OnInit, Optional } from '@angular/core';
+import { Component, ElementRef, Inject, Injector, OnInit, Optional, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { AppComponentBase } from '@shared/app-component-base';
@@ -9,6 +9,7 @@ import { WebcamImage } from 'ngx-webcam';
 import { finalize } from 'rxjs/operators';
 import { OutgoingImageTakenDialogComponent } from '../outgoing-image-taken-dialog/outgoing-image-taken-dialog.component';
 import { PrintOutgoingTransferComponent } from '../print-outgoing-transfer/print-outgoing-transfer.component';
+import html2canvas from 'html2canvas';
 
 
 @Component({
@@ -433,30 +434,30 @@ export class EditOutgoingTransferComponent
     this.outgoingTransfer.images.splice(index, 1);
   }
 
-  print() {
-    this._modalService
-      .open(PrintOutgoingTransferComponent, {
-        context: {
-          input: this.outgoingTransfer,
-          currencyName: this.getCurrencyName(),
-          toCompanyName: this.getCompanyName(this.outgoingTransfer.toCompanyId),
-          fromCompanyName: this.getCompanyName(
-            this.outgoingTransfer.fromCompanyId
-          ),
-          fromClientName: this.getClientName(
-            this.outgoingTransfer.fromClientId
-          ),
-          senderName: this.getSenderName(),
-          paymentTypeName: this.getPaymentTypeName(),
-          beneficiaryName: this.getBeneficiaryName(),
-          countryName: this.getCountryName(),
-        },
-      })
-      .onClose.subscribe((e: any) => {
-        if (e.success == true) {
-        }
-      });
-  }
+  // print() {
+  //   this._modalService
+  //     .open(PrintOutgoingTransferComponent, {
+  //       context: {
+  //         input: this.outgoingTransfer,
+  //         currencyName: this.getCurrencyName(),
+  //         toCompanyName: this.getCompanyName(this.outgoingTransfer.toCompanyId),
+  //         fromCompanyName: this.getCompanyName(
+  //           this.outgoingTransfer.fromCompanyId
+  //         ),
+  //         fromClientName: this.getClientName(
+  //           this.outgoingTransfer.fromClientId
+  //         ),
+  //         senderName: this.getSenderName(),
+  //         paymentTypeName: this.getPaymentTypeName(),
+  //         beneficiaryName: this.getBeneficiaryName(),
+  //         countryName: this.getCountryName(),
+  //       },
+  //     })
+  //     .onClose.subscribe((e: any) => {
+  //       if (e.success == true) {
+  //       }
+  //     });
+  // }
 
   getCurrencyName(): string {
     if (this.outgoingTransfer.currencyId == undefined) return "";
@@ -514,6 +515,28 @@ export class EditOutgoingTransferComponent
     return this.customers.find(
       (x) => x.id == this.outgoingTransfer.beneficiaryId
     )?.name;
+  }
+
+  name = "Outgoing-Transfer-Statement";
+
+  @ViewChild("screen") screen: ElementRef;
+  @ViewChild("canvas") canvas: ElementRef;
+  @ViewChild("downloadLink") downloadLink: ElementRef;
+
+  downloadImage() {
+    document.getElementById("print-section").style.display = "contents";
+    document.getElementById("t5").style.width = "595px";
+    document.getElementById("t5").style.height = "842px";
+    html2canvas(this.screen.nativeElement).then((canvas) => {
+      this.canvas.nativeElement.src = canvas.toDataURL();
+      this.downloadLink.nativeElement.href = canvas.toDataURL("image/png");
+      this.downloadLink.nativeElement.download =
+        "Outgoing-Transfer-Statement.png";
+      this.downloadLink.nativeElement.click();
+    });
+    document.getElementById("print-section").style.display = "none";
+    document.getElementById("t5").style.width = "0px";
+    document.getElementById("t5").style.height = "0px";
   }
 }
 

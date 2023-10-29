@@ -130,10 +130,10 @@
                     <e-column field="toCompany.name" headerText="{{l('ToCompany')}}" textAlign="center" width="150"></e-column>
                     <e-column field="company.name" headerText="{{l('Company')}}" textAlign="center" width="150"></e-column>
                     <e-column field="client.name" headerText="{{l('Client')}}" textAlign="center" width="150"></e-column>
-                    <e-column field="beforChange" headerText="{{l('BeforChange')}}" textAlign="center" width="500"></e-column>
-                    <e-column field="afterChange" headerText="{{l('AfterChange')}}" textAlign="center" width="500"></e-column>
                     <e-column field="date" headerText="{{l('Date')}}" textAlign="center" width="200"></e-column>
-                    <e-column field="changeDate" headerText="{{l('ChangeDate')}}" textAlign="center" width="200"></e-column>                    
+                    <e-column field="changeDate" headerText="{{l('ChangeDate')}}" textAlign="center" width="200"></e-column>    
+                    <e-column field="beforChange" headerText="{{l('BeforChange')}}" textAlign="center" width="2000"></e-column>
+                    <e-column field="afterChange" headerText="{{l('AfterChange')}}" textAlign="center" width="2000"></e-column>                
                 </e-columns>
             </ejs-grid>
 
@@ -211,10 +211,9 @@
                     <e-column field="toCompany.name" headerText="{{l('ToCompany')}}" textAlign="center" width="150"></e-column>
                     <e-column field="company.name" headerText="{{l('Company')}}" textAlign="center" width="150"></e-column>
                     <e-column field="client.name" headerText="{{l('Client')}}" textAlign="center" width="150"></e-column>
-                    <e-column field="beforChange" headerText="{{l('BeforChange')}}" textAlign="center" width="500"></e-column>
-                    <e-column field="afterChange" headerText="{{l('AfterChange')}}" textAlign="center" width="500"></e-column>
                     <e-column field="date" headerText="{{l('Date')}}" textAlign="center" width="200"></e-column>
-                    <e-column field="changeDate" headerText="{{l('ChangeDate')}}" textAlign="center" width="200"></e-column>
+                    <e-column field="changeDate" headerText="{{l('ChangeDate')}}" textAlign="center" width="200"></e-column><e-column field="beforChange" headerText="{{l('BeforChange')}}" textAlign="center" width="2000"></e-column>
+                    <e-column field="afterChange" headerText="{{l('AfterChange')}}" textAlign="center" width="2000"></e-column>
                 </e-columns>
             </ejs-grid>
 
@@ -290,10 +289,9 @@
                             <span *ngIf="data.treasuryActionType == 1 && data.mainAccount == 'Income'">{{'Income' | localize}}</span>
                         </ng-template>
                     </e-column>
-                    <e-column field="beforChange" headerText="{{l('BeforChange')}}" textAlign="center" width="500"></e-column>
-                    <e-column field="afterChange" headerText="{{l('AfterChange')}}" textAlign="center" width="500"></e-column>
                     <e-column field="date" headerText="{{l('Date')}}" textAlign="center" width="200"></e-column>
-                    <e-column field="changeDate" headerText="{{l('ChangeDate')}}" textAlign="center" width="200"></e-column>
+                    <e-column field="changeDate" headerText="{{l('ChangeDate')}}" textAlign="center" width="200"></e-column><e-column field="beforChange" headerText="{{l('BeforChange')}}" textAlign="center" width="2000"></e-column>
+                    <e-column field="afterChange" headerText="{{l('AfterChange')}}" textAlign="center" width="2000"></e-column>
                 </e-columns>
             </ejs-grid>
 
