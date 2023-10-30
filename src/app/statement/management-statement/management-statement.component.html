@@ -1,5 +1,18 @@
 <div class="container">
     <div class="row">
+    <nb-card-header>
+        <div class="as-head">
+            <div class="header-container">
+                <nb-actions>
+                    <nb-action class="control-item ">
+                        <h5>الإدارة</h5>
+                    </nb-action>
+                </nb-actions>
+            </div>
+        </div>
+    </nb-card-header>
+    </div>
+    <div class="row">
         <div class="col-3">
             <div class="row">
                 <h6>الحوالات الصادرة</h6>
@@ -54,11 +67,11 @@
         </div>
     </div>
     <hr>
-    <div class="row" *ngIf="loading">
+    <div class="row" *ngIf="loading">        
         <div class="col-md-12">
         <nb-card-body class="as-case-card-body">
-            <ejs-grid *ngIf="type == 0" id="managementGrid" #managementGrid [query]="param" [dataSource]="dataSource" [allowPaging]="true" [allowSorting]="true"
-                [allowFiltering]="true" [enableRtl]='true' [pageSettings]="pageSettings" [filterSettings]='filterOption'>
+            <ejs-grid *ngIf="type == 0" id="managementGrid" #managementGrid [query]="param" [dataSource]="dataSource" [allowPaging]="true"
+                 [enableRtl]='true' [pageSettings]="pageSettings">
                 <!--toolbar-->
                 <!-- <ng-template #toolbarTemplate>
                     <ejs-toolbar>
@@ -379,5 +392,5 @@
             </ejs-grid>
         </nb-card-body>
         </div>
+        </div>
     </div>
-</div>

@@ -1,8 +1,12 @@
-import { Component, Injector, OnInit } from '@angular/core';
+import { finalize } from 'rxjs/operators';
+import { ExchangePriceDto } from './../../../../shared/service-proxies/service-proxies';
+import { Component, ElementRef, Injector, OnInit, ViewChild } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { AppComponentBase } from '@shared/app-component-base';
 import { ClientCashFlowServiceProxy, CompanyCashFlowServiceProxy, ExchangePriceServiceProxy, IncomeTransferDetailServiceProxy, SummaryCashFlowDto, TreasuryCashFlowServiceProxy } from '@shared/service-proxies/service-proxies';
 import { SearchSummaryStatementComponent } from '../search-summary-statement/search-summary-statement.component';
+import { async } from 'rxjs/internal/scheduler/async';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: "app-summary-statement",
@@ -37,6 +41,10 @@ export class SummaryStatementComponent
     this.initialCompanySummary(undefined);
     this.initialTreasurySummary(undefined);
     this.initialnoneReceivedSummary(undefined);
+
+    setTimeout(() => {
+      this.showSearchDialog();
+    }, 500);
   }
 
   initialClientSummary(date) {
@@ -116,15 +124,23 @@ export class SummaryStatementComponent
     return totalBalance;
   }
 
+  toDate: Date = new Date();
+  date: string;
   showSearchDialog() {
+    this.loading = false;
     this._modalService
       .open(SearchSummaryStatementComponent)
       .onClose.subscribe((e: any) => {
         if (e != undefined && e?.toDate) {
+          let d = new Date(e?.toDate);
+          this.toDate = e?.toDate;
+          this.date = d.toLocaleDateString();
           this.initialClientSummary(e?.toDate);
           this.initialCompanySummary(e?.toDate);
           this.initialTreasurySummary(e?.toDate);
           this.initialnoneReceivedSummary(e?.toDate);
+          this.calculateAll();
+          this.calculateAll();
         }
       });
   }
@@ -141,27 +157,61 @@ export class SummaryStatementComponent
     return "0";
   }
 
-  allAmount: number = 0;
-  price:number= 0;
-  all: number = 0;
+  prices: ExchangePriceDto[] = [];
+  loading: boolean = false;
+  totalAmount: number = 0;
 
-  // calculateAll(currencyId) {
-  //   this.clientResult.forEach((e: SummaryCashFlowDto) => {
-  //     if (e.currency?.id != currencyId) {
-  //       let num = this.calculatTotal1(e.currency?.id);
-  //       console.log(num);
-  //       this._exchangePrice.getById(e.currency?.id).subscribe((result) => {
-  //         this.price = result.mainPrice;
-  //         console.log(this.price);
-  //       });
-  //       this.all = this.price * num;
-  //       console.log(this.all);
-  //     }
-  //   });
-  //     let b= this.calculatTotal1(currencyId);
-  //     console.log(b);
-  //     this.allAmount = this.allAmount + (b + this.all);
-  //     console.log(this.allAmount);
-  //     return this.calculatTotal(this.allAmount);
-  // }
+  calculateAll() {
+    let mainCurrencyTotalBalance = 0;
+    let currencyTotalBalance = 0;
+
+    this._exchangePrice
+      .getAll()
+      .pipe(
+        finalize(() => {
+          this.loading = true;
+        })
+      )
+      .subscribe((x) => {
+        this.prices = x;
+        this.prices.map((z) => {
+          if (z.currency.isMainCurrency == true) {
+            mainCurrencyTotalBalance = this.calculatTotal1(z.currencyId);
+          } else {
+            currencyTotalBalance =
+              currencyTotalBalance +
+              z.mainPrice * this.calculatTotal1(z.currencyId);
+            this.totalAmount = mainCurrencyTotalBalance + currencyTotalBalance;
+          }
+        });
+      });
+  }
+
+  name = "Summary-Statement";
+
+  @ViewChild("screen") screen: ElementRef;
+  @ViewChild("canvas") canvas: ElementRef;
+  @ViewChild("downloadLink") downloadLink: ElementRef;
+
+  downloadImage() {
+    document.getElementById("toDate").style.display = "contents";
+    document.getElementById("buttons").style.display = "none";
+    document.getElementById("swap").style.display = "none";
+    document.getElementById("t2").style.width = "595px";
+    document.getElementById("t2").style.height = "842px";
+    html2canvas(this.screen.nativeElement).then((canvas) => {
+      this.canvas.nativeElement.src = canvas.toDataURL();
+      this.downloadLink.nativeElement.href = canvas.toDataURL("image/png");
+      this.downloadLink.nativeElement.download =
+        "Summary-Statement-To_Date : " +
+        this.date +
+        ".png";
+      this.downloadLink.nativeElement.click();
+    });
+    document.getElementById("toDate").style.display = "none";
+    document.getElementById("buttons").style.display = "contents";
+    document.getElementById("swap").style.display = "contents";
+    document.getElementById("t2").style.width = "auto";
+    document.getElementById("t2").style.height = "auto";
+  }
 }
