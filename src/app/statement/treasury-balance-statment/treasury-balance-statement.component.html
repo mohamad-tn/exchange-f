@@ -70,15 +70,15 @@
                                 <e-columns>
                                     <e-column field="id" headerText="Id" isPrimaryKey="true" [visible]="false">
                                     </e-column>
-                                    <e-column  headerText="{{l('Balance')}}" textAlign="center" width="150">
+                                    <e-column  headerText="{{l('Balance')}}" textAlign="center" width="225">
                                         <ng-template #template let-data>{{ numberWithCommas(data.balance) }}
                                         </ng-template>
                                     </e-column>
-                                    <e-column headerText="{{'Import' | localize}}" textAlign="center" width="150">
+                                    <e-column headerText="{{'Import' | localize}}" textAlign="center" width="225">
                                         <ng-template #template let-data>{{ data.amount > 0 ? numberWithCommas(data.amount) : '' }}
                                         </ng-template>
                                     </e-column>
-                                    <e-column headerText="{{'Export' | localize}}" textAlign="center" width="150">
+                                    <e-column headerText="{{'Export' | localize}}" textAlign="center" width="225">
                                         <ng-template #template let-data>{{ data.amount < 0 ? numberWithCommas(data.amount * -1) : ''
                                                 }}</ng-template>
                                     </e-column>

@@ -101,6 +101,20 @@ export class CreateExchangeCurrencyComponent
 
   // on change handler
   onchangePaymentType(args) {
+
+    if(args.value == 0){
+      this.exchangeCurrency.clientId = undefined;
+      this.exchangeCurrency.companyId = undefined;
+    }
+
+    if (args.value == 1) {
+      this.exchangeCurrency.companyId = undefined;
+    }
+
+    if (args.value == 2) {
+      this.exchangeCurrency.clientId = undefined;
+    }
+
     this.onchnage({
       paymentType: args.value,
       actionType: this.exchangeCurrency.actionType,
@@ -193,7 +207,9 @@ export class CreateExchangeCurrencyComponent
       data.secondCurrencyId != undefined
     ) {
       this.getClientBalanceSecondCurrency(data);
-    } else if (
+    } 
+    
+    if (
       data.companyId != undefined &&
       data.firstCurrencyId != undefined
     ) {
@@ -298,9 +314,11 @@ export class CreateExchangeCurrencyComponent
   }
 
   onchangeFirstAmount(args) {
+    console.log(this.exchangeCurrency.exchangePrice);
     let amount = args.value;
     let value = amount * this.exchangeCurrency.exchangePrice;
-    this.exchangeCurrency.amoutOfSecondCurrency = Math.round(value * 10) / 10;
+    this.exchangeCurrency.amoutOfSecondCurrency = value;
+    // this.exchangeCurrency.amoutOfSecondCurrency = Math.round(value * 10) / 10;
     this.updateCurrentBalance();
   }
 
@@ -308,7 +326,8 @@ export class CreateExchangeCurrencyComponent
     let amount = args.value;
     if (this.exchangeCurrency.exchangePrice != undefined && this.exchangeCurrency.exchangePrice > 0) {
       let value = amount / this.exchangeCurrency.exchangePrice;
-      this.exchangeCurrency.amountOfFirstCurrency = Math.round(value * 10) / 10;
+      this.exchangeCurrency.amountOfFirstCurrency = value;
+      // this.exchangeCurrency.amountOfFirstCurrency = Math.round(value * 10) / 10;
       this.updateCurrentBalance();
     }
   }
@@ -372,7 +391,8 @@ export class CreateExchangeCurrencyComponent
       }
     }
 
-    this.exchangeCurrency.exchangePrice = Math.round(price * 100000) / 100000;
+    this.exchangeCurrency.exchangePrice = price;
+    // this.exchangeCurrency.exchangePrice = Math.round(price * 100000) / 100000;
     // update amount
     if(this.exchangeCurrency.amountOfFirstCurrency){
       this.exchangeCurrency.amoutOfSecondCurrency = this.exchangeCurrency.amountOfFirstCurrency * this.exchangeCurrency.exchangePrice;
@@ -385,12 +405,13 @@ export class CreateExchangeCurrencyComponent
   updateCurrentBalance(){
     
     let firstValue = this.exchangeCurrency.actionType == 0 ? 
-    (-1 * this.exchangeCurrency.amountOfFirstCurrency) : 
-    this.exchangeCurrency.amountOfFirstCurrency;
+    (-1 *  (Math.round(this.exchangeCurrency.amountOfFirstCurrency * 10) / 10 )) : 
+    Math.round(this.exchangeCurrency.amountOfFirstCurrency * 10) / 10 ;
 
-    let secondValue = this.exchangeCurrency.actionType == 0 ? 
-    this.exchangeCurrency.amoutOfSecondCurrency : 
-    (-1 * this.exchangeCurrency.amoutOfSecondCurrency);
+    let secondValue =
+      this.exchangeCurrency.actionType == 0
+        ? Math.round(this.exchangeCurrency.amoutOfSecondCurrency * 10) / 10
+        : -1 * (Math.round(this.exchangeCurrency.amoutOfSecondCurrency * 10) / 10);
 
     this.currentBalanceFirstCurrency = this.previousBalanceFirstCurrency != undefined ? (this.previousBalanceFirstCurrency + firstValue) : firstValue;
     this.currentBalanceSecondCurrency = this.previousBalanceSecondCurrency != undefined ? (this.previousBalanceSecondCurrency + secondValue) : secondValue;
