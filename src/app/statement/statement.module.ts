@@ -28,7 +28,7 @@ import { SearchClientBalanceStatmentDialogComponent } from './client-balance-sta
 import { TotalCompanyBalanceStatmentComponent } from './total-company-balance-statment/total-company-balance-statment.component';
 import { SearchTotalCompanyBalanceStatmentDialogComponent } from './total-company-balance-statment/search-total-company-balance-statment-dialog.component';
 import { SearchCompanyBalanceStatmentDialogComponent } from './company-balance-statement/search-company-balance-statment-dialog.component';
-import { ClientCashFlowServiceProxy, CompanyCashFlowServiceProxy, TreasuryCashFlowServiceProxy } from '@shared/service-proxies/service-proxies';
+import { ClientCashFlowServiceProxy, CompanyCashFlowServiceProxy, ManagementServiceProxy, TreasuryCashFlowServiceProxy } from '@shared/service-proxies/service-proxies';
 import { ClientMatchingDialogComponent } from './client-balance-statement/client-matching/client-matching-dialog.component';
 import { CompanyMatchingDialogComponent } from './company-balance-statement/company-matching/company-matching-dialog.component';
 import { OutgoingTransferStatementComponent } from './outgoing-transfer-statement/outgoing-transfer-statement.component';
@@ -46,6 +46,9 @@ import { SearchInactiveClientStatementComponent } from './inactive-client-statem
 import { ExchangeCurrencyStatementComponent } from './exchange-currency-statement/exchange-currency-statement.component';
 import { SearchExchangeCurrencyStatementComponent } from './exchange-currency-statement/search-exchange-currency-statement.component';
 import { NgxPrintDirective, NgxPrintModule } from 'ngx-print';
+import { SearchManagementStatementComponent } from './management-statement/search-management-statement.component';
+import { ManagementStatementComponent } from './management-statement/management-statement.component';
+import { CustomerStatementComponent } from './customer-statement/customer-statement.component';
 
 const NB_MODULES = [
   NbActionsModule,
@@ -115,7 +118,10 @@ const SYNCFUSION_SERVICES = [
     InactiveClientStatementComponent,
     SearchInactiveClientStatementComponent,
     ExchangeCurrencyStatementComponent,
-    SearchExchangeCurrencyStatementComponent
+    SearchExchangeCurrencyStatementComponent,
+    SearchManagementStatementComponent,
+    ManagementStatementComponent,
+    CustomerStatementComponent
   ],
   imports: [
     CommonModule,
@@ -134,7 +140,8 @@ const SYNCFUSION_SERVICES = [
     ...SYNCFUSION_SERVICES,
     ClientCashFlowServiceProxy,
     CompanyCashFlowServiceProxy,
-    TreasuryCashFlowServiceProxy
+    TreasuryCashFlowServiceProxy,
+    ManagementServiceProxy
   ],
   entryComponents: [
 

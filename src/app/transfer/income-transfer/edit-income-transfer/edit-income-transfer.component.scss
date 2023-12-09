@@ -26,11 +26,11 @@
     color:nb-theme(color-primary-default);
     text-shadow: 2px 2px 2px #8f9bb3;
 }
-.as-head{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
+// .as-head{
+//     display: flex;
+//     justify-content: space-between;
+//     width: 100%;
+// }
 
 .table th {
     text-align: center; 
@@ -58,4 +58,35 @@
     text-shadow: 2px 2px 2px #8f9bb3;
 }
 
+.as-head{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+.header-container{
+    flex: 33%;
+    max-width: 33%;
+    padding: 0 4px;
+}
+@media (max-width: 800px) {
+    .header-container {
+      flex: 50%;
+      max-width: 50%;
+      margin-top: 3rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .header-container {
+      flex: 100%;
+      max-width: 100%;
+      margin-top: 3rem;
+    }
+  }
 
+
+@media (min-width: 800px){
+    .float{
+        float: left;
+    }
+  }

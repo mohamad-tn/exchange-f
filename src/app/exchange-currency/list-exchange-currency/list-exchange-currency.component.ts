@@ -87,11 +87,18 @@ export class ListExchangeCurrencyComponent extends AppComponentBase implements O
 
   openEditPage(id){
     this._router.navigate(
-      ['/app/exchange-currency/edit-exchange-currency',
+      [
+        "/app/exchange-currency/edit-exchange-currency",
         {
-          "id" : id,
-        }
-      ]);
+          id: id,
+        },
+      ],
+      {
+        queryParams: {
+          previousUrl: this._router.url,
+        },
+      }
+    );
   }
 
   delete(id): void {

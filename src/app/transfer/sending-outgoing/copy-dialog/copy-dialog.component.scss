@@ -1,0 +1,37 @@
+@import '../../../../@theme/styles/themes';
+
+
+@media (min-width: 800px) {
+        nb-card {
+            width: 38rem;
+        }
+
+        nb-card-body{
+        min-height: 30vh;
+    }
+}
+
+.scrollbar {
+  height: 400px;
+  width: inherit;
+  background: #fff;
+//   overflow-y: scroll;
+}
+.force-overflow {
+  min-height: 450px;
+}
+
+.scrollbar-primary::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+.scrollbar-primary::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #9d9fa1;
+}
+
+.scrollbar-primary {
+  scrollbar-color: #9d9fa1 #F5F5F5;
+}

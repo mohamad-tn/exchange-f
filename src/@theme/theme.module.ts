@@ -1,3 +1,4 @@
+import { StatusCardComponent } from './components/status-card/status-card.component';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatRippleModule } from '@angular/material/core';
@@ -80,6 +81,7 @@ const COMPONENTS = [
   SwitcherComponent,
   SampleLayoutComponent,
   ThemeSettingsComponent,
+  StatusCardComponent,
 ];
 const PIPES = [
   CapitalizePipe,
