@@ -68,6 +68,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: "NoneReceivedTransfer",
         link: "/app/transfer/direct-transfer",
       },
+      {
+        title: "SendTransfers",
+        link: "/app/transfer/sending-outgoing",
+      },
     ],
   },
   {
@@ -123,6 +127,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: "ExchangeCurrencyStatement",
         link: "/app/statement/exchange-currency-statement",
+      },
+      {
+        title: "Customers",
+        link: "/app/statement/customer-statement",
       },
       {
         title: "Management",

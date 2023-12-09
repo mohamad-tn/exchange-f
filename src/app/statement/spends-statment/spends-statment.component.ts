@@ -30,7 +30,6 @@ export class SpendsStatmentComponent extends AppComponentBase implements OnInit 
   
 
   initialTreasuryActions(data){
-    console.log(data)
     this._treasuryActionAppService.getFroStatment(
       1,
       data.fromDate,

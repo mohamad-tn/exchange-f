@@ -97,13 +97,20 @@ export class ListTreasuryActionComponent extends AppComponentBase implements OnI
       }
     });
   }
-  showEditPage(id){
+  showEditPage(id){    
     this._router.navigate(
-      ['/app/treasury/edit-treasury-action',
+      [
+        "/app/treasury/edit-treasury-action",
         {
-          "id" : id,
-        }
-      ]);
+          id: id,
+        },
+      ],
+      {
+        queryParams: {
+          previousUrl: this._router.url,
+        },
+      }
+    );
   }
 
   delete(id): void {

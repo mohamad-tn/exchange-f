@@ -23,12 +23,12 @@ import { StateService } from '../../../@core/utils';
         <!-- <ngx-toggle-settings-button></ngx-toggle-settings-button> -->
       </nb-layout-header>
 
-      <nb-sidebar class="menu-sidebar"
+      <!-- <nb-sidebar class="menu-sidebar"
                   tag="menu-sidebar"
                   responsive
                   [end]="isMenuSidebarPositionEnd()">
         <ng-content select="nb-menu"></ng-content>
-      </nb-sidebar>
+      </nb-sidebar> -->
 
       <nb-layout-column class="main-content">
         <ng-content select="router-outlet"></ng-content>
@@ -46,13 +46,13 @@ import { StateService } from '../../../@core/utils';
         <ngx-footer></ngx-footer>
       </nb-layout-footer>
 
-      <nb-sidebar class="settings-sidebar"
+      <!-- <nb-sidebar class="settings-sidebar"
                   tag="settings-sidebar"
                   state="collapsed"
                   fixed
                   [end]="isSettingsSidebarPositionEnd()">
         <ngx-theme-settings></ngx-theme-settings>
-      </nb-sidebar>
+      </nb-sidebar> -->
     </nb-layout>
   `,
 })

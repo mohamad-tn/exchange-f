@@ -48,6 +48,7 @@ import { SearchExchangeCurrencyStatementComponent } from './exchange-currency-st
 import { NgxPrintDirective, NgxPrintModule } from 'ngx-print';
 import { SearchManagementStatementComponent } from './management-statement/search-management-statement.component';
 import { ManagementStatementComponent } from './management-statement/management-statement.component';
+import { CustomerStatementComponent } from './customer-statement/customer-statement.component';
 
 const NB_MODULES = [
   NbActionsModule,
@@ -119,7 +120,8 @@ const SYNCFUSION_SERVICES = [
     ExchangeCurrencyStatementComponent,
     SearchExchangeCurrencyStatementComponent,
     SearchManagementStatementComponent,
-    ManagementStatementComponent
+    ManagementStatementComponent,
+    CustomerStatementComponent
   ],
   imports: [
     CommonModule,

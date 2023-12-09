@@ -1,1 +1,336 @@
 ﻿
+<!-- <div class="row">
+    <div class="col-md-3">
+        <ngx-status-card [title]="'Companies' | localize" [destination]="'Companies'">
+            <nb-icon icon="shield-outline"></nb-icon>
+        </ngx-status-card>
+    </div>
+    <div class="col-md-3">
+        <ngx-status-card [title]="'Countries' | localize" [destination]="'Countries'">
+            <nb-icon icon="flag-outline"></nb-icon>
+        </ngx-status-card>
+    </div>
+    <div class="col-md-3">
+        <ngx-status-card [title]="'Currencies' | localize" [destination]="'Currencies'">
+            <nb-icon icon="bookmark-outline"></nb-icon>
+        </ngx-status-card>
+    </div>
+    <div class="col-md-3">
+        <ngx-status-card [title]="'Clients' | localize" [destination]="'Clients'">
+            <nb-icon icon="person-outline"></nb-icon>
+        </ngx-status-card>
+    </div>
+</div> -->
+
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <nb-card class="as-case-card">
+            <nb-card-header>
+                <div class="header-container">
+                    <nb-actions>
+                        <nb-action class="control-item ">
+                            <nb-icon icon="settings-outline"></nb-icon>
+                            &nbsp;
+                            <h5>{{ "Settings" | localize }}</h5>
+                        </nb-action>
+                    </nb-actions>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('Countries')">
+                        <nb-icon icon="flag-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'Countries' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('Currencies')">
+                        <nb-icon icon="bookmark-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'Currencies' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('Companies')">
+                        <nb-icon icon="shield-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'Companies' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('Clients')">
+                        <nb-icon icon="person-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'Clients' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('InitialBalance')">
+                        <nb-icon icon="archive-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'InitialBalance' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('Commision')">
+                        <nb-icon icon="percent-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'Commision' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('Expenses')">
+                        <nb-icon icon="arrowhead-up-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'Expenses' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('Incomes')">
+                        <nb-icon icon="arrowhead-down-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'Incomes' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('ExchangePrice')">
+                        <nb-icon icon="archive-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'ExchangePrice' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('GeneralSetting')">
+                        <nb-icon icon="settings-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'الاعدادات العامة'}}</span></button>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-12">
+        <nb-card class="as-case-card">
+            <nb-card-header>
+                <div class="header-container">
+                    <nb-actions>
+                        <nb-action class="control-item ">
+                            <nb-icon icon="trending-up-outline"></nb-icon>
+                            &nbsp;
+                            <h5>{{ "Transfers" | localize }}</h5>
+                        </nb-action>
+                    </nb-actions>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('OutgoingTransfers')">
+                        <nb-icon icon="swap-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'OutgoingTransfers' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('IncomeTransfers')">
+                        <nb-icon icon="swap-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'IncomeTransfers' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('NoneReceivedTransfer')">
+                        <nb-icon icon="file-text-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'NoneReceivedTransfer' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('SendTransfers')">
+                        <nb-icon icon="email-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'SendTransfers' |
+                            localize}}</span></button>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-12">
+        <nb-card class="as-case-card">
+            <nb-card-header>
+                <div class="header-container">
+                    <nb-actions>
+                        <nb-action class="control-item ">
+                            <nb-icon icon="repeat-outline"></nb-icon>
+                            &nbsp;
+                            <h5>{{ "Action" | localize }}</h5>
+                        </nb-action>
+                    </nb-actions>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('ExchangeCurrency')">
+                        <nb-icon icon="trending-up-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'ExchangeCurrency' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('Treasury')">
+                        <nb-icon icon="swap-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'Treasury' |
+                            localize}}</span></button>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-12">
+        <nb-card class="as-case-card">
+            <nb-card-header>
+                <div class="header-container">
+                    <nb-actions>
+                        <nb-action class="control-item ">
+                            <nb-icon icon="file-text-outline"></nb-icon>
+                            &nbsp;
+                            <h5>{{ "Statements" | localize }}</h5>
+                        </nb-action>
+                    </nb-actions>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('ClientBalanceStatement')">
+                        <nb-icon icon="file-text-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'ClientBalanceStatement' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('CompanyBalanceStatement')">
+                        <nb-icon icon="file-text-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'CompanyBalanceStatement' |
+                            localize}}</span></button>
+                        &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('TreasuryBalanceStatement')">
+                        <nb-icon icon="file-text-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'TreasuryBalanceStatement' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('TotalBalanceStatement')">
+                        <nb-icon icon="swap-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'TotalBalanceStatement' |
+                            localize}}</span></button>
+                        &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('OutgoingTransferStatement')">
+                        <nb-icon icon="swap-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'OutgoingTransferStatement' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" outline shape="round" status="primary"
+                        (click)="GoTo('SpendsStatment')">
+                        <nb-icon icon="people-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'SpendsStatment' |
+                            localize}}</span></button>
+                            &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('ReceiptsStatment')">
+                        <nb-icon icon="people-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'ReceiptsStatment' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('DefaultersOfPayment')">
+                        <nb-icon icon="people-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'DefaultersOfPayment' |
+                            localize}}</span></button>
+                            &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('InactiveClientStatment')">
+                        <nb-icon icon="people-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'InactiveClientStatment' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('ExchangeCurrencyStatement')">
+                        <nb-icon icon="people-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'ExchangeCurrencyStatement' |
+                            localize}}</span></button>
+                            &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('Customers')">
+                        <nb-icon icon="people-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'Customers' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('Management')">
+                        <nb-icon icon="people-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'Management' |
+                            localize}}</span></button>
+                            &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('Summary')">
+                        <nb-icon icon="people-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'Summary' |
+                            localize}}</span></button>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-12">
+        <nb-card class="as-case-card">
+            <nb-card-header>
+                <div class="header-container">
+                    <nb-actions>
+                        <nb-action class="control-item ">
+                            <nb-icon icon="lock-outline"></nb-icon>
+                            &nbsp;
+                            <h5>{{ "Auth" | localize }}</h5>
+                        </nb-action>
+                    </nb-actions>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('Users')">
+                        <nb-icon icon="people-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'Users' |
+                            localize}}</span></button>
+                    &nbsp;&nbsp;
+                    <button nbButton outline class="mt-4" shape="round" status="primary"
+                        (click)="GoTo('Roles')">
+                        <nb-icon icon="shield-outline"></nb-icon>
+                        &nbsp;
+                        <span>{{'Roles' |
+                            localize}}</span></button>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

@@ -66,7 +66,6 @@ export class ManagementStatementComponent
   exchangeCount: string;
   getChangesCount() {
     this._managementService.getChangesCount().subscribe((result) => {
-      console.log(result);
       this.outgoingCount = result[0].toString();
       this.incomeCount = result[1].toString();
       this.treasuryCount = result[2].toString();
