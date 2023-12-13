@@ -9,12 +9,11 @@
                             <nb-actions>
                                 <nb-action class="control-item" icon="swap-outline"></nb-action>
                                 <nb-action class="control-item ">
-                                    <h5>{{ "OutgoingTransfers" | localize }}</h5> 
+                                    <h6>{{ "OutgoingTransfers" | localize }}</h6> 
                                 </nb-action>
                                 <nb-action class="control-item">
                                     <span class="as-list-number">{{'ListNumber' | localize}} : {{ listNumber }}</span>
-                                </nb-action>
-                                
+                                </nb-action>                                
                             </nb-actions>
                         </div>
                         <div class="header-container"> </div>
@@ -37,6 +36,8 @@
                     </div>
                     
                 </nb-card-header>
+                <div class="scrollbar">
+                    <div class="mr-4 ml-4">
                 <nb-card-body class="as-case-card-body">
                     <!-- <div class="as-group row">
                         <div class="col-md-12">
@@ -45,7 +46,7 @@
                     </div> -->
                     <div class="row">
                         <div class="col-md-7">
-                            <div class="row">
+                            <div class="row mt-4">
                                 <div class="col-md-6">
                                     <div class="form-group row required">
                                         <label class="col-md-3 col-form-label" for="date">
@@ -197,7 +198,7 @@
                     </div> -->
                     <div class="row">
                         <div [ngClass]="{'col-md-12' : outgoingTransfer.paymentType == 0 , 'col-md-8' : outgoingTransfer.paymentType != 0}">
-                            <div class="row">
+                            <div class="row mt-4">
                                 <div [ngClass]="{'col-md-4' : outgoingTransfer.paymentType == 0 , 'col-md-6' : outgoingTransfer.paymentType != 0}">
                                     <div class="form-group row required">
                                         <label class="col-md-3 col-form-label" for="name">
@@ -348,7 +349,7 @@
                             <h6 class="as-group-elements"><span>{{'ReceiverInfo' | localize}}</span></h6>
                         </div>
                     </div> -->
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-md-4">
                             <div class="form-group row required">
                                 <label class="col-md-3 col-form-label" for="beneficiary">
@@ -425,7 +426,7 @@
                     </div> -->
                     <div class="row">
                         <div class="col-md-8">
-                            <div class="row">
+                            <div class="row mt-4">
                                 <div class="col-md-6">
                                     <div class="form-group row required">
                                         <label class="col-md-3 col-form-label" for="amount">
@@ -539,7 +540,7 @@
                             <h6 class="as-group-elements"><span>{{'AdditionalInfo' | localize}}</span></h6>
                         </div>
                     </div> -->
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label" for="reason">
@@ -596,6 +597,8 @@
                     </div>
                     
                 </nb-card-body>
+                    </div>
+                </div>
                 <nb-card-footer>
                     
                 </nb-card-footer>
@@ -606,7 +609,7 @@
 
 
     <!--Print-->
-    <nb-card-body class="as-case-card-body">
+    <nb-card-body id="createOutgoingPrint" style="display: none;">
         <div id="t4" class="p-4" #screen>
             <div id="print-section" dir="rtl" style="display: none; width:100%;">
                 <br>
@@ -692,7 +695,7 @@
         </div>
     </nb-card-body>
 
-    <div id="download">
+    <div id="download" style="display: none;">
         <span #canvas></span>
         <a #downloadLink></a>
     </div>

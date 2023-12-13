@@ -31,13 +31,15 @@
                         </nb-actions>
                     </div>
                 </nb-card-header>
+                <div class="scrollbar">
+                    <div class="mr-4 ml-4">
                 <nb-card-body class="as-case-card-body">
                     <!-- <div class="as-group row">
                         <div class="col-md-12">
                             <h6 class="as-group-elements"><span>{{'MainInfo' | localize}}</span></h6>
                         </div>
                     </div> -->
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-md-7">
                             <div class="row">
                                 <div class="col-md-6">
@@ -189,7 +191,7 @@
                             <h6 class="as-group-elements"><span>{{'SenderInfo' | localize}}</span></h6>
                         </div>
                     </div> -->
-                    <div class="row">
+                    <div class="row mt-4">
                         <div [ngClass]="{'col-md-12' : outgoingTransfer.paymentType == 0 , 'col-md-8' : outgoingTransfer.paymentType != 0}">
                             <div class="row">
                                 <div [ngClass]="{'col-md-4' : outgoingTransfer.paymentType == 0 , 'col-md-6' : outgoingTransfer.paymentType != 0}">
@@ -342,7 +344,7 @@
                             <h6 class="as-group-elements"><span>{{'ReceiverInfo' | localize}}</span></h6>
                         </div>
                     </div> -->
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-md-4">
                             <div class="form-group row required">
                                 <label class="col-md-3 col-form-label" for="beneficiary">
@@ -417,7 +419,7 @@
                             <h6 class="as-group-elements"><span>{{'FinancialInfo' | localize}}</span></h6>
                         </div>
                     </div> -->
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-md-8">
                             <div class="row">
                                 <div class="col-md-6">
@@ -538,7 +540,7 @@
                             <h6 class="as-group-elements"><span>{{'AdditionalInfo' | localize}}</span></h6>
                         </div>
                     </div> -->
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label" for="reason">
@@ -595,6 +597,8 @@
                     </div>
                     
                 </nb-card-body>
+                </div>
+                </div>
                 <nb-card-footer>
                     <!-- <button nbButton status="primary" type="submit" [disabled]="!createTransferForm.form.valid || saving">
                         <nb-icon icon="save"></nb-icon>
