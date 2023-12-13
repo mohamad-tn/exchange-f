@@ -11,6 +11,7 @@ import { TransferModule } from './transfer/transfer.module';
 import { ExchangeCurrencyModule } from './exchange-currency/exchange-currency.module';
 import { TreasuryModule } from './treasury/treasury.module';
 import { SecurityModule } from './security/security.module';
+import { DashboardModule } from './dashbard/dashboard.module';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { SecurityModule } from './security/security.module';
     TransferModule,
     TreasuryModule,
     SecurityModule,
-    ExchangeCurrencyModule
+    ExchangeCurrencyModule,
+    DashboardModule
   ],
   providers: [
     

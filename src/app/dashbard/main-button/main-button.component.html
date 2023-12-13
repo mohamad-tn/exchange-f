@@ -1,0 +1,12 @@
+<a [RouterLink]="'link'">
+    <nb-card matRipple class="on" >
+        <div class="icon-container">
+          <div class="icon status-{{ type }}">
+            <ng-content></ng-content>
+          </div>
+        </div>
+        <div class="details">
+            <div class="title h5">{{title | localize}}</div>
+          </div>
+      </nb-card>
+</a>

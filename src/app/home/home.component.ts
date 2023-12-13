@@ -1,11 +1,10 @@
-import { Component, Injector, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, Injector, ChangeDetectionStrategy } from '@angular/core';
 import { AppComponentBase } from '@shared/app-component-base';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
-import { inputs } from '@syncfusion/ej2-angular-grids/src/grid/grid.component';
 import { NbComponentShape, NbComponentSize, NbComponentStatus, NbThemeService } from '@nebular/theme';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './home.component.html',
@@ -29,12 +28,10 @@ export class HomeComponent extends AppComponentBase {
         const themeName: string = theme?.name || '';
         return themeName.startsWith('material');
       }));
-
-      
   }
 
-  GoTo(){
-    this.router.navigateByUrl('/app/transfer/edit-outgoing-transfer', { state: { id:4 , name:'edit-outgoing-transfer' } });
+  GoTo() {
+    this.router.navigateByUrl('/app/transfer/edit-outgoing-transfer', { state: { id: 4 , name: 'edit-outgoing-transfer' } });
   }
 }
 

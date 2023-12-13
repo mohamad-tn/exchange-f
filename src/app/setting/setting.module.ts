@@ -1,29 +1,31 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeModule } from '@theme/theme.module';
-import { 
-  NbActionsModule, 
-  NbAlertModule, 
-  NbButtonModule, 
-  NbCardModule, 
-  NbDialogModule, 
-  NbIconModule, 
-  NbInputModule, 
+import {
+  NbActionsModule,
+  NbAlertModule,
+  NbButtonModule,
+  NbCardModule,
+  NbDialogModule,
+  NbIconModule,
+  NbInputModule,
   NbCheckboxModule,
-  NbSelectModule } from '@nebular/theme';
+  NbSelectModule, 
+  NbTabsetModule,
+  NbRouteTabsetModule} from '@nebular/theme';
 import { SharedModule } from '@shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { ServiceProxyModule } from '@shared/service-proxies/service-proxy.module';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { 
+import {
   EditService,
-  FilterService, 
-  ForeignKeyService, 
-  GridModule, 
-  GroupService, 
-  PageService, 
-  SortService, 
+  FilterService,
+  ForeignKeyService,
+  GridModule,
+  GroupService,
+  PageService,
+  SortService,
   ToolbarService } from '@syncfusion/ej2-angular-grids';
 import { NumericTextBoxModule, UploaderModule } from '@syncfusion/ej2-angular-inputs';
 import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
@@ -34,7 +36,17 @@ import { SettingRoutingModule } from './setting-routing.module';
 import { CountryComponent } from './country/country.component';
 import { EditCountryDialogComponent } from './country/edit-country/edit-country-dialog.component';
 import { CreateCountryDialogComponent } from './country/create-country/create-country-dialog.component';
-import { ClientServiceProxy, CommisionServiceProxy, CompanyServiceProxy, CountryServiceProxy, CurrencyServiceProxy, ExchangePriceServiceProxy, ExpenseServiceProxy, GeneralSettingServiceProxy, IncomeServiceProxy, MigrationServiceProxy, ProvinceServiceProxy, TreasuryBalanceServiceProxy } from '@shared/service-proxies/service-proxies';
+import {
+  ClientServiceProxy,
+  CommisionServiceProxy,
+  CompanyServiceProxy,
+  CountryServiceProxy,
+  CurrencyServiceProxy,
+  ExchangePriceServiceProxy,
+  ExpenseServiceProxy,
+  GeneralSettingServiceProxy,
+  IncomeServiceProxy,
+  MigrationServiceProxy, ProvinceServiceProxy, TreasuryBalanceServiceProxy } from '@shared/service-proxies/service-proxies';
 import { CurrencyComponent } from './currency/currency.component';
 import { CreateCurrencyDialogComponent } from './currency/create-currency/create-currency-dialog.component';
 import { EditCurrencyDialogComponent } from './currency/edit-currency/edit-currency-dialog.component';
@@ -70,7 +82,9 @@ const NB_MODULES = [
   NbInputModule,
   NbSelectModule,
   NbAlertModule,
-  NbCheckboxModule
+  NbCheckboxModule,
+  NbTabsetModule,
+  TabsModule
 ];
 const SYNCFUSION_MODULES = [
   GridModule,
@@ -78,7 +92,7 @@ const SYNCFUSION_MODULES = [
   UploaderModule,
   NumericTextBoxModule,
   DropDownListModule,
-  SwitchModule 
+  SwitchModule
 ];
 
 const SYNCFUSION_SERVICES = [
@@ -95,10 +109,10 @@ const SYNCFUSION_SERVICES = [
   declarations: [
     SettingComponent,
     CountryComponent,
-    EditCountryDialogComponent, 
-    CreateCountryDialogComponent, 
-    CurrencyComponent, 
-    CreateCurrencyDialogComponent, 
+    EditCountryDialogComponent,
+    CreateCountryDialogComponent,
+    CurrencyComponent,
+    CreateCurrencyDialogComponent,
     EditCurrencyDialogComponent,
     ProvinceComponent,
     IncomeComponent,
@@ -119,7 +133,7 @@ const SYNCFUSION_SERVICES = [
     CreateCommisionDialogComponent,
     EditCommisionDialogComponent,
     GeneralSettingComponent,
-    CheckEditPasswordComponent, 
+    CheckEditPasswordComponent,
   ],
   imports: [
     CommonModule,
@@ -147,7 +161,7 @@ const SYNCFUSION_SERVICES = [
     TreasuryBalanceServiceProxy,
     ExchangePriceServiceProxy ,
     GeneralSettingServiceProxy ,
-    MigrationServiceProxy 
+    MigrationServiceProxy
   ],
   entryComponents: [
 

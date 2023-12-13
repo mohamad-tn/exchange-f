@@ -10,29 +10,28 @@ const routes: Routes = [{
     path: '',
     component: AppComponent,
     children: [
-      { path: 'home', component: HomeComponent, pathMatch: 'full', canActivate: [AppRouteGuard] },
-      
+      { path: 'app/dashbard', pathMatch: 'full', canActivate: [AppRouteGuard] },
       {
         path: 'setting',
         loadChildren: () => import('./setting/setting.module')
           .then(m => m.SettingModule),
       },
-      { 
+      {
         path: 'transfer',
         loadChildren: () => import('./transfer/transfer.module')
           .then(m => m.TransferModule),
       },
-      { 
+      {
         path: 'exchange-currency',
         loadChildren: () => import('./exchange-currency/exchange-currency.module')
           .then(m => m.ExchangeCurrencyModule),
       },
-      { 
+      {
         path: 'treasury',
         loadChildren: () => import('./treasury/treasury.module')
           .then(m => m.TreasuryModule),
       },
-      { 
+      {
         path: 'statement',
         loadChildren: () => import('./statement/statement.module')
           .then(m => m.StatementModule),
@@ -41,6 +40,11 @@ const routes: Routes = [{
         path: 'security',
         loadChildren: () => import('./security/security.module')
           .then(m => m.SecurityModule),
+      },
+      {
+        path: 'dashboard',
+        loadChildren: () => import('./dashbard/dashboard.module')
+          .then(m => m.DashboardModule),
       },
       {
         path: '**',
