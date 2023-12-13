@@ -3,7 +3,7 @@ import { Component, Inject, Injector, OnInit, Optional, ViewChild } from '@angul
 import { ActivatedRoute } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { AppComponentBase } from '@shared/app-component-base';
-import { API_BASE_URL, ClientCashFlowServiceProxy, MatchingItemDto } from '@shared/service-proxies/service-proxies';
+import { API_BASE_URL, ClientCashFlowServiceProxy, MatchingItemDto, PdfClientServiceProxy } from '@shared/service-proxies/service-proxies';
 import { GridComponent, PageSettingsModel } from '@syncfusion/ej2-angular-grids';
 import { DataManager, UrlAdaptor, Query, Predicate  } from '@syncfusion/ej2-data';
 import { ClientMatchingDialogComponent } from './client-matching/client-matching-dialog.component';
@@ -39,6 +39,7 @@ export class ClientBalanceStatementComponent extends AppComponentBase  implement
     private _datePipe: DatePipe,
     private _modalService: NbDialogService,
     private _clientCashFlowService: ClientCashFlowServiceProxy,
+    private _pdfClientBalanceService: PdfClientServiceProxy,
     @Optional() @Inject(API_BASE_URL) baseUrl?: string
     ) { 
     super(injector);
@@ -82,6 +83,7 @@ export class ClientBalanceStatementComponent extends AppComponentBase  implement
       if(result.balance){
         let value = Math.abs(result.balance);
         this.currenctBalance = this.numberWithCommas(value) + ' ' + result.currency?.name + ' / ' + (result.balance < 0 ? 'بذمتنا' : 'بذمته');
+        this.currencyName = result.currency?.name;
       }else{
         this.currenctBalance = '0';
       }
@@ -124,5 +126,18 @@ export class ClientBalanceStatementComponent extends AppComponentBase  implement
     });
   }
 
-
+  downloadPdf(){
+    this._pdfClientBalanceService.getClientCashFlow(
+      this.clientId,
+      this.clientName,
+      this.currencyId,
+      this.currencyName,
+      this.currenctBalance,
+      this.fromDate.toISOString(),
+      this.toDate.toISOString())
+    .subscribe(result=>{
+      const url = `${this.baseUrl}/${result.path}`;
+      window.open(url, "_blank");
+    })
+  }
 }

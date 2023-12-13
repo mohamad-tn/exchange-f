@@ -3,7 +3,7 @@ import { Component, Inject, Injector, OnInit, Optional, ViewChild } from '@angul
 import { ActivatedRoute } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { AppComponentBase } from '@shared/app-component-base';
-import { API_BASE_URL, CompanyCashFlowServiceProxy, MatchingItemDto } from '@shared/service-proxies/service-proxies';
+import { API_BASE_URL, CompanyCashFlowServiceProxy, MatchingItemDto, PdfClientServiceProxy } from '@shared/service-proxies/service-proxies';
 import { ToolBarPosition } from '@syncfusion/ej2-angular-dropdowns';
 import { GridComponent, PageSettingsModel, SearchSettingsModel, ToolbarItems } from '@syncfusion/ej2-angular-grids';
 import { DataManager, UrlAdaptor, Query, Predicate  } from '@syncfusion/ej2-data';
@@ -40,6 +40,7 @@ export class CompanyBalanceStatementComponent extends AppComponentBase  implemen
     private _datePipe: DatePipe,
     private _modalService: NbDialogService,
     private _companyCashFlowService: CompanyCashFlowServiceProxy,
+    private _pdfClientBalanceService: PdfClientServiceProxy,
     @Optional() @Inject(API_BASE_URL) baseUrl?: string
     ) { 
     super(injector);
@@ -122,7 +123,20 @@ export class CompanyBalanceStatementComponent extends AppComponentBase  implemen
       
     });
   }
-
+  downloadPdf(){
+    this._pdfClientBalanceService.getClientCashFlow(
+      this.companyId,
+      this.companyName,
+      this.currencyId,
+      this.currencyName,
+      this.currenctBalance,
+      this.fromDate.toISOString(),
+      this.toDate.toISOString())
+    .subscribe(result=>{
+      const url = `${this.baseUrl}/${result.path}`;
+      window.open(url, "_blank");
+    })
+  }
   // filter():void{
     
   //   this.filterParams = undefined;

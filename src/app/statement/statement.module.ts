@@ -28,7 +28,7 @@ import { SearchClientBalanceStatmentDialogComponent } from './client-balance-sta
 import { TotalCompanyBalanceStatmentComponent } from './total-company-balance-statment/total-company-balance-statment.component';
 import { SearchTotalCompanyBalanceStatmentDialogComponent } from './total-company-balance-statment/search-total-company-balance-statment-dialog.component';
 import { SearchCompanyBalanceStatmentDialogComponent } from './company-balance-statement/search-company-balance-statment-dialog.component';
-import { ClientCashFlowServiceProxy, CompanyCashFlowServiceProxy, ManagementServiceProxy, TreasuryCashFlowServiceProxy } from '@shared/service-proxies/service-proxies';
+import { ClientCashFlowServiceProxy, CompanyCashFlowServiceProxy, ManagementServiceProxy, PdfClientAndCompanyServiceProxy, PdfClientServiceProxy, PdfCompanyServiceProxy, PdfTreasuryBalanceServiceProxy, TreasuryCashFlowServiceProxy } from '@shared/service-proxies/service-proxies';
 import { ClientMatchingDialogComponent } from './client-balance-statement/client-matching/client-matching-dialog.component';
 import { CompanyMatchingDialogComponent } from './company-balance-statement/company-matching/company-matching-dialog.component';
 import { OutgoingTransferStatementComponent } from './outgoing-transfer-statement/outgoing-transfer-statement.component';
@@ -139,7 +139,11 @@ const SYNCFUSION_SERVICES = [
     ClientCashFlowServiceProxy,
     CompanyCashFlowServiceProxy,
     TreasuryCashFlowServiceProxy,
-    ManagementServiceProxy
+    ManagementServiceProxy,
+    PdfClientServiceProxy,
+    PdfClientAndCompanyServiceProxy,
+    PdfCompanyServiceProxy,
+    PdfTreasuryBalanceServiceProxy 
   ],
   entryComponents: [
 

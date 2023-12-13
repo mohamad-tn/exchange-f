@@ -15,6 +15,8 @@ import {
   API_BASE_URL,
   ClientCashFlowServiceProxy,
   ClientCashFlowTotalDto,
+  PdfClientServiceProxy,
+  TotalClientBalancePdf,
 } from "@shared/service-proxies/service-proxies";
 import {
   GridComponent,
@@ -36,9 +38,10 @@ export class TotalClientBalanceStatmentComponent
 {
   // Grid
   @ViewChild("cashFlowGrid") public grid: GridComponent;
-
+  baseUrl: string = '';
   dataSource: TotalClientBalanceStatment[] = [];
   clientCashFlows: ClientCashFlowTotalDto[] = [];
+  pdfItems: TotalClientBalancePdf[] = [];
   public pageSettings: PageSettingsModel;
   public pageSizes: number[] = [10, 20, 100];
   showColumnBalance0: boolean = false;
@@ -53,10 +56,11 @@ export class TotalClientBalanceStatmentComponent
     private _route: ActivatedRoute,
     private _modalService: NbDialogService,
     private _clientCashFlowService: ClientCashFlowServiceProxy,
-
+    private _pdfClientBalanceService: PdfClientServiceProxy,
     @Optional() @Inject(API_BASE_URL) baseUrl?: string
   ) {
     super(injector);
+    this.baseUrl = baseUrl;
   }
 
   ngOnInit(): void {
@@ -110,33 +114,51 @@ export class TotalClientBalanceStatmentComponent
       data.isActiveToday = item.isActiveToday;
       data.isMatching = item.isMatching;
       data.clientName = item.clientName;
+
+      //pdf
+      let pdfItem = new TotalClientBalancePdf();
+      pdfItem.clientId = data.clientId;
+      pdfItem.clientName = data.clientName;
+
       var currencyCount = item.currencyBalances.length;
       if (currencyCount > 0) {
         data.balance0 = item.currencyBalances[0].currentBalance;
+        pdfItem.balance0 = item.currencyBalances[0].currentBalance;
+        pdfItem.currency0 = item.currencyBalances[0].currencyName;
         this.showColumnBalance0 = true;
       }
 
       if (currencyCount > 1) {
         data.balance1 = item.currencyBalances[1].currentBalance;
+        pdfItem.balance1 = item.currencyBalances[1].currentBalance;
+        pdfItem.currency1 = item.currencyBalances[1].currencyName;
         this.showColumnBalance1 = true;
       }
 
       if (currencyCount > 2) {
         data.balance2 = item.currencyBalances[2].currentBalance;
+        pdfItem.balance2 = item.currencyBalances[2].currentBalance;
+        pdfItem.currency2 = item.currencyBalances[2].currencyName;
         this.showColumnBalance2 = true;
       }
 
       if (currencyCount > 3) {
         data.balance3 = item.currencyBalances[3].currentBalance;
+        pdfItem.balance3 = item.currencyBalances[3].currentBalance;
+        pdfItem.currency3 = item.currencyBalances[3].currencyName;
         this.showColumnBalance3 = true;
       }
 
       if (currencyCount > 4) {
         data.balance4 = item.currencyBalances[4].currentBalance;
+        pdfItem.balance4 = item.currencyBalances[4].currentBalance;
+        pdfItem.currency4 = item.currencyBalances[4].currencyName;
         this.showColumnBalance4 = true;
       }
 
       this.dataSource.push(data);
+      this.pdfItems.push(pdfItem);
+
     });
 
     //this.grid.refresh();
@@ -247,5 +269,13 @@ export class TotalClientBalanceStatmentComponent
     document.getElementById("print-section").style.display = "none";
     document.getElementById("t1").style.width = "0px";
     document.getElementById("t1").style.height = "0px";
+  }
+
+  downloadPdf(){
+    this._pdfClientBalanceService.getTotalClientBalance(this.toDate.toISOString(), this.pdfItems)
+    .subscribe(result=>{
+      const url = `${this.baseUrl}/${result.path}`;
+      window.open(url, "_blank");
+    })
   }
 }
