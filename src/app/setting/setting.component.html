@@ -1,0 +1,69 @@
+<nb-card>
+  <nb-card-body>
+    <tabset>
+      <tab>
+        <ng-template tabHeading>
+          <nb-icon icon="flag-outline"></nb-icon> {{'Countries' | localize}}
+        </ng-template>
+        <app-country></app-country>
+      </tab>
+      <tab>
+        <ng-template tabHeading>
+          <nb-icon icon="bookmark-outline"></nb-icon> {{'Currencies' | localize}}
+        </ng-template>
+        <app-currency></app-currency>
+      </tab>
+      <!--  -->
+      <tab>
+        <ng-template tabHeading>
+          <nb-icon icon="shield-outline"></nb-icon> {{'Companies' | localize}}
+        </ng-template>
+        <app-company></app-company>
+      </tab>
+      <tab>
+        <ng-template tabHeading>
+          <nb-icon icon="person-outline"></nb-icon> {{'Clients' | localize}}
+        </ng-template>
+        <app-client></app-client>
+      </tab>
+      <tab>
+        <ng-template tabHeading>
+          <nb-icon icon="archive-outline"></nb-icon> {{'InitialBalance' | localize}}
+        </ng-template>
+        <app-initial-balance></app-initial-balance>
+      </tab>
+
+      <tab>
+        <ng-template tabHeading>
+          <nb-icon icon="percent-outline"></nb-icon> {{'Commisions' | localize}}
+        </ng-template>
+        <app-commision></app-commision>
+      </tab>
+      <tab>
+        <ng-template tabHeading>
+          <nb-icon icon="archive-outline"></nb-icon> {{'ExchangePrice' | localize}}
+        </ng-template>
+        <app-exchange-price></app-exchange-price>
+      </tab>
+      <tab>
+        <ng-template tabHeading>
+          <nb-icon icon="arrowhead-up-outline"></nb-icon> {{'Expenses' | localize}}
+        </ng-template>
+        <app-expense></app-expense>
+      </tab>
+      <tab>
+        <ng-template tabHeading>
+          <nb-icon icon="arrowhead-down-outline"></nb-icon> {{'Incomes' | localize}}
+        </ng-template>
+        <app-income></app-income>
+      </tab>
+      <tab>
+        <ng-template tabHeading>
+          <nb-icon icon="settings-outline"></nb-icon> {{'الاعدادات العامة' | localize}}
+        </ng-template>
+        <app-general-setting></app-general-setting>
+      </tab>
+    </tabset>
+  </nb-card-body>
+</nb-card>
+

@@ -75,10 +75,20 @@
                             </div>
                             
                             <div class="col-md-2">
-                                <a nbButton status="primary" (click)="showMatchingDialog($event)" >
-                                    <nb-icon icon="save"></nb-icon>
-                                    {{ 'تثبيت المطابقة' | localize }}
-                                </a>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <a nbButton status="primary" fullWidth (click)="showMatchingDialog($event)" >
+                                            <nb-icon icon="save"></nb-icon>
+                                            {{ 'تثبيت المطابقة' | localize }}
+                                        </a>
+                                    </div>
+                                    <div class="col-md-12 pt-2">
+                                        <a nbButton status="default" fullWidth (click)="downloadPdf()" >
+                                            <nb-icon icon="cloud-download-outline"></nb-icon>
+                                            {{ 'PDF طباعة' | localize }}
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     <hr />

@@ -3,7 +3,8 @@ import { Component, ElementRef, Inject, Injector, OnInit, Optional, ViewChild } 
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { AppComponentBase } from '@shared/app-component-base';
-import { API_BASE_URL, ClientCashFlowServiceProxy, ClientCashFlowTotalDto, CompanyCashFlowServiceProxy, CompanyCashFlowTotalDto } from '@shared/service-proxies/service-proxies';
+import { API_BASE_URL, ClientCashFlowServiceProxy, ClientCashFlowTotalDto, CompanyCashFlowServiceProxy, CompanyCashFlowTotalDto} from '@shared/service-proxies/service-proxies';
+// import { API_BASE_URL, ClientCashFlowServiceProxy, ClientCashFlowTotalDto, CompanyCashFlowServiceProxy, CompanyCashFlowTotalDto, PdfClientAndCompanyServiceProxy, TotalBalancePdf } from '@shared/service-proxies/service-proxies';
 import { GridComponent, PageSettingsModel } from '@syncfusion/ej2-angular-grids';
 import { SearchClientBalanceStatmentDialogComponent } from '../client-balance-statement/search-client-balance-statment-dialog.component';
 import { SearchCompanyBalanceStatmentDialogComponent } from '../company-balance-statement/search-company-balance-statment-dialog.component';
@@ -22,7 +23,8 @@ export class TotalBalanceStatmentComponent
 {
   // Grid
   @ViewChild("cashFlowGrid") public grid: GridComponent;
-
+  baseUrl: string = '';
+  // pdfItems: TotalBalancePdf[] = [];
   dataSource: TotalBalanceStatment[] = [];
   clientCashFlows: ClientCashFlowTotalDto[] = [];
   companyCashFlows: CompanyCashFlowTotalDto[] = [];
@@ -41,10 +43,11 @@ export class TotalBalanceStatmentComponent
     private _modalService: NbDialogService,
     private _clientCashFlowService: ClientCashFlowServiceProxy,
     private _companyCashFlowService: CompanyCashFlowServiceProxy,
-
+    // private _pdfBalanceService: PdfClientAndCompanyServiceProxy,
     @Optional() @Inject(API_BASE_URL) baseUrl?: string
   ) {
     super(injector);
+    this.baseUrl = baseUrl;
   }
 
   ngOnInit(): void {
@@ -108,33 +111,49 @@ export class TotalBalanceStatmentComponent
       data.isActiveToday = item.isActiveToday;
       data.isMatching = item.isMatching;
       data.name = item.clientName;
+      //pdf
+      // let pdfItem = new TotalBalancePdf();
+      // pdfItem.id = data.id;
+      // pdfItem.name = data.name;
+
       var currencyCount = item.currencyBalances.length;
       if (currencyCount > 0) {
         data.balance0 = item.currencyBalances[0].currentBalance;
+        // pdfItem.balance0 = item.currencyBalances[0].currentBalance;
+        // pdfItem.currency0 = item.currencyBalances[0].currencyName;
         this.showColumnBalance0 = true;
       }
 
       if (currencyCount > 1) {
         data.balance1 = item.currencyBalances[1].currentBalance;
+        // pdfItem.balance1 = item.currencyBalances[1].currentBalance;
+        // pdfItem.currency1 = item.currencyBalances[1].currencyName;
         this.showColumnBalance1 = true;
       }
 
       if (currencyCount > 2) {
         data.balance2 = item.currencyBalances[2].currentBalance;
+        // pdfItem.balance2 = item.currencyBalances[2].currentBalance;
+        // pdfItem.currency2 = item.currencyBalances[2].currencyName;
         this.showColumnBalance2 = true;
       }
 
       if (currencyCount > 3) {
         data.balance3 = item.currencyBalances[3].currentBalance;
+        // pdfItem.balance3 = item.currencyBalances[3].currentBalance;
+        // pdfItem.currency3 = item.currencyBalances[3].currencyName;
         this.showColumnBalance3 = true;
       }
 
       if (currencyCount > 4) {
         data.balance4 = item.currencyBalances[4].currentBalance;
+        // pdfItem.balance4 = item.currencyBalances[4].currentBalance;
+        // pdfItem.currency4 = item.currencyBalances[4].currencyName;
         this.showColumnBalance4 = true;
       }
 
       this.dataSource.push(data);
+      // this.pdfItems.push(pdfItem);
     });
 
     //this.calculateTotal();
@@ -149,33 +168,49 @@ export class TotalBalanceStatmentComponent
       data.isActiveToday = item.isActiveToday;
       data.isMatching = item.isMatching;
       data.name = item.companyName;
+      //pdf
+      // let pdfItem = new TotalBalancePdf();
+      // pdfItem.id = data.id;
+      // pdfItem.name = data.name;
+
       var currencyCount = item.currencyBalances.length;
       if (currencyCount > 0) {
         data.balance0 = item.currencyBalances[0].currentBalance;
+        // pdfItem.balance0 = item.currencyBalances[0].currentBalance;
+        // pdfItem.currency0 = item.currencyBalances[0].currencyName;
         this.showColumnBalance0 = true;
       }
 
       if (currencyCount > 1) {
         data.balance1 = item.currencyBalances[1].currentBalance;
+        // pdfItem.balance1 = item.currencyBalances[1].currentBalance;
+        // pdfItem.currency1 = item.currencyBalances[1].currencyName;
         this.showColumnBalance1 = true;
       }
 
       if (currencyCount > 2) {
         data.balance2 = item.currencyBalances[2].currentBalance;
+        // pdfItem.balance2 = item.currencyBalances[2].currentBalance;
+        // pdfItem.currency2 = item.currencyBalances[2].currencyName;
         this.showColumnBalance2 = true;
       }
 
       if (currencyCount > 3) {
         data.balance3 = item.currencyBalances[3].currentBalance;
+        // pdfItem.balance3 = item.currencyBalances[3].currentBalance;
+        // pdfItem.currency3 = item.currencyBalances[3].currencyName;
         this.showColumnBalance3 = true;
       }
 
       if (currencyCount > 4) {
         data.balance4 = item.currencyBalances[4].currentBalance;
+        // pdfItem.balance4 = item.currencyBalances[4].currentBalance;
+        // pdfItem.currency4 = item.currencyBalances[4].currencyName;
         this.showColumnBalance4 = true;
       }
 
       this.dataSource.push(data);
+      // this.pdfItems.push(pdfItem);
     });
 
     //this.calculateTotal();
@@ -311,5 +346,13 @@ export class TotalBalanceStatmentComponent
     document.getElementById("print-section").style.display = "none";
     document.getElementById("t4").style.width = "0px";
     document.getElementById("t4").style.height = "0px";
+  }
+
+  downloadPdf(){
+    // this._pdfBalanceService.getTotalBalance(this.toDate.toISOString(), this.pdfItems)
+    // .subscribe(result=>{
+    //   const url = `${this.baseUrl}/${result.path}`;
+    //   window.open(url, "_blank");
+    // })
   }
 }

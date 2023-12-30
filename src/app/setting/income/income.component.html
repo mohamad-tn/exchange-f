@@ -20,7 +20,7 @@
                     </div>
                 </nb-card-header>
                 <nb-card-body class="as-case-card-body">
-                    <ejs-grid id="incomeGrid" #incomeGrid [dataSource]="incomes" [allowPaging]="true"
+                    <ejs-grid id="incomeGrid" #incomeGrid [query]="param" [dataSource]="incomes" [allowPaging]="true"
                     [allowSorting]="true" [allowFiltering]="true" [enableRtl]='true' 
                     [pageSettings]="pageSettings" [filterSettings]='filterOption'>
                     <!--toolbar-->

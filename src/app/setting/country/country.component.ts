@@ -4,7 +4,7 @@ import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { AppComponentBase } from '@shared/app-component-base';
 import { API_BASE_URL, CountryServiceProxy } from '@shared/service-proxies/service-proxies';
 import { FilterSettingsModel, GridComponent, GroupSettingsModel, PageSettingsModel } from '@syncfusion/ej2-angular-grids';
-import { DataManager, UrlAdaptor   } from '@syncfusion/ej2-data';
+import { DataManager, UrlAdaptor, Query } from '@syncfusion/ej2-data';
 import { finalize } from 'rxjs/operators';
 import { CreateCountryDialogComponent } from './create-country/create-country-dialog.component';
 import { EditCountryDialogComponent } from './edit-country/edit-country-dialog.component';
@@ -15,60 +15,72 @@ setCulture('ar-SY');
 L10n.load(LocalizationHelper.getArabicResources());
 
 @Component({
-  selector: 'app-country',
-  templateUrl: './country.component.html',
-  styleUrls: ['./country.component.scss'],
+  selector: "app-country",
+  templateUrl: "./country.component.html",
+  styleUrls: ["./country.component.scss"],
   animations: [appModuleAnimation()],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CountryComponent extends AppComponentBase implements OnInit {
   // Grid
-  @ViewChild('countryGrid') public grid: GridComponent;
+  @ViewChild("countryGrid") public grid: GridComponent;
   public countries: DataManager;
   public pageSettings: PageSettingsModel;
   public pageSizes: number[] = [6, 20, 100];
   public groupOptions: GroupSettingsModel;
-  public filterOption: FilterSettingsModel = { type: 'Menu' };
+  public filterOption: FilterSettingsModel = { type: "Menu" };
   private baseUrl: string;
-  localizationHelper : LocalizationHelper;
-  constructor(injector: Injector,
+  public param: Query;
+
+  localizationHelper: LocalizationHelper;
+  constructor(
+    injector: Injector,
     private _modalService: NbDialogService,
     private _countryAppService: CountryServiceProxy,
-    @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+    @Optional() @Inject(API_BASE_URL) baseUrl?: string
+  ) {
     super(injector);
     this.baseUrl = baseUrl;
   }
 
   ngOnInit(): void {
-    this.pageSettings = {pageSize: 6, pageCount: 10, pageSizes: this.pageSizes};
+    this.param = new Query().addParams(
+      "tenantId",
+      this.appSession.tenantId.toString()
+    );
+
+    this.pageSettings = {
+      pageSize: 6,
+      pageCount: 10,
+      pageSizes: this.pageSizes,
+    };
     this.countries = new DataManager({
-      url: this.baseUrl + '/api/services/app/Country/GetForGrid',
-      adaptor: new UrlAdaptor()
-  });
-  }
-  showCreateDialog() {
-    this._modalService.open(
-      CreateCountryDialogComponent
-    ).onClose.subscribe((e:any) => {
-      this.refresh();
+      url: this.baseUrl + "/api/services/app/Country/GetForGrid",
+      adaptor: new UrlAdaptor(),
     });
   }
+  showCreateDialog() {
+    this._modalService
+      .open(CreateCountryDialogComponent)
+      .onClose.subscribe((e: any) => {
+        this.refresh();
+      });
+  }
   showEditDialog(id) {
-    this._modalService.open(
-      EditCountryDialogComponent,
-      {
+    this._modalService
+      .open(EditCountryDialogComponent, {
         context: {
           id: id,
         },
-      }
-    ).onClose.subscribe((e:any) => {
-      this.refresh();
-    });
+      })
+      .onClose.subscribe((e: any) => {
+        this.refresh();
+      });
   }
-  
+
   delete(data): void {
     abp.message.confirm(
-      this.l('DoYouWantToRemoveTheCountry', data.name),
+      this.l("DoYouWantToRemoveTheCountry", data.name),
       undefined,
       (result: boolean) => {
         if (result) {
@@ -76,7 +88,7 @@ export class CountryComponent extends AppComponentBase implements OnInit {
             .delete(data.id)
             .pipe(
               finalize(() => {
-                abp.notify.success(this.l('SuccessfullyDeleted'));
+                abp.notify.success(this.l("SuccessfullyDeleted"));
                 this.refresh();
               })
             )

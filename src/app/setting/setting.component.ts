@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-setting',
-  template: `
-    <router-outlet></router-outlet>
-  `
+  templateUrl: './setting.component.html',
+  styleUrls:['./setting.component.scss']
 })
 export class SettingComponent implements OnInit {
 
@@ -13,4 +12,7 @@ export class SettingComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onChangeTable(args) {
+    console.log(args);
+  }
 }
