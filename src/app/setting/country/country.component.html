@@ -20,7 +20,7 @@
                     </div>
                 </nb-card-header>
                 <nb-card-body class="as-case-card-body">
-                    <ejs-grid id="CountryGrid" #countryGrid [dataSource]="countries" [allowPaging]="true"
+                    <ejs-grid id="CountryGrid" #countryGrid [query]="param" [dataSource]="countries" [allowPaging]="true"
                     [allowSorting]="true" [allowFiltering]="true" [enableRtl]='true' 
                     [pageSettings]="pageSettings" [filterSettings]='filterOption'>
                     <!--toolbar-->

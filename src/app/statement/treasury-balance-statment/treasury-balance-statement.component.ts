@@ -1,7 +1,8 @@
 import { supportsPassiveEventListeners } from '@angular/cdk/platform';
 import { ChangeDetectionStrategy, Component, ElementRef, Inject, Injector, OnInit, Optional, ViewChild } from '@angular/core';
 import { AppComponentBase } from '@shared/app-component-base';
-import { API_BASE_URL, TreasuryDto, CurrencyDto, CurrencyServiceProxy } from '@shared/service-proxies/service-proxies';
+import { API_BASE_URL, TreasuryDto, CurrencyDto, CurrencyServiceProxy} from '@shared/service-proxies/service-proxies';
+// import { API_BASE_URL, TreasuryDto, CurrencyDto, CurrencyServiceProxy, PdfTreasuryBalanceServiceProxy } from '@shared/service-proxies/service-proxies';
 import { GridComponent, PageSettingsModel } from '@syncfusion/ej2-angular-grids';
 import { DataManager, UrlAdaptor, Query, Predicate  } from '@syncfusion/ej2-data';
 import { L10n, setCulture, loadCldr } from '@syncfusion/ej2-base';
@@ -40,6 +41,7 @@ export class TreasuryBalanceStatementComponent
   constructor(
     injector: Injector,
     private _currencyAppService: CurrencyServiceProxy,
+    // private _pdfTreasuryBalanceService: PdfTreasuryBalanceServiceProxy,
     @Optional() @Inject(API_BASE_URL) baseUrl?: string
   ) {
     super(injector);
@@ -134,5 +136,14 @@ export class TreasuryBalanceStatementComponent
     document.getElementById("print-section").style.display = "none";
     document.getElementById("t3").style.width = "0px";
     document.getElementById("t3").style.height = "0px";
+  }
+
+  downloadPdf(){
+    // this.fromDate = new Date(this.input.fromDate);
+    // this.toDate = new Date(this.input.toDate);
+    // this._pdfTreasuryBalanceService.getTreasuryCashFlow(this.input.currencyId,this.fromDate.toISOString(),this.toDate.toISOString())
+    // .subscribe(result=>{
+
+    // });
   }
 }

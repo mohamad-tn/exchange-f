@@ -1,6 +1,6 @@
+import { AdminModule } from './admin/admin.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
-
 import { AppRoutingModule } from 'app/app-routing.module';
 import { ThemeModule } from '@theme/theme.module';
 import { NbActionsModule, NbAlertModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbDialogModule, NbIconModule, NbInputModule, NbMenuModule, NbPopoverModule, NbSelectModule } from '@nebular/theme';
@@ -11,11 +11,11 @@ import { TransferModule } from './transfer/transfer.module';
 import { ExchangeCurrencyModule } from './exchange-currency/exchange-currency.module';
 import { TreasuryModule } from './treasury/treasury.module';
 import { SecurityModule } from './security/security.module';
+import { DashboardModule } from './dashbard/dashboard.module';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from "../shared/shared.module";
 import { CommonModule } from '@angular/common';
-
 
 const NB_MODULES = [
   NbActionsModule,
@@ -34,7 +34,9 @@ const NB_MODULES = [
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   providers: [],
-  entryComponents: [],
+  entryComponents: [
+  
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
@@ -42,12 +44,14 @@ const NB_MODULES = [
     ThemeModule,
     NbMenuModule,
     MiscellaneousModule,
+    AdminModule,
     SettingModule,
     StatementModule,
     TransferModule,
     TreasuryModule,
     SecurityModule,
     ExchangeCurrencyModule,
+    DashboardModule,
     NB_MODULES,
     SharedModule,
   ],

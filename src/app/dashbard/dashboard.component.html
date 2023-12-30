@@ -1,0 +1,10 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let item of menus">
+      <app-main-button [title]="item.title" [link]="item.link" [type]="item.type">
+        <i  [class]="item.icon" *ngIf="item.icon"></i>
+      </app-main-button>
+    </div>
+  </div>
+</div>

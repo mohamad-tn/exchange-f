@@ -1,0 +1,28 @@
+@import '../../../@theme/styles/themes';
+
+@media (min-width: 800px) {
+        nb-card {
+            width: 22rem;
+        }
+
+        nb-card-body{
+        min-height: 30vh;
+    }
+
+    button{
+        width: 15rem;
+        margin-right: 1rem;
+    }    
+}
+
+button{
+        width: 15rem;
+    }
+
+ .scrollbar {
+  height: 375px !important;
+  width: inherit !important;
+  background: #fff !important;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+}
