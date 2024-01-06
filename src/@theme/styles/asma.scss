@@ -253,9 +253,14 @@
     color: nb-theme(text-danger-color)
 }
 //icons
+// .e-plus::before {
+//     content: "\e823";
+// }
+
 .e-plus::before {
-    content: "\e823";
+    content: "\e759";
 }
+
 .e-search:before{
     content: "\e70a";
 }
@@ -281,9 +286,14 @@
 .e-edit:before{
     content: '\e891';
 }
+// .e-trash:before{
+//     content: '\eb00';
+// }
+
 .e-trash:before{
-    content: '\eb00';
+    content: '\e773';
 }
+
 .e-eye:before{
     content: '\e345';
 }
