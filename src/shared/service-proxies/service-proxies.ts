@@ -275,7 +275,7 @@ export class ClientServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/Client/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -1207,7 +1207,7 @@ export class CommisionServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/Commision/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -1614,7 +1614,7 @@ export class CompanyServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/Company/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -2008,6 +2008,177 @@ export class CompanyServiceProxy {
             }));
         }
         return _observableOf<void>(null as any);
+    }
+
+    /**
+     * @param tenantId (optional) 
+     * @return Success
+     */
+    getAllCompaniesOfTenant(tenantId: number | undefined): Observable<CompanyDto[]> {
+        let url_ = this.baseUrl + "/api/services/app/Company/GetAllCompaniesOfTenant?";
+        if (tenantId === null)
+            throw new Error("The parameter 'tenantId' cannot be null.");
+        else if (tenantId !== undefined)
+            url_ += "tenantId=" + encodeURIComponent("" + tenantId) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "text/plain"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetAllCompaniesOfTenant(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetAllCompaniesOfTenant(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<CompanyDto[]>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<CompanyDto[]>;
+        }));
+    }
+
+    protected processGetAllCompaniesOfTenant(response: HttpResponseBase): Observable<CompanyDto[]> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200.push(CompanyDto.fromJS(item));
+            }
+            else {
+                result200 = <any>null;
+            }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<CompanyDto[]>(null as any);
+    }
+
+    /**
+     * @param body (optional) 
+     * @return Success
+     */
+    linkCompanyWithTenant(body: LinkTenantCompanyDto | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/Company/LinkCompanyWithTenant";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json-patch+json",
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processLinkCompanyWithTenant(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processLinkCompanyWithTenant(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<void>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<void>;
+        }));
+    }
+
+    protected processLinkCompanyWithTenant(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return _observableOf<void>(null as any);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<void>(null as any);
+    }
+
+    /**
+     * @param tenantId (optional) 
+     * @return Success
+     */
+    getCompanyLikedWithTenant(tenantId: number | undefined): Observable<CompanyDto> {
+        let url_ = this.baseUrl + "/api/services/app/Company/GetCompanyLikedWithTenant?";
+        if (tenantId === null)
+            throw new Error("The parameter 'tenantId' cannot be null.");
+        else if (tenantId !== undefined)
+            url_ += "tenantId=" + encodeURIComponent("" + tenantId) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "text/plain"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetCompanyLikedWithTenant(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetCompanyLikedWithTenant(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<CompanyDto>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<CompanyDto>;
+        }));
+    }
+
+    protected processGetCompanyLikedWithTenant(response: HttpResponseBase): Observable<CompanyDto> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = CompanyDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<CompanyDto>(null as any);
     }
 }
 
@@ -2605,7 +2776,7 @@ export class CountryServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/Country/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -2951,7 +3122,7 @@ export class CurrencyServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/Currency/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -4122,7 +4293,7 @@ export class ExpenseServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/Expense/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -4643,7 +4814,7 @@ export class IncomeServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/Income/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -5648,6 +5819,126 @@ export class IncomeTransferDetailServiceProxy {
             }));
         }
         return _observableOf<SummaryCashFlowDto[]>(null as any);
+    }
+}
+
+@Injectable()
+export class LinkTenantCompanyServiceProxy {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
+    }
+
+    /**
+     * @param id (optional) 
+     * @return Success
+     */
+    delete(id: number | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/LinkTenantCompany/Delete?";
+        if (id === null)
+            throw new Error("The parameter 'id' cannot be null.");
+        else if (id !== undefined)
+            url_ += "id=" + encodeURIComponent("" + id) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+            })
+        };
+
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processDelete(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processDelete(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<void>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<void>;
+        }));
+    }
+
+    protected processDelete(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return _observableOf<void>(null as any);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<void>(null as any);
+    }
+
+    /**
+     * @param firstTenantId (optional) 
+     * @return Success
+     */
+    getByFirstTenantId(firstTenantId: number | undefined): Observable<LinkTenantCompanyDto> {
+        let url_ = this.baseUrl + "/api/services/app/LinkTenantCompany/GetByFirstTenantId?";
+        if (firstTenantId === null)
+            throw new Error("The parameter 'firstTenantId' cannot be null.");
+        else if (firstTenantId !== undefined)
+            url_ += "firstTenantId=" + encodeURIComponent("" + firstTenantId) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "text/plain"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetByFirstTenantId(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetByFirstTenantId(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<LinkTenantCompanyDto>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<LinkTenantCompanyDto>;
+        }));
+    }
+
+    protected processGetByFirstTenantId(response: HttpResponseBase): Observable<LinkTenantCompanyDto> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = LinkTenantCompanyDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<LinkTenantCompanyDto>(null as any);
     }
 }
 
@@ -9959,6 +10250,161 @@ export interface IAuthenticateResultModel {
     userId: number;
 }
 
+export class BWireDataManagerRequest implements IBWireDataManagerRequest {
+    skip: number;
+    take: number;
+    antiForgery: string | undefined;
+    requiresCounts: boolean;
+    table: string | undefined;
+    group: string[] | undefined;
+    select: string[] | undefined;
+    expand: string[] | undefined;
+    sorted: Sort[] | undefined;
+    search: SearchFilter[] | undefined;
+    where: WhereFilter[] | undefined;
+    aggregates: Aggregate[] | undefined;
+    onDemandGroupInfo: OnDemandGroupInfo;
+    isLazyLoad: boolean;
+    tenantId: number | undefined;
+
+    constructor(data?: IBWireDataManagerRequest) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.skip = _data["skip"];
+            this.take = _data["take"];
+            this.antiForgery = _data["antiForgery"];
+            this.requiresCounts = _data["requiresCounts"];
+            this.table = _data["table"];
+            if (Array.isArray(_data["group"])) {
+                this.group = [] as any;
+                for (let item of _data["group"])
+                    this.group.push(item);
+            }
+            if (Array.isArray(_data["select"])) {
+                this.select = [] as any;
+                for (let item of _data["select"])
+                    this.select.push(item);
+            }
+            if (Array.isArray(_data["expand"])) {
+                this.expand = [] as any;
+                for (let item of _data["expand"])
+                    this.expand.push(item);
+            }
+            if (Array.isArray(_data["sorted"])) {
+                this.sorted = [] as any;
+                for (let item of _data["sorted"])
+                    this.sorted.push(Sort.fromJS(item));
+            }
+            if (Array.isArray(_data["search"])) {
+                this.search = [] as any;
+                for (let item of _data["search"])
+                    this.search.push(SearchFilter.fromJS(item));
+            }
+            if (Array.isArray(_data["where"])) {
+                this.where = [] as any;
+                for (let item of _data["where"])
+                    this.where.push(WhereFilter.fromJS(item));
+            }
+            if (Array.isArray(_data["aggregates"])) {
+                this.aggregates = [] as any;
+                for (let item of _data["aggregates"])
+                    this.aggregates.push(Aggregate.fromJS(item));
+            }
+            this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
+            this.isLazyLoad = _data["isLazyLoad"];
+            this.tenantId = _data["tenantId"];
+        }
+    }
+
+    static fromJS(data: any): BWireDataManagerRequest {
+        data = typeof data === 'object' ? data : {};
+        let result = new BWireDataManagerRequest();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["skip"] = this.skip;
+        data["take"] = this.take;
+        data["antiForgery"] = this.antiForgery;
+        data["requiresCounts"] = this.requiresCounts;
+        data["table"] = this.table;
+        if (Array.isArray(this.group)) {
+            data["group"] = [];
+            for (let item of this.group)
+                data["group"].push(item);
+        }
+        if (Array.isArray(this.select)) {
+            data["select"] = [];
+            for (let item of this.select)
+                data["select"].push(item);
+        }
+        if (Array.isArray(this.expand)) {
+            data["expand"] = [];
+            for (let item of this.expand)
+                data["expand"].push(item);
+        }
+        if (Array.isArray(this.sorted)) {
+            data["sorted"] = [];
+            for (let item of this.sorted)
+                data["sorted"].push(item.toJSON());
+        }
+        if (Array.isArray(this.search)) {
+            data["search"] = [];
+            for (let item of this.search)
+                data["search"].push(item.toJSON());
+        }
+        if (Array.isArray(this.where)) {
+            data["where"] = [];
+            for (let item of this.where)
+                data["where"].push(item.toJSON());
+        }
+        if (Array.isArray(this.aggregates)) {
+            data["aggregates"] = [];
+            for (let item of this.aggregates)
+                data["aggregates"].push(item.toJSON());
+        }
+        data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
+        data["isLazyLoad"] = this.isLazyLoad;
+        data["tenantId"] = this.tenantId;
+        return data;
+    }
+
+    clone(): BWireDataManagerRequest {
+        const json = this.toJSON();
+        let result = new BWireDataManagerRequest();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IBWireDataManagerRequest {
+    skip: number;
+    take: number;
+    antiForgery: string | undefined;
+    requiresCounts: boolean;
+    table: string | undefined;
+    group: string[] | undefined;
+    select: string[] | undefined;
+    expand: string[] | undefined;
+    sorted: Sort[] | undefined;
+    search: SearchFilter[] | undefined;
+    where: WhereFilter[] | undefined;
+    aggregates: Aggregate[] | undefined;
+    onDemandGroupInfo: OnDemandGroupInfo;
+    isLazyLoad: boolean;
+    tenantId: number | undefined;
+}
+
 export class BwireDataManagerRequest implements IBwireDataManagerRequest {
     skip: number;
     take: number;
@@ -9974,6 +10420,7 @@ export class BwireDataManagerRequest implements IBwireDataManagerRequest {
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     type: number;
     fromDate: string | undefined;
     toDate: string | undefined;
@@ -10031,6 +10478,7 @@ export class BwireDataManagerRequest implements IBwireDataManagerRequest {
             }
             this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
             this.isLazyLoad = _data["isLazyLoad"];
+            this.tenantId = _data["tenantId"];
             this.type = _data["type"];
             this.fromDate = _data["fromDate"];
             this.toDate = _data["toDate"];
@@ -10088,6 +10536,7 @@ export class BwireDataManagerRequest implements IBwireDataManagerRequest {
         }
         data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
         data["isLazyLoad"] = this.isLazyLoad;
+        data["tenantId"] = this.tenantId;
         data["type"] = this.type;
         data["fromDate"] = this.fromDate;
         data["toDate"] = this.toDate;
@@ -10117,6 +10566,7 @@ export interface IBwireDataManagerRequest {
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     type: number;
     fromDate: string | undefined;
     toDate: string | undefined;
@@ -10137,6 +10587,7 @@ export class CashFlowDataManagerRequest implements ICashFlowDataManagerRequest {
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     id: number;
     currencyId: number;
     fromDate: string | undefined;
@@ -10195,6 +10646,7 @@ export class CashFlowDataManagerRequest implements ICashFlowDataManagerRequest {
             }
             this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
             this.isLazyLoad = _data["isLazyLoad"];
+            this.tenantId = _data["tenantId"];
             this.id = _data["id"];
             this.currencyId = _data["currencyId"];
             this.fromDate = _data["fromDate"];
@@ -10253,6 +10705,7 @@ export class CashFlowDataManagerRequest implements ICashFlowDataManagerRequest {
         }
         data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
         data["isLazyLoad"] = this.isLazyLoad;
+        data["tenantId"] = this.tenantId;
         data["id"] = this.id;
         data["currencyId"] = this.currencyId;
         data["fromDate"] = this.fromDate;
@@ -10283,6 +10736,7 @@ export interface ICashFlowDataManagerRequest {
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     id: number;
     currencyId: number;
     fromDate: string | undefined;
@@ -11590,6 +12044,8 @@ export interface ICompanyCashFlowTotalDto {
 
 export class CompanyDto implements ICompanyDto {
     id: number;
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;
@@ -11607,6 +12063,8 @@ export class CompanyDto implements ICompanyDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
+            this.tenantCompanyId = _data["tenantCompanyId"];
+            this.tenantId = _data["tenantId"];
             this.name = _data["name"];
             this.phone = _data["phone"];
             this.address = _data["address"];
@@ -11628,6 +12086,8 @@ export class CompanyDto implements ICompanyDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
+        data["tenantCompanyId"] = this.tenantCompanyId;
+        data["tenantId"] = this.tenantId;
         data["name"] = this.name;
         data["phone"] = this.phone;
         data["address"] = this.address;
@@ -11649,6 +12109,8 @@ export class CompanyDto implements ICompanyDto {
 
 export interface ICompanyDto {
     id: number;
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;
@@ -11857,6 +12319,8 @@ export interface ICreateCommisionDto {
 }
 
 export class CreateCompanyDto implements ICreateCompanyDto {
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;
@@ -11873,6 +12337,8 @@ export class CreateCompanyDto implements ICreateCompanyDto {
 
     init(_data?: any) {
         if (_data) {
+            this.tenantCompanyId = _data["tenantCompanyId"];
+            this.tenantId = _data["tenantId"];
             this.name = _data["name"];
             this.phone = _data["phone"];
             this.address = _data["address"];
@@ -11893,6 +12359,8 @@ export class CreateCompanyDto implements ICreateCompanyDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
+        data["tenantCompanyId"] = this.tenantCompanyId;
+        data["tenantId"] = this.tenantId;
         data["name"] = this.name;
         data["phone"] = this.phone;
         data["address"] = this.address;
@@ -11913,6 +12381,8 @@ export class CreateCompanyDto implements ICreateCompanyDto {
 }
 
 export interface ICreateCompanyDto {
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;
@@ -13090,6 +13560,7 @@ export class ExchangeCurrencyDataManagerRequest implements IExchangeCurrencyData
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     fromDate: string | undefined;
     toDate: string | undefined;
     paymentType: number | undefined;
@@ -13151,6 +13622,7 @@ export class ExchangeCurrencyDataManagerRequest implements IExchangeCurrencyData
             }
             this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
             this.isLazyLoad = _data["isLazyLoad"];
+            this.tenantId = _data["tenantId"];
             this.fromDate = _data["fromDate"];
             this.toDate = _data["toDate"];
             this.paymentType = _data["paymentType"];
@@ -13212,6 +13684,7 @@ export class ExchangeCurrencyDataManagerRequest implements IExchangeCurrencyData
         }
         data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
         data["isLazyLoad"] = this.isLazyLoad;
+        data["tenantId"] = this.tenantId;
         data["fromDate"] = this.fromDate;
         data["toDate"] = this.toDate;
         data["paymentType"] = this.paymentType;
@@ -13245,6 +13718,7 @@ export interface IExchangeCurrencyDataManagerRequest {
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     fromDate: string | undefined;
     toDate: string | undefined;
     paymentType: number | undefined;
@@ -14264,6 +14738,61 @@ export interface IIsTenantAvailableOutput {
     tenantId: number | undefined;
 }
 
+export class LinkTenantCompanyDto implements ILinkTenantCompanyDto {
+    id: number;
+    firstTenantId: number;
+    secondTenantId: number;
+    companyId: number;
+
+    constructor(data?: ILinkTenantCompanyDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.id = _data["id"];
+            this.firstTenantId = _data["firstTenantId"];
+            this.secondTenantId = _data["secondTenantId"];
+            this.companyId = _data["companyId"];
+        }
+    }
+
+    static fromJS(data: any): LinkTenantCompanyDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new LinkTenantCompanyDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["firstTenantId"] = this.firstTenantId;
+        data["secondTenantId"] = this.secondTenantId;
+        data["companyId"] = this.companyId;
+        return data;
+    }
+
+    clone(): LinkTenantCompanyDto {
+        const json = this.toJSON();
+        let result = new LinkTenantCompanyDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface ILinkTenantCompanyDto {
+    id: number;
+    firstTenantId: number;
+    secondTenantId: number;
+    companyId: number;
+}
+
 export class ManagementDto implements IManagementDto {
     id: number;
     type: number;
@@ -15130,6 +15659,8 @@ export interface IReadClientDto {
 
 export class ReadCompanyDto implements IReadCompanyDto {
     id: number;
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;
@@ -15146,6 +15677,8 @@ export class ReadCompanyDto implements IReadCompanyDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
+            this.tenantCompanyId = _data["tenantCompanyId"];
+            this.tenantId = _data["tenantId"];
             this.name = _data["name"];
             this.phone = _data["phone"];
             this.address = _data["address"];
@@ -15162,6 +15695,8 @@ export class ReadCompanyDto implements IReadCompanyDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
+        data["tenantCompanyId"] = this.tenantCompanyId;
+        data["tenantId"] = this.tenantId;
         data["name"] = this.name;
         data["phone"] = this.phone;
         data["address"] = this.address;
@@ -15178,6 +15713,8 @@ export class ReadCompanyDto implements IReadCompanyDto {
 
 export interface IReadCompanyDto {
     id: number;
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;
@@ -16650,6 +17187,7 @@ export class TreasuryActionDataManagerRequest implements ITreasuryActionDataMana
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     number: number | undefined;
     currencyId: number | undefined;
     fromDate: string | undefined;
@@ -16715,6 +17253,7 @@ export class TreasuryActionDataManagerRequest implements ITreasuryActionDataMana
             }
             this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
             this.isLazyLoad = _data["isLazyLoad"];
+            this.tenantId = _data["tenantId"];
             this.number = _data["number"];
             this.currencyId = _data["currencyId"];
             this.fromDate = _data["fromDate"];
@@ -16780,6 +17319,7 @@ export class TreasuryActionDataManagerRequest implements ITreasuryActionDataMana
         }
         data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
         data["isLazyLoad"] = this.isLazyLoad;
+        data["tenantId"] = this.tenantId;
         data["number"] = this.number;
         data["currencyId"] = this.currencyId;
         data["fromDate"] = this.fromDate;
@@ -16817,6 +17357,7 @@ export interface ITreasuryActionDataManagerRequest {
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     number: number | undefined;
     currencyId: number | undefined;
     fromDate: string | undefined;
@@ -17473,6 +18014,8 @@ export interface IUpdateCommisionDto {
 
 export class UpdateCompanyDto implements IUpdateCompanyDto {
     id: number;
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;
@@ -17490,6 +18033,8 @@ export class UpdateCompanyDto implements IUpdateCompanyDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
+            this.tenantCompanyId = _data["tenantCompanyId"];
+            this.tenantId = _data["tenantId"];
             this.name = _data["name"];
             this.phone = _data["phone"];
             this.address = _data["address"];
@@ -17511,6 +18056,8 @@ export class UpdateCompanyDto implements IUpdateCompanyDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
+        data["tenantCompanyId"] = this.tenantCompanyId;
+        data["tenantId"] = this.tenantId;
         data["name"] = this.name;
         data["phone"] = this.phone;
         data["address"] = this.address;
@@ -17532,6 +18079,8 @@ export class UpdateCompanyDto implements IUpdateCompanyDto {
 
 export interface IUpdateCompanyDto {
     id: number;
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;

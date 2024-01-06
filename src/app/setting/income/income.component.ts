@@ -43,7 +43,6 @@ export class IncomeComponent extends AppComponentBase implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.appSession);
     this.param = new Query().addParams(
       "tenantId",
       this.appSession.tenantId.toString()

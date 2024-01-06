@@ -34,6 +34,9 @@ import {
   ToolbarService,
 } from "@syncfusion/ej2-angular-grids";
 import { ToolbarModule } from "@syncfusion/ej2-angular-navigations";
+import { LinkTenantsCompaniesComponent } from './link-tenants-companies/link-tenants-companies.component';
+import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
+import { LinkTenantCompanyServiceProxy } from '@shared/service-proxies/service-proxies';
 
 
 const NB_MODULES = [
@@ -51,7 +54,7 @@ const NB_MODULES = [
   NbTooltipModule,
   NbToggleModule,
 ];
-const SYNCFUSION_MODULES = [GridModule, ToolbarModule];
+const SYNCFUSION_MODULES = [GridModule, ToolbarModule, DropDownListModule];
 
 const SYNCFUSION_SERVICES = [
   PageService,
@@ -69,6 +72,7 @@ const SYNCFUSION_SERVICES = [
     TenantsComponent,
     CreateTenantDialogComponent,
     EditTenantDialogComponent,
+    LinkTenantsCompaniesComponent,
   ],
   imports: [
     CommonModule,
@@ -79,7 +83,7 @@ const SYNCFUSION_SERVICES = [
     ...SYNCFUSION_MODULES,
     ...NB_MODULES,
   ],
-  providers: [...SYNCFUSION_SERVICES],
+  providers: [...SYNCFUSION_SERVICES, LinkTenantCompanyServiceProxy],
   entryComponents: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

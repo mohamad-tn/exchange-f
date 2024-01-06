@@ -95,7 +95,8 @@ export class SendingOutgoingComponent
     this.param = new Query()
       .addParams("fromDate", this.fromDate.toISOString())
       .addParams("toDate", this.toDate.toISOString())
-      .addParams("companyId", event.value.toString());
+      .addParams("companyId", event.value.toString())
+      .addParams("tenantId", this.appSession.tenantId.toString());
 
     this.dataSource = new DataManager({
       url:
@@ -113,7 +114,8 @@ export class SendingOutgoingComponent
       .addParams("fromDate", this.fromDate.toISOString())
       .addParams("toDate", this.toDate.toISOString())
       .addParams("companyId", this.companyId.toString())
-      .addParams("currencyId", event.value.toString());
+      .addParams("currencyId", event.value.toString())
+      .addParams("tenantId", this.appSession.tenantId.toString());
 
     this.dataSource = new DataManager({
       url:
@@ -147,23 +149,25 @@ export class SendingOutgoingComponent
 
   copy() {
     if (this.selectedIds.length != 0) {
-      // this._outgoingTransferAppService
-      //   .setAsCopied(this.selectedIds)
-      //   .pipe(
-      //     finalize(() => {
-      //       this.initialCompanies();
-      //       this.gridInstance.refresh();
-      //     })
-      //   )
-      //   .subscribe();
+      this._outgoingTransferAppService
+        .setAsCopied(this.selectedIds)
+        .pipe(
+          finalize(() => {
+            this.initialCompanies();
+            this.gridInstance.refresh();
+          })
+        )
+        .subscribe(()=>{
+          this._modalService
+            .open(CopyDialogComponent, {
+              context: {
+                data: this.allSelectedData,
+              },
+            })
+            .onClose.subscribe();
+        });
 
-      this._modalService
-        .open(CopyDialogComponent, {
-          context: {
-            data: this.allSelectedData,
-          },
-        })
-        .onClose.subscribe();
+      
     } 
   }
 }

@@ -10,11 +10,13 @@ import {
   TenantServiceProxy,
   TenantDto,
   TenantDtoPagedResultDto,
+  LinkTenantCompanyServiceProxy,
 } from "@shared/service-proxies/service-proxies";
 import { CreateTenantDialogComponent } from "./create-tenant/create-tenant-dialog.component";
 import { EditTenantDialogComponent } from "./edit-tenant/edit-tenant-dialog.component";
 import { NbDialogService } from "@nebular/theme";
 import { FilterSettingsModel, GridComponent, GroupSettingsModel, PageSettingsModel } from "@syncfusion/ej2-angular-grids";
+import { LinkTenantsCompaniesComponent } from "../link-tenants-companies/link-tenants-companies.component";
 
 class PagedTenantsRequestDto extends PagedRequestDto {
   keyword: string;
@@ -31,6 +33,7 @@ export class TenantsComponent extends PagedListingComponentBase<TenantDto> {
   tenants: TenantDto[] = [];
   keyword = "";
   isActive: boolean | null;
+  isLinked: boolean = false;
   advancedFiltersVisible = false;
   public pageSettings: PageSettingsModel;
   public pageSizes: number[] = [6, 20, 100];
@@ -41,6 +44,7 @@ export class TenantsComponent extends PagedListingComponentBase<TenantDto> {
   constructor(
     injector: Injector,
     private _tenantService: TenantServiceProxy,
+    private _linkTenantCompanyAppService: LinkTenantCompanyServiceProxy,
     private _modalService: NbDialogService
   ) {
     super(injector);
@@ -109,6 +113,47 @@ export class TenantsComponent extends PagedListingComponentBase<TenantDto> {
       .onClose.subscribe((e: any) => {
         this.refresh();
       });
+  }
+
+  showLinkDialog(id) {
+    this._modalService
+      .open(LinkTenantsCompaniesComponent, {
+        context: {
+          id: id,
+        },
+      })
+      .onClose.subscribe((e: any) => {
+        this.refresh();
+      });
+  }
+
+  deleteLinkDialog(id) {
+    abp.message.confirm(
+      this.l("DeleteLinkWarningMessage"),
+      undefined,
+      (result: boolean) => {
+        if (result) {
+          this._linkTenantCompanyAppService
+            .getByFirstTenantId(id)
+            .subscribe((result) => {
+              if (result.companyId) {
+                this._linkTenantCompanyAppService.delete(result.id)
+                .subscribe(()=>{
+                  this.notify.info(this.l("DeletedLinkSuccessfully"));
+                });
+              }
+              else {
+                abp.message.error(
+                  this.l("ThisTenantNotLiked")
+                );
+              }
+            });
+        }
+      }
+    );
+
+
+    
   }
 
   // clearFilters(): void {

@@ -10,6 +10,7 @@ import { EditOutgoingTransferComponent } from './outgoing-transfer/edit-outgoing
 import { SearchOutgoingTransferComponent } from './outgoing-transfer/search-outgoin-transfer/search-outgoing-transfer.component';
 import { TransferComponent } from './transfer.component';
 import { SendingOutgoingComponent } from './sending-outgoing/sending-outgoing.component';
+import { IncomeTransferNotAcceptedComponent } from './income-transfer-not-accepted/income-transfer-not-accepted.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,12 @@ const routes: Routes = [
         path: "sending-outgoing",
         component: SendingOutgoingComponent,
         //data: { permission : 'Pages.' },
+        canActivate: [AppRouteGuard],
+      },
+      {
+        path: "income-transfer-notAccepted",
+        component: IncomeTransferNotAcceptedComponent,
+        // data: { permission: "Pages.IncomeTransferNotAccepted" },
         canActivate: [AppRouteGuard],
       },
     ],

@@ -18,7 +18,7 @@
                         </div>
             </nb-card-header>
             <nb-card-body class="as-case-card-body">
-                <ejs-grid id="RoleGrid" #roleGrid [dataSource]="roles" [allowPaging]="true"
+                <ejs-grid id="RoleGrid" #roleGrid [query]="param" [dataSource]="roles" [allowPaging]="true"
                 [allowSorting]="true" [allowFiltering]="true" [enableRtl]='true'
                 [pageSettings]="pageSettings" [filterSettings]='filterOption'>
                 <!--toolbar-->

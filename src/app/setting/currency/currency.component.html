@@ -20,7 +20,7 @@
                     </div>
                 </nb-card-header>
                 <nb-card-body class="as-case-card-body">
-                    <ejs-grid id="currencyGrid" #currencyGrid [dataSource]="currencies" [allowPaging]="true"
+                    <ejs-grid id="currencyGrid" #currencyGrid [query]="param" [dataSource]="currencies" [allowPaging]="true"
                     [allowSorting]="true" [allowFiltering]="true"
                     [pageSettings]="pageSettings" [filterSettings]='filterOption'>
                     <!--toolbar-->

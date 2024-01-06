@@ -63,7 +63,7 @@
                     <!-- Grid -->
                     <div class="row">
                         <div class="col-md-12">
-                            <ejs-grid id="DirectTransferGrid" #directTransferGrid [dataSource]="dataSource" [allowPaging]="true"
+                            <ejs-grid id="DirectTransferGrid" #directTransferGrid [query]="param" [dataSource]="dataSource" [allowPaging]="true"
                                 [enableRtl]='true' [pageSettings]="pageSettings" locale="en"  [toolbar]="toolbarOption" [searchSettings]="searchSettings">
 
                                 <e-columns>

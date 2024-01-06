@@ -51,6 +51,7 @@ import { PrintOutgoingTransferComponent } from './outgoing-transfer/print-outgoi
 import { NgxPrintModule } from 'ngx-print';
 import { SendingOutgoingComponent } from './sending-outgoing/sending-outgoing.component';
 import { CopyDialogComponent } from './sending-outgoing/copy-dialog/copy-dialog.component';
+import { IncomeTransferNotAcceptedComponent } from './income-transfer-not-accepted/income-transfer-not-accepted.component';
 
 const SYNCFUSION_MODULES = [
   GridModule,
@@ -105,7 +106,7 @@ const NB_MODULES = [
     ChangeDirectTransferStatusComponent, 
     PayDirectTransferComponent, 
     ImageTakenDialogComponent, 
-    OutgoingImageTakenDialogComponent, PrintOutgoingTransferComponent, SendingOutgoingComponent, CopyDialogComponent
+    OutgoingImageTakenDialogComponent, PrintOutgoingTransferComponent, SendingOutgoingComponent, CopyDialogComponent, IncomeTransferNotAcceptedComponent
   ],
   imports: [
     CommonModule,

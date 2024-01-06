@@ -87,7 +87,8 @@ export class ManagementStatementComponent
           this.param = new Query()
             .addParams("fromDate", this.fromDate.toISOString())
             .addParams("toDate", this.toDate.toISOString())
-            .addParams("type", type);
+            .addParams("type", type)
+            .addParams("tenantId", this.appSession.tenantId.toString());
 
           this.type = type;
           this.loading = true;

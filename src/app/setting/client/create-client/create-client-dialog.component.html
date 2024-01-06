@@ -32,14 +32,14 @@
                         </div>
                     </div>
                     <!--Province-->
-                    <div class="form-group row">
+                    <div class="form-group row required">
                         <label class="col-md-3 col-form-label" for="provice">
                             {{ "Province" | localize }}
                         </label>
                         <div class="col-md-9">
                             <ejs-dropdownlist #provinceDropdown cssClass="as-sy-input" id='provice' [enableRtl]="true"
                                 [(ngModel)]="client.provinceId" #proviceModel="ngModel" #proviceEl name='provice'
-                                 [dataSource]='provinces' [fields]='provinceFields'></ejs-dropdownlist>
+                                 [dataSource]='provinces' required [fields]='provinceFields'></ejs-dropdownlist>
 
                             <abp-validation-summary [control]="proviceModel" [controlEl]="proviceEl">
                             </abp-validation-summary>

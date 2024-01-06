@@ -72,7 +72,8 @@ export class CompanyBalanceStatementComponent
         .addParams("id", routeData?.companyId)
         .addParams("currencyId", routeData?.currencyId)
         .addParams("fromDate", this.fromDate.toISOString())
-        .addParams("toDate", this.toDate.toISOString());
+        .addParams("toDate", this.toDate.toISOString())
+        .addParams("tenantId", this.appSession.tenantId.toString());
 
       this.initialCurrentBalance(
         routeData?.companyId,

@@ -20,7 +20,7 @@
                     </div>
                 </nb-card-header>
                 <nb-card-body class="as-case-card-body">
-                    <ejs-grid id="CompanyGrid" #companyGrid [dataSource]="companies" [allowPaging]="true"
+                    <ejs-grid id="CompanyGrid" #companyGrid [query]="param" [dataSource]="companies" [allowPaging]="true"
                     [allowSorting]="true" [allowFiltering]="true" [enableRtl]='true' 
                     [pageSettings]="pageSettings" [filterSettings]='filterOption'>
                     <!--toolbar-->

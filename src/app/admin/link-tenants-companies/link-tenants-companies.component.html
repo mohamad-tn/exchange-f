@@ -1,0 +1,31 @@
+<form class="form-horizontal" autocomplete="off" #editTenantForm="ngForm" (ngSubmit)="save()">
+    <nb-card>
+        <nb-card-header>
+            {{'LinkCompanies' | localize}}
+        </nb-card-header>
+        <nb-card-body>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group row required">
+                        <ejs-dropdownlist id='secondTenantId' name='secondTenantId' width="250" cssClass="as-sy-input"
+                            [dataSource]='tenants' [(ngModel)]="tenantId" floatLabelType="Auto" [enableRtl]="true" [fields]='fields'
+                            (change)="onSelectTenant($event)" [autofocus]="true" placeholder="{{'SecondCompany' | localize}}">
+                        </ejs-dropdownlist>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group row required" *ngIf="tenantSelected">
+                        <ejs-dropdownlist id='companyId' name='companyId' cssClass="as-sy-input" width="250" [dataSource]='companies'
+                            floatLabelType="Auto" [enableRtl]="true" [fields]='fields' [(ngModel)]="companyId" [autofocus]="true"
+                            placeholder="{{'Company' | localize}}">
+                        </ejs-dropdownlist>
+                    </div>
+                </div>              
+            </div>
+        </nb-card-body>
+        <nb-card-footer>
+            <abp-modal-footer [cancelDisabled]="saving" [saveDisabled]="!editTenantForm.form.valid || saving"
+                (onCancelClick)="dialogRef.close()"></abp-modal-footer>
+        </nb-card-footer>
+    </nb-card>
+</form>

@@ -21,7 +21,7 @@
                 </div>
             </nb-card-header>
             <nb-card-body class="as-case-card-body">
-                <ejs-grid id="UserGrid" #userGrid [dataSource]="users" [allowPaging]="true"
+                <ejs-grid id="UserGrid" #userGrid [query]="param" [dataSource]="users" [allowPaging]="true"
                 [allowSorting]="true" [allowFiltering]="true" [enableRtl]='true'
                 [pageSettings]="pageSettings" [filterSettings]='filterOption'>
                 <!--toolbar-->

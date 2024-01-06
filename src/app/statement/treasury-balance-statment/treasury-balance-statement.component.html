@@ -68,7 +68,7 @@
                     <!-- Grid -->
                     <div class="row">
                         <div class="col-md-12">
-                            <ejs-grid id="CashFlowGrid" #cashFlowGrid [dataSource]="dataSource" [allowPaging]="true"
+                            <ejs-grid id="CashFlowGrid" #cashFlowGrid [query]="param" [dataSource]="dataSource" [allowPaging]="true"
                                 [enableRtl]='true' [pageSettings]="pageSettings" locale="en" (actionComplete)="onActionComplete($event)" > 
 
                                 <e-columns>

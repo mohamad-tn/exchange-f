@@ -123,7 +123,7 @@
                     <!-- Grid -->
                     <div class="row">
                         <div class="col-md-12">
-                            <ejs-grid id="SearchGrid" #searchGrid [dataSource]="dataSource" [allowPaging]="true"
+                            <ejs-grid id="SearchGrid" #searchGrid [query]="param" [dataSource]="dataSource" [allowPaging]="true"
                                 [enableRtl]='true' height='{{gridHeight}}' width='100%' [pageSettings]="pageSettings">
                                 <e-columns>
                                     <e-column headerText="{{l('Commands')}}" textAlign='Center' width="150">

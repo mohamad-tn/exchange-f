@@ -26,7 +26,7 @@ export class StatusCardComponent {
 
   goTo(destination) {
     if (destination != undefined) {
-      switch (destination) {        
+      switch (destination) {
         case "OutgoingTransfers":
           this.router.navigateByUrl("/app/transfer/create-outgoing-transfer");
           break;
@@ -39,6 +39,9 @@ export class StatusCardComponent {
         case "SendTransfers":
           this.router.navigateByUrl("/app/transfer/sending-outgoing");
           break;
+        case "IncomeTransferNotAccepted":
+          this.router.navigateByUrl("/app/transfer/income-transfer-notAccepted");
+          break;
         case "ExchangeCurrency":
           this.router.navigateByUrl("/app/exchange-currency/create");
           break;
@@ -47,6 +50,12 @@ export class StatusCardComponent {
           break;
         case "Setting":
           this.router.navigateByUrl("/app/setting");
+          break;
+        case "Tenants":
+          this.router.navigateByUrl("/app/admin/tenant");
+          break;
+        case "Link Tenants":
+          this.router.navigateByUrl("/app/admin/link-tenant-company");
           break;
         default:
           break;

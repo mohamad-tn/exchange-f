@@ -37,6 +37,7 @@ export class TreasuryBalanceStatementComponent
   public fields: Object = { text: "name", value: "id" };
   currencyName: string;
   data: object[] = [];
+  public param: Query;
 
   constructor(
     injector: Injector,
@@ -49,6 +50,11 @@ export class TreasuryBalanceStatementComponent
   }
 
   ngOnInit(): void {
+    this.param = new Query().addParams(
+      "tenantId",
+      this.appSession.tenantId.toString()
+    );
+
     this.input.fromDate = new Date().toISOString();
     this.input.toDate = new Date().toISOString();
     this.initialCurrencies();
@@ -96,6 +102,7 @@ export class TreasuryBalanceStatementComponent
     }
     if (this.filtering) {
       this.grid.query = new Query().where(this.filterParams);
+      this.grid.query.addParams('tenantId',this.appSession.tenantId.toString());
       //this.dataSource.executeQuery(new Query().where(this.filterParams));
       this.grid.refresh();
     }
@@ -138,12 +145,11 @@ export class TreasuryBalanceStatementComponent
     document.getElementById("t3").style.height = "0px";
   }
 
-  downloadPdf(){
+  downloadPdf() {
     // this.fromDate = new Date(this.input.fromDate);
     // this.toDate = new Date(this.input.toDate);
     // this._pdfTreasuryBalanceService.getTreasuryCashFlow(this.input.currencyId,this.fromDate.toISOString(),this.toDate.toISOString())
     // .subscribe(result=>{
-
     // });
   }
 }

@@ -33,7 +33,7 @@ export class ClientBalanceStatementComponent extends AppComponentBase  implement
   currenctBalance: string;
   public param: Query;
   public fields: Object = { text: 'name', value: 'id' };
-
+  
   constructor(
     injector: Injector,
     private _route: ActivatedRoute,
@@ -65,9 +65,10 @@ export class ClientBalanceStatementComponent extends AppComponentBase  implement
 
       this.param = new Query()
         .addParams("id", routeData?.clientId)
-        .addParams("currencyId",routeData?.currencyId)
+        .addParams("currencyId", routeData?.currencyId)
         .addParams("fromDate", this.fromDate.toISOString())
-        .addParams("toDate", this.toDate.toISOString());
+        .addParams("toDate", this.toDate.toISOString())
+        .addParams("tenantId", this.appSession.tenantId.toString());
 
       this.initialCurrentBalance(routeData?.clientId, routeData?.currencyId, this.fromDate.toISOString(), this.toDate.toISOString());
 

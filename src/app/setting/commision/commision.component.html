@@ -20,7 +20,7 @@
                     </div>
                 </nb-card-header>
                 <nb-card-body class="as-case-card-body">
-                    <ejs-grid id="commisionGrid" #commisionGrid [dataSource]="commisions" [allowPaging]="true"
+                    <ejs-grid id="commisionGrid" #commisionGrid [query]="param" [dataSource]="commisions" [allowPaging]="true"
                     [allowSorting]="true" [allowFiltering]="true" [enableRtl]='true' 
                     [pageSettings]="pageSettings" [filterSettings]='filterOption'>
                     <!--toolbar-->
