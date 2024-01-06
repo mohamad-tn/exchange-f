@@ -111,6 +111,7 @@ export interface ISyncButtonModel extends  ISyncModel {
     iconCss: string | undefined;
     isPrimary : boolean;
     click: Function;
+    content: string | undefined;
 }
 
 export class SyncButtonModel implements ISyncButtonModel{

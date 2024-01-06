@@ -445,9 +445,10 @@ export class EditIncomeTransferComponent
       new SyncButtonModel({
         parentEle: btnAddDiv,
         index: index,
-        propName: "addBtn",
-        cssClass: "as-btn-primary e-small e-round",
-        iconCss: "e-icons e-plus",
+        propName: 'addBtn',
+        content:'<i class="fa fa-plus" style="padding:8px"></i>',
+        cssClass: 'e-round e-outline as-icon',
+        iconCss: "",
         isPrimary: true,
         click: this.addNewRow.bind(this, index),
       })
@@ -458,9 +459,10 @@ export class EditIncomeTransferComponent
       new SyncButtonModel({
         parentEle: btnRemoveDiv,
         index: index,
-        propName: "removeBtn",
-        cssClass: "as-btn-primary-outline e-small e-round",
-        iconCss: "e-icons e-trash",
+        propName: 'removeBtn',
+        content:'<i class="fa fa-trash" style="padding:8px;"></i>',
+        cssClass: 'e-danger e-outline e-round as-icon',
+        iconCss: '',
         isPrimary: false,
         click: this.removeRow.bind(this, index),
       })
@@ -568,6 +570,9 @@ export class EditIncomeTransferComponent
     var td = document.createElement("td");
     td.setAttribute("id", "td-" + idValue);
     td.setAttribute("width", width);
+    if(!idValue.includes('tools')){
+      td.style.cssText = "padding:0px;";
+    }
     return td;
   }
 

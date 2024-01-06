@@ -259,8 +259,9 @@ export class CreateIncomeTransferComponent
       parentEle: btnAddDiv,
       index: index,
       propName: 'addBtn',
-      cssClass: 'as-btn-primary e-small e-round',
-      iconCss: 'e-icons e-plus',
+      content:'<i class="fa fa-plus" style="padding:8px"></i>',
+      cssClass: 'e-round e-outline as-icon',
+      iconCss: '',
       isPrimary: true,
       click: this.addNewRow.bind(this, index)
     }));
@@ -270,8 +271,9 @@ export class CreateIncomeTransferComponent
       parentEle: btnRemoveDiv,
       index: index,
       propName: 'removeBtn',
-      cssClass: 'as-btn-primary-outline e-small e-round',
-      iconCss: 'e-icons e-trash',
+      content:'<i class="fa fa-trash" style="padding:8px;"></i>',
+      cssClass: 'e-danger e-outline e-round as-icon',
+      iconCss: '',
       isPrimary: false,
       click: this.removeRow.bind(this, index)
     }));
@@ -362,10 +364,13 @@ export class CreateIncomeTransferComponent
     return tr;
   }
 
-  generateTd(idValue, width = '250') {
+  generateTd(idValue: string, width = '250') {
     var td = document.createElement("td");
     td.setAttribute("id", "td-" + idValue);
     td.setAttribute("width", width);
+    if(!idValue.includes('tools')){
+      td.style.cssText = "padding:0px;";
+    }
     return td;
   }
 
@@ -387,7 +392,8 @@ export class CreateIncomeTransferComponent
     let button = new Button({
       cssClass: model.cssClass,
       iconCss: model.iconCss,
-      isPrimary : model.isPrimary
+      isPrimary : model.isPrimary,
+      content:model.content
     });
 
     if(model.content != undefined){

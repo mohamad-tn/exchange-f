@@ -4,16 +4,16 @@
   #changeTenantForm="ngForm"
   (ngSubmit)="save()"
 >
-<div class="card">
+<div class="card" dir="rtl">
   <div class="card-header">
     <div >
-      <h4 class="modal-title">{{ 'ChangeTenant' | localize }}</h4>
+      <h4 class="modal-title float-right">{{ 'تغيير الشركة' | localize }}</h4>
     </div>
   </div>
   <div class="card-body">
     <div class="form-group row">
-      <label class="col-md-3 col-form-label" for="tenancyName">
-        {{ "TenancyName" | localize }}
+      <label class="col-md-3 col-form-label " for="tenancyName">
+        {{ "اسم الشركة" | localize }}
       </label>
       <div class="col-md-9">
         <input
@@ -26,23 +26,23 @@
         />
       </div>
     </div>
-    <span>
+    <!-- <span>
       <i class="fa fa-info-circle"></i>
       {{ "LeaveEmptyToSwitchToHost" | localize }}
-    </span>
+    </span> -->
   </div>
   <div class="card-footer">
     <div class="btn-footer justify-content-between">
-      <button class="btn btn-primary" [disabled]="saveDisabled">
-        
+      <button class="btn btn-primary" [disabled]="!changeTenantForm.form.valid || saving">
+        <i class="fa fa-save mx-1"></i>
         حفظ
       </button>
     
       <button
         class="btn btn-danger"
-        [disabled]="!changeTenantForm.form.valid || saving"
         (click)="bsModalRef.hide()"
       >
+      <i class="fa fa-times mx-1"></i>
         إغلاق
       </button>
     </div>

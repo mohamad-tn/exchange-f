@@ -42,7 +42,7 @@ export class CreateTenantDialogComponent
   }
 
   save(): void {
-    this.tenant.connectionString = "Server=localhost; Database=" + this.database +"; Trusted_Connection=True;"
+    this.tenant.connectionString = this.database;
     this.tenant.name = this.tenant.tenancyName;
     this.tenant.adminEmailAddress = this.tenant.tenancyName + "@admin.com"
     this.saving = true;
