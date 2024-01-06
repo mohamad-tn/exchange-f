@@ -16,6 +16,7 @@ import { TotalClientBalanceStatmentComponent } from './total-client-balance-stat
 import { TotalCompanyBalanceStatmentComponent } from './total-company-balance-statment/total-company-balance-statment.component';
 import { TreasuryBalanceStatementComponent } from './treasury-balance-statment/treasury-balance-statement.component';
 import { ManagementStatementComponent } from './management-statement/management-statement.component';
+import { ReportViewerComponent } from './report-viewer/report-viewer.component';
 
 const routes: Routes = [
   {
@@ -104,6 +105,12 @@ const routes: Routes = [
         path: "summary-statement",
         component: SummaryStatementComponent,
         //data: { permission : 'Pages.SummaryStatements' },
+        canActivate: [AppRouteGuard],
+      },
+      {
+        path: "report-viewer",
+        component: ReportViewerComponent,
+        //data: { permission : 'Pages.ReportViewer' },
         canActivate: [AppRouteGuard],
       },
     ],

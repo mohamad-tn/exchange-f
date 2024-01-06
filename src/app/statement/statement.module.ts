@@ -20,15 +20,13 @@ import { CompanyBalanceStatementComponent } from './company-balance-statement/co
 import { TreasuryBalanceStatementComponent } from './treasury-balance-statment/treasury-balance-statement.component';
 import { TotalClientBalanceStatmentComponent } from './total-client-balance-statment/total-client-balance-statment.component';
 import { SearchTotalClientBalanceStatmentDialogComponent } from './total-client-balance-statment/search-total-client-balance-statment-dialog.component';
-
 import { TotalBalanceStatmentComponent } from './total-balance-statment/total-balance-statment.component';
 import { SearchTotalBalanceStatmentDialogComponent } from './total-balance-statment/search-total-balance-statment-dialog.component';
-
 import { SearchClientBalanceStatmentDialogComponent } from './client-balance-statement/search-client-balance-statment-dialog.component';
 import { TotalCompanyBalanceStatmentComponent } from './total-company-balance-statment/total-company-balance-statment.component';
 import { SearchTotalCompanyBalanceStatmentDialogComponent } from './total-company-balance-statment/search-total-company-balance-statment-dialog.component';
 import { SearchCompanyBalanceStatmentDialogComponent } from './company-balance-statement/search-company-balance-statment-dialog.component';
-import { ClientCashFlowServiceProxy, CompanyCashFlowServiceProxy, ManagementServiceProxy, PdfClientAndCompanyServiceProxy, PdfClientServiceProxy, PdfCompanyServiceProxy, PdfTreasuryBalanceServiceProxy, TreasuryCashFlowServiceProxy } from '@shared/service-proxies/service-proxies';
+import { ClientCashFlowServiceProxy, CompanyCashFlowServiceProxy, ManagementServiceProxy, PdfClientAndCompanyServiceProxy, PdfClientServiceProxy, PdfCompanyServiceProxy, PdfTreasuryActionServiceProxy, PdfTreasuryBalanceServiceProxy, TreasuryCashFlowServiceProxy } from '@shared/service-proxies/service-proxies';
 import { ClientMatchingDialogComponent } from './client-balance-statement/client-matching/client-matching-dialog.component';
 import { CompanyMatchingDialogComponent } from './company-balance-statement/company-matching/company-matching-dialog.component';
 import { OutgoingTransferStatementComponent } from './outgoing-transfer-statement/outgoing-transfer-statement.component';
@@ -48,6 +46,8 @@ import { SearchExchangeCurrencyStatementComponent } from './exchange-currency-st
 import { NgxPrintDirective, NgxPrintModule } from 'ngx-print';
 import { SearchManagementStatementComponent } from './management-statement/search-management-statement.component';
 import { ManagementStatementComponent } from './management-statement/management-statement.component';
+import { ReportViewerComponent } from './report-viewer/report-viewer.component';
+import { PdfViewerModule } from '@syncfusion/ej2-angular-pdfviewer';
 
 const NB_MODULES = [
   NbActionsModule,
@@ -94,10 +94,8 @@ const SYNCFUSION_SERVICES = [
     TreasuryBalanceStatementComponent, 
     TotalClientBalanceStatmentComponent, 
     SearchTotalClientBalanceStatmentDialogComponent,
-    
     TotalBalanceStatmentComponent, 
     SearchTotalBalanceStatmentDialogComponent,
-
     SearchClientBalanceStatmentDialogComponent,
     TotalCompanyBalanceStatmentComponent, 
     SearchTotalCompanyBalanceStatmentDialogComponent,
@@ -119,7 +117,8 @@ const SYNCFUSION_SERVICES = [
     ExchangeCurrencyStatementComponent,
     SearchExchangeCurrencyStatementComponent,
     SearchManagementStatementComponent,
-    ManagementStatementComponent
+    ManagementStatementComponent,
+    ReportViewerComponent
   ],
   imports: [
     CommonModule,
@@ -132,7 +131,8 @@ const SYNCFUSION_SERVICES = [
     StatementRoutingModule,
     ...SYNCFUSION_MODULES,
     ...NB_MODULES,
-    NgxPrintModule
+    NgxPrintModule,
+    PdfViewerModule
   ],
   providers: [
     ...SYNCFUSION_SERVICES,
@@ -143,7 +143,8 @@ const SYNCFUSION_SERVICES = [
     PdfClientServiceProxy,
     PdfClientAndCompanyServiceProxy,
     PdfCompanyServiceProxy,
-    PdfTreasuryBalanceServiceProxy 
+    PdfTreasuryBalanceServiceProxy,
+    PdfTreasuryActionServiceProxy
   ],
   entryComponents: [
 

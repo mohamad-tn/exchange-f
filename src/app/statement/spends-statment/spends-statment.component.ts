@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, Injector, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject, Injector, OnInit, Optional } from '@angular/core';
 import { Router } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { AppComponentBase } from '@shared/app-component-base';
-import { TreasuryActionStatementOutputDto, TreasuryActionServiceProxy } from '@shared/service-proxies/service-proxies';
+import { TreasuryActionStatementOutputDto, TreasuryActionServiceProxy, PdfTreasuryActionServiceProxy, API_BASE_URL } from '@shared/service-proxies/service-proxies';
 import { SearchSpendsStatmentComponent } from './search-spends-statment.component';
 
 @Component({
@@ -12,16 +12,21 @@ import { SearchSpendsStatmentComponent } from './search-spends-statment.componen
 })
 export class SpendsStatmentComponent extends AppComponentBase implements OnInit {
 
+  input: any;
   treasuryActions: TreasuryActionStatementOutputDto[] = [];
   sumAmount:number = 0;
-
+  private baseUrl: string;
+  
   constructor(
     injector: Injector,
     private _router: Router,
     private _treasuryActionAppService: TreasuryActionServiceProxy,
-    private _modalService: NbDialogService
+    private _pdfTreasuryActionService: PdfTreasuryActionServiceProxy,
+    private _modalService: NbDialogService,
+    @Optional() @Inject(API_BASE_URL) baseUrl?: string
     ) {
       super(injector);
+      this.baseUrl = baseUrl;
     }
 
   ngOnInit(): void {
@@ -30,7 +35,6 @@ export class SpendsStatmentComponent extends AppComponentBase implements OnInit 
   
 
   initialTreasuryActions(data){
-    console.log(data)
     this._treasuryActionAppService.getFroStatment(
       1,
       data.fromDate,
@@ -55,6 +59,7 @@ export class SpendsStatmentComponent extends AppComponentBase implements OnInit 
     this._modalService.open(
       SearchSpendsStatmentComponent
     ).onClose.subscribe((e:any) => {
+      this.input = e;
       this.initialTreasuryActions(e);
     });
   }
@@ -66,6 +71,24 @@ export class SpendsStatmentComponent extends AppComponentBase implements OnInit 
           "id" : item.id,
         }
       ]);
+  }
+
+  downloadPdf(){
+    this._pdfTreasuryActionService.getTreasuryAction(
+      1,
+      this.input.fromDate,
+      this.input.toDate,
+      this.input.mainAccount,
+      this.input.mainAccountCompanyId,
+      this.input.mainAccountClientId,
+      undefined,
+      this.input.incomeId,
+      undefined
+    )
+    .subscribe(result=>{
+      const url = `${this.baseUrl}/${result.path}`;
+      window.open(url, "_blank");
+    });
   }
 
 }

@@ -47,9 +47,10 @@ export class OutgoingTransferStatementComponent extends AppComponentBase impleme
       input.countryId,
       input.clientId,
       input.companyId,
-      input.beneficiary,
-      input.beneficiaryAddress,
-      input.sender).subscribe(result =>{
+      input.beneficiary != null ? input.beneficiary : undefined,
+      input.beneficiaryAddress != null ? input.beneficiaryAddress : undefined,
+      input.sender != null ? input.sender : undefined
+      ).subscribe(result =>{
         this.outgoingTransfers = result;
       });
   }  

@@ -144,7 +144,8 @@ export class TreasuryBalanceStatementComponent
     this.toDate = new Date(this.input.toDate);
     this._pdfTreasuryBalanceService.getTreasuryCashFlow(this.input.currencyId,this.fromDate.toISOString(),this.toDate.toISOString())
     .subscribe(result=>{
-
+      const url = `${this.baseUrl}/${result.path}`;
+      window.open(url, "_blank");
     });
   }
 }

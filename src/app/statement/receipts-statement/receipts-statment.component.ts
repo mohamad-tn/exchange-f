@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, Injector, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject, Injector, OnInit, Optional } from '@angular/core';
 import { Router } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { AppComponentBase } from '@shared/app-component-base';
-import { TreasuryActionStatementOutputDto, TreasuryActionServiceProxy } from '@shared/service-proxies/service-proxies';
+import { TreasuryActionStatementOutputDto, TreasuryActionServiceProxy, PdfTreasuryActionServiceProxy, API_BASE_URL } from '@shared/service-proxies/service-proxies';
 import { SearchReceiptsStatmentComponent } from './search-receipts-statment.component';
 
 @Component({
@@ -16,15 +16,21 @@ export class ReceiptsStatmentComponent
 {
   treasuryActions: TreasuryActionStatementOutputDto[] = [];
   sumAmount:number = 0;
+  input: any;
+  private baseUrl: string;
 
   constructor(
     injector: Injector,
     private _router: Router,
     private _treasuryActionAppService: TreasuryActionServiceProxy,
-    private _modalService: NbDialogService
-  ) {
-    super(injector);
-  }
+    private _pdfTreasuryActionService: PdfTreasuryActionServiceProxy,
+    private _modalService: NbDialogService,
+    @Optional() @Inject(API_BASE_URL) baseUrl?: string
+    ) {
+      super(injector);
+      this.baseUrl = baseUrl;
+    }
+
 
   ngOnInit(): void {
     setTimeout(() => this.showSearchDialog(), 500);
@@ -58,6 +64,7 @@ export class ReceiptsStatmentComponent
     this._modalService
       .open(SearchReceiptsStatmentComponent)
       .onClose.subscribe((e: any) => {
+        this.input = e;
         this.initialTreasuryActions(e);
       });
   }
@@ -69,5 +76,23 @@ export class ReceiptsStatmentComponent
         id: item.id,
       },
     ]);
+  }
+
+  downloadPdf(){
+    this._pdfTreasuryActionService.getTreasuryAction(
+      0,
+        this.input.fromDate,
+        this.input.toDate,
+        this.input.mainAccount,
+        this.input.mainAccountCompanyId,
+        this.input.mainAccountClientId,
+        this.input.expenceId,
+        undefined,
+        this.input.beneficiaryId
+    )
+    .subscribe(result=>{
+      const url = `${this.baseUrl}/${result.path}`;
+      window.open(url, "_blank");
+    });
   }
 }

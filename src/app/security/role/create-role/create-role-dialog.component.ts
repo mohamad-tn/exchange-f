@@ -47,7 +47,6 @@ export class CreateRoleDialogComponent extends AppComponentBase
 
   save(): void {
     this.saving = true;
-    debugger;
     this.role.grantedPermissions = this.grantedPermissions;
     this._roleService
       .create(this.role)

@@ -6922,6 +6922,114 @@ export class PdfCompanyServiceProxy {
 }
 
 @Injectable()
+export class PdfTreasuryActionServiceProxy {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
+    }
+
+    /**
+     * @param actionType (optional) 
+     * @param fromDate (optional) 
+     * @param toDate (optional) 
+     * @param mainAccount (optional) 
+     * @param mainAccountCompanyId (optional) 
+     * @param mainAccountClientId (optional) 
+     * @param expenseId (optional) 
+     * @param incomeId (optional) 
+     * @param beneficiaryId (optional) 
+     * @return Success
+     */
+    getTreasuryAction(actionType: number | undefined, fromDate: string | undefined, toDate: string | undefined, mainAccount: number | undefined, mainAccountCompanyId: number | undefined, mainAccountClientId: number | undefined, expenseId: number | undefined, incomeId: number | undefined, beneficiaryId: number | undefined): Observable<PdfResultOutput> {
+        let url_ = this.baseUrl + "/api/PdfTreasuryAction/GetTreasuryAction?";
+        if (actionType === null)
+            throw new Error("The parameter 'actionType' cannot be null.");
+        else if (actionType !== undefined)
+            url_ += "ActionType=" + encodeURIComponent("" + actionType) + "&";
+        if (fromDate === null)
+            throw new Error("The parameter 'fromDate' cannot be null.");
+        else if (fromDate !== undefined)
+            url_ += "FromDate=" + encodeURIComponent("" + fromDate) + "&";
+        if (toDate === null)
+            throw new Error("The parameter 'toDate' cannot be null.");
+        else if (toDate !== undefined)
+            url_ += "ToDate=" + encodeURIComponent("" + toDate) + "&";
+        if (mainAccount === null)
+            throw new Error("The parameter 'mainAccount' cannot be null.");
+        else if (mainAccount !== undefined)
+            url_ += "MainAccount=" + encodeURIComponent("" + mainAccount) + "&";
+        if (mainAccountCompanyId === null)
+            throw new Error("The parameter 'mainAccountCompanyId' cannot be null.");
+        else if (mainAccountCompanyId !== undefined)
+            url_ += "MainAccountCompanyId=" + encodeURIComponent("" + mainAccountCompanyId) + "&";
+        if (mainAccountClientId === null)
+            throw new Error("The parameter 'mainAccountClientId' cannot be null.");
+        else if (mainAccountClientId !== undefined)
+            url_ += "MainAccountClientId=" + encodeURIComponent("" + mainAccountClientId) + "&";
+        if (expenseId === null)
+            throw new Error("The parameter 'expenseId' cannot be null.");
+        else if (expenseId !== undefined)
+            url_ += "ExpenseId=" + encodeURIComponent("" + expenseId) + "&";
+        if (incomeId === null)
+            throw new Error("The parameter 'incomeId' cannot be null.");
+        else if (incomeId !== undefined)
+            url_ += "IncomeId=" + encodeURIComponent("" + incomeId) + "&";
+        if (beneficiaryId === null)
+            throw new Error("The parameter 'beneficiaryId' cannot be null.");
+        else if (beneficiaryId !== undefined)
+            url_ += "BeneficiaryId=" + encodeURIComponent("" + beneficiaryId) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "text/plain"
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetTreasuryAction(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetTreasuryAction(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<PdfResultOutput>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<PdfResultOutput>;
+        }));
+    }
+
+    protected processGetTreasuryAction(response: HttpResponseBase): Observable<PdfResultOutput> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = PdfResultOutput.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<PdfResultOutput>(null as any);
+    }
+}
+
+@Injectable()
 export class PdfTreasuryBalanceServiceProxy {
     private http: HttpClient;
     private baseUrl: string;
