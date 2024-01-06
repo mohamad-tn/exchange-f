@@ -33,7 +33,7 @@ import { CalendarModule, DatePickerModule } from '@syncfusion/ej2-angular-calend
 import { AutoCompleteModule, DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
 import { SwitchModule } from '@syncfusion/ej2-angular-buttons';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { CompanyServiceProxy, CountryServiceProxy, CurrencyServiceProxy, IncomeTransferServiceProxy, OutgoingTransferServiceProxy } from '@shared/service-proxies/service-proxies';
+import { CompanyServiceProxy, CountryServiceProxy, CurrencyServiceProxy, ExternalTransferServiceProxy, IncomeTransferServiceProxy, OutgoingTransferServiceProxy } from '@shared/service-proxies/service-proxies';
 import { CreateIncomeTransferComponent } from './income-transfer/create-income-transfer/create-income-transfer.component';
 import { EditIncomeTransferComponent } from './income-transfer/edit-income-transfer/edit-income-transfer.component';
 import { CreateOutgoingTransferComponent } from './outgoing-transfer/create-outgoing-transfer/create-outgoing-transfer.component';
@@ -95,18 +95,22 @@ const NB_MODULES = [
 
 @NgModule({
   declarations: [
-    TransferComponent, 
-    CreateIncomeTransferComponent, 
-    EditIncomeTransferComponent, 
-    CreateOutgoingTransferComponent, 
-    EditOutgoingTransferComponent, 
-    SearchOutgoingTransferComponent, 
-    SearchIncomeTransferComponent, 
-    DirectTransferComponent, 
-    ChangeDirectTransferStatusComponent, 
-    PayDirectTransferComponent, 
-    ImageTakenDialogComponent, 
-    OutgoingImageTakenDialogComponent, PrintOutgoingTransferComponent, SendingOutgoingComponent, CopyDialogComponent, IncomeTransferNotAcceptedComponent
+    TransferComponent,
+    CreateIncomeTransferComponent,
+    EditIncomeTransferComponent,
+    CreateOutgoingTransferComponent,
+    EditOutgoingTransferComponent,
+    SearchOutgoingTransferComponent,
+    SearchIncomeTransferComponent,
+    DirectTransferComponent,
+    ChangeDirectTransferStatusComponent,
+    PayDirectTransferComponent,
+    ImageTakenDialogComponent,
+    OutgoingImageTakenDialogComponent,
+    PrintOutgoingTransferComponent,
+    SendingOutgoingComponent,
+    CopyDialogComponent,
+    IncomeTransferNotAcceptedComponent,
   ],
   imports: [
     CommonModule,
@@ -121,7 +125,7 @@ const NB_MODULES = [
     ...NB_MODULES,
     WebcamModule,
     CarouselModule,
-    NgxPrintModule
+    NgxPrintModule,
   ],
   providers: [
     ...SYNCFUSION_SERVICES,
@@ -130,8 +134,9 @@ const NB_MODULES = [
     CountryServiceProxy,
     OutgoingTransferServiceProxy,
     IncomeTransferServiceProxy,
+    ExternalTransferServiceProxy,
   ],
-  
-  schemas: [CUSTOM_ELEMENTS_SCHEMA ]
+
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class TransferModule { }
+export class TransferModule {}

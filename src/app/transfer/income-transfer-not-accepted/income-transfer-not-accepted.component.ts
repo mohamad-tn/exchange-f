@@ -10,6 +10,8 @@ import { appModuleAnimation } from "@shared/animations/routerTransition";
 import { AppComponentBase } from "@shared/app-component-base";
 import {
   API_BASE_URL,
+  ExternalTransferDto,
+  ExternalTransferServiceProxy,
   OutgoingTransferServiceProxy,
   ReadOutgoingTransferDto,
 } from "@shared/service-proxies/service-proxies";
@@ -36,32 +38,34 @@ export class IncomeTransferNotAcceptedComponent
   public pageSettings: PageSettingsModel;
   public toolbar: ToolbarItems[];
   public filterOption: FilterSettingsModel = { type: "Menu" };
-  public transfers: ReadOutgoingTransferDto[];
+  public transfers: ExternalTransferDto[];
   private baseUrl: string;
 
   constructor(
     injector: Injector,
-    private _outGoingTransferServiceProxy: OutgoingTransferServiceProxy,
+    private _externalTransferServiceProxy: ExternalTransferServiceProxy,
     @Optional() @Inject(API_BASE_URL) baseUrl?: string
   ) {
     super(injector);
     this.baseUrl = baseUrl;
   }
 
-  ngOnInit(): void {
-    // this._outGoingTransferServiceProxy
-    //   .getAllNotCompleted()
-    //   .subscribe((result) => {
-    //     this.transfers = result;
-    //   });
-
+  ngOnInit(): void {    
     this.pageSettings = {
       pageSize: 6,
       pageCount: 10,
       pageSizes: this.pageSizes,
-    };
-
+    };    
     this.toolbar = ["Search"];
+    this.initialExternalTransfers();
+  }
+
+  initialExternalTransfers(){
+    this._externalTransferServiceProxy
+      .getAll()
+      .subscribe((result) => {
+        this.transfers = result;
+      });
   }
 
   AcceptTransfer(data: ReadOutgoingTransferDto) {

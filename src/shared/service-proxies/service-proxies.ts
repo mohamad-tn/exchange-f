@@ -4567,6 +4567,76 @@ export class ExpenseServiceProxy {
 }
 
 @Injectable()
+export class ExternalTransferServiceProxy {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
+    }
+
+    /**
+     * @return Success
+     */
+    getAll(): Observable<ExternalTransferDto[]> {
+        let url_ = this.baseUrl + "/api/services/app/ExternalTransfer/GetAll";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "text/plain"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetAll(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetAll(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<ExternalTransferDto[]>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<ExternalTransferDto[]>;
+        }));
+    }
+
+    protected processGetAll(response: HttpResponseBase): Observable<ExternalTransferDto[]> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200.push(ExternalTransferDto.fromJS(item));
+            }
+            else {
+                result200 = <any>null;
+            }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<ExternalTransferDto[]>(null as any);
+    }
+}
+
+@Injectable()
 export class GeneralSettingServiceProxy {
     private http: HttpClient;
     private baseUrl: string;
@@ -5522,7 +5592,7 @@ export class IncomeTransferDetailServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getDirectTransferForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getDirectTransferForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/IncomeTransferDetail/GetDirectTransferForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -6757,7 +6827,7 @@ export class OutgoingTransferServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/OutgoingTransfer/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -7440,7 +7510,7 @@ export class RoleServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/Role/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -9284,7 +9354,7 @@ export class TreasuryCashFlowServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/TreasuryCashFlow/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -9796,7 +9866,7 @@ export class UserServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/User/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -11058,6 +11128,7 @@ export interface IClearDatabaseOutput {
 
 export class ClientBalanceDto implements IClientBalanceDto {
     id: number;
+    tenantId: number | undefined;
     balance: number;
     currencyId: number;
     clientId: number;
@@ -11074,6 +11145,7 @@ export class ClientBalanceDto implements IClientBalanceDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
+            this.tenantId = _data["tenantId"];
             this.balance = _data["balance"];
             this.currencyId = _data["currencyId"];
             this.clientId = _data["clientId"];
@@ -11090,6 +11162,7 @@ export class ClientBalanceDto implements IClientBalanceDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
+        data["tenantId"] = this.tenantId;
         data["balance"] = this.balance;
         data["currencyId"] = this.currencyId;
         data["clientId"] = this.clientId;
@@ -11106,6 +11179,7 @@ export class ClientBalanceDto implements IClientBalanceDto {
 
 export interface IClientBalanceDto {
     id: number;
+    tenantId: number | undefined;
     balance: number;
     currencyId: number;
     clientId: number;
@@ -11421,6 +11495,7 @@ export interface IClientCashFlowTotalDto {
 
 export class ClientDto implements IClientDto {
     id: number;
+    tenantId: number | undefined;
     name: string | undefined;
     address: string | undefined;
     activated: boolean;
@@ -11440,6 +11515,7 @@ export class ClientDto implements IClientDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
+            this.tenantId = _data["tenantId"];
             this.name = _data["name"];
             this.address = _data["address"];
             this.activated = _data["activated"];
@@ -11467,6 +11543,7 @@ export class ClientDto implements IClientDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
+        data["tenantId"] = this.tenantId;
         data["name"] = this.name;
         data["address"] = this.address;
         data["activated"] = this.activated;
@@ -11494,6 +11571,7 @@ export class ClientDto implements IClientDto {
 
 export interface IClientDto {
     id: number;
+    tenantId: number | undefined;
     name: string | undefined;
     address: string | undefined;
     activated: boolean;
@@ -11504,6 +11582,7 @@ export interface IClientDto {
 
 export class ClientPhoneDto implements IClientPhoneDto {
     id: number;
+    tenantId: number | undefined;
     clientId: number;
     phoneNumber: string | undefined;
 
@@ -11519,6 +11598,7 @@ export class ClientPhoneDto implements IClientPhoneDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
+            this.tenantId = _data["tenantId"];
             this.clientId = _data["clientId"];
             this.phoneNumber = _data["phoneNumber"];
         }
@@ -11534,6 +11614,7 @@ export class ClientPhoneDto implements IClientPhoneDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
+        data["tenantId"] = this.tenantId;
         data["clientId"] = this.clientId;
         data["phoneNumber"] = this.phoneNumber;
         return data;
@@ -11549,6 +11630,7 @@ export class ClientPhoneDto implements IClientPhoneDto {
 
 export interface IClientPhoneDto {
     id: number;
+    tenantId: number | undefined;
     clientId: number;
     phoneNumber: string | undefined;
 }
@@ -13331,157 +13413,6 @@ export interface ICustomerWithImagesDto {
     images: FileUploadDto[] | undefined;
 }
 
-export class DataManagerRequest implements IDataManagerRequest {
-    skip: number;
-    take: number;
-    antiForgery: string | undefined;
-    requiresCounts: boolean;
-    table: string | undefined;
-    group: string[] | undefined;
-    select: string[] | undefined;
-    expand: string[] | undefined;
-    sorted: Sort[] | undefined;
-    search: SearchFilter[] | undefined;
-    where: WhereFilter[] | undefined;
-    aggregates: Aggregate[] | undefined;
-    onDemandGroupInfo: OnDemandGroupInfo;
-    isLazyLoad: boolean;
-
-    constructor(data?: IDataManagerRequest) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.skip = _data["skip"];
-            this.take = _data["take"];
-            this.antiForgery = _data["antiForgery"];
-            this.requiresCounts = _data["requiresCounts"];
-            this.table = _data["table"];
-            if (Array.isArray(_data["group"])) {
-                this.group = [] as any;
-                for (let item of _data["group"])
-                    this.group.push(item);
-            }
-            if (Array.isArray(_data["select"])) {
-                this.select = [] as any;
-                for (let item of _data["select"])
-                    this.select.push(item);
-            }
-            if (Array.isArray(_data["expand"])) {
-                this.expand = [] as any;
-                for (let item of _data["expand"])
-                    this.expand.push(item);
-            }
-            if (Array.isArray(_data["sorted"])) {
-                this.sorted = [] as any;
-                for (let item of _data["sorted"])
-                    this.sorted.push(Sort.fromJS(item));
-            }
-            if (Array.isArray(_data["search"])) {
-                this.search = [] as any;
-                for (let item of _data["search"])
-                    this.search.push(SearchFilter.fromJS(item));
-            }
-            if (Array.isArray(_data["where"])) {
-                this.where = [] as any;
-                for (let item of _data["where"])
-                    this.where.push(WhereFilter.fromJS(item));
-            }
-            if (Array.isArray(_data["aggregates"])) {
-                this.aggregates = [] as any;
-                for (let item of _data["aggregates"])
-                    this.aggregates.push(Aggregate.fromJS(item));
-            }
-            this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
-            this.isLazyLoad = _data["isLazyLoad"];
-        }
-    }
-
-    static fromJS(data: any): DataManagerRequest {
-        data = typeof data === 'object' ? data : {};
-        let result = new DataManagerRequest();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["skip"] = this.skip;
-        data["take"] = this.take;
-        data["antiForgery"] = this.antiForgery;
-        data["requiresCounts"] = this.requiresCounts;
-        data["table"] = this.table;
-        if (Array.isArray(this.group)) {
-            data["group"] = [];
-            for (let item of this.group)
-                data["group"].push(item);
-        }
-        if (Array.isArray(this.select)) {
-            data["select"] = [];
-            for (let item of this.select)
-                data["select"].push(item);
-        }
-        if (Array.isArray(this.expand)) {
-            data["expand"] = [];
-            for (let item of this.expand)
-                data["expand"].push(item);
-        }
-        if (Array.isArray(this.sorted)) {
-            data["sorted"] = [];
-            for (let item of this.sorted)
-                data["sorted"].push(item.toJSON());
-        }
-        if (Array.isArray(this.search)) {
-            data["search"] = [];
-            for (let item of this.search)
-                data["search"].push(item.toJSON());
-        }
-        if (Array.isArray(this.where)) {
-            data["where"] = [];
-            for (let item of this.where)
-                data["where"].push(item.toJSON());
-        }
-        if (Array.isArray(this.aggregates)) {
-            data["aggregates"] = [];
-            for (let item of this.aggregates)
-                data["aggregates"].push(item.toJSON());
-        }
-        data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
-        data["isLazyLoad"] = this.isLazyLoad;
-        return data;
-    }
-
-    clone(): DataManagerRequest {
-        const json = this.toJSON();
-        let result = new DataManagerRequest();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface IDataManagerRequest {
-    skip: number;
-    take: number;
-    antiForgery: string | undefined;
-    requiresCounts: boolean;
-    table: string | undefined;
-    group: string[] | undefined;
-    select: string[] | undefined;
-    expand: string[] | undefined;
-    sorted: Sort[] | undefined;
-    search: SearchFilter[] | undefined;
-    where: WhereFilter[] | undefined;
-    aggregates: Aggregate[] | undefined;
-    onDemandGroupInfo: OnDemandGroupInfo;
-    isLazyLoad: boolean;
-}
-
 export class DefaultersOfPaymentDto implements IDefaultersOfPaymentDto {
     clientId: number;
     clientName: string | undefined;
@@ -14044,6 +13975,101 @@ export class ExternalLoginProviderInfoModel implements IExternalLoginProviderInf
 export interface IExternalLoginProviderInfoModel {
     name: string | undefined;
     clientId: string | undefined;
+}
+
+export class ExternalTransferDto implements IExternalTransferDto {
+    id: number;
+    paymentType: PaymentType;
+    amount: number;
+    commission: number;
+    companyCommission: number;
+    clientCommission: number;
+    date: string | undefined;
+    note: string | undefined;
+    fromTenantId: number | undefined;
+    fromTenantName: string | undefined;
+    outgoingTransferId: number;
+    senderName: string | undefined;
+    beneficiaryName: string | undefined;
+    currencyName: string | undefined;
+
+    constructor(data?: IExternalTransferDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.id = _data["id"];
+            this.paymentType = _data["paymentType"];
+            this.amount = _data["amount"];
+            this.commission = _data["commission"];
+            this.companyCommission = _data["companyCommission"];
+            this.clientCommission = _data["clientCommission"];
+            this.date = _data["date"];
+            this.note = _data["note"];
+            this.fromTenantId = _data["fromTenantId"];
+            this.fromTenantName = _data["fromTenantName"];
+            this.outgoingTransferId = _data["outgoingTransferId"];
+            this.senderName = _data["senderName"];
+            this.beneficiaryName = _data["beneficiaryName"];
+            this.currencyName = _data["currencyName"];
+        }
+    }
+
+    static fromJS(data: any): ExternalTransferDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new ExternalTransferDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["paymentType"] = this.paymentType;
+        data["amount"] = this.amount;
+        data["commission"] = this.commission;
+        data["companyCommission"] = this.companyCommission;
+        data["clientCommission"] = this.clientCommission;
+        data["date"] = this.date;
+        data["note"] = this.note;
+        data["fromTenantId"] = this.fromTenantId;
+        data["fromTenantName"] = this.fromTenantName;
+        data["outgoingTransferId"] = this.outgoingTransferId;
+        data["senderName"] = this.senderName;
+        data["beneficiaryName"] = this.beneficiaryName;
+        data["currencyName"] = this.currencyName;
+        return data;
+    }
+
+    clone(): ExternalTransferDto {
+        const json = this.toJSON();
+        let result = new ExternalTransferDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IExternalTransferDto {
+    id: number;
+    paymentType: PaymentType;
+    amount: number;
+    commission: number;
+    companyCommission: number;
+    clientCommission: number;
+    date: string | undefined;
+    note: string | undefined;
+    fromTenantId: number | undefined;
+    fromTenantName: string | undefined;
+    outgoingTransferId: number;
+    senderName: string | undefined;
+    beneficiaryName: string | undefined;
+    currencyName: string | undefined;
 }
 
 export class FileUploadDto implements IFileUploadDto {
@@ -15388,6 +15414,12 @@ export interface IPayDirectTransferInputDto {
     treasuryAction: TreasuryActionDto;
     images: FileUploadDto[] | undefined;
     phoneNumber: string | undefined;
+}
+
+export enum PaymentType {
+    _0 = 0,
+    _1 = 1,
+    _2 = 2,
 }
 
 export class PermissionDto implements IPermissionDto {
@@ -16759,6 +16791,7 @@ export class SendingOutgoingDataManagerRequest implements ISendingOutgoingDataMa
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     fromDate: string | undefined;
     toDate: string | undefined;
     companyId: string | undefined;
@@ -16817,6 +16850,7 @@ export class SendingOutgoingDataManagerRequest implements ISendingOutgoingDataMa
             }
             this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
             this.isLazyLoad = _data["isLazyLoad"];
+            this.tenantId = _data["tenantId"];
             this.fromDate = _data["fromDate"];
             this.toDate = _data["toDate"];
             this.companyId = _data["companyId"];
@@ -16875,6 +16909,7 @@ export class SendingOutgoingDataManagerRequest implements ISendingOutgoingDataMa
         }
         data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
         data["isLazyLoad"] = this.isLazyLoad;
+        data["tenantId"] = this.tenantId;
         data["fromDate"] = this.fromDate;
         data["toDate"] = this.toDate;
         data["companyId"] = this.companyId;
@@ -16905,6 +16940,7 @@ export interface ISendingOutgoingDataManagerRequest {
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     fromDate: string | undefined;
     toDate: string | undefined;
     companyId: string | undefined;
