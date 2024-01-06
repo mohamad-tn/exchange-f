@@ -67,11 +67,6 @@ const routes: Routes = [
           import("./dashbard/dashboard.module").then((m) => m.DashboardModule),
       },
       {
-        path: 'dashboard',
-        loadChildren: () => import('./dashbard/dashboard.module')
-          .then(m => m.DashboardModule),
-      },
-      {
         path: "**",
         component: NotFoundComponent,
       },

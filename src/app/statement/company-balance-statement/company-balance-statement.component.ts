@@ -134,6 +134,21 @@ export class CompanyBalanceStatementComponent
     });
   }
 
+  downloadPdf(){
+    this._pdfClientBalanceService.getClientCashFlow(
+      this.companyId,
+      this.companyName,
+      this.currencyId,
+      this.currencyName,
+      this.currenctBalance,
+      this.fromDate.toISOString(),
+      this.toDate.toISOString())
+    .subscribe(result=>{
+      const url = `${this.baseUrl}/${result.path}`;
+      window.open(url, "_blank");
+    })
+  }
+  
   // filter():void{
 
   //   this.filterParams = undefined;
