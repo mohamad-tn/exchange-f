@@ -628,7 +628,6 @@ export class ClientCashFlowServiceProxy {
      * @return Success
      */
     get(clientId: number | undefined, currencyId: number | undefined, fromDate: string | undefined, toDate: string | undefined): Observable<ClientCashFlowDto[]> {
-    get(clientId: number | undefined, currencyId: number | undefined, fromDate: string | undefined, toDate: string | undefined): Observable<ClientCashFlowDto[]> {
         let url_ = this.baseUrl + "/api/services/app/ClientCashFlow/Get?";
         if (clientId === null)
             throw new Error("The parameter 'clientId' cannot be null.");
@@ -641,13 +640,7 @@ export class ClientCashFlowServiceProxy {
         if (fromDate === null)
             throw new Error("The parameter 'fromDate' cannot be null.");
         else if (fromDate !== undefined)
-        if (fromDate === null)
-            throw new Error("The parameter 'fromDate' cannot be null.");
-        else if (fromDate !== undefined)
             url_ += "FromDate=" + encodeURIComponent("" + fromDate) + "&";
-        if (toDate === null)
-            throw new Error("The parameter 'toDate' cannot be null.");
-        else if (toDate !== undefined)
         if (toDate === null)
             throw new Error("The parameter 'toDate' cannot be null.");
         else if (toDate !== undefined)
@@ -710,11 +703,7 @@ export class ClientCashFlowServiceProxy {
      * @return Success
      */
     getClientsBalances(date: string | undefined): Observable<ClientCashFlowTotalDto[]> {
-    getClientsBalances(date: string | undefined): Observable<ClientCashFlowTotalDto[]> {
         let url_ = this.baseUrl + "/api/services/app/ClientCashFlow/GetClientsBalances?";
-        if (date === null)
-            throw new Error("The parameter 'date' cannot be null.");
-        else if (date !== undefined)
         if (date === null)
             throw new Error("The parameter 'date' cannot be null.");
         else if (date !== undefined)
@@ -962,7 +951,6 @@ export class ClientCashFlowServiceProxy {
      * @return Success
      */
     getCurrentBalance(clientId: number | undefined, currencyId: number | undefined, fromDate: string | undefined, toDate: string | undefined): Observable<CurrentClientBalanceDto> {
-    getCurrentBalance(clientId: number | undefined, currencyId: number | undefined, fromDate: string | undefined, toDate: string | undefined): Observable<CurrentClientBalanceDto> {
         let url_ = this.baseUrl + "/api/services/app/ClientCashFlow/GetCurrentBalance?";
         if (clientId === null)
             throw new Error("The parameter 'clientId' cannot be null.");
@@ -975,13 +963,7 @@ export class ClientCashFlowServiceProxy {
         if (fromDate === null)
             throw new Error("The parameter 'fromDate' cannot be null.");
         else if (fromDate !== undefined)
-        if (fromDate === null)
-            throw new Error("The parameter 'fromDate' cannot be null.");
-        else if (fromDate !== undefined)
             url_ += "FromDate=" + encodeURIComponent("" + fromDate) + "&";
-        if (toDate === null)
-            throw new Error("The parameter 'toDate' cannot be null.");
-        else if (toDate !== undefined)
         if (toDate === null)
             throw new Error("The parameter 'toDate' cannot be null.");
         else if (toDate !== undefined)
@@ -1093,11 +1075,7 @@ export class ClientCashFlowServiceProxy {
      * @return Success
      */
     summary(date: string | undefined): Observable<SummaryCashFlowDto[]> {
-    summary(date: string | undefined): Observable<SummaryCashFlowDto[]> {
         let url_ = this.baseUrl + "/api/services/app/ClientCashFlow/Summary?";
-        if (date === null)
-            throw new Error("The parameter 'date' cannot be null.");
-        else if (date !== undefined)
         if (date === null)
             throw new Error("The parameter 'date' cannot be null.");
         else if (date !== undefined)
@@ -2223,7 +2201,6 @@ export class CompanyCashFlowServiceProxy {
      * @return Success
      */
     get(companyId: number | undefined, currencyId: number | undefined, fromDate: string | undefined, toDate: string | undefined): Observable<CompanyCashFlowDto[]> {
-    get(companyId: number | undefined, currencyId: number | undefined, fromDate: string | undefined, toDate: string | undefined): Observable<CompanyCashFlowDto[]> {
         let url_ = this.baseUrl + "/api/services/app/CompanyCashFlow/Get?";
         if (companyId === null)
             throw new Error("The parameter 'companyId' cannot be null.");
@@ -2236,13 +2213,7 @@ export class CompanyCashFlowServiceProxy {
         if (fromDate === null)
             throw new Error("The parameter 'fromDate' cannot be null.");
         else if (fromDate !== undefined)
-        if (fromDate === null)
-            throw new Error("The parameter 'fromDate' cannot be null.");
-        else if (fromDate !== undefined)
             url_ += "FromDate=" + encodeURIComponent("" + fromDate) + "&";
-        if (toDate === null)
-            throw new Error("The parameter 'toDate' cannot be null.");
-        else if (toDate !== undefined)
         if (toDate === null)
             throw new Error("The parameter 'toDate' cannot be null.");
         else if (toDate !== undefined)
@@ -2305,11 +2276,7 @@ export class CompanyCashFlowServiceProxy {
      * @return Success
      */
     getCompanysBalances(date: string | undefined): Observable<CompanyCashFlowTotalDto[]> {
-    getCompanysBalances(date: string | undefined): Observable<CompanyCashFlowTotalDto[]> {
         let url_ = this.baseUrl + "/api/services/app/CompanyCashFlow/GetCompanysBalances?";
-        if (date === null)
-            throw new Error("The parameter 'date' cannot be null.");
-        else if (date !== undefined)
         if (date === null)
             throw new Error("The parameter 'date' cannot be null.");
         else if (date !== undefined)
@@ -2372,11 +2339,7 @@ export class CompanyCashFlowServiceProxy {
      * @return Success
      */
     summary(date: string | undefined): Observable<SummaryCashFlowDto[]> {
-    summary(date: string | undefined): Observable<SummaryCashFlowDto[]> {
         let url_ = this.baseUrl + "/api/services/app/CompanyCashFlow/Summary?";
-        if (date === null)
-            throw new Error("The parameter 'date' cannot be null.");
-        else if (date !== undefined)
         if (date === null)
             throw new Error("The parameter 'date' cannot be null.");
         else if (date !== undefined)
@@ -2442,7 +2405,6 @@ export class CompanyCashFlowServiceProxy {
      * @return Success
      */
     getCurrentBalance(companyId: number | undefined, currencyId: number | undefined, fromDate: string | undefined, toDate: string | undefined): Observable<CurrentCompanyBalanceDto> {
-    getCurrentBalance(companyId: number | undefined, currencyId: number | undefined, fromDate: string | undefined, toDate: string | undefined): Observable<CurrentCompanyBalanceDto> {
         let url_ = this.baseUrl + "/api/services/app/CompanyCashFlow/GetCurrentBalance?";
         if (companyId === null)
             throw new Error("The parameter 'companyId' cannot be null.");
@@ -2455,13 +2417,7 @@ export class CompanyCashFlowServiceProxy {
         if (fromDate === null)
             throw new Error("The parameter 'fromDate' cannot be null.");
         else if (fromDate !== undefined)
-        if (fromDate === null)
-            throw new Error("The parameter 'fromDate' cannot be null.");
-        else if (fromDate !== undefined)
             url_ += "FromDate=" + encodeURIComponent("" + fromDate) + "&";
-        if (toDate === null)
-            throw new Error("The parameter 'toDate' cannot be null.");
-        else if (toDate !== undefined)
         if (toDate === null)
             throw new Error("The parameter 'toDate' cannot be null.");
         else if (toDate !== undefined)
@@ -3513,11 +3469,7 @@ export class CustomerServiceProxy {
      * @return Success
      */
     getByName(symbol: string | undefined): Observable<CustomerDto> {
-    getByName(symbol: string | undefined): Observable<CustomerDto> {
         let url_ = this.baseUrl + "/api/services/app/Customer/GetByName?";
-        if (symbol === null)
-            throw new Error("The parameter 'symbol' cannot be null.");
-        else if (symbol !== undefined)
         if (symbol === null)
             throw new Error("The parameter 'symbol' cannot be null.");
         else if (symbol !== undefined)
@@ -4615,6 +4567,76 @@ export class ExpenseServiceProxy {
 }
 
 @Injectable()
+export class ExternalTransferServiceProxy {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
+    }
+
+    /**
+     * @return Success
+     */
+    getAll(): Observable<ExternalTransferDto[]> {
+        let url_ = this.baseUrl + "/api/services/app/ExternalTransfer/GetAll";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "text/plain"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetAll(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetAll(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<ExternalTransferDto[]>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<ExternalTransferDto[]>;
+        }));
+    }
+
+    protected processGetAll(response: HttpResponseBase): Observable<ExternalTransferDto[]> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200.push(ExternalTransferDto.fromJS(item));
+            }
+            else {
+                result200 = <any>null;
+            }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<ExternalTransferDto[]>(null as any);
+    }
+}
+
+@Injectable()
 export class GeneralSettingServiceProxy {
     private http: HttpClient;
     private baseUrl: string;
@@ -5266,11 +5288,7 @@ export class IncomeTransferServiceProxy {
      * @return Success
      */
     getForEdit(fromDate: string | undefined, toDate: string | undefined, companyId: number | undefined, number: number | undefined): Observable<IncomeTransferDto[]> {
-    getForEdit(fromDate: string | undefined, toDate: string | undefined, companyId: number | undefined, number: number | undefined): Observable<IncomeTransferDto[]> {
         let url_ = this.baseUrl + "/api/services/app/IncomeTransfer/GetForEdit?";
-        if (fromDate === null)
-            throw new Error("The parameter 'fromDate' cannot be null.");
-        else if (fromDate !== undefined)
         if (fromDate === null)
             throw new Error("The parameter 'fromDate' cannot be null.");
         else if (fromDate !== undefined)
@@ -5278,20 +5296,11 @@ export class IncomeTransferServiceProxy {
         if (toDate === null)
             throw new Error("The parameter 'toDate' cannot be null.");
         else if (toDate !== undefined)
-        if (toDate === null)
-            throw new Error("The parameter 'toDate' cannot be null.");
-        else if (toDate !== undefined)
             url_ += "ToDate=" + encodeURIComponent("" + toDate) + "&";
         if (companyId === null)
             throw new Error("The parameter 'companyId' cannot be null.");
         else if (companyId !== undefined)
-        if (companyId === null)
-            throw new Error("The parameter 'companyId' cannot be null.");
-        else if (companyId !== undefined)
             url_ += "CompanyId=" + encodeURIComponent("" + companyId) + "&";
-        if (number === null)
-            throw new Error("The parameter 'number' cannot be null.");
-        else if (number !== undefined)
         if (number === null)
             throw new Error("The parameter 'number' cannot be null.");
         else if (number !== undefined)
@@ -5583,7 +5592,7 @@ export class IncomeTransferDetailServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getDirectTransferForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getDirectTransferForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/IncomeTransferDetail/GetDirectTransferForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -5824,11 +5833,7 @@ export class IncomeTransferDetailServiceProxy {
      * @return Success
      */
     summary(date: string | undefined): Observable<SummaryCashFlowDto[]> {
-    summary(date: string | undefined): Observable<SummaryCashFlowDto[]> {
         let url_ = this.baseUrl + "/api/services/app/IncomeTransferDetail/Summary?";
-        if (date === null)
-            throw new Error("The parameter 'date' cannot be null.");
-        else if (date !== undefined)
         if (date === null)
             throw new Error("The parameter 'date' cannot be null.");
         else if (date !== undefined)
@@ -6207,11 +6212,7 @@ export class MigrationServiceProxy {
      * @return Success
      */
     migrate(name: string | undefined): Observable<MigrationOutput> {
-    migrate(name: string | undefined): Observable<MigrationOutput> {
         let url_ = this.baseUrl + "/api/Migration/Migrate?";
-        if (name === null)
-            throw new Error("The parameter 'name' cannot be null.");
-        else if (name !== undefined)
         if (name === null)
             throw new Error("The parameter 'name' cannot be null.");
         else if (name !== undefined)
@@ -6267,11 +6268,7 @@ export class MigrationServiceProxy {
      * @return Success
      */
     clearDatabase(name: string | undefined): Observable<ClearDatabaseOutput> {
-    clearDatabase(name: string | undefined): Observable<ClearDatabaseOutput> {
         let url_ = this.baseUrl + "/api/Migration/ClearDatabase?";
-        if (name === null)
-            throw new Error("The parameter 'name' cannot be null.");
-        else if (name !== undefined)
         if (name === null)
             throw new Error("The parameter 'name' cannot be null.");
         else if (name !== undefined)
@@ -6512,7 +6509,6 @@ export class OutgoingTransferServiceProxy {
      * @return Success
      */
     get(number: number | undefined, fromDate: string | undefined, toDate: string | undefined, paymentType: string | undefined, countryId: string | undefined, clientId: string | undefined, companyId: string | undefined, beneficiary: string | undefined, beneficiaryAddress: string | undefined, sender: string | undefined): Observable<OutgoingTransferDto[]> {
-    get(number: number | undefined, fromDate: string | undefined, toDate: string | undefined, paymentType: string | undefined, countryId: string | undefined, clientId: string | undefined, companyId: string | undefined, beneficiary: string | undefined, beneficiaryAddress: string | undefined, sender: string | undefined): Observable<OutgoingTransferDto[]> {
         let url_ = this.baseUrl + "/api/services/app/OutgoingTransfer/Get?";
         if (number === null)
             throw new Error("The parameter 'number' cannot be null.");
@@ -6521,13 +6517,7 @@ export class OutgoingTransferServiceProxy {
         if (fromDate === null)
             throw new Error("The parameter 'fromDate' cannot be null.");
         else if (fromDate !== undefined)
-        if (fromDate === null)
-            throw new Error("The parameter 'fromDate' cannot be null.");
-        else if (fromDate !== undefined)
             url_ += "FromDate=" + encodeURIComponent("" + fromDate) + "&";
-        if (toDate === null)
-            throw new Error("The parameter 'toDate' cannot be null.");
-        else if (toDate !== undefined)
         if (toDate === null)
             throw new Error("The parameter 'toDate' cannot be null.");
         else if (toDate !== undefined)
@@ -6535,13 +6525,7 @@ export class OutgoingTransferServiceProxy {
         if (paymentType === null)
             throw new Error("The parameter 'paymentType' cannot be null.");
         else if (paymentType !== undefined)
-        if (paymentType === null)
-            throw new Error("The parameter 'paymentType' cannot be null.");
-        else if (paymentType !== undefined)
             url_ += "PaymentType=" + encodeURIComponent("" + paymentType) + "&";
-        if (countryId === null)
-            throw new Error("The parameter 'countryId' cannot be null.");
-        else if (countryId !== undefined)
         if (countryId === null)
             throw new Error("The parameter 'countryId' cannot be null.");
         else if (countryId !== undefined)
@@ -6549,13 +6533,7 @@ export class OutgoingTransferServiceProxy {
         if (clientId === null)
             throw new Error("The parameter 'clientId' cannot be null.");
         else if (clientId !== undefined)
-        if (clientId === null)
-            throw new Error("The parameter 'clientId' cannot be null.");
-        else if (clientId !== undefined)
             url_ += "ClientId=" + encodeURIComponent("" + clientId) + "&";
-        if (companyId === null)
-            throw new Error("The parameter 'companyId' cannot be null.");
-        else if (companyId !== undefined)
         if (companyId === null)
             throw new Error("The parameter 'companyId' cannot be null.");
         else if (companyId !== undefined)
@@ -6563,20 +6541,11 @@ export class OutgoingTransferServiceProxy {
         if (beneficiary === null)
             throw new Error("The parameter 'beneficiary' cannot be null.");
         else if (beneficiary !== undefined)
-        if (beneficiary === null)
-            throw new Error("The parameter 'beneficiary' cannot be null.");
-        else if (beneficiary !== undefined)
             url_ += "Beneficiary=" + encodeURIComponent("" + beneficiary) + "&";
         if (beneficiaryAddress === null)
             throw new Error("The parameter 'beneficiaryAddress' cannot be null.");
         else if (beneficiaryAddress !== undefined)
-        if (beneficiaryAddress === null)
-            throw new Error("The parameter 'beneficiaryAddress' cannot be null.");
-        else if (beneficiaryAddress !== undefined)
             url_ += "BeneficiaryAddress=" + encodeURIComponent("" + beneficiaryAddress) + "&";
-        if (sender === null)
-            throw new Error("The parameter 'sender' cannot be null.");
-        else if (sender !== undefined)
         if (sender === null)
             throw new Error("The parameter 'sender' cannot be null.");
         else if (sender !== undefined)
@@ -6648,7 +6617,6 @@ export class OutgoingTransferServiceProxy {
      * @return Success
      */
     getForStatment(number: number | undefined, fromDate: string | undefined, toDate: string | undefined, paymentType: string | undefined, countryId: string | undefined, clientId: string | undefined, companyId: string | undefined, beneficiary: string | undefined, beneficiaryAddress: string | undefined, sender: string | undefined): Observable<ReadOutgoingTransferDto[]> {
-    getForStatment(number: number | undefined, fromDate: string | undefined, toDate: string | undefined, paymentType: string | undefined, countryId: string | undefined, clientId: string | undefined, companyId: string | undefined, beneficiary: string | undefined, beneficiaryAddress: string | undefined, sender: string | undefined): Observable<ReadOutgoingTransferDto[]> {
         let url_ = this.baseUrl + "/api/services/app/OutgoingTransfer/GetForStatment?";
         if (number === null)
             throw new Error("The parameter 'number' cannot be null.");
@@ -6657,13 +6625,7 @@ export class OutgoingTransferServiceProxy {
         if (fromDate === null)
             throw new Error("The parameter 'fromDate' cannot be null.");
         else if (fromDate !== undefined)
-        if (fromDate === null)
-            throw new Error("The parameter 'fromDate' cannot be null.");
-        else if (fromDate !== undefined)
             url_ += "FromDate=" + encodeURIComponent("" + fromDate) + "&";
-        if (toDate === null)
-            throw new Error("The parameter 'toDate' cannot be null.");
-        else if (toDate !== undefined)
         if (toDate === null)
             throw new Error("The parameter 'toDate' cannot be null.");
         else if (toDate !== undefined)
@@ -6671,13 +6633,7 @@ export class OutgoingTransferServiceProxy {
         if (paymentType === null)
             throw new Error("The parameter 'paymentType' cannot be null.");
         else if (paymentType !== undefined)
-        if (paymentType === null)
-            throw new Error("The parameter 'paymentType' cannot be null.");
-        else if (paymentType !== undefined)
             url_ += "PaymentType=" + encodeURIComponent("" + paymentType) + "&";
-        if (countryId === null)
-            throw new Error("The parameter 'countryId' cannot be null.");
-        else if (countryId !== undefined)
         if (countryId === null)
             throw new Error("The parameter 'countryId' cannot be null.");
         else if (countryId !== undefined)
@@ -6685,13 +6641,7 @@ export class OutgoingTransferServiceProxy {
         if (clientId === null)
             throw new Error("The parameter 'clientId' cannot be null.");
         else if (clientId !== undefined)
-        if (clientId === null)
-            throw new Error("The parameter 'clientId' cannot be null.");
-        else if (clientId !== undefined)
             url_ += "ClientId=" + encodeURIComponent("" + clientId) + "&";
-        if (companyId === null)
-            throw new Error("The parameter 'companyId' cannot be null.");
-        else if (companyId !== undefined)
         if (companyId === null)
             throw new Error("The parameter 'companyId' cannot be null.");
         else if (companyId !== undefined)
@@ -6699,20 +6649,11 @@ export class OutgoingTransferServiceProxy {
         if (beneficiary === null)
             throw new Error("The parameter 'beneficiary' cannot be null.");
         else if (beneficiary !== undefined)
-        if (beneficiary === null)
-            throw new Error("The parameter 'beneficiary' cannot be null.");
-        else if (beneficiary !== undefined)
             url_ += "Beneficiary=" + encodeURIComponent("" + beneficiary) + "&";
         if (beneficiaryAddress === null)
             throw new Error("The parameter 'beneficiaryAddress' cannot be null.");
         else if (beneficiaryAddress !== undefined)
-        if (beneficiaryAddress === null)
-            throw new Error("The parameter 'beneficiaryAddress' cannot be null.");
-        else if (beneficiaryAddress !== undefined)
             url_ += "BeneficiaryAddress=" + encodeURIComponent("" + beneficiaryAddress) + "&";
-        if (sender === null)
-            throw new Error("The parameter 'sender' cannot be null.");
-        else if (sender !== undefined)
         if (sender === null)
             throw new Error("The parameter 'sender' cannot be null.");
         else if (sender !== undefined)
@@ -6886,7 +6827,7 @@ export class OutgoingTransferServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/OutgoingTransfer/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -7044,6 +6985,116 @@ export class OutgoingTransferServiceProxy {
             }));
         }
         return _observableOf<number>(null as any);
+    }
+
+    /**
+     * @param body (optional) 
+     * @return Success
+     */
+    setAsCopied(body: number[] | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/OutgoingTransfer/SetAsCopied";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json-patch+json",
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processSetAsCopied(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processSetAsCopied(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<void>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<void>;
+        }));
+    }
+
+    protected processSetAsCopied(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return _observableOf<void>(null as any);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<void>(null as any);
+    }
+
+    /**
+     * @return Success
+     */
+    getNotCopiedCount(): Observable<NotCopiedForCompany[]> {
+        let url_ = this.baseUrl + "/api/services/app/OutgoingTransfer/GetNotCopiedCount";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "text/plain"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetNotCopiedCount(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetNotCopiedCount(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<NotCopiedForCompany[]>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<NotCopiedForCompany[]>;
+        }));
+    }
+
+    protected processGetNotCopiedCount(response: HttpResponseBase): Observable<NotCopiedForCompany[]> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200.push(NotCopiedForCompany.fromJS(item));
+            }
+            else {
+                result200 = <any>null;
+            }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<NotCopiedForCompany[]>(null as any);
     }
 }
 
@@ -7781,11 +7832,7 @@ export class RoleServiceProxy {
      * @return Success
      */
     getRoles(permission: string | undefined): Observable<RoleListDtoListResultDto> {
-    getRoles(permission: string | undefined): Observable<RoleListDtoListResultDto> {
         let url_ = this.baseUrl + "/api/services/app/Role/GetRoles?";
-        if (permission === null)
-            throw new Error("The parameter 'permission' cannot be null.");
-        else if (permission !== undefined)
         if (permission === null)
             throw new Error("The parameter 'permission' cannot be null.");
         else if (permission !== undefined)
@@ -8055,7 +8102,7 @@ export class RoleServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/Role/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -8228,11 +8275,7 @@ export class RoleServiceProxy {
      * @return Success
      */
     getAll(keyword: string | undefined, skipCount: number | undefined, maxResultCount: number | undefined): Observable<RoleDtoPagedResultDto> {
-    getAll(keyword: string | undefined, skipCount: number | undefined, maxResultCount: number | undefined): Observable<RoleDtoPagedResultDto> {
         let url_ = this.baseUrl + "/api/services/app/Role/GetAll?";
-        if (keyword === null)
-            throw new Error("The parameter 'keyword' cannot be null.");
-        else if (keyword !== undefined)
         if (keyword === null)
             throw new Error("The parameter 'keyword' cannot be null.");
         else if (keyword !== undefined)
@@ -8352,65 +8395,6 @@ export class SessionServiceProxy {
             }));
         }
         return _observableOf<GetCurrentLoginInformationsOutput>(null as any);
-    }
-}
-
-@Injectable()
-export class StatementPdfGeneratorServiceProxy {
-    private http: HttpClient;
-    private baseUrl: string;
-    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
-
-    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
-        this.http = http;
-        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
-    }
-
-    /**
-     * @return Success
-     */
-    totalClientBalanceStatement(): Observable<void> {
-        let url_ = this.baseUrl + "/api/StatementPdfGenerator/TotalClientBalanceStatement";
-        url_ = url_.replace(/[?&]$/, "");
-
-        let options_ : any = {
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-            })
-        };
-
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processTotalClientBalanceStatement(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processTotalClientBalanceStatement(response_ as any);
-                } catch (e) {
-                    return _observableThrow(e) as any as Observable<void>;
-                }
-            } else
-                return _observableThrow(response_) as any as Observable<void>;
-        }));
-    }
-
-    protected processTotalClientBalanceStatement(response: HttpResponseBase): Observable<void> {
-        const status = response.status;
-        const responseBlob =
-            response instanceof HttpResponse ? response.body :
-            (response as any).error instanceof Blob ? (response as any).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
-        if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(null as any);
-            }));
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf<void>(null as any);
     }
 }
 
@@ -8597,18 +8581,11 @@ export class TenantServiceProxy {
      * @return Success
      */
     getAll(keyword: string | undefined, isActive: boolean | undefined, skipCount: number | undefined, maxResultCount: number | undefined): Observable<TenantDtoPagedResultDto> {
-    getAll(keyword: string | undefined, isActive: boolean | undefined, skipCount: number | undefined, maxResultCount: number | undefined): Observable<TenantDtoPagedResultDto> {
         let url_ = this.baseUrl + "/api/services/app/Tenant/GetAll?";
         if (keyword === null)
             throw new Error("The parameter 'keyword' cannot be null.");
         else if (keyword !== undefined)
-        if (keyword === null)
-            throw new Error("The parameter 'keyword' cannot be null.");
-        else if (keyword !== undefined)
             url_ += "Keyword=" + encodeURIComponent("" + keyword) + "&";
-        if (isActive === null)
-            throw new Error("The parameter 'isActive' cannot be null.");
-        else if (isActive !== undefined)
         if (isActive === null)
             throw new Error("The parameter 'isActive' cannot be null.");
         else if (isActive !== undefined)
@@ -9047,7 +9024,6 @@ export class TreasuryActionServiceProxy {
      * @return Success
      */
     get(number: number | undefined, actionType: number | undefined, fromDate: string | undefined, toDate: string | undefined, mainAccount: number | undefined, currencyId: number | undefined, mainAccountCompanyId: number | undefined, mainAccountClientId: number | undefined, expenseId: number | undefined, incomeId: number | undefined, incomeTransferDetailId: number | undefined): Observable<TreasuryActionDto[]> {
-    get(number: number | undefined, actionType: number | undefined, fromDate: string | undefined, toDate: string | undefined, mainAccount: number | undefined, currencyId: number | undefined, mainAccountCompanyId: number | undefined, mainAccountClientId: number | undefined, expenseId: number | undefined, incomeId: number | undefined, incomeTransferDetailId: number | undefined): Observable<TreasuryActionDto[]> {
         let url_ = this.baseUrl + "/api/services/app/TreasuryAction/Get?";
         if (number === null)
             throw new Error("The parameter 'number' cannot be null.");
@@ -9060,13 +9036,7 @@ export class TreasuryActionServiceProxy {
         if (fromDate === null)
             throw new Error("The parameter 'fromDate' cannot be null.");
         else if (fromDate !== undefined)
-        if (fromDate === null)
-            throw new Error("The parameter 'fromDate' cannot be null.");
-        else if (fromDate !== undefined)
             url_ += "FromDate=" + encodeURIComponent("" + fromDate) + "&";
-        if (toDate === null)
-            throw new Error("The parameter 'toDate' cannot be null.");
-        else if (toDate !== undefined)
         if (toDate === null)
             throw new Error("The parameter 'toDate' cannot be null.");
         else if (toDate !== undefined)
@@ -9078,13 +9048,7 @@ export class TreasuryActionServiceProxy {
         if (currencyId === null)
             throw new Error("The parameter 'currencyId' cannot be null.");
         else if (currencyId !== undefined)
-        if (currencyId === null)
-            throw new Error("The parameter 'currencyId' cannot be null.");
-        else if (currencyId !== undefined)
             url_ += "CurrencyId=" + encodeURIComponent("" + currencyId) + "&";
-        if (mainAccountCompanyId === null)
-            throw new Error("The parameter 'mainAccountCompanyId' cannot be null.");
-        else if (mainAccountCompanyId !== undefined)
         if (mainAccountCompanyId === null)
             throw new Error("The parameter 'mainAccountCompanyId' cannot be null.");
         else if (mainAccountCompanyId !== undefined)
@@ -9092,13 +9056,7 @@ export class TreasuryActionServiceProxy {
         if (mainAccountClientId === null)
             throw new Error("The parameter 'mainAccountClientId' cannot be null.");
         else if (mainAccountClientId !== undefined)
-        if (mainAccountClientId === null)
-            throw new Error("The parameter 'mainAccountClientId' cannot be null.");
-        else if (mainAccountClientId !== undefined)
             url_ += "MainAccountClientId=" + encodeURIComponent("" + mainAccountClientId) + "&";
-        if (expenseId === null)
-            throw new Error("The parameter 'expenseId' cannot be null.");
-        else if (expenseId !== undefined)
         if (expenseId === null)
             throw new Error("The parameter 'expenseId' cannot be null.");
         else if (expenseId !== undefined)
@@ -9106,13 +9064,7 @@ export class TreasuryActionServiceProxy {
         if (incomeId === null)
             throw new Error("The parameter 'incomeId' cannot be null.");
         else if (incomeId !== undefined)
-        if (incomeId === null)
-            throw new Error("The parameter 'incomeId' cannot be null.");
-        else if (incomeId !== undefined)
             url_ += "IncomeId=" + encodeURIComponent("" + incomeId) + "&";
-        if (incomeTransferDetailId === null)
-            throw new Error("The parameter 'incomeTransferDetailId' cannot be null.");
-        else if (incomeTransferDetailId !== undefined)
         if (incomeTransferDetailId === null)
             throw new Error("The parameter 'incomeTransferDetailId' cannot be null.");
         else if (incomeTransferDetailId !== undefined)
@@ -9517,7 +9469,6 @@ export class TreasuryActionServiceProxy {
      * @return Success
      */
     getFroStatment(actionType: number | undefined, fromDate: string | undefined, toDate: string | undefined, mainAccount: number | undefined, mainAccountCompanyId: number | undefined, mainAccountClientId: number | undefined, expenseId: number | undefined, incomeId: number | undefined, beneficiaryId: number | undefined): Observable<TreasuryActionStatementOutputDto[]> {
-    getFroStatment(actionType: number | undefined, fromDate: string | undefined, toDate: string | undefined, mainAccount: number | undefined, mainAccountCompanyId: number | undefined, mainAccountClientId: number | undefined, expenseId: number | undefined, incomeId: number | undefined, beneficiaryId: number | undefined): Observable<TreasuryActionStatementOutputDto[]> {
         let url_ = this.baseUrl + "/api/services/app/TreasuryAction/GetFroStatment?";
         if (actionType === null)
             throw new Error("The parameter 'actionType' cannot be null.");
@@ -9526,13 +9477,7 @@ export class TreasuryActionServiceProxy {
         if (fromDate === null)
             throw new Error("The parameter 'fromDate' cannot be null.");
         else if (fromDate !== undefined)
-        if (fromDate === null)
-            throw new Error("The parameter 'fromDate' cannot be null.");
-        else if (fromDate !== undefined)
             url_ += "FromDate=" + encodeURIComponent("" + fromDate) + "&";
-        if (toDate === null)
-            throw new Error("The parameter 'toDate' cannot be null.");
-        else if (toDate !== undefined)
         if (toDate === null)
             throw new Error("The parameter 'toDate' cannot be null.");
         else if (toDate !== undefined)
@@ -9544,13 +9489,7 @@ export class TreasuryActionServiceProxy {
         if (mainAccountCompanyId === null)
             throw new Error("The parameter 'mainAccountCompanyId' cannot be null.");
         else if (mainAccountCompanyId !== undefined)
-        if (mainAccountCompanyId === null)
-            throw new Error("The parameter 'mainAccountCompanyId' cannot be null.");
-        else if (mainAccountCompanyId !== undefined)
             url_ += "MainAccountCompanyId=" + encodeURIComponent("" + mainAccountCompanyId) + "&";
-        if (mainAccountClientId === null)
-            throw new Error("The parameter 'mainAccountClientId' cannot be null.");
-        else if (mainAccountClientId !== undefined)
         if (mainAccountClientId === null)
             throw new Error("The parameter 'mainAccountClientId' cannot be null.");
         else if (mainAccountClientId !== undefined)
@@ -9558,20 +9497,11 @@ export class TreasuryActionServiceProxy {
         if (expenseId === null)
             throw new Error("The parameter 'expenseId' cannot be null.");
         else if (expenseId !== undefined)
-        if (expenseId === null)
-            throw new Error("The parameter 'expenseId' cannot be null.");
-        else if (expenseId !== undefined)
             url_ += "ExpenseId=" + encodeURIComponent("" + expenseId) + "&";
         if (incomeId === null)
             throw new Error("The parameter 'incomeId' cannot be null.");
         else if (incomeId !== undefined)
-        if (incomeId === null)
-            throw new Error("The parameter 'incomeId' cannot be null.");
-        else if (incomeId !== undefined)
             url_ += "IncomeId=" + encodeURIComponent("" + incomeId) + "&";
-        if (beneficiaryId === null)
-            throw new Error("The parameter 'beneficiaryId' cannot be null.");
-        else if (beneficiaryId !== undefined)
         if (beneficiaryId === null)
             throw new Error("The parameter 'beneficiaryId' cannot be null.");
         else if (beneficiaryId !== undefined)
@@ -9957,7 +9887,7 @@ export class TreasuryCashFlowServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/TreasuryCashFlow/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -10014,11 +9944,7 @@ export class TreasuryCashFlowServiceProxy {
      * @return Success
      */
     summary(date: string | undefined): Observable<SummaryCashFlowDto[]> {
-    summary(date: string | undefined): Observable<SummaryCashFlowDto[]> {
         let url_ = this.baseUrl + "/api/services/app/TreasuryCashFlow/Summary?";
-        if (date === null)
-            throw new Error("The parameter 'date' cannot be null.");
-        else if (date !== undefined)
         if (date === null)
             throw new Error("The parameter 'date' cannot be null.");
         else if (date !== undefined)
@@ -10473,7 +10399,7 @@ export class UserServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    getForGrid(body: DataManagerRequest | undefined): Observable<ReadGrudDto> {
+    getForGrid(body: BWireDataManagerRequest | undefined): Observable<ReadGrudDto> {
         let url_ = this.baseUrl + "/api/services/app/User/GetForGrid";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -10647,18 +10573,11 @@ export class UserServiceProxy {
      * @return Success
      */
     getAll(keyword: string | undefined, isActive: boolean | undefined, skipCount: number | undefined, maxResultCount: number | undefined): Observable<UserDtoPagedResultDto> {
-    getAll(keyword: string | undefined, isActive: boolean | undefined, skipCount: number | undefined, maxResultCount: number | undefined): Observable<UserDtoPagedResultDto> {
         let url_ = this.baseUrl + "/api/services/app/User/GetAll?";
         if (keyword === null)
             throw new Error("The parameter 'keyword' cannot be null.");
         else if (keyword !== undefined)
-        if (keyword === null)
-            throw new Error("The parameter 'keyword' cannot be null.");
-        else if (keyword !== undefined)
             url_ += "Keyword=" + encodeURIComponent("" + keyword) + "&";
-        if (isActive === null)
-            throw new Error("The parameter 'isActive' cannot be null.");
-        else if (isActive !== undefined)
         if (isActive === null)
             throw new Error("The parameter 'isActive' cannot be null.");
         else if (isActive !== undefined)
@@ -10721,11 +10640,7 @@ export class UserServiceProxy {
 export class Aggregate implements IAggregate {
     field: string | undefined;
     type: string | undefined;
-export class Aggregate implements IAggregate {
-    field: string | undefined;
-    type: string | undefined;
 
-    constructor(data?: IAggregate) {
     constructor(data?: IAggregate) {
         if (data) {
             for (var property in data) {
@@ -10739,15 +10654,11 @@ export class Aggregate implements IAggregate {
         if (_data) {
             this.field = _data["field"];
             this.type = _data["type"];
-            this.field = _data["field"];
-            this.type = _data["type"];
         }
     }
 
     static fromJS(data: any): Aggregate {
-    static fromJS(data: any): Aggregate {
         data = typeof data === 'object' ? data : {};
-        let result = new Aggregate();
         let result = new Aggregate();
         result.init(data);
         return result;
@@ -10757,15 +10668,11 @@ export class Aggregate implements IAggregate {
         data = typeof data === 'object' ? data : {};
         data["field"] = this.field;
         data["type"] = this.type;
-        data["field"] = this.field;
-        data["type"] = this.type;
         return data;
     }
 
     clone(): Aggregate {
-    clone(): Aggregate {
         const json = this.toJSON();
-        let result = new Aggregate();
         let result = new Aggregate();
         result.init(json);
         return result;
@@ -10775,21 +10682,13 @@ export class Aggregate implements IAggregate {
 export interface IAggregate {
     field: string | undefined;
     type: string | undefined;
-export interface IAggregate {
-    field: string | undefined;
-    type: string | undefined;
 }
 
 export class ApplicationInfoDto implements IApplicationInfoDto {
     version: string | undefined;
     releaseDate: moment.Moment;
     features: { [key: string]: boolean; } | undefined;
-export class ApplicationInfoDto implements IApplicationInfoDto {
-    version: string | undefined;
-    releaseDate: moment.Moment;
-    features: { [key: string]: boolean; } | undefined;
 
-    constructor(data?: IApplicationInfoDto) {
     constructor(data?: IApplicationInfoDto) {
         if (data) {
             for (var property in data) {
@@ -10811,22 +10710,10 @@ export class ApplicationInfoDto implements IApplicationInfoDto {
                 }
             }
         }
-            this.version = _data["version"];
-            this.releaseDate = _data["releaseDate"] ? moment(_data["releaseDate"].toString()) : <any>undefined;
-            if (_data["features"]) {
-                this.features = {} as any;
-                for (let key in _data["features"]) {
-                    if (_data["features"].hasOwnProperty(key))
-                        (<any>this.features)[key] = _data["features"][key];
-                }
-            }
-        }
     }
 
     static fromJS(data: any): ApplicationInfoDto {
-    static fromJS(data: any): ApplicationInfoDto {
         data = typeof data === 'object' ? data : {};
-        let result = new ApplicationInfoDto();
         let result = new ApplicationInfoDto();
         result.init(data);
         return result;
@@ -10843,22 +10730,11 @@ export class ApplicationInfoDto implements IApplicationInfoDto {
                     (<any>data["features"])[key] = (<any>this.features)[key];
             }
         }
-        data["version"] = this.version;
-        data["releaseDate"] = this.releaseDate ? this.releaseDate.toISOString() : <any>undefined;
-        if (this.features) {
-            data["features"] = {};
-            for (let key in this.features) {
-                if (this.features.hasOwnProperty(key))
-                    (<any>data["features"])[key] = (<any>this.features)[key];
-            }
-        }
         return data;
     }
 
     clone(): ApplicationInfoDto {
-    clone(): ApplicationInfoDto {
         const json = this.toJSON();
-        let result = new ApplicationInfoDto();
         let result = new ApplicationInfoDto();
         result.init(json);
         return result;
@@ -10869,21 +10745,13 @@ export interface IApplicationInfoDto {
     version: string | undefined;
     releaseDate: moment.Moment;
     features: { [key: string]: boolean; } | undefined;
-export interface IApplicationInfoDto {
-    version: string | undefined;
-    releaseDate: moment.Moment;
-    features: { [key: string]: boolean; } | undefined;
 }
 
-export class AuthenticateModel implements IAuthenticateModel {
-    userNameOrEmailAddress: string;
 export class AuthenticateModel implements IAuthenticateModel {
     userNameOrEmailAddress: string;
     password: string;
     rememberClient: boolean;
-    rememberClient: boolean;
 
-    constructor(data?: IAuthenticateModel) {
     constructor(data?: IAuthenticateModel) {
         if (data) {
             for (var property in data) {
@@ -10895,18 +10763,14 @@ export class AuthenticateModel implements IAuthenticateModel {
 
     init(_data?: any) {
         if (_data) {
-            this.userNameOrEmailAddress = _data["userNameOrEmailAddress"];
             this.userNameOrEmailAddress = _data["userNameOrEmailAddress"];
             this.password = _data["password"];
             this.rememberClient = _data["rememberClient"];
-            this.rememberClient = _data["rememberClient"];
         }
     }
 
     static fromJS(data: any): AuthenticateModel {
-    static fromJS(data: any): AuthenticateModel {
         data = typeof data === 'object' ? data : {};
-        let result = new AuthenticateModel();
         let result = new AuthenticateModel();
         result.init(data);
         return result;
@@ -10915,17 +10779,13 @@ export class AuthenticateModel implements IAuthenticateModel {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["userNameOrEmailAddress"] = this.userNameOrEmailAddress;
-        data["userNameOrEmailAddress"] = this.userNameOrEmailAddress;
         data["password"] = this.password;
-        data["rememberClient"] = this.rememberClient;
         data["rememberClient"] = this.rememberClient;
         return data;
     }
 
     clone(): AuthenticateModel {
-    clone(): AuthenticateModel {
         const json = this.toJSON();
-        let result = new AuthenticateModel();
         let result = new AuthenticateModel();
         result.init(json);
         return result;
@@ -10934,10 +10794,7 @@ export class AuthenticateModel implements IAuthenticateModel {
 
 export interface IAuthenticateModel {
     userNameOrEmailAddress: string;
-export interface IAuthenticateModel {
-    userNameOrEmailAddress: string;
     password: string;
-    rememberClient: boolean;
     rememberClient: boolean;
 }
 
@@ -10946,13 +10803,7 @@ export class AuthenticateResultModel implements IAuthenticateResultModel {
     encryptedAccessToken: string | undefined;
     expireInSeconds: number;
     userId: number;
-export class AuthenticateResultModel implements IAuthenticateResultModel {
-    accessToken: string | undefined;
-    encryptedAccessToken: string | undefined;
-    expireInSeconds: number;
-    userId: number;
 
-    constructor(data?: IAuthenticateResultModel) {
     constructor(data?: IAuthenticateResultModel) {
         if (data) {
             for (var property in data) {
@@ -10968,17 +10819,11 @@ export class AuthenticateResultModel implements IAuthenticateResultModel {
             this.encryptedAccessToken = _data["encryptedAccessToken"];
             this.expireInSeconds = _data["expireInSeconds"];
             this.userId = _data["userId"];
-            this.accessToken = _data["accessToken"];
-            this.encryptedAccessToken = _data["encryptedAccessToken"];
-            this.expireInSeconds = _data["expireInSeconds"];
-            this.userId = _data["userId"];
         }
     }
 
     static fromJS(data: any): AuthenticateResultModel {
-    static fromJS(data: any): AuthenticateResultModel {
         data = typeof data === 'object' ? data : {};
-        let result = new AuthenticateResultModel();
         let result = new AuthenticateResultModel();
         result.init(data);
         return result;
@@ -10990,17 +10835,11 @@ export class AuthenticateResultModel implements IAuthenticateResultModel {
         data["encryptedAccessToken"] = this.encryptedAccessToken;
         data["expireInSeconds"] = this.expireInSeconds;
         data["userId"] = this.userId;
-        data["accessToken"] = this.accessToken;
-        data["encryptedAccessToken"] = this.encryptedAccessToken;
-        data["expireInSeconds"] = this.expireInSeconds;
-        data["userId"] = this.userId;
         return data;
     }
 
     clone(): AuthenticateResultModel {
-    clone(): AuthenticateResultModel {
         const json = this.toJSON();
-        let result = new AuthenticateResultModel();
         let result = new AuthenticateResultModel();
         result.init(json);
         return result;
@@ -11012,11 +10851,161 @@ export interface IAuthenticateResultModel {
     encryptedAccessToken: string | undefined;
     expireInSeconds: number;
     userId: number;
-export interface IAuthenticateResultModel {
-    accessToken: string | undefined;
-    encryptedAccessToken: string | undefined;
-    expireInSeconds: number;
-    userId: number;
+}
+
+export class BWireDataManagerRequest implements IBWireDataManagerRequest {
+    skip: number;
+    take: number;
+    antiForgery: string | undefined;
+    requiresCounts: boolean;
+    table: string | undefined;
+    group: string[] | undefined;
+    select: string[] | undefined;
+    expand: string[] | undefined;
+    sorted: Sort[] | undefined;
+    search: SearchFilter[] | undefined;
+    where: WhereFilter[] | undefined;
+    aggregates: Aggregate[] | undefined;
+    onDemandGroupInfo: OnDemandGroupInfo;
+    isLazyLoad: boolean;
+    tenantId: number | undefined;
+
+    constructor(data?: IBWireDataManagerRequest) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.skip = _data["skip"];
+            this.take = _data["take"];
+            this.antiForgery = _data["antiForgery"];
+            this.requiresCounts = _data["requiresCounts"];
+            this.table = _data["table"];
+            if (Array.isArray(_data["group"])) {
+                this.group = [] as any;
+                for (let item of _data["group"])
+                    this.group.push(item);
+            }
+            if (Array.isArray(_data["select"])) {
+                this.select = [] as any;
+                for (let item of _data["select"])
+                    this.select.push(item);
+            }
+            if (Array.isArray(_data["expand"])) {
+                this.expand = [] as any;
+                for (let item of _data["expand"])
+                    this.expand.push(item);
+            }
+            if (Array.isArray(_data["sorted"])) {
+                this.sorted = [] as any;
+                for (let item of _data["sorted"])
+                    this.sorted.push(Sort.fromJS(item));
+            }
+            if (Array.isArray(_data["search"])) {
+                this.search = [] as any;
+                for (let item of _data["search"])
+                    this.search.push(SearchFilter.fromJS(item));
+            }
+            if (Array.isArray(_data["where"])) {
+                this.where = [] as any;
+                for (let item of _data["where"])
+                    this.where.push(WhereFilter.fromJS(item));
+            }
+            if (Array.isArray(_data["aggregates"])) {
+                this.aggregates = [] as any;
+                for (let item of _data["aggregates"])
+                    this.aggregates.push(Aggregate.fromJS(item));
+            }
+            this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
+            this.isLazyLoad = _data["isLazyLoad"];
+            this.tenantId = _data["tenantId"];
+        }
+    }
+
+    static fromJS(data: any): BWireDataManagerRequest {
+        data = typeof data === 'object' ? data : {};
+        let result = new BWireDataManagerRequest();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["skip"] = this.skip;
+        data["take"] = this.take;
+        data["antiForgery"] = this.antiForgery;
+        data["requiresCounts"] = this.requiresCounts;
+        data["table"] = this.table;
+        if (Array.isArray(this.group)) {
+            data["group"] = [];
+            for (let item of this.group)
+                data["group"].push(item);
+        }
+        if (Array.isArray(this.select)) {
+            data["select"] = [];
+            for (let item of this.select)
+                data["select"].push(item);
+        }
+        if (Array.isArray(this.expand)) {
+            data["expand"] = [];
+            for (let item of this.expand)
+                data["expand"].push(item);
+        }
+        if (Array.isArray(this.sorted)) {
+            data["sorted"] = [];
+            for (let item of this.sorted)
+                data["sorted"].push(item.toJSON());
+        }
+        if (Array.isArray(this.search)) {
+            data["search"] = [];
+            for (let item of this.search)
+                data["search"].push(item.toJSON());
+        }
+        if (Array.isArray(this.where)) {
+            data["where"] = [];
+            for (let item of this.where)
+                data["where"].push(item.toJSON());
+        }
+        if (Array.isArray(this.aggregates)) {
+            data["aggregates"] = [];
+            for (let item of this.aggregates)
+                data["aggregates"].push(item.toJSON());
+        }
+        data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
+        data["isLazyLoad"] = this.isLazyLoad;
+        data["tenantId"] = this.tenantId;
+        return data;
+    }
+
+    clone(): BWireDataManagerRequest {
+        const json = this.toJSON();
+        let result = new BWireDataManagerRequest();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IBWireDataManagerRequest {
+    skip: number;
+    take: number;
+    antiForgery: string | undefined;
+    requiresCounts: boolean;
+    table: string | undefined;
+    group: string[] | undefined;
+    select: string[] | undefined;
+    expand: string[] | undefined;
+    sorted: Sort[] | undefined;
+    search: SearchFilter[] | undefined;
+    where: WhereFilter[] | undefined;
+    aggregates: Aggregate[] | undefined;
+    onDemandGroupInfo: OnDemandGroupInfo;
+    isLazyLoad: boolean;
+    tenantId: number | undefined;
 }
 
 export class BwireDataManagerRequest implements IBwireDataManagerRequest {
@@ -11034,6 +11023,7 @@ export class BwireDataManagerRequest implements IBwireDataManagerRequest {
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     type: number;
     fromDate: string | undefined;
     toDate: string | undefined;
@@ -11091,18 +11081,15 @@ export class BwireDataManagerRequest implements IBwireDataManagerRequest {
             }
             this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
             this.isLazyLoad = _data["isLazyLoad"];
+            this.tenantId = _data["tenantId"];
             this.type = _data["type"];
-            this.fromDate = _data["fromDate"];
-            this.toDate = _data["toDate"];
             this.fromDate = _data["fromDate"];
             this.toDate = _data["toDate"];
         }
     }
 
     static fromJS(data: any): BwireDataManagerRequest {
-    static fromJS(data: any): BwireDataManagerRequest {
         data = typeof data === 'object' ? data : {};
-        let result = new BwireDataManagerRequest();
         let result = new BwireDataManagerRequest();
         result.init(data);
         return result;
@@ -11110,36 +11097,6 @@ export class BwireDataManagerRequest implements IBwireDataManagerRequest {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["skip"] = this.skip;
-        data["take"] = this.take;
-        data["antiForgery"] = this.antiForgery;
-        data["requiresCounts"] = this.requiresCounts;
-        data["table"] = this.table;
-        if (Array.isArray(this.group)) {
-            data["group"] = [];
-            for (let item of this.group)
-                data["group"].push(item);
-        }
-        if (Array.isArray(this.select)) {
-            data["select"] = [];
-            for (let item of this.select)
-                data["select"].push(item);
-        }
-        if (Array.isArray(this.expand)) {
-            data["expand"] = [];
-            for (let item of this.expand)
-                data["expand"].push(item);
-        }
-        if (Array.isArray(this.sorted)) {
-            data["sorted"] = [];
-            for (let item of this.sorted)
-                data["sorted"].push(item.toJSON());
-        }
-        if (Array.isArray(this.search)) {
-            data["search"] = [];
-            for (let item of this.search)
-                data["search"].push(item.toJSON());
-        }
         data["skip"] = this.skip;
         data["take"] = this.take;
         data["antiForgery"] = this.antiForgery;
@@ -11182,6 +11139,7 @@ export class BwireDataManagerRequest implements IBwireDataManagerRequest {
         }
         data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
         data["isLazyLoad"] = this.isLazyLoad;
+        data["tenantId"] = this.tenantId;
         data["type"] = this.type;
         data["fromDate"] = this.fromDate;
         data["toDate"] = this.toDate;
@@ -11189,9 +11147,7 @@ export class BwireDataManagerRequest implements IBwireDataManagerRequest {
     }
 
     clone(): BwireDataManagerRequest {
-    clone(): BwireDataManagerRequest {
         const json = this.toJSON();
-        let result = new BwireDataManagerRequest();
         let result = new BwireDataManagerRequest();
         result.init(json);
         return result;
@@ -11199,17 +11155,8 @@ export class BwireDataManagerRequest implements IBwireDataManagerRequest {
 }
 
 export interface IBwireDataManagerRequest {
-export interface IBwireDataManagerRequest {
     skip: number;
     take: number;
-    antiForgery: string | undefined;
-    requiresCounts: boolean;
-    table: string | undefined;
-    group: string[] | undefined;
-    select: string[] | undefined;
-    expand: string[] | undefined;
-    sorted: Sort[] | undefined;
-    search: SearchFilter[] | undefined;
     antiForgery: string | undefined;
     requiresCounts: boolean;
     table: string | undefined;
@@ -11222,13 +11169,13 @@ export interface IBwireDataManagerRequest {
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     type: number;
     fromDate: string | undefined;
     toDate: string | undefined;
 }
 
 export class CashFlowDataManagerRequest implements ICashFlowDataManagerRequest {
-export class CashFlowDataManagerRequest implements ICashFlowDataManagerRequest {
     skip: number;
     take: number;
     antiForgery: string | undefined;
@@ -11243,12 +11190,12 @@ export class CashFlowDataManagerRequest implements ICashFlowDataManagerRequest {
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     id: number;
     currencyId: number;
     fromDate: string | undefined;
     toDate: string | undefined;
 
-    constructor(data?: ICashFlowDataManagerRequest) {
     constructor(data?: ICashFlowDataManagerRequest) {
         if (data) {
             for (var property in data) {
@@ -11302,6 +11249,7 @@ export class CashFlowDataManagerRequest implements ICashFlowDataManagerRequest {
             }
             this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
             this.isLazyLoad = _data["isLazyLoad"];
+            this.tenantId = _data["tenantId"];
             this.id = _data["id"];
             this.currencyId = _data["currencyId"];
             this.fromDate = _data["fromDate"];
@@ -11310,9 +11258,7 @@ export class CashFlowDataManagerRequest implements ICashFlowDataManagerRequest {
     }
 
     static fromJS(data: any): CashFlowDataManagerRequest {
-    static fromJS(data: any): CashFlowDataManagerRequest {
         data = typeof data === 'object' ? data : {};
-        let result = new CashFlowDataManagerRequest();
         let result = new CashFlowDataManagerRequest();
         result.init(data);
         return result;
@@ -11362,6 +11308,7 @@ export class CashFlowDataManagerRequest implements ICashFlowDataManagerRequest {
         }
         data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
         data["isLazyLoad"] = this.isLazyLoad;
+        data["tenantId"] = this.tenantId;
         data["id"] = this.id;
         data["currencyId"] = this.currencyId;
         data["fromDate"] = this.fromDate;
@@ -11370,16 +11317,13 @@ export class CashFlowDataManagerRequest implements ICashFlowDataManagerRequest {
     }
 
     clone(): CashFlowDataManagerRequest {
-    clone(): CashFlowDataManagerRequest {
         const json = this.toJSON();
-        let result = new CashFlowDataManagerRequest();
         let result = new CashFlowDataManagerRequest();
         result.init(json);
         return result;
     }
 }
 
-export interface ICashFlowDataManagerRequest {
 export interface ICashFlowDataManagerRequest {
     skip: number;
     take: number;
@@ -11395,6 +11339,7 @@ export interface ICashFlowDataManagerRequest {
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     id: number;
     currencyId: number;
     fromDate: string | undefined;
@@ -11405,12 +11350,7 @@ export class CashFlowMatchingDto implements ICashFlowMatchingDto {
     matchingBy: string | undefined;
     matchingWith: string | undefined;
     description: string | undefined;
-export class CashFlowMatchingDto implements ICashFlowMatchingDto {
-    matchingBy: string | undefined;
-    matchingWith: string | undefined;
-    description: string | undefined;
 
-    constructor(data?: ICashFlowMatchingDto) {
     constructor(data?: ICashFlowMatchingDto) {
         if (data) {
             for (var property in data) {
@@ -11426,16 +11366,10 @@ export class CashFlowMatchingDto implements ICashFlowMatchingDto {
             this.matchingWith = _data["matchingWith"];
             this.description = _data["description"];
         }
-            this.matchingBy = _data["matchingBy"];
-            this.matchingWith = _data["matchingWith"];
-            this.description = _data["description"];
-        }
     }
 
     static fromJS(data: any): CashFlowMatchingDto {
-    static fromJS(data: any): CashFlowMatchingDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CashFlowMatchingDto();
         let result = new CashFlowMatchingDto();
         result.init(data);
         return result;
@@ -11446,16 +11380,11 @@ export class CashFlowMatchingDto implements ICashFlowMatchingDto {
         data["matchingBy"] = this.matchingBy;
         data["matchingWith"] = this.matchingWith;
         data["description"] = this.description;
-        data["matchingBy"] = this.matchingBy;
-        data["matchingWith"] = this.matchingWith;
-        data["description"] = this.description;
         return data;
     }
 
     clone(): CashFlowMatchingDto {
-    clone(): CashFlowMatchingDto {
         const json = this.toJSON();
-        let result = new CashFlowMatchingDto();
         let result = new CashFlowMatchingDto();
         result.init(json);
         return result;
@@ -11471,17 +11400,7 @@ export interface ICashFlowMatchingDto {
 export class ChangePasswordDto implements IChangePasswordDto {
     currentPassword: string;
     newPassword: string;
-export interface ICashFlowMatchingDto {
-    matchingBy: string | undefined;
-    matchingWith: string | undefined;
-    description: string | undefined;
-}
 
-export class ChangePasswordDto implements IChangePasswordDto {
-    currentPassword: string;
-    newPassword: string;
-
-    constructor(data?: IChangePasswordDto) {
     constructor(data?: IChangePasswordDto) {
         if (data) {
             for (var property in data) {
@@ -11495,15 +11414,11 @@ export class ChangePasswordDto implements IChangePasswordDto {
         if (_data) {
             this.currentPassword = _data["currentPassword"];
             this.newPassword = _data["newPassword"];
-            this.currentPassword = _data["currentPassword"];
-            this.newPassword = _data["newPassword"];
         }
     }
 
     static fromJS(data: any): ChangePasswordDto {
-    static fromJS(data: any): ChangePasswordDto {
         data = typeof data === 'object' ? data : {};
-        let result = new ChangePasswordDto();
         let result = new ChangePasswordDto();
         result.init(data);
         return result;
@@ -11557,59 +11472,11 @@ export class ChangeUiThemeInput implements IChangeUiThemeInput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["theme"] = this.theme;
-        data["currentPassword"] = this.currentPassword;
-        data["newPassword"] = this.newPassword;
-        return data;
-    }
-
-    clone(): ChangePasswordDto {
-        const json = this.toJSON();
-        let result = new ChangePasswordDto();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface IChangePasswordDto {
-    currentPassword: string;
-    newPassword: string;
-}
-
-export class ChangeUiThemeInput implements IChangeUiThemeInput {
-    theme: string;
-
-    constructor(data?: IChangeUiThemeInput) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.theme = _data["theme"];
-        }
-    }
-
-    static fromJS(data: any): ChangeUiThemeInput {
-        data = typeof data === 'object' ? data : {};
-        let result = new ChangeUiThemeInput();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["theme"] = this.theme;
         return data;
     }
 
     clone(): ChangeUiThemeInput {
-    clone(): ChangeUiThemeInput {
         const json = this.toJSON();
-        let result = new ChangeUiThemeInput();
         let result = new ChangeUiThemeInput();
         result.init(json);
         return result;
@@ -11618,16 +11485,11 @@ export class ChangeUiThemeInput implements IChangeUiThemeInput {
 
 export interface IChangeUiThemeInput {
     theme: string;
-export interface IChangeUiThemeInput {
-    theme: string;
 }
 
 export class ChangeUserLanguageDto implements IChangeUserLanguageDto {
     languageName: string;
-export class ChangeUserLanguageDto implements IChangeUserLanguageDto {
-    languageName: string;
 
-    constructor(data?: IChangeUserLanguageDto) {
     constructor(data?: IChangeUserLanguageDto) {
         if (data) {
             for (var property in data) {
@@ -11683,57 +11545,11 @@ export class CheckPasswordInput implements ICheckPasswordInput {
     init(_data?: any) {
         if (_data) {
             this.password = _data["password"];
-            this.languageName = _data["languageName"];
-        }
-    }
-
-    static fromJS(data: any): ChangeUserLanguageDto {
-        data = typeof data === 'object' ? data : {};
-        let result = new ChangeUserLanguageDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["languageName"] = this.languageName;
-        return data;
-    }
-
-    clone(): ChangeUserLanguageDto {
-        const json = this.toJSON();
-        let result = new ChangeUserLanguageDto();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface IChangeUserLanguageDto {
-    languageName: string;
-}
-
-export class CheckPasswordInput implements ICheckPasswordInput {
-    password: string | undefined;
-
-    constructor(data?: ICheckPasswordInput) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.password = _data["password"];
         }
     }
 
     static fromJS(data: any): CheckPasswordInput {
-    static fromJS(data: any): CheckPasswordInput {
         data = typeof data === 'object' ? data : {};
-        let result = new CheckPasswordInput();
         let result = new CheckPasswordInput();
         result.init(data);
         return result;
@@ -11785,57 +11601,11 @@ export class CheckPasswordOutput implements ICheckPasswordOutput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["success"] = this.success;
-        data["password"] = this.password;
-        return data;
-    }
-
-    clone(): CheckPasswordInput {
-        const json = this.toJSON();
-        let result = new CheckPasswordInput();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface ICheckPasswordInput {
-    password: string | undefined;
-}
-
-export class CheckPasswordOutput implements ICheckPasswordOutput {
-    success: boolean;
-
-    constructor(data?: ICheckPasswordOutput) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.success = _data["success"];
-        }
-    }
-
-    static fromJS(data: any): CheckPasswordOutput {
-        data = typeof data === 'object' ? data : {};
-        let result = new CheckPasswordOutput();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["success"] = this.success;
         return data;
     }
 
     clone(): CheckPasswordOutput {
-    clone(): CheckPasswordOutput {
         const json = this.toJSON();
-        let result = new CheckPasswordOutput();
         let result = new CheckPasswordOutput();
         result.init(json);
         return result;
@@ -11844,16 +11614,11 @@ export class CheckPasswordOutput implements ICheckPasswordOutput {
 
 export interface ICheckPasswordOutput {
     success: boolean;
-export interface ICheckPasswordOutput {
-    success: boolean;
 }
 
 export class ClearDatabaseOutput implements IClearDatabaseOutput {
     success: boolean;
-export class ClearDatabaseOutput implements IClearDatabaseOutput {
-    success: boolean;
 
-    constructor(data?: IClearDatabaseOutput) {
     constructor(data?: IClearDatabaseOutput) {
         if (data) {
             for (var property in data) {
@@ -11866,14 +11631,11 @@ export class ClearDatabaseOutput implements IClearDatabaseOutput {
     init(_data?: any) {
         if (_data) {
             this.success = _data["success"];
-            this.success = _data["success"];
         }
     }
 
     static fromJS(data: any): ClearDatabaseOutput {
-    static fromJS(data: any): ClearDatabaseOutput {
         data = typeof data === 'object' ? data : {};
-        let result = new ClearDatabaseOutput();
         let result = new ClearDatabaseOutput();
         result.init(data);
         return result;
@@ -11882,14 +11644,11 @@ export class ClearDatabaseOutput implements IClearDatabaseOutput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["success"] = this.success;
-        data["success"] = this.success;
         return data;
     }
 
     clone(): ClearDatabaseOutput {
-    clone(): ClearDatabaseOutput {
         const json = this.toJSON();
-        let result = new ClearDatabaseOutput();
         let result = new ClearDatabaseOutput();
         result.init(json);
         return result;
@@ -11898,22 +11657,15 @@ export class ClearDatabaseOutput implements IClearDatabaseOutput {
 
 export interface IClearDatabaseOutput {
     success: boolean;
-export interface IClearDatabaseOutput {
-    success: boolean;
 }
 
 export class ClientBalanceDto implements IClientBalanceDto {
     id: number;
-    balance: number;
-    currencyId: number;
-    clientId: number;
-export class ClientBalanceDto implements IClientBalanceDto {
-    id: number;
+    tenantId: number | undefined;
     balance: number;
     currencyId: number;
     clientId: number;
 
-    constructor(data?: IClientBalanceDto) {
     constructor(data?: IClientBalanceDto) {
         if (data) {
             for (var property in data) {
@@ -11926,10 +11678,7 @@ export class ClientBalanceDto implements IClientBalanceDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
-            this.balance = _data["balance"];
-            this.currencyId = _data["currencyId"];
-            this.clientId = _data["clientId"];
-            this.id = _data["id"];
+            this.tenantId = _data["tenantId"];
             this.balance = _data["balance"];
             this.currencyId = _data["currencyId"];
             this.clientId = _data["clientId"];
@@ -11937,9 +11686,7 @@ export class ClientBalanceDto implements IClientBalanceDto {
     }
 
     static fromJS(data: any): ClientBalanceDto {
-    static fromJS(data: any): ClientBalanceDto {
         data = typeof data === 'object' ? data : {};
-        let result = new ClientBalanceDto();
         let result = new ClientBalanceDto();
         result.init(data);
         return result;
@@ -11948,10 +11695,7 @@ export class ClientBalanceDto implements IClientBalanceDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["balance"] = this.balance;
-        data["currencyId"] = this.currencyId;
-        data["clientId"] = this.clientId;
-        data["id"] = this.id;
+        data["tenantId"] = this.tenantId;
         data["balance"] = this.balance;
         data["currencyId"] = this.currencyId;
         data["clientId"] = this.clientId;
@@ -11959,9 +11703,7 @@ export class ClientBalanceDto implements IClientBalanceDto {
     }
 
     clone(): ClientBalanceDto {
-    clone(): ClientBalanceDto {
         const json = this.toJSON();
-        let result = new ClientBalanceDto();
         let result = new ClientBalanceDto();
         result.init(json);
         return result;
@@ -11970,18 +11712,13 @@ export class ClientBalanceDto implements IClientBalanceDto {
 
 export interface IClientBalanceDto {
     id: number;
-    balance: number;
-    currencyId: number;
-    clientId: number;
-export interface IClientBalanceDto {
-    id: number;
+    tenantId: number | undefined;
     balance: number;
     currencyId: number;
     clientId: number;
 }
 
 export class ClientCashFlowDto implements IClientCashFlowDto {
-    id: number;
     id: number;
     creatorUserId: number | undefined;
     creatorUser: string | undefined;
@@ -12004,11 +11741,6 @@ export class ClientCashFlowDto implements IClientCashFlowDto {
     commission: number;
     clientCommission: number;
     balance: number;
-    clientId: number;
-    client: ClientDto;
-    commission: number;
-    clientCommission: number;
-    balance: number;
 
     constructor(data?: IClientCashFlowDto) {
         if (data) {
@@ -12021,7 +11753,6 @@ export class ClientCashFlowDto implements IClientCashFlowDto {
 
     init(_data?: any) {
         if (_data) {
-            this.id = _data["id"];
             this.id = _data["id"];
             this.creatorUserId = _data["creatorUserId"];
             this.creatorUser = _data["creatorUser"];
@@ -12044,11 +11775,6 @@ export class ClientCashFlowDto implements IClientCashFlowDto {
             this.commission = _data["commission"];
             this.clientCommission = _data["clientCommission"];
             this.balance = _data["balance"];
-            this.clientId = _data["clientId"];
-            this.client = _data["client"] ? ClientDto.fromJS(_data["client"]) : <any>undefined;
-            this.commission = _data["commission"];
-            this.clientCommission = _data["clientCommission"];
-            this.balance = _data["balance"];
         }
     }
 
@@ -12061,7 +11787,6 @@ export class ClientCashFlowDto implements IClientCashFlowDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
         data["id"] = this.id;
         data["creatorUserId"] = this.creatorUserId;
         data["creatorUser"] = this.creatorUser;
@@ -12084,11 +11809,6 @@ export class ClientCashFlowDto implements IClientCashFlowDto {
         data["commission"] = this.commission;
         data["clientCommission"] = this.clientCommission;
         data["balance"] = this.balance;
-        data["clientId"] = this.clientId;
-        data["client"] = this.client ? this.client.toJSON() : <any>undefined;
-        data["commission"] = this.commission;
-        data["clientCommission"] = this.clientCommission;
-        data["balance"] = this.balance;
         return data;
     }
 
@@ -12101,7 +11821,6 @@ export class ClientCashFlowDto implements IClientCashFlowDto {
 }
 
 export interface IClientCashFlowDto {
-    id: number;
     id: number;
     creatorUserId: number | undefined;
     creatorUser: string | undefined;
@@ -12119,74 +11838,6 @@ export interface IClientCashFlowDto {
     currency: CurrencyDto;
     cashFlowMatchingId: number | undefined;
     cashFlowMatching: CashFlowMatchingDto;
-    clientId: number;
-    client: ClientDto;
-    commission: number;
-    clientCommission: number;
-    balance: number;
-}
-
-export class ClientCashFlowMatchingDto implements IClientCashFlowMatchingDto {
-    matchingBy: string | undefined;
-    matchingWith: string | undefined;
-    description: string | undefined;
-    items: MatchingItemDto[] | undefined;
-
-    constructor(data?: IClientCashFlowMatchingDto) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.matchingBy = _data["matchingBy"];
-            this.matchingWith = _data["matchingWith"];
-            this.description = _data["description"];
-            if (Array.isArray(_data["items"])) {
-                this.items = [] as any;
-                for (let item of _data["items"])
-                    this.items.push(MatchingItemDto.fromJS(item));
-            }
-        }
-    }
-
-    static fromJS(data: any): ClientCashFlowMatchingDto {
-        data = typeof data === 'object' ? data : {};
-        let result = new ClientCashFlowMatchingDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["matchingBy"] = this.matchingBy;
-        data["matchingWith"] = this.matchingWith;
-        data["description"] = this.description;
-        if (Array.isArray(this.items)) {
-            data["items"] = [];
-            for (let item of this.items)
-                data["items"].push(item.toJSON());
-        }
-        return data;
-    }
-
-    clone(): ClientCashFlowMatchingDto {
-        const json = this.toJSON();
-        let result = new ClientCashFlowMatchingDto();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface IClientCashFlowMatchingDto {
-    matchingBy: string | undefined;
-    matchingWith: string | undefined;
-    description: string | undefined;
-    items: MatchingItemDto[] | undefined;
     clientId: number;
     client: ClientDto;
     commission: number;
@@ -12377,14 +12028,7 @@ export interface IClientCashFlowTotalDto {
 
 export class ClientDto implements IClientDto {
     id: number;
-    name: string | undefined;
-    address: string | undefined;
-    activated: boolean;
-    provinceId: number;
-    clientBalances: ClientBalanceDto[] | undefined;
-    clientPhones: ClientPhoneDto[] | undefined;
-export class ClientDto implements IClientDto {
-    id: number;
+    tenantId: number | undefined;
     name: string | undefined;
     address: string | undefined;
     activated: boolean;
@@ -12392,7 +12036,6 @@ export class ClientDto implements IClientDto {
     clientBalances: ClientBalanceDto[] | undefined;
     clientPhones: ClientPhoneDto[] | undefined;
 
-    constructor(data?: IClientDto) {
     constructor(data?: IClientDto) {
         if (data) {
             for (var property in data) {
@@ -12405,15 +12048,7 @@ export class ClientDto implements IClientDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
-            this.name = _data["name"];
-            this.address = _data["address"];
-            this.activated = _data["activated"];
-            this.provinceId = _data["provinceId"];
-            if (Array.isArray(_data["clientBalances"])) {
-                this.clientBalances = [] as any;
-                for (let item of _data["clientBalances"])
-                    this.clientBalances.push(ClientBalanceDto.fromJS(item));
-            this.id = _data["id"];
+            this.tenantId = _data["tenantId"];
             this.name = _data["name"];
             this.address = _data["address"];
             this.activated = _data["activated"];
@@ -12423,12 +12058,6 @@ export class ClientDto implements IClientDto {
                 for (let item of _data["clientBalances"])
                     this.clientBalances.push(ClientBalanceDto.fromJS(item));
             }
-            if (Array.isArray(_data["clientPhones"])) {
-                this.clientPhones = [] as any;
-                for (let item of _data["clientPhones"])
-                    this.clientPhones.push(ClientPhoneDto.fromJS(item));
-            }
-        }
             if (Array.isArray(_data["clientPhones"])) {
                 this.clientPhones = [] as any;
                 for (let item of _data["clientPhones"])
@@ -12438,9 +12067,7 @@ export class ClientDto implements IClientDto {
     }
 
     static fromJS(data: any): ClientDto {
-    static fromJS(data: any): ClientDto {
         data = typeof data === 'object' ? data : {};
-        let result = new ClientDto();
         let result = new ClientDto();
         result.init(data);
         return result;
@@ -12449,6 +12076,7 @@ export class ClientDto implements IClientDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
+        data["tenantId"] = this.tenantId;
         data["name"] = this.name;
         data["address"] = this.address;
         data["activated"] = this.activated;
@@ -12457,20 +12085,6 @@ export class ClientDto implements IClientDto {
             data["clientBalances"] = [];
             for (let item of this.clientBalances)
                 data["clientBalances"].push(item.toJSON());
-        data["id"] = this.id;
-        data["name"] = this.name;
-        data["address"] = this.address;
-        data["activated"] = this.activated;
-        data["provinceId"] = this.provinceId;
-        if (Array.isArray(this.clientBalances)) {
-            data["clientBalances"] = [];
-            for (let item of this.clientBalances)
-                data["clientBalances"].push(item.toJSON());
-        }
-        if (Array.isArray(this.clientPhones)) {
-            data["clientPhones"] = [];
-            for (let item of this.clientPhones)
-                data["clientPhones"].push(item.toJSON());
         }
         if (Array.isArray(this.clientPhones)) {
             data["clientPhones"] = [];
@@ -12481,9 +12095,7 @@ export class ClientDto implements IClientDto {
     }
 
     clone(): ClientDto {
-    clone(): ClientDto {
         const json = this.toJSON();
-        let result = new ClientDto();
         let result = new ClientDto();
         result.init(json);
         return result;
@@ -12492,14 +12104,7 @@ export class ClientDto implements IClientDto {
 
 export interface IClientDto {
     id: number;
-    name: string | undefined;
-    address: string | undefined;
-    activated: boolean;
-    provinceId: number;
-    clientBalances: ClientBalanceDto[] | undefined;
-    clientPhones: ClientPhoneDto[] | undefined;
-export interface IClientDto {
-    id: number;
+    tenantId: number | undefined;
     name: string | undefined;
     address: string | undefined;
     activated: boolean;
@@ -12510,13 +12115,10 @@ export interface IClientDto {
 
 export class ClientPhoneDto implements IClientPhoneDto {
     id: number;
-export class ClientPhoneDto implements IClientPhoneDto {
-    id: number;
+    tenantId: number | undefined;
     clientId: number;
     phoneNumber: string | undefined;
-    phoneNumber: string | undefined;
 
-    constructor(data?: IClientPhoneDto) {
     constructor(data?: IClientPhoneDto) {
         if (data) {
             for (var property in data) {
@@ -12529,17 +12131,14 @@ export class ClientPhoneDto implements IClientPhoneDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
-            this.id = _data["id"];
+            this.tenantId = _data["tenantId"];
             this.clientId = _data["clientId"];
             this.phoneNumber = _data["phoneNumber"];
-            this.phoneNumber = _data["phoneNumber"];
         }
     }
 
     static fromJS(data: any): ClientPhoneDto {
-    static fromJS(data: any): ClientPhoneDto {
         data = typeof data === 'object' ? data : {};
-        let result = new ClientPhoneDto();
         let result = new ClientPhoneDto();
         result.init(data);
         return result;
@@ -12548,17 +12147,14 @@ export class ClientPhoneDto implements IClientPhoneDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["id"] = this.id;
+        data["tenantId"] = this.tenantId;
         data["clientId"] = this.clientId;
         data["phoneNumber"] = this.phoneNumber;
-        data["phoneNumber"] = this.phoneNumber;
         return data;
     }
 
     clone(): ClientPhoneDto {
-    clone(): ClientPhoneDto {
         const json = this.toJSON();
-        let result = new ClientPhoneDto();
         let result = new ClientPhoneDto();
         result.init(json);
         return result;
@@ -12567,29 +12163,20 @@ export class ClientPhoneDto implements IClientPhoneDto {
 
 export interface IClientPhoneDto {
     id: number;
-export interface IClientPhoneDto {
-    id: number;
+    tenantId: number | undefined;
     clientId: number;
     phoneNumber: string | undefined;
-    phoneNumber: string | undefined;
 }
 
-export class CommisionDto implements ICommisionDto {
 export class CommisionDto implements ICommisionDto {
     id: number;
     from: number;
     to: number;
     value: number;
     percentage: number;
-    from: number;
-    to: number;
-    value: number;
-    percentage: number;
     currencyId: number;
     currency: CurrencyDto;
-    currency: CurrencyDto;
 
-    constructor(data?: ICommisionDto) {
     constructor(data?: ICommisionDto) {
         if (data) {
             for (var property in data) {
@@ -12606,20 +12193,13 @@ export class CommisionDto implements ICommisionDto {
             this.to = _data["to"];
             this.value = _data["value"];
             this.percentage = _data["percentage"];
-            this.from = _data["from"];
-            this.to = _data["to"];
-            this.value = _data["value"];
-            this.percentage = _data["percentage"];
             this.currencyId = _data["currencyId"];
-            this.currency = _data["currency"] ? CurrencyDto.fromJS(_data["currency"]) : <any>undefined;
             this.currency = _data["currency"] ? CurrencyDto.fromJS(_data["currency"]) : <any>undefined;
         }
     }
 
     static fromJS(data: any): CommisionDto {
-    static fromJS(data: any): CommisionDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CommisionDto();
         let result = new CommisionDto();
         result.init(data);
         return result;
@@ -12632,20 +12212,13 @@ export class CommisionDto implements ICommisionDto {
         data["to"] = this.to;
         data["value"] = this.value;
         data["percentage"] = this.percentage;
-        data["from"] = this.from;
-        data["to"] = this.to;
-        data["value"] = this.value;
-        data["percentage"] = this.percentage;
         data["currencyId"] = this.currencyId;
-        data["currency"] = this.currency ? this.currency.toJSON() : <any>undefined;
         data["currency"] = this.currency ? this.currency.toJSON() : <any>undefined;
         return data;
     }
 
     clone(): CommisionDto {
-    clone(): CommisionDto {
         const json = this.toJSON();
-        let result = new CommisionDto();
         let result = new CommisionDto();
         result.init(json);
         return result;
@@ -12653,32 +12226,21 @@ export class CommisionDto implements ICommisionDto {
 }
 
 export interface ICommisionDto {
-export interface ICommisionDto {
     id: number;
     from: number;
     to: number;
     value: number;
     percentage: number;
-    from: number;
-    to: number;
-    value: number;
-    percentage: number;
     currencyId: number;
-    currency: CurrencyDto;
     currency: CurrencyDto;
 }
 
 export class CompanyBalanceDto implements ICompanyBalanceDto {
     id: number;
-export class CompanyBalanceDto implements ICompanyBalanceDto {
-    id: number;
     balance: number;
     companyId: number;
     currencyId: number;
-    companyId: number;
-    currencyId: number;
 
-    constructor(data?: ICompanyBalanceDto) {
     constructor(data?: ICompanyBalanceDto) {
         if (data) {
             for (var property in data) {
@@ -12691,19 +12253,14 @@ export class CompanyBalanceDto implements ICompanyBalanceDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
-            this.id = _data["id"];
             this.balance = _data["balance"];
-            this.companyId = _data["companyId"];
-            this.currencyId = _data["currencyId"];
             this.companyId = _data["companyId"];
             this.currencyId = _data["currencyId"];
         }
     }
 
     static fromJS(data: any): CompanyBalanceDto {
-    static fromJS(data: any): CompanyBalanceDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CompanyBalanceDto();
         let result = new CompanyBalanceDto();
         result.init(data);
         return result;
@@ -12712,19 +12269,14 @@ export class CompanyBalanceDto implements ICompanyBalanceDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["id"] = this.id;
         data["balance"] = this.balance;
-        data["companyId"] = this.companyId;
-        data["currencyId"] = this.currencyId;
         data["companyId"] = this.companyId;
         data["currencyId"] = this.currencyId;
         return data;
     }
 
     clone(): CompanyBalanceDto {
-    clone(): CompanyBalanceDto {
         const json = this.toJSON();
-        let result = new CompanyBalanceDto();
         let result = new CompanyBalanceDto();
         result.init(json);
         return result;
@@ -12733,28 +12285,18 @@ export class CompanyBalanceDto implements ICompanyBalanceDto {
 
 export interface ICompanyBalanceDto {
     id: number;
-export interface ICompanyBalanceDto {
-    id: number;
     balance: number;
-    companyId: number;
-    currencyId: number;
     companyId: number;
     currencyId: number;
 }
 
 export class CompanyBalanceWithCurrencyDto implements ICompanyBalanceWithCurrencyDto {
-export class CompanyBalanceWithCurrencyDto implements ICompanyBalanceWithCurrencyDto {
     id: number;
     balance: number;
     companyId: number;
     currencyId: number;
     currencyName: string | undefined;
-    balance: number;
-    companyId: number;
-    currencyId: number;
-    currencyName: string | undefined;
 
-    constructor(data?: ICompanyBalanceWithCurrencyDto) {
     constructor(data?: ICompanyBalanceWithCurrencyDto) {
         if (data) {
             for (var property in data) {
@@ -12771,17 +12313,11 @@ export class CompanyBalanceWithCurrencyDto implements ICompanyBalanceWithCurrenc
             this.companyId = _data["companyId"];
             this.currencyId = _data["currencyId"];
             this.currencyName = _data["currencyName"];
-            this.balance = _data["balance"];
-            this.companyId = _data["companyId"];
-            this.currencyId = _data["currencyId"];
-            this.currencyName = _data["currencyName"];
         }
     }
 
     static fromJS(data: any): CompanyBalanceWithCurrencyDto {
-    static fromJS(data: any): CompanyBalanceWithCurrencyDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CompanyBalanceWithCurrencyDto();
         let result = new CompanyBalanceWithCurrencyDto();
         result.init(data);
         return result;
@@ -12794,17 +12330,11 @@ export class CompanyBalanceWithCurrencyDto implements ICompanyBalanceWithCurrenc
         data["companyId"] = this.companyId;
         data["currencyId"] = this.currencyId;
         data["currencyName"] = this.currencyName;
-        data["balance"] = this.balance;
-        data["companyId"] = this.companyId;
-        data["currencyId"] = this.currencyId;
-        data["currencyName"] = this.currencyName;
         return data;
     }
 
     clone(): CompanyBalanceWithCurrencyDto {
-    clone(): CompanyBalanceWithCurrencyDto {
         const json = this.toJSON();
-        let result = new CompanyBalanceWithCurrencyDto();
         let result = new CompanyBalanceWithCurrencyDto();
         result.init(json);
         return result;
@@ -12812,28 +12342,7 @@ export class CompanyBalanceWithCurrencyDto implements ICompanyBalanceWithCurrenc
 }
 
 export interface ICompanyBalanceWithCurrencyDto {
-export interface ICompanyBalanceWithCurrencyDto {
     id: number;
-    balance: number;
-    companyId: number;
-    currencyId: number;
-    currencyName: string | undefined;
-}
-
-export class CompanyCashFlowDto implements ICompanyCashFlowDto {
-    id: number;
-    creatorUserId: number | undefined;
-    creatorUser: string | undefined;
-    date: moment.Moment | undefined;
-    amount: number;
-    currentBalance: number;
-    transactionId: number;
-    transactionType: number;
-    matched: boolean;
-    shaded: boolean | undefined;
-    type: string | undefined;
-    note: string | undefined;
-    instrumentNo: string | undefined;
     balance: number;
     companyId: number;
     currencyId: number;
@@ -12863,15 +12372,7 @@ export class CompanyCashFlowDto implements ICompanyCashFlowDto {
     commission: number;
     companyCommission: number;
     balance: number;
-    cashFlowMatchingId: number | undefined;
-    cashFlowMatching: CashFlowMatchingDto;
-    companyId: number;
-    company: CompanyDto;
-    commission: number;
-    companyCommission: number;
-    balance: number;
 
-    constructor(data?: ICompanyCashFlowDto) {
     constructor(data?: ICompanyCashFlowDto) {
         if (data) {
             for (var property in data) {
@@ -12896,28 +12397,8 @@ export class CompanyCashFlowDto implements ICompanyCashFlowDto {
             this.type = _data["type"];
             this.note = _data["note"];
             this.instrumentNo = _data["instrumentNo"];
-            this.id = _data["id"];
-            this.creatorUserId = _data["creatorUserId"];
-            this.creatorUser = _data["creatorUser"];
-            this.date = _data["date"] ? moment(_data["date"].toString()) : <any>undefined;
-            this.amount = _data["amount"];
-            this.currentBalance = _data["currentBalance"];
-            this.transactionId = _data["transactionId"];
-            this.transactionType = _data["transactionType"];
-            this.matched = _data["matched"];
-            this.shaded = _data["shaded"];
-            this.type = _data["type"];
-            this.note = _data["note"];
-            this.instrumentNo = _data["instrumentNo"];
             this.currencyId = _data["currencyId"];
             this.currency = _data["currency"] ? CurrencyDto.fromJS(_data["currency"]) : <any>undefined;
-            this.cashFlowMatchingId = _data["cashFlowMatchingId"];
-            this.cashFlowMatching = _data["cashFlowMatching"] ? CashFlowMatchingDto.fromJS(_data["cashFlowMatching"]) : <any>undefined;
-            this.companyId = _data["companyId"];
-            this.company = _data["company"] ? CompanyDto.fromJS(_data["company"]) : <any>undefined;
-            this.commission = _data["commission"];
-            this.companyCommission = _data["companyCommission"];
-            this.balance = _data["balance"];
             this.cashFlowMatchingId = _data["cashFlowMatchingId"];
             this.cashFlowMatching = _data["cashFlowMatching"] ? CashFlowMatchingDto.fromJS(_data["cashFlowMatching"]) : <any>undefined;
             this.companyId = _data["companyId"];
@@ -12929,9 +12410,7 @@ export class CompanyCashFlowDto implements ICompanyCashFlowDto {
     }
 
     static fromJS(data: any): CompanyCashFlowDto {
-    static fromJS(data: any): CompanyCashFlowDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CompanyCashFlowDto();
         let result = new CompanyCashFlowDto();
         result.init(data);
         return result;
@@ -12939,19 +12418,6 @@ export class CompanyCashFlowDto implements ICompanyCashFlowDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
-        data["creatorUserId"] = this.creatorUserId;
-        data["creatorUser"] = this.creatorUser;
-        data["date"] = this.date ? this.date.toISOString() : <any>undefined;
-        data["amount"] = this.amount;
-        data["currentBalance"] = this.currentBalance;
-        data["transactionId"] = this.transactionId;
-        data["transactionType"] = this.transactionType;
-        data["matched"] = this.matched;
-        data["shaded"] = this.shaded;
-        data["type"] = this.type;
-        data["note"] = this.note;
-        data["instrumentNo"] = this.instrumentNo;
         data["id"] = this.id;
         data["creatorUserId"] = this.creatorUserId;
         data["creatorUser"] = this.creatorUser;
@@ -12974,40 +12440,17 @@ export class CompanyCashFlowDto implements ICompanyCashFlowDto {
         data["commission"] = this.commission;
         data["companyCommission"] = this.companyCommission;
         data["balance"] = this.balance;
-        data["cashFlowMatchingId"] = this.cashFlowMatchingId;
-        data["cashFlowMatching"] = this.cashFlowMatching ? this.cashFlowMatching.toJSON() : <any>undefined;
-        data["companyId"] = this.companyId;
-        data["company"] = this.company ? this.company.toJSON() : <any>undefined;
-        data["commission"] = this.commission;
-        data["companyCommission"] = this.companyCommission;
-        data["balance"] = this.balance;
         return data;
     }
 
     clone(): CompanyCashFlowDto {
-    clone(): CompanyCashFlowDto {
         const json = this.toJSON();
-        let result = new CompanyCashFlowDto();
         let result = new CompanyCashFlowDto();
         result.init(json);
         return result;
     }
 }
 
-export interface ICompanyCashFlowDto {
-    id: number;
-    creatorUserId: number | undefined;
-    creatorUser: string | undefined;
-    date: moment.Moment | undefined;
-    amount: number;
-    currentBalance: number;
-    transactionId: number;
-    transactionType: number;
-    matched: boolean;
-    shaded: boolean | undefined;
-    type: string | undefined;
-    note: string | undefined;
-    instrumentNo: string | undefined;
 export interface ICompanyCashFlowDto {
     id: number;
     creatorUserId: number | undefined;
@@ -13038,22 +12481,7 @@ export class CompanyCashFlowMatchingDto implements ICompanyCashFlowMatchingDto {
     matchingWith: string | undefined;
     description: string | undefined;
     items: MatchingItemDto[] | undefined;
-    cashFlowMatchingId: number | undefined;
-    cashFlowMatching: CashFlowMatchingDto;
-    companyId: number;
-    company: CompanyDto;
-    commission: number;
-    companyCommission: number;
-    balance: number;
-}
 
-export class CompanyCashFlowMatchingDto implements ICompanyCashFlowMatchingDto {
-    matchingBy: string | undefined;
-    matchingWith: string | undefined;
-    description: string | undefined;
-    items: MatchingItemDto[] | undefined;
-
-    constructor(data?: ICompanyCashFlowMatchingDto) {
     constructor(data?: ICompanyCashFlowMatchingDto) {
         if (data) {
             for (var property in data) {
@@ -13074,21 +12502,10 @@ export class CompanyCashFlowMatchingDto implements ICompanyCashFlowMatchingDto {
                     this.items.push(MatchingItemDto.fromJS(item));
             }
         }
-            this.matchingBy = _data["matchingBy"];
-            this.matchingWith = _data["matchingWith"];
-            this.description = _data["description"];
-            if (Array.isArray(_data["items"])) {
-                this.items = [] as any;
-                for (let item of _data["items"])
-                    this.items.push(MatchingItemDto.fromJS(item));
-            }
-        }
     }
 
     static fromJS(data: any): CompanyCashFlowMatchingDto {
-    static fromJS(data: any): CompanyCashFlowMatchingDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CompanyCashFlowMatchingDto();
         let result = new CompanyCashFlowMatchingDto();
         result.init(data);
         return result;
@@ -13104,21 +12521,11 @@ export class CompanyCashFlowMatchingDto implements ICompanyCashFlowMatchingDto {
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        data["matchingBy"] = this.matchingBy;
-        data["matchingWith"] = this.matchingWith;
-        data["description"] = this.description;
-        if (Array.isArray(this.items)) {
-            data["items"] = [];
-            for (let item of this.items)
-                data["items"].push(item.toJSON());
-        }
         return data;
     }
 
     clone(): CompanyCashFlowMatchingDto {
-    clone(): CompanyCashFlowMatchingDto {
         const json = this.toJSON();
-        let result = new CompanyCashFlowMatchingDto();
         let result = new CompanyCashFlowMatchingDto();
         result.init(json);
         return result;
@@ -13130,22 +12537,13 @@ export interface ICompanyCashFlowMatchingDto {
     matchingWith: string | undefined;
     description: string | undefined;
     items: MatchingItemDto[] | undefined;
-export interface ICompanyCashFlowMatchingDto {
-    matchingBy: string | undefined;
-    matchingWith: string | undefined;
-    description: string | undefined;
-    items: MatchingItemDto[] | undefined;
 }
 
 export class CompanyCashFlowTotalDetailDto implements ICompanyCashFlowTotalDetailDto {
     currentBalance: number;
-export class CompanyCashFlowTotalDetailDto implements ICompanyCashFlowTotalDetailDto {
-    currentBalance: number;
     currencyId: number;
     currencyName: string | undefined;
-    currencyName: string | undefined;
 
-    constructor(data?: ICompanyCashFlowTotalDetailDto) {
     constructor(data?: ICompanyCashFlowTotalDetailDto) {
         if (data) {
             for (var property in data) {
@@ -13157,18 +12555,14 @@ export class CompanyCashFlowTotalDetailDto implements ICompanyCashFlowTotalDetai
 
     init(_data?: any) {
         if (_data) {
-            this.currentBalance = _data["currentBalance"];
             this.currentBalance = _data["currentBalance"];
             this.currencyId = _data["currencyId"];
             this.currencyName = _data["currencyName"];
-            this.currencyName = _data["currencyName"];
         }
     }
 
     static fromJS(data: any): CompanyCashFlowTotalDetailDto {
-    static fromJS(data: any): CompanyCashFlowTotalDetailDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CompanyCashFlowTotalDetailDto();
         let result = new CompanyCashFlowTotalDetailDto();
         result.init(data);
         return result;
@@ -13177,17 +12571,13 @@ export class CompanyCashFlowTotalDetailDto implements ICompanyCashFlowTotalDetai
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["currentBalance"] = this.currentBalance;
-        data["currentBalance"] = this.currentBalance;
         data["currencyId"] = this.currencyId;
-        data["currencyName"] = this.currencyName;
         data["currencyName"] = this.currencyName;
         return data;
     }
 
     clone(): CompanyCashFlowTotalDetailDto {
-    clone(): CompanyCashFlowTotalDetailDto {
         const json = this.toJSON();
-        let result = new CompanyCashFlowTotalDetailDto();
         let result = new CompanyCashFlowTotalDetailDto();
         result.init(json);
         return result;
@@ -13196,26 +12586,17 @@ export class CompanyCashFlowTotalDetailDto implements ICompanyCashFlowTotalDetai
 
 export interface ICompanyCashFlowTotalDetailDto {
     currentBalance: number;
-export interface ICompanyCashFlowTotalDetailDto {
-    currentBalance: number;
     currencyId: number;
-    currencyName: string | undefined;
     currencyName: string | undefined;
 }
 
-export class CompanyCashFlowTotalDto implements ICompanyCashFlowTotalDto {
 export class CompanyCashFlowTotalDto implements ICompanyCashFlowTotalDto {
     companyId: number;
     companyName: string | undefined;
     isActiveToday: boolean;
     isMatching: boolean;
     currencyBalances: CompanyCashFlowTotalDetailDto[] | undefined;
-    companyName: string | undefined;
-    isActiveToday: boolean;
-    isMatching: boolean;
-    currencyBalances: CompanyCashFlowTotalDetailDto[] | undefined;
 
-    constructor(data?: ICompanyCashFlowTotalDto) {
     constructor(data?: ICompanyCashFlowTotalDto) {
         if (data) {
             for (var property in data) {
@@ -13237,21 +12618,10 @@ export class CompanyCashFlowTotalDto implements ICompanyCashFlowTotalDto {
                     this.currencyBalances.push(CompanyCashFlowTotalDetailDto.fromJS(item));
             }
         }
-            this.companyName = _data["companyName"];
-            this.isActiveToday = _data["isActiveToday"];
-            this.isMatching = _data["isMatching"];
-            if (Array.isArray(_data["currencyBalances"])) {
-                this.currencyBalances = [] as any;
-                for (let item of _data["currencyBalances"])
-                    this.currencyBalances.push(CompanyCashFlowTotalDetailDto.fromJS(item));
-            }
-        }
     }
 
     static fromJS(data: any): CompanyCashFlowTotalDto {
-    static fromJS(data: any): CompanyCashFlowTotalDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CompanyCashFlowTotalDto();
         let result = new CompanyCashFlowTotalDto();
         result.init(data);
         return result;
@@ -13268,21 +12638,11 @@ export class CompanyCashFlowTotalDto implements ICompanyCashFlowTotalDto {
             for (let item of this.currencyBalances)
                 data["currencyBalances"].push(item.toJSON());
         }
-        data["companyName"] = this.companyName;
-        data["isActiveToday"] = this.isActiveToday;
-        data["isMatching"] = this.isMatching;
-        if (Array.isArray(this.currencyBalances)) {
-            data["currencyBalances"] = [];
-            for (let item of this.currencyBalances)
-                data["currencyBalances"].push(item.toJSON());
-        }
         return data;
     }
 
     clone(): CompanyCashFlowTotalDto {
-    clone(): CompanyCashFlowTotalDto {
         const json = this.toJSON();
-        let result = new CompanyCashFlowTotalDto();
         let result = new CompanyCashFlowTotalDto();
         result.init(json);
         return result;
@@ -13290,12 +12650,7 @@ export class CompanyCashFlowTotalDto implements ICompanyCashFlowTotalDto {
 }
 
 export interface ICompanyCashFlowTotalDto {
-export interface ICompanyCashFlowTotalDto {
     companyId: number;
-    companyName: string | undefined;
-    isActiveToday: boolean;
-    isMatching: boolean;
-    currencyBalances: CompanyCashFlowTotalDetailDto[] | undefined;
     companyName: string | undefined;
     isActiveToday: boolean;
     isMatching: boolean;
@@ -13304,6 +12659,8 @@ export interface ICompanyCashFlowTotalDto {
 
 export class CompanyDto implements ICompanyDto {
     id: number;
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;
@@ -13321,6 +12678,8 @@ export class CompanyDto implements ICompanyDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
+            this.tenantCompanyId = _data["tenantCompanyId"];
+            this.tenantId = _data["tenantId"];
             this.name = _data["name"];
             this.phone = _data["phone"];
             this.address = _data["address"];
@@ -13342,6 +12701,8 @@ export class CompanyDto implements ICompanyDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
+        data["tenantCompanyId"] = this.tenantCompanyId;
+        data["tenantId"] = this.tenantId;
         data["name"] = this.name;
         data["phone"] = this.phone;
         data["address"] = this.address;
@@ -13363,6 +12724,8 @@ export class CompanyDto implements ICompanyDto {
 
 export interface ICompanyDto {
     id: number;
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;
@@ -13370,14 +12733,10 @@ export interface ICompanyDto {
 }
 
 export class CountryDto implements ICountryDto {
-export class CountryDto implements ICountryDto {
     id: number;
     name: string | undefined;
     provinces: ProvinceDto[] | undefined;
-    name: string | undefined;
-    provinces: ProvinceDto[] | undefined;
 
-    constructor(data?: ICountryDto) {
     constructor(data?: ICountryDto) {
         if (data) {
             for (var property in data) {
@@ -13396,19 +12755,11 @@ export class CountryDto implements ICountryDto {
                 for (let item of _data["provinces"])
                     this.provinces.push(ProvinceDto.fromJS(item));
             }
-            this.name = _data["name"];
-            if (Array.isArray(_data["provinces"])) {
-                this.provinces = [] as any;
-                for (let item of _data["provinces"])
-                    this.provinces.push(ProvinceDto.fromJS(item));
-            }
         }
     }
 
     static fromJS(data: any): CountryDto {
-    static fromJS(data: any): CountryDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CountryDto();
         let result = new CountryDto();
         result.init(data);
         return result;
@@ -13423,19 +12774,11 @@ export class CountryDto implements ICountryDto {
             for (let item of this.provinces)
                 data["provinces"].push(item.toJSON());
         }
-        data["name"] = this.name;
-        if (Array.isArray(this.provinces)) {
-            data["provinces"] = [];
-            for (let item of this.provinces)
-                data["provinces"].push(item.toJSON());
-        }
         return data;
     }
 
     clone(): CountryDto {
-    clone(): CountryDto {
         const json = this.toJSON();
-        let result = new CountryDto();
         let result = new CountryDto();
         result.init(json);
         return result;
@@ -13443,16 +12786,11 @@ export class CountryDto implements ICountryDto {
 }
 
 export interface ICountryDto {
-export interface ICountryDto {
     id: number;
-    name: string | undefined;
-    provinces: ProvinceDto[] | undefined;
     name: string | undefined;
     provinces: ProvinceDto[] | undefined;
 }
 
-export class CreateClientDto implements ICreateClientDto {
-    id: number;
 export class CreateClientDto implements ICreateClientDto {
     id: number;
     name: string | undefined;
@@ -13461,12 +12799,7 @@ export class CreateClientDto implements ICreateClientDto {
     provinceId: number;
     clientBalances: ClientBalanceDto[] | undefined;
     clientPhones: ClientPhoneDto[] | undefined;
-    activated: boolean;
-    provinceId: number;
-    clientBalances: ClientBalanceDto[] | undefined;
-    clientPhones: ClientPhoneDto[] | undefined;
 
-    constructor(data?: ICreateClientDto) {
     constructor(data?: ICreateClientDto) {
         if (data) {
             for (var property in data) {
@@ -13478,7 +12811,6 @@ export class CreateClientDto implements ICreateClientDto {
 
     init(_data?: any) {
         if (_data) {
-            this.id = _data["id"];
             this.id = _data["id"];
             this.name = _data["name"];
             this.address = _data["address"];
@@ -13488,19 +12820,7 @@ export class CreateClientDto implements ICreateClientDto {
                 this.clientBalances = [] as any;
                 for (let item of _data["clientBalances"])
                     this.clientBalances.push(ClientBalanceDto.fromJS(item));
-            this.activated = _data["activated"];
-            this.provinceId = _data["provinceId"];
-            if (Array.isArray(_data["clientBalances"])) {
-                this.clientBalances = [] as any;
-                for (let item of _data["clientBalances"])
-                    this.clientBalances.push(ClientBalanceDto.fromJS(item));
             }
-            if (Array.isArray(_data["clientPhones"])) {
-                this.clientPhones = [] as any;
-                for (let item of _data["clientPhones"])
-                    this.clientPhones.push(ClientPhoneDto.fromJS(item));
-            }
-        }
             if (Array.isArray(_data["clientPhones"])) {
                 this.clientPhones = [] as any;
                 for (let item of _data["clientPhones"])
@@ -13510,9 +12830,7 @@ export class CreateClientDto implements ICreateClientDto {
     }
 
     static fromJS(data: any): CreateClientDto {
-    static fromJS(data: any): CreateClientDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CreateClientDto();
         let result = new CreateClientDto();
         result.init(data);
         return result;
@@ -13520,7 +12838,6 @@ export class CreateClientDto implements ICreateClientDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
         data["id"] = this.id;
         data["name"] = this.name;
         data["address"] = this.address;
@@ -13530,17 +12847,6 @@ export class CreateClientDto implements ICreateClientDto {
             data["clientBalances"] = [];
             for (let item of this.clientBalances)
                 data["clientBalances"].push(item.toJSON());
-        data["activated"] = this.activated;
-        data["provinceId"] = this.provinceId;
-        if (Array.isArray(this.clientBalances)) {
-            data["clientBalances"] = [];
-            for (let item of this.clientBalances)
-                data["clientBalances"].push(item.toJSON());
-        }
-        if (Array.isArray(this.clientPhones)) {
-            data["clientPhones"] = [];
-            for (let item of this.clientPhones)
-                data["clientPhones"].push(item.toJSON());
         }
         if (Array.isArray(this.clientPhones)) {
             data["clientPhones"] = [];
@@ -13551,84 +12857,17 @@ export class CreateClientDto implements ICreateClientDto {
     }
 
     clone(): CreateClientDto {
-    clone(): CreateClientDto {
         const json = this.toJSON();
-        let result = new CreateClientDto();
         let result = new CreateClientDto();
         result.init(json);
         return result;
     }
 }
 
-export interface ICreateClientDto {
-    id: number;
 export interface ICreateClientDto {
     id: number;
     name: string | undefined;
     address: string | undefined;
-    activated: boolean;
-    provinceId: number;
-    clientBalances: ClientBalanceDto[] | undefined;
-    clientPhones: ClientPhoneDto[] | undefined;
-}
-
-export class CreateCommisionDto implements ICreateCommisionDto {
-    from: number;
-    to: number;
-    value: number;
-    percentage: number;
-    currencyId: number;
-
-    constructor(data?: ICreateCommisionDto) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.from = _data["from"];
-            this.to = _data["to"];
-            this.value = _data["value"];
-            this.percentage = _data["percentage"];
-            this.currencyId = _data["currencyId"];
-        }
-    }
-
-    static fromJS(data: any): CreateCommisionDto {
-        data = typeof data === 'object' ? data : {};
-        let result = new CreateCommisionDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["from"] = this.from;
-        data["to"] = this.to;
-        data["value"] = this.value;
-        data["percentage"] = this.percentage;
-        data["currencyId"] = this.currencyId;
-        return data;
-    }
-
-    clone(): CreateCommisionDto {
-        const json = this.toJSON();
-        let result = new CreateCommisionDto();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface ICreateCommisionDto {
-    from: number;
-    to: number;
-    value: number;
-    percentage: number;
-    currencyId: number;
     activated: boolean;
     provinceId: number;
     clientBalances: ClientBalanceDto[] | undefined;
@@ -13770,11 +13009,6 @@ export class CreateCountryDto implements ICreateCountryDto {
     provinces: ProvinceDto[] | undefined;
 
     constructor(data?: ICreateCountryDto) {
-export class CreateCountryDto implements ICreateCountryDto {
-    name: string | undefined;
-    provinces: ProvinceDto[] | undefined;
-
-    constructor(data?: ICreateCountryDto) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -13791,19 +13025,11 @@ export class CreateCountryDto implements ICreateCountryDto {
                 for (let item of _data["provinces"])
                     this.provinces.push(ProvinceDto.fromJS(item));
             }
-            this.name = _data["name"];
-            if (Array.isArray(_data["provinces"])) {
-                this.provinces = [] as any;
-                for (let item of _data["provinces"])
-                    this.provinces.push(ProvinceDto.fromJS(item));
-            }
         }
     }
 
     static fromJS(data: any): CreateCountryDto {
-    static fromJS(data: any): CreateCountryDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CreateCountryDto();
         let result = new CreateCountryDto();
         result.init(data);
         return result;
@@ -13817,19 +13043,11 @@ export class CreateCountryDto implements ICreateCountryDto {
             for (let item of this.provinces)
                 data["provinces"].push(item.toJSON());
         }
-        data["name"] = this.name;
-        if (Array.isArray(this.provinces)) {
-            data["provinces"] = [];
-            for (let item of this.provinces)
-                data["provinces"].push(item.toJSON());
-        }
         return data;
     }
 
     clone(): CreateCountryDto {
-    clone(): CreateCountryDto {
         const json = this.toJSON();
-        let result = new CreateCountryDto();
         let result = new CreateCountryDto();
         result.init(json);
         return result;
@@ -13844,16 +13062,7 @@ export interface ICreateCountryDto {
 export class CreateCurrencyDto implements ICreateCurrencyDto {
     name: string | undefined;
     isMainCurrency: boolean;
-export interface ICreateCountryDto {
-    name: string | undefined;
-    provinces: ProvinceDto[] | undefined;
-}
 
-export class CreateCurrencyDto implements ICreateCurrencyDto {
-    name: string | undefined;
-    isMainCurrency: boolean;
-
-    constructor(data?: ICreateCurrencyDto) {
     constructor(data?: ICreateCurrencyDto) {
         if (data) {
             for (var property in data) {
@@ -13867,15 +13076,11 @@ export class CreateCurrencyDto implements ICreateCurrencyDto {
         if (_data) {
             this.name = _data["name"];
             this.isMainCurrency = _data["isMainCurrency"];
-            this.name = _data["name"];
-            this.isMainCurrency = _data["isMainCurrency"];
         }
     }
 
     static fromJS(data: any): CreateCurrencyDto {
-    static fromJS(data: any): CreateCurrencyDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CreateCurrencyDto();
         let result = new CreateCurrencyDto();
         result.init(data);
         return result;
@@ -13885,15 +13090,11 @@ export class CreateCurrencyDto implements ICreateCurrencyDto {
         data = typeof data === 'object' ? data : {};
         data["name"] = this.name;
         data["isMainCurrency"] = this.isMainCurrency;
-        data["name"] = this.name;
-        data["isMainCurrency"] = this.isMainCurrency;
         return data;
     }
 
     clone(): CreateCurrencyDto {
-    clone(): CreateCurrencyDto {
         const json = this.toJSON();
-        let result = new CreateCurrencyDto();
         let result = new CreateCurrencyDto();
         result.init(json);
         return result;
@@ -13923,31 +13124,7 @@ export class CreateExchangeCurrencyDto implements ICreateExchangeCurrencyDto {
     mainCurrencyId: number | undefined;
     clientId: number | undefined;
     companyId: number | undefined;
-export interface ICreateCurrencyDto {
-    name: string | undefined;
-    isMainCurrency: boolean;
-}
 
-export class CreateExchangeCurrencyDto implements ICreateExchangeCurrencyDto {
-    number: number;
-    amountOfFirstCurrency: number;
-    amoutOfSecondCurrency: number;
-    paidAmountOfFirstCurrency: number;
-    receivedAmountOfFirstCurrency: number;
-    paidAmountOfSecondCurrency: number;
-    receivedAmountOfSecondCurrency: number;
-    exchangePrice: number;
-    paymentType: number;
-    actionType: number;
-    note: string | undefined;
-    date: string | undefined;
-    firstCurrencyId: number | undefined;
-    secondCurrencyId: number | undefined;
-    mainCurrencyId: number | undefined;
-    clientId: number | undefined;
-    companyId: number | undefined;
-
-    constructor(data?: ICreateExchangeCurrencyDto) {
     constructor(data?: ICreateExchangeCurrencyDto) {
         if (data) {
             for (var property in data) {
@@ -13959,22 +13136,6 @@ export class CreateExchangeCurrencyDto implements ICreateExchangeCurrencyDto {
 
     init(_data?: any) {
         if (_data) {
-            this.number = _data["number"];
-            this.amountOfFirstCurrency = _data["amountOfFirstCurrency"];
-            this.amoutOfSecondCurrency = _data["amoutOfSecondCurrency"];
-            this.paidAmountOfFirstCurrency = _data["paidAmountOfFirstCurrency"];
-            this.receivedAmountOfFirstCurrency = _data["receivedAmountOfFirstCurrency"];
-            this.paidAmountOfSecondCurrency = _data["paidAmountOfSecondCurrency"];
-            this.receivedAmountOfSecondCurrency = _data["receivedAmountOfSecondCurrency"];
-            this.exchangePrice = _data["exchangePrice"];
-            this.paymentType = _data["paymentType"];
-            this.actionType = _data["actionType"];
-            this.note = _data["note"];
-            this.date = _data["date"];
-            this.firstCurrencyId = _data["firstCurrencyId"];
-            this.secondCurrencyId = _data["secondCurrencyId"];
-            this.mainCurrencyId = _data["mainCurrencyId"];
-            this.clientId = _data["clientId"];
             this.number = _data["number"];
             this.amountOfFirstCurrency = _data["amountOfFirstCurrency"];
             this.amoutOfSecondCurrency = _data["amoutOfSecondCurrency"];
@@ -13996,12 +13157,7 @@ export class CreateExchangeCurrencyDto implements ICreateExchangeCurrencyDto {
     }
 
     static fromJS(data: any): CreateExchangeCurrencyDto {
-        }
-    }
-
-    static fromJS(data: any): CreateExchangeCurrencyDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CreateExchangeCurrencyDto();
         let result = new CreateExchangeCurrencyDto();
         result.init(data);
         return result;
@@ -14009,22 +13165,6 @@ export class CreateExchangeCurrencyDto implements ICreateExchangeCurrencyDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["number"] = this.number;
-        data["amountOfFirstCurrency"] = this.amountOfFirstCurrency;
-        data["amoutOfSecondCurrency"] = this.amoutOfSecondCurrency;
-        data["paidAmountOfFirstCurrency"] = this.paidAmountOfFirstCurrency;
-        data["receivedAmountOfFirstCurrency"] = this.receivedAmountOfFirstCurrency;
-        data["paidAmountOfSecondCurrency"] = this.paidAmountOfSecondCurrency;
-        data["receivedAmountOfSecondCurrency"] = this.receivedAmountOfSecondCurrency;
-        data["exchangePrice"] = this.exchangePrice;
-        data["paymentType"] = this.paymentType;
-        data["actionType"] = this.actionType;
-        data["note"] = this.note;
-        data["date"] = this.date;
-        data["firstCurrencyId"] = this.firstCurrencyId;
-        data["secondCurrencyId"] = this.secondCurrencyId;
-        data["mainCurrencyId"] = this.mainCurrencyId;
-        data["clientId"] = this.clientId;
         data["number"] = this.number;
         data["amountOfFirstCurrency"] = this.amountOfFirstCurrency;
         data["amoutOfSecondCurrency"] = this.amoutOfSecondCurrency;
@@ -14046,9 +13186,7 @@ export class CreateExchangeCurrencyDto implements ICreateExchangeCurrencyDto {
     }
 
     clone(): CreateExchangeCurrencyDto {
-    clone(): CreateExchangeCurrencyDto {
         const json = this.toJSON();
-        let result = new CreateExchangeCurrencyDto();
         let result = new CreateExchangeCurrencyDto();
         result.init(json);
         return result;
@@ -14073,32 +13211,11 @@ export interface ICreateExchangeCurrencyDto {
     mainCurrencyId: number | undefined;
     clientId: number | undefined;
     companyId: number | undefined;
-export interface ICreateExchangeCurrencyDto {
-    number: number;
-    amountOfFirstCurrency: number;
-    amoutOfSecondCurrency: number;
-    paidAmountOfFirstCurrency: number;
-    receivedAmountOfFirstCurrency: number;
-    paidAmountOfSecondCurrency: number;
-    receivedAmountOfSecondCurrency: number;
-    exchangePrice: number;
-    paymentType: number;
-    actionType: number;
-    note: string | undefined;
-    date: string | undefined;
-    firstCurrencyId: number | undefined;
-    secondCurrencyId: number | undefined;
-    mainCurrencyId: number | undefined;
-    clientId: number | undefined;
-    companyId: number | undefined;
 }
 
 export class CreateExpenseDto implements ICreateExpenseDto {
     name: string | undefined;
-export class CreateExpenseDto implements ICreateExpenseDto {
-    name: string | undefined;
 
-    constructor(data?: ICreateExpenseDto) {
     constructor(data?: ICreateExpenseDto) {
         if (data) {
             for (var property in data) {
@@ -14111,14 +13228,11 @@ export class CreateExpenseDto implements ICreateExpenseDto {
     init(_data?: any) {
         if (_data) {
             this.name = _data["name"];
-            this.name = _data["name"];
         }
     }
 
     static fromJS(data: any): CreateExpenseDto {
-    static fromJS(data: any): CreateExpenseDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CreateExpenseDto();
         let result = new CreateExpenseDto();
         result.init(data);
         return result;
@@ -14127,14 +13241,11 @@ export class CreateExpenseDto implements ICreateExpenseDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["name"] = this.name;
-        data["name"] = this.name;
         return data;
     }
 
     clone(): CreateExpenseDto {
-    clone(): CreateExpenseDto {
         const json = this.toJSON();
-        let result = new CreateExpenseDto();
         let result = new CreateExpenseDto();
         result.init(json);
         return result;
@@ -14143,16 +13254,11 @@ export class CreateExpenseDto implements ICreateExpenseDto {
 
 export interface ICreateExpenseDto {
     name: string | undefined;
-export interface ICreateExpenseDto {
-    name: string | undefined;
 }
 
 export class CreateIncomeDto implements ICreateIncomeDto {
     name: string | undefined;
-export class CreateIncomeDto implements ICreateIncomeDto {
-    name: string | undefined;
 
-    constructor(data?: ICreateIncomeDto) {
     constructor(data?: ICreateIncomeDto) {
         if (data) {
             for (var property in data) {
@@ -14166,14 +13272,10 @@ export class CreateIncomeDto implements ICreateIncomeDto {
         if (_data) {
             this.name = _data["name"];
         }
-            this.name = _data["name"];
-        }
     }
 
     static fromJS(data: any): CreateIncomeDto {
-    static fromJS(data: any): CreateIncomeDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CreateIncomeDto();
         let result = new CreateIncomeDto();
         result.init(data);
         return result;
@@ -14182,14 +13284,11 @@ export class CreateIncomeDto implements ICreateIncomeDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["name"] = this.name;
-        data["name"] = this.name;
         return data;
     }
 
     clone(): CreateIncomeDto {
-    clone(): CreateIncomeDto {
         const json = this.toJSON();
-        let result = new CreateIncomeDto();
         let result = new CreateIncomeDto();
         result.init(json);
         return result;
@@ -14230,42 +13329,7 @@ export class CreateManagementDto implements ICreateManagementDto {
     toCompanyId: number | undefined;
     senderId: number | undefined;
     beneficiaryId: number | undefined;
-export interface ICreateIncomeDto {
-    name: string | undefined;
-}
 
-export class CreateManagementDto implements ICreateManagementDto {
-    id: number;
-    type: number;
-    amount: number | undefined;
-    date: moment.Moment;
-    paymentType: number | undefined;
-    changeDate: moment.Moment;
-    changeType: number;
-    number: number | undefined;
-    treasuryActionType: number | undefined;
-    actionType: number | undefined;
-    mainAccount: string | undefined;
-    beforChange: string | undefined;
-    afterChange: string | undefined;
-    amountOfFirstCurrency: number | undefined;
-    amoutOfSecondCurrency: number | undefined;
-    paidAmountOfFirstCurrency: number | undefined;
-    receivedAmountOfFirstCurrency: number | undefined;
-    paidAmountOfSecondCurrency: number | undefined;
-    receivedAmountOfSecondCurrency: number | undefined;
-    commission: number | undefined;
-    firstCurrencyId: number | undefined;
-    secondCurrencyId: number | undefined;
-    currencyId: number | undefined;
-    clientId: number | undefined;
-    userId: number;
-    companyId: number | undefined;
-    toCompanyId: number | undefined;
-    senderId: number | undefined;
-    beneficiaryId: number | undefined;
-
-    constructor(data?: ICreateManagementDto) {
     constructor(data?: ICreateManagementDto) {
         if (data) {
             for (var property in data) {
@@ -14306,42 +13370,11 @@ export class CreateManagementDto implements ICreateManagementDto {
             this.toCompanyId = _data["toCompanyId"];
             this.senderId = _data["senderId"];
             this.beneficiaryId = _data["beneficiaryId"];
-            this.id = _data["id"];
-            this.type = _data["type"];
-            this.amount = _data["amount"];
-            this.date = _data["date"] ? moment(_data["date"].toString()) : <any>undefined;
-            this.paymentType = _data["paymentType"];
-            this.changeDate = _data["changeDate"] ? moment(_data["changeDate"].toString()) : <any>undefined;
-            this.changeType = _data["changeType"];
-            this.number = _data["number"];
-            this.treasuryActionType = _data["treasuryActionType"];
-            this.actionType = _data["actionType"];
-            this.mainAccount = _data["mainAccount"];
-            this.beforChange = _data["beforChange"];
-            this.afterChange = _data["afterChange"];
-            this.amountOfFirstCurrency = _data["amountOfFirstCurrency"];
-            this.amoutOfSecondCurrency = _data["amoutOfSecondCurrency"];
-            this.paidAmountOfFirstCurrency = _data["paidAmountOfFirstCurrency"];
-            this.receivedAmountOfFirstCurrency = _data["receivedAmountOfFirstCurrency"];
-            this.paidAmountOfSecondCurrency = _data["paidAmountOfSecondCurrency"];
-            this.receivedAmountOfSecondCurrency = _data["receivedAmountOfSecondCurrency"];
-            this.commission = _data["commission"];
-            this.firstCurrencyId = _data["firstCurrencyId"];
-            this.secondCurrencyId = _data["secondCurrencyId"];
-            this.currencyId = _data["currencyId"];
-            this.clientId = _data["clientId"];
-            this.userId = _data["userId"];
-            this.companyId = _data["companyId"];
-            this.toCompanyId = _data["toCompanyId"];
-            this.senderId = _data["senderId"];
-            this.beneficiaryId = _data["beneficiaryId"];
         }
     }
 
     static fromJS(data: any): CreateManagementDto {
-    static fromJS(data: any): CreateManagementDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CreateManagementDto();
         let result = new CreateManagementDto();
         result.init(data);
         return result;
@@ -14378,89 +13411,17 @@ export class CreateManagementDto implements ICreateManagementDto {
         data["toCompanyId"] = this.toCompanyId;
         data["senderId"] = this.senderId;
         data["beneficiaryId"] = this.beneficiaryId;
-        data["id"] = this.id;
-        data["type"] = this.type;
-        data["amount"] = this.amount;
-        data["date"] = this.date ? this.date.toISOString() : <any>undefined;
-        data["paymentType"] = this.paymentType;
-        data["changeDate"] = this.changeDate ? this.changeDate.toISOString() : <any>undefined;
-        data["changeType"] = this.changeType;
-        data["number"] = this.number;
-        data["treasuryActionType"] = this.treasuryActionType;
-        data["actionType"] = this.actionType;
-        data["mainAccount"] = this.mainAccount;
-        data["beforChange"] = this.beforChange;
-        data["afterChange"] = this.afterChange;
-        data["amountOfFirstCurrency"] = this.amountOfFirstCurrency;
-        data["amoutOfSecondCurrency"] = this.amoutOfSecondCurrency;
-        data["paidAmountOfFirstCurrency"] = this.paidAmountOfFirstCurrency;
-        data["receivedAmountOfFirstCurrency"] = this.receivedAmountOfFirstCurrency;
-        data["paidAmountOfSecondCurrency"] = this.paidAmountOfSecondCurrency;
-        data["receivedAmountOfSecondCurrency"] = this.receivedAmountOfSecondCurrency;
-        data["commission"] = this.commission;
-        data["firstCurrencyId"] = this.firstCurrencyId;
-        data["secondCurrencyId"] = this.secondCurrencyId;
-        data["currencyId"] = this.currencyId;
-        data["clientId"] = this.clientId;
-        data["userId"] = this.userId;
-        data["companyId"] = this.companyId;
-        data["toCompanyId"] = this.toCompanyId;
-        data["senderId"] = this.senderId;
-        data["beneficiaryId"] = this.beneficiaryId;
         return data;
     }
 
     clone(): CreateManagementDto {
-    clone(): CreateManagementDto {
         const json = this.toJSON();
-        let result = new CreateManagementDto();
         let result = new CreateManagementDto();
         result.init(json);
         return result;
     }
 }
 
-export interface ICreateManagementDto {
-    id: number;
-    type: number;
-    amount: number | undefined;
-    date: moment.Moment;
-    paymentType: number | undefined;
-    changeDate: moment.Moment;
-    changeType: number;
-    number: number | undefined;
-    treasuryActionType: number | undefined;
-    actionType: number | undefined;
-    mainAccount: string | undefined;
-    beforChange: string | undefined;
-    afterChange: string | undefined;
-    amountOfFirstCurrency: number | undefined;
-    amoutOfSecondCurrency: number | undefined;
-    paidAmountOfFirstCurrency: number | undefined;
-    receivedAmountOfFirstCurrency: number | undefined;
-    paidAmountOfSecondCurrency: number | undefined;
-    receivedAmountOfSecondCurrency: number | undefined;
-    commission: number | undefined;
-    firstCurrencyId: number | undefined;
-    secondCurrencyId: number | undefined;
-    currencyId: number | undefined;
-    clientId: number | undefined;
-    userId: number;
-    companyId: number | undefined;
-    toCompanyId: number | undefined;
-    senderId: number | undefined;
-    beneficiaryId: number | undefined;
-}
-
-export class CreateRoleDto implements ICreateRoleDto {
-    name: string;
-    displayName: string;
-    normalizedName: string | undefined;
-    description: string | undefined;
-    dataAccess: number;
-    grantedPermissions: string[] | undefined;
-
-    constructor(data?: ICreateRoleDto) {
 export interface ICreateManagementDto {
     id: number;
     type: number;
@@ -14523,22 +13484,10 @@ export class CreateRoleDto implements ICreateRoleDto {
                     this.grantedPermissions.push(item);
             }
         }
-            this.displayName = _data["displayName"];
-            this.normalizedName = _data["normalizedName"];
-            this.description = _data["description"];
-            this.dataAccess = _data["dataAccess"];
-            if (Array.isArray(_data["grantedPermissions"])) {
-                this.grantedPermissions = [] as any;
-                for (let item of _data["grantedPermissions"])
-                    this.grantedPermissions.push(item);
-            }
-        }
     }
 
     static fromJS(data: any): CreateRoleDto {
-    static fromJS(data: any): CreateRoleDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CreateRoleDto();
         let result = new CreateRoleDto();
         result.init(data);
         return result;
@@ -14556,22 +13505,11 @@ export class CreateRoleDto implements ICreateRoleDto {
             for (let item of this.grantedPermissions)
                 data["grantedPermissions"].push(item);
         }
-        data["displayName"] = this.displayName;
-        data["normalizedName"] = this.normalizedName;
-        data["description"] = this.description;
-        data["dataAccess"] = this.dataAccess;
-        if (Array.isArray(this.grantedPermissions)) {
-            data["grantedPermissions"] = [];
-            for (let item of this.grantedPermissions)
-                data["grantedPermissions"].push(item);
-        }
         return data;
     }
 
     clone(): CreateRoleDto {
-    clone(): CreateRoleDto {
         const json = this.toJSON();
-        let result = new CreateRoleDto();
         let result = new CreateRoleDto();
         result.init(json);
         return result;
@@ -14585,13 +13523,6 @@ export interface ICreateRoleDto {
     description: string | undefined;
     dataAccess: number;
     grantedPermissions: string[] | undefined;
-export interface ICreateRoleDto {
-    name: string;
-    displayName: string;
-    normalizedName: string | undefined;
-    description: string | undefined;
-    dataAccess: number;
-    grantedPermissions: string[] | undefined;
 }
 
 export class CreateTenantDto implements ICreateTenantDto {
@@ -14600,14 +13531,7 @@ export class CreateTenantDto implements ICreateTenantDto {
     adminEmailAddress: string;
     connectionString: string | undefined;
     isActive: boolean;
-export class CreateTenantDto implements ICreateTenantDto {
-    tenancyName: string;
-    name: string;
-    adminEmailAddress: string;
-    connectionString: string | undefined;
-    isActive: boolean;
 
-    constructor(data?: ICreateTenantDto) {
     constructor(data?: ICreateTenantDto) {
         if (data) {
             for (var property in data) {
@@ -14620,11 +13544,7 @@ export class CreateTenantDto implements ICreateTenantDto {
     init(_data?: any) {
         if (_data) {
             this.tenancyName = _data["tenancyName"];
-            this.tenancyName = _data["tenancyName"];
             this.name = _data["name"];
-            this.adminEmailAddress = _data["adminEmailAddress"];
-            this.connectionString = _data["connectionString"];
-            this.isActive = _data["isActive"];
             this.adminEmailAddress = _data["adminEmailAddress"];
             this.connectionString = _data["connectionString"];
             this.isActive = _data["isActive"];
@@ -14632,9 +13552,7 @@ export class CreateTenantDto implements ICreateTenantDto {
     }
 
     static fromJS(data: any): CreateTenantDto {
-    static fromJS(data: any): CreateTenantDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CreateTenantDto();
         let result = new CreateTenantDto();
         result.init(data);
         return result;
@@ -14643,11 +13561,7 @@ export class CreateTenantDto implements ICreateTenantDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["tenancyName"] = this.tenancyName;
-        data["tenancyName"] = this.tenancyName;
         data["name"] = this.name;
-        data["adminEmailAddress"] = this.adminEmailAddress;
-        data["connectionString"] = this.connectionString;
-        data["isActive"] = this.isActive;
         data["adminEmailAddress"] = this.adminEmailAddress;
         data["connectionString"] = this.connectionString;
         data["isActive"] = this.isActive;
@@ -14655,21 +13569,13 @@ export class CreateTenantDto implements ICreateTenantDto {
     }
 
     clone(): CreateTenantDto {
-    clone(): CreateTenantDto {
         const json = this.toJSON();
-        let result = new CreateTenantDto();
         let result = new CreateTenantDto();
         result.init(json);
         return result;
     }
 }
 
-export interface ICreateTenantDto {
-    tenancyName: string;
-    name: string;
-    adminEmailAddress: string;
-    connectionString: string | undefined;
-    isActive: boolean;
 export interface ICreateTenantDto {
     tenancyName: string;
     name: string;
@@ -14687,17 +13593,7 @@ export class CreateUserDto implements ICreateUserDto {
     roleNames: string[] | undefined;
     password: string;
     branchId: number;
-export class CreateUserDto implements ICreateUserDto {
-    userName: string;
-    name: string;
-    surname: string;
-    emailAddress: string;
-    isActive: boolean;
-    roleNames: string[] | undefined;
-    password: string;
-    branchId: number;
 
-    constructor(data?: ICreateUserDto) {
     constructor(data?: ICreateUserDto) {
         if (data) {
             for (var property in data) {
@@ -14710,15 +13606,7 @@ export class CreateUserDto implements ICreateUserDto {
     init(_data?: any) {
         if (_data) {
             this.userName = _data["userName"];
-            this.userName = _data["userName"];
             this.name = _data["name"];
-            this.surname = _data["surname"];
-            this.emailAddress = _data["emailAddress"];
-            this.isActive = _data["isActive"];
-            if (Array.isArray(_data["roleNames"])) {
-                this.roleNames = [] as any;
-                for (let item of _data["roleNames"])
-                    this.roleNames.push(item);
             this.surname = _data["surname"];
             this.emailAddress = _data["emailAddress"];
             this.isActive = _data["isActive"];
@@ -14729,15 +13617,11 @@ export class CreateUserDto implements ICreateUserDto {
             }
             this.password = _data["password"];
             this.branchId = _data["branchId"];
-            this.password = _data["password"];
-            this.branchId = _data["branchId"];
         }
     }
 
     static fromJS(data: any): CreateUserDto {
-    static fromJS(data: any): CreateUserDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CreateUserDto();
         let result = new CreateUserDto();
         result.init(data);
         return result;
@@ -14745,7 +13629,6 @@ export class CreateUserDto implements ICreateUserDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["userName"] = this.userName;
         data["userName"] = this.userName;
         data["name"] = this.name;
         data["surname"] = this.surname;
@@ -14755,25 +13638,14 @@ export class CreateUserDto implements ICreateUserDto {
             data["roleNames"] = [];
             for (let item of this.roleNames)
                 data["roleNames"].push(item);
-        data["surname"] = this.surname;
-        data["emailAddress"] = this.emailAddress;
-        data["isActive"] = this.isActive;
-        if (Array.isArray(this.roleNames)) {
-            data["roleNames"] = [];
-            for (let item of this.roleNames)
-                data["roleNames"].push(item);
         }
-        data["password"] = this.password;
-        data["branchId"] = this.branchId;
         data["password"] = this.password;
         data["branchId"] = this.branchId;
         return data;
     }
 
     clone(): CreateUserDto {
-    clone(): CreateUserDto {
         const json = this.toJSON();
-        let result = new CreateUserDto();
         let result = new CreateUserDto();
         result.init(json);
         return result;
@@ -14789,26 +13661,13 @@ export interface ICreateUserDto {
     roleNames: string[] | undefined;
     password: string;
     branchId: number;
-export interface ICreateUserDto {
-    userName: string;
-    name: string;
-    surname: string;
-    emailAddress: string;
-    isActive: boolean;
-    roleNames: string[] | undefined;
-    password: string;
-    branchId: number;
 }
 
 export class CurrencyDto implements ICurrencyDto {
     id: number;
-export class CurrencyDto implements ICurrencyDto {
-    id: number;
     name: string | undefined;
     isMainCurrency: boolean;
-    isMainCurrency: boolean;
 
-    constructor(data?: ICurrencyDto) {
     constructor(data?: ICurrencyDto) {
         if (data) {
             for (var property in data) {
@@ -14820,18 +13679,14 @@ export class CurrencyDto implements ICurrencyDto {
 
     init(_data?: any) {
         if (_data) {
-            this.id = _data["id"];
             this.id = _data["id"];
             this.name = _data["name"];
             this.isMainCurrency = _data["isMainCurrency"];
-            this.isMainCurrency = _data["isMainCurrency"];
         }
     }
 
     static fromJS(data: any): CurrencyDto {
-    static fromJS(data: any): CurrencyDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CurrencyDto();
         let result = new CurrencyDto();
         result.init(data);
         return result;
@@ -14840,42 +13695,30 @@ export class CurrencyDto implements ICurrencyDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["id"] = this.id;
         data["name"] = this.name;
-        data["isMainCurrency"] = this.isMainCurrency;
         data["isMainCurrency"] = this.isMainCurrency;
         return data;
     }
 
     clone(): CurrencyDto {
-    clone(): CurrencyDto {
         const json = this.toJSON();
-        let result = new CurrencyDto();
         let result = new CurrencyDto();
         result.init(json);
         return result;
     }
 }
 
-export interface ICurrencyDto {
-    id: number;
 export interface ICurrencyDto {
     id: number;
     name: string | undefined;
     isMainCurrency: boolean;
-    isMainCurrency: boolean;
 }
 
 export class CurrentClientBalanceDto implements ICurrentClientBalanceDto {
     client: ClientDto;
     currency: CurrencyDto;
     balance: number;
-export class CurrentClientBalanceDto implements ICurrentClientBalanceDto {
-    client: ClientDto;
-    currency: CurrencyDto;
-    balance: number;
 
-    constructor(data?: ICurrentClientBalanceDto) {
     constructor(data?: ICurrentClientBalanceDto) {
         if (data) {
             for (var property in data) {
@@ -14890,16 +13733,11 @@ export class CurrentClientBalanceDto implements ICurrentClientBalanceDto {
             this.client = _data["client"] ? ClientDto.fromJS(_data["client"]) : <any>undefined;
             this.currency = _data["currency"] ? CurrencyDto.fromJS(_data["currency"]) : <any>undefined;
             this.balance = _data["balance"];
-            this.client = _data["client"] ? ClientDto.fromJS(_data["client"]) : <any>undefined;
-            this.currency = _data["currency"] ? CurrencyDto.fromJS(_data["currency"]) : <any>undefined;
-            this.balance = _data["balance"];
         }
     }
 
     static fromJS(data: any): CurrentClientBalanceDto {
-    static fromJS(data: any): CurrentClientBalanceDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CurrentClientBalanceDto();
         let result = new CurrentClientBalanceDto();
         result.init(data);
         return result;
@@ -14910,16 +13748,11 @@ export class CurrentClientBalanceDto implements ICurrentClientBalanceDto {
         data["client"] = this.client ? this.client.toJSON() : <any>undefined;
         data["currency"] = this.currency ? this.currency.toJSON() : <any>undefined;
         data["balance"] = this.balance;
-        data["client"] = this.client ? this.client.toJSON() : <any>undefined;
-        data["currency"] = this.currency ? this.currency.toJSON() : <any>undefined;
-        data["balance"] = this.balance;
         return data;
     }
 
     clone(): CurrentClientBalanceDto {
-    clone(): CurrentClientBalanceDto {
         const json = this.toJSON();
-        let result = new CurrentClientBalanceDto();
         let result = new CurrentClientBalanceDto();
         result.init(json);
         return result;
@@ -14930,22 +13763,13 @@ export interface ICurrentClientBalanceDto {
     client: ClientDto;
     currency: CurrencyDto;
     balance: number;
-export interface ICurrentClientBalanceDto {
-    client: ClientDto;
-    currency: CurrencyDto;
-    balance: number;
 }
 
 export class CurrentCompanyBalanceDto implements ICurrentCompanyBalanceDto {
     company: CompanyDto;
     currency: CurrencyDto;
     balance: number;
-export class CurrentCompanyBalanceDto implements ICurrentCompanyBalanceDto {
-    company: CompanyDto;
-    currency: CurrencyDto;
-    balance: number;
 
-    constructor(data?: ICurrentCompanyBalanceDto) {
     constructor(data?: ICurrentCompanyBalanceDto) {
         if (data) {
             for (var property in data) {
@@ -14960,16 +13784,11 @@ export class CurrentCompanyBalanceDto implements ICurrentCompanyBalanceDto {
             this.company = _data["company"] ? CompanyDto.fromJS(_data["company"]) : <any>undefined;
             this.currency = _data["currency"] ? CurrencyDto.fromJS(_data["currency"]) : <any>undefined;
             this.balance = _data["balance"];
-            this.company = _data["company"] ? CompanyDto.fromJS(_data["company"]) : <any>undefined;
-            this.currency = _data["currency"] ? CurrencyDto.fromJS(_data["currency"]) : <any>undefined;
-            this.balance = _data["balance"];
         }
     }
 
     static fromJS(data: any): CurrentCompanyBalanceDto {
-    static fromJS(data: any): CurrentCompanyBalanceDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CurrentCompanyBalanceDto();
         let result = new CurrentCompanyBalanceDto();
         result.init(data);
         return result;
@@ -14980,26 +13799,17 @@ export class CurrentCompanyBalanceDto implements ICurrentCompanyBalanceDto {
         data["company"] = this.company ? this.company.toJSON() : <any>undefined;
         data["currency"] = this.currency ? this.currency.toJSON() : <any>undefined;
         data["balance"] = this.balance;
-        data["company"] = this.company ? this.company.toJSON() : <any>undefined;
-        data["currency"] = this.currency ? this.currency.toJSON() : <any>undefined;
-        data["balance"] = this.balance;
         return data;
     }
 
     clone(): CurrentCompanyBalanceDto {
-    clone(): CurrentCompanyBalanceDto {
         const json = this.toJSON();
-        let result = new CurrentCompanyBalanceDto();
         let result = new CurrentCompanyBalanceDto();
         result.init(json);
         return result;
     }
 }
 
-export interface ICurrentCompanyBalanceDto {
-    company: CompanyDto;
-    currency: CurrencyDto;
-    balance: number;
 export interface ICurrentCompanyBalanceDto {
     company: CompanyDto;
     currency: CurrencyDto;
@@ -15007,7 +13817,6 @@ export interface ICurrentCompanyBalanceDto {
 }
 
 export class CustomerDto implements ICustomerDto {
-    id: number;
     id: number;
     name: string | undefined;
     address: string | undefined;
@@ -15026,7 +13835,6 @@ export class CustomerDto implements ICustomerDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
-            this.id = _data["id"];
             this.name = _data["name"];
             this.address = _data["address"];
             this.phoneNumber = _data["phoneNumber"];
@@ -15043,7 +13851,6 @@ export class CustomerDto implements ICustomerDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
         data["id"] = this.id;
         data["name"] = this.name;
         data["address"] = this.address;
@@ -15062,30 +13869,21 @@ export class CustomerDto implements ICustomerDto {
 
 export interface ICustomerDto {
     id: number;
-    id: number;
     name: string | undefined;
     address: string | undefined;
     phoneNumber: string | undefined;
     identificationNumber: string | undefined;
 }
 
-export class DataManagerRequest implements IDataManagerRequest {
-    skip: number;
-    take: number;
-    antiForgery: string | undefined;
-    requiresCounts: boolean;
-    table: string | undefined;
-    group: string[] | undefined;
-    select: string[] | undefined;
-    expand: string[] | undefined;
-    sorted: Sort[] | undefined;
-    search: SearchFilter[] | undefined;
-    where: WhereFilter[] | undefined;
-    aggregates: Aggregate[] | undefined;
-    onDemandGroupInfo: OnDemandGroupInfo;
-    isLazyLoad: boolean;
+export class CustomerWithImagesDto implements ICustomerWithImagesDto {
+    id: number;
+    name: string | undefined;
+    address: string | undefined;
+    phoneNumber: string | undefined;
+    identificationNumber: string | undefined;
+    images: FileUploadDto[] | undefined;
 
-    constructor(data?: IDataManagerRequest) {
+    constructor(data?: ICustomerWithImagesDto) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -15096,198 +13894,58 @@ export class DataManagerRequest implements IDataManagerRequest {
 
     init(_data?: any) {
         if (_data) {
-            this.skip = _data["skip"];
-            this.take = _data["take"];
-            this.antiForgery = _data["antiForgery"];
-            this.requiresCounts = _data["requiresCounts"];
-            this.table = _data["table"];
-            if (Array.isArray(_data["group"])) {
-                this.group = [] as any;
-                for (let item of _data["group"])
-                    this.group.push(item);
+            this.id = _data["id"];
+            this.name = _data["name"];
+            this.address = _data["address"];
+            this.phoneNumber = _data["phoneNumber"];
+            this.identificationNumber = _data["identificationNumber"];
+            if (Array.isArray(_data["images"])) {
+                this.images = [] as any;
+                for (let item of _data["images"])
+                    this.images.push(FileUploadDto.fromJS(item));
             }
-            if (Array.isArray(_data["select"])) {
-                this.select = [] as any;
-                for (let item of _data["select"])
-                    this.select.push(item);
-            }
-            if (Array.isArray(_data["expand"])) {
-                this.expand = [] as any;
-                for (let item of _data["expand"])
-                    this.expand.push(item);
-            }
-            if (Array.isArray(_data["sorted"])) {
-                this.sorted = [] as any;
-                for (let item of _data["sorted"])
-                    this.sorted.push(Sort.fromJS(item));
-            }
-            if (Array.isArray(_data["search"])) {
-                this.search = [] as any;
-                for (let item of _data["search"])
-                    this.search.push(SearchFilter.fromJS(item));
-            }
-            if (Array.isArray(_data["where"])) {
-                this.where = [] as any;
-                for (let item of _data["where"])
-                    this.where.push(WhereFilter.fromJS(item));
-            }
-            if (Array.isArray(_data["aggregates"])) {
-                this.aggregates = [] as any;
-                for (let item of _data["aggregates"])
-                    this.aggregates.push(Aggregate.fromJS(item));
-            }
-            this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
-            this.isLazyLoad = _data["isLazyLoad"];
         }
     }
 
-    static fromJS(data: any): DataManagerRequest {
-    static fromJS(data: any): DataManagerRequest {
+    static fromJS(data: any): CustomerWithImagesDto {
         data = typeof data === 'object' ? data : {};
-        let result = new DataManagerRequest();
-        let result = new DataManagerRequest();
+        let result = new CustomerWithImagesDto();
         result.init(data);
         return result;
     }
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["skip"] = this.skip;
-        data["take"] = this.take;
-        data["antiForgery"] = this.antiForgery;
-        data["requiresCounts"] = this.requiresCounts;
-        data["table"] = this.table;
-        if (Array.isArray(this.group)) {
-            data["group"] = [];
-            for (let item of this.group)
-                data["group"].push(item);
+        data["id"] = this.id;
+        data["name"] = this.name;
+        data["address"] = this.address;
+        data["phoneNumber"] = this.phoneNumber;
+        data["identificationNumber"] = this.identificationNumber;
+        if (Array.isArray(this.images)) {
+            data["images"] = [];
+            for (let item of this.images)
+                data["images"].push(item.toJSON());
         }
-        if (Array.isArray(this.select)) {
-            data["select"] = [];
-            for (let item of this.select)
-                data["select"].push(item);
-        }
-        if (Array.isArray(this.expand)) {
-            data["expand"] = [];
-            for (let item of this.expand)
-                data["expand"].push(item);
-        }
-        if (Array.isArray(this.sorted)) {
-            data["sorted"] = [];
-            for (let item of this.sorted)
-                data["sorted"].push(item.toJSON());
-        }
-        if (Array.isArray(this.search)) {
-            data["search"] = [];
-            for (let item of this.search)
-                data["search"].push(item.toJSON());
-        }
-        if (Array.isArray(this.where)) {
-            data["where"] = [];
-            for (let item of this.where)
-                data["where"].push(item.toJSON());
-        }
-        if (Array.isArray(this.aggregates)) {
-            data["aggregates"] = [];
-            for (let item of this.aggregates)
-                data["aggregates"].push(item.toJSON());
-        }
-        data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
-        data["isLazyLoad"] = this.isLazyLoad;
-        data["skip"] = this.skip;
-        data["take"] = this.take;
-        data["antiForgery"] = this.antiForgery;
-        data["requiresCounts"] = this.requiresCounts;
-        data["table"] = this.table;
-        if (Array.isArray(this.group)) {
-            data["group"] = [];
-            for (let item of this.group)
-                data["group"].push(item);
-        }
-        if (Array.isArray(this.select)) {
-            data["select"] = [];
-            for (let item of this.select)
-                data["select"].push(item);
-        }
-        if (Array.isArray(this.expand)) {
-            data["expand"] = [];
-            for (let item of this.expand)
-                data["expand"].push(item);
-        }
-        if (Array.isArray(this.sorted)) {
-            data["sorted"] = [];
-            for (let item of this.sorted)
-                data["sorted"].push(item.toJSON());
-        }
-        if (Array.isArray(this.search)) {
-            data["search"] = [];
-            for (let item of this.search)
-                data["search"].push(item.toJSON());
-        }
-        if (Array.isArray(this.where)) {
-            data["where"] = [];
-            for (let item of this.where)
-                data["where"].push(item.toJSON());
-        }
-        if (Array.isArray(this.aggregates)) {
-            data["aggregates"] = [];
-            for (let item of this.aggregates)
-                data["aggregates"].push(item.toJSON());
-        }
-        data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
-        data["isLazyLoad"] = this.isLazyLoad;
         return data;
     }
 
-    clone(): DataManagerRequest {
-    clone(): DataManagerRequest {
+    clone(): CustomerWithImagesDto {
         const json = this.toJSON();
-        let result = new DataManagerRequest();
-        let result = new DataManagerRequest();
+        let result = new CustomerWithImagesDto();
         result.init(json);
         return result;
     }
 }
 
-export interface IDataManagerRequest {
-    skip: number;
-    take: number;
-    antiForgery: string | undefined;
-    requiresCounts: boolean;
-    table: string | undefined;
-    group: string[] | undefined;
-    select: string[] | undefined;
-    expand: string[] | undefined;
-    sorted: Sort[] | undefined;
-    search: SearchFilter[] | undefined;
-    where: WhereFilter[] | undefined;
-    aggregates: Aggregate[] | undefined;
-    onDemandGroupInfo: OnDemandGroupInfo;
-    isLazyLoad: boolean;
-export interface IDataManagerRequest {
-    skip: number;
-    take: number;
-    antiForgery: string | undefined;
-    requiresCounts: boolean;
-    table: string | undefined;
-    group: string[] | undefined;
-    select: string[] | undefined;
-    expand: string[] | undefined;
-    sorted: Sort[] | undefined;
-    search: SearchFilter[] | undefined;
-    where: WhereFilter[] | undefined;
-    aggregates: Aggregate[] | undefined;
-    onDemandGroupInfo: OnDemandGroupInfo;
-    isLazyLoad: boolean;
+export interface ICustomerWithImagesDto {
+    id: number;
+    name: string | undefined;
+    address: string | undefined;
+    phoneNumber: string | undefined;
+    identificationNumber: string | undefined;
+    images: FileUploadDto[] | undefined;
 }
 
-export class DefaultersOfPaymentDto implements IDefaultersOfPaymentDto {
-    clientId: number;
-    clientName: string | undefined;
-    currencyBalances: ClientCashFlowTotalDetailDto[] | undefined;
-    lastActionDate: moment.Moment | undefined;
-
-    constructor(data?: IDefaultersOfPaymentDto) {
 export class DefaultersOfPaymentDto implements IDefaultersOfPaymentDto {
     clientId: number;
     clientName: string | undefined;
@@ -15313,20 +13971,11 @@ export class DefaultersOfPaymentDto implements IDefaultersOfPaymentDto {
                     this.currencyBalances.push(ClientCashFlowTotalDetailDto.fromJS(item));
             }
             this.lastActionDate = _data["lastActionDate"] ? moment(_data["lastActionDate"].toString()) : <any>undefined;
-            this.clientName = _data["clientName"];
-            if (Array.isArray(_data["currencyBalances"])) {
-                this.currencyBalances = [] as any;
-                for (let item of _data["currencyBalances"])
-                    this.currencyBalances.push(ClientCashFlowTotalDetailDto.fromJS(item));
-            }
-            this.lastActionDate = _data["lastActionDate"] ? moment(_data["lastActionDate"].toString()) : <any>undefined;
         }
     }
 
     static fromJS(data: any): DefaultersOfPaymentDto {
-    static fromJS(data: any): DefaultersOfPaymentDto {
         data = typeof data === 'object' ? data : {};
-        let result = new DefaultersOfPaymentDto();
         let result = new DefaultersOfPaymentDto();
         result.init(data);
         return result;
@@ -15342,31 +13991,17 @@ export class DefaultersOfPaymentDto implements IDefaultersOfPaymentDto {
                 data["currencyBalances"].push(item.toJSON());
         }
         data["lastActionDate"] = this.lastActionDate ? this.lastActionDate.toISOString() : <any>undefined;
-        data["clientName"] = this.clientName;
-        if (Array.isArray(this.currencyBalances)) {
-            data["currencyBalances"] = [];
-            for (let item of this.currencyBalances)
-                data["currencyBalances"].push(item.toJSON());
-        }
-        data["lastActionDate"] = this.lastActionDate ? this.lastActionDate.toISOString() : <any>undefined;
         return data;
     }
 
     clone(): DefaultersOfPaymentDto {
-    clone(): DefaultersOfPaymentDto {
         const json = this.toJSON();
-        let result = new DefaultersOfPaymentDto();
         let result = new DefaultersOfPaymentDto();
         result.init(json);
         return result;
     }
 }
 
-export interface IDefaultersOfPaymentDto {
-    clientId: number;
-    clientName: string | undefined;
-    currencyBalances: ClientCashFlowTotalDetailDto[] | undefined;
-    lastActionDate: moment.Moment | undefined;
 export interface IDefaultersOfPaymentDto {
     clientId: number;
     clientName: string | undefined;
@@ -15389,6 +14024,7 @@ export class ExchangeCurrencyDataManagerRequest implements IExchangeCurrencyData
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     fromDate: string | undefined;
     toDate: string | undefined;
     paymentType: number | undefined;
@@ -15450,6 +14086,7 @@ export class ExchangeCurrencyDataManagerRequest implements IExchangeCurrencyData
             }
             this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
             this.isLazyLoad = _data["isLazyLoad"];
+            this.tenantId = _data["tenantId"];
             this.fromDate = _data["fromDate"];
             this.toDate = _data["toDate"];
             this.paymentType = _data["paymentType"];
@@ -15511,6 +14148,7 @@ export class ExchangeCurrencyDataManagerRequest implements IExchangeCurrencyData
         }
         data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
         data["isLazyLoad"] = this.isLazyLoad;
+        data["tenantId"] = this.tenantId;
         data["fromDate"] = this.fromDate;
         data["toDate"] = this.toDate;
         data["paymentType"] = this.paymentType;
@@ -15544,6 +14182,7 @@ export interface IExchangeCurrencyDataManagerRequest {
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     fromDate: string | undefined;
     toDate: string | undefined;
     paymentType: number | undefined;
@@ -15610,7 +14249,6 @@ export interface IExchangePartyDto {
 
 export class ExchangePriceDto implements IExchangePriceDto {
     id: number;
-    id: number;
     mainPrice: number | undefined;
     purchasingPrice: number | undefined;
     sellingPrice: number | undefined;
@@ -15628,7 +14266,6 @@ export class ExchangePriceDto implements IExchangePriceDto {
 
     init(_data?: any) {
         if (_data) {
-            this.id = _data["id"];
             this.id = _data["id"];
             this.mainPrice = _data["mainPrice"];
             this.purchasingPrice = _data["purchasingPrice"];
@@ -15648,7 +14285,6 @@ export class ExchangePriceDto implements IExchangePriceDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["id"] = this.id;
         data["mainPrice"] = this.mainPrice;
         data["purchasingPrice"] = this.purchasingPrice;
         data["sellingPrice"] = this.sellingPrice;
@@ -15667,7 +14303,6 @@ export class ExchangePriceDto implements IExchangePriceDto {
 
 export interface IExchangePriceDto {
     id: number;
-    id: number;
     mainPrice: number | undefined;
     purchasingPrice: number | undefined;
     sellingPrice: number | undefined;
@@ -15676,12 +14311,9 @@ export interface IExchangePriceDto {
 }
 
 export class ExpenseDto implements IExpenseDto {
-export class ExpenseDto implements IExpenseDto {
     id: number;
     name: string | undefined;
-    name: string | undefined;
 
-    constructor(data?: IExpenseDto) {
     constructor(data?: IExpenseDto) {
         if (data) {
             for (var property in data) {
@@ -15695,14 +14327,11 @@ export class ExpenseDto implements IExpenseDto {
         if (_data) {
             this.id = _data["id"];
             this.name = _data["name"];
-            this.name = _data["name"];
         }
     }
 
     static fromJS(data: any): ExpenseDto {
-    static fromJS(data: any): ExpenseDto {
         data = typeof data === 'object' ? data : {};
-        let result = new ExpenseDto();
         let result = new ExpenseDto();
         result.init(data);
         return result;
@@ -15712,21 +14341,17 @@ export class ExpenseDto implements IExpenseDto {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
         data["name"] = this.name;
-        data["name"] = this.name;
         return data;
     }
 
     clone(): ExpenseDto {
-    clone(): ExpenseDto {
         const json = this.toJSON();
-        let result = new ExpenseDto();
         let result = new ExpenseDto();
         result.init(json);
         return result;
     }
 }
 
-export interface IExpenseDto {
 export interface IExpenseDto {
     id: number;
     name: string | undefined;
@@ -15736,14 +14361,7 @@ export class ExternalAuthenticateModel implements IExternalAuthenticateModel {
     authProvider: string;
     providerKey: string;
     providerAccessCode: string;
-}
 
-export class ExternalAuthenticateModel implements IExternalAuthenticateModel {
-    authProvider: string;
-    providerKey: string;
-    providerAccessCode: string;
-
-    constructor(data?: IExternalAuthenticateModel) {
     constructor(data?: IExternalAuthenticateModel) {
         if (data) {
             for (var property in data) {
@@ -15758,16 +14376,11 @@ export class ExternalAuthenticateModel implements IExternalAuthenticateModel {
             this.authProvider = _data["authProvider"];
             this.providerKey = _data["providerKey"];
             this.providerAccessCode = _data["providerAccessCode"];
-            this.authProvider = _data["authProvider"];
-            this.providerKey = _data["providerKey"];
-            this.providerAccessCode = _data["providerAccessCode"];
         }
     }
 
     static fromJS(data: any): ExternalAuthenticateModel {
-    static fromJS(data: any): ExternalAuthenticateModel {
         data = typeof data === 'object' ? data : {};
-        let result = new ExternalAuthenticateModel();
         let result = new ExternalAuthenticateModel();
         result.init(data);
         return result;
@@ -15778,16 +14391,11 @@ export class ExternalAuthenticateModel implements IExternalAuthenticateModel {
         data["authProvider"] = this.authProvider;
         data["providerKey"] = this.providerKey;
         data["providerAccessCode"] = this.providerAccessCode;
-        data["authProvider"] = this.authProvider;
-        data["providerKey"] = this.providerKey;
-        data["providerAccessCode"] = this.providerAccessCode;
         return data;
     }
 
     clone(): ExternalAuthenticateModel {
-    clone(): ExternalAuthenticateModel {
         const json = this.toJSON();
-        let result = new ExternalAuthenticateModel();
         let result = new ExternalAuthenticateModel();
         result.init(json);
         return result;
@@ -15798,10 +14406,6 @@ export interface IExternalAuthenticateModel {
     authProvider: string;
     providerKey: string;
     providerAccessCode: string;
-export interface IExternalAuthenticateModel {
-    authProvider: string;
-    providerKey: string;
-    providerAccessCode: string;
 }
 
 export class ExternalAuthenticateResultModel implements IExternalAuthenticateResultModel {
@@ -15809,13 +14413,7 @@ export class ExternalAuthenticateResultModel implements IExternalAuthenticateRes
     encryptedAccessToken: string | undefined;
     expireInSeconds: number;
     waitingForActivation: boolean;
-export class ExternalAuthenticateResultModel implements IExternalAuthenticateResultModel {
-    accessToken: string | undefined;
-    encryptedAccessToken: string | undefined;
-    expireInSeconds: number;
-    waitingForActivation: boolean;
 
-    constructor(data?: IExternalAuthenticateResultModel) {
     constructor(data?: IExternalAuthenticateResultModel) {
         if (data) {
             for (var property in data) {
@@ -15831,17 +14429,11 @@ export class ExternalAuthenticateResultModel implements IExternalAuthenticateRes
             this.encryptedAccessToken = _data["encryptedAccessToken"];
             this.expireInSeconds = _data["expireInSeconds"];
             this.waitingForActivation = _data["waitingForActivation"];
-            this.accessToken = _data["accessToken"];
-            this.encryptedAccessToken = _data["encryptedAccessToken"];
-            this.expireInSeconds = _data["expireInSeconds"];
-            this.waitingForActivation = _data["waitingForActivation"];
         }
     }
 
     static fromJS(data: any): ExternalAuthenticateResultModel {
-    static fromJS(data: any): ExternalAuthenticateResultModel {
         data = typeof data === 'object' ? data : {};
-        let result = new ExternalAuthenticateResultModel();
         let result = new ExternalAuthenticateResultModel();
         result.init(data);
         return result;
@@ -15853,17 +14445,11 @@ export class ExternalAuthenticateResultModel implements IExternalAuthenticateRes
         data["encryptedAccessToken"] = this.encryptedAccessToken;
         data["expireInSeconds"] = this.expireInSeconds;
         data["waitingForActivation"] = this.waitingForActivation;
-        data["accessToken"] = this.accessToken;
-        data["encryptedAccessToken"] = this.encryptedAccessToken;
-        data["expireInSeconds"] = this.expireInSeconds;
-        data["waitingForActivation"] = this.waitingForActivation;
         return data;
     }
 
     clone(): ExternalAuthenticateResultModel {
-    clone(): ExternalAuthenticateResultModel {
         const json = this.toJSON();
-        let result = new ExternalAuthenticateResultModel();
         let result = new ExternalAuthenticateResultModel();
         result.init(json);
         return result;
@@ -15875,20 +14461,12 @@ export interface IExternalAuthenticateResultModel {
     encryptedAccessToken: string | undefined;
     expireInSeconds: number;
     waitingForActivation: boolean;
-export interface IExternalAuthenticateResultModel {
-    accessToken: string | undefined;
-    encryptedAccessToken: string | undefined;
-    expireInSeconds: number;
-    waitingForActivation: boolean;
 }
 
-export class ExternalLoginProviderInfoModel implements IExternalLoginProviderInfoModel {
 export class ExternalLoginProviderInfoModel implements IExternalLoginProviderInfoModel {
     name: string | undefined;
     clientId: string | undefined;
-    clientId: string | undefined;
 
-    constructor(data?: IExternalLoginProviderInfoModel) {
     constructor(data?: IExternalLoginProviderInfoModel) {
         if (data) {
             for (var property in data) {
@@ -15902,14 +14480,11 @@ export class ExternalLoginProviderInfoModel implements IExternalLoginProviderInf
         if (_data) {
             this.name = _data["name"];
             this.clientId = _data["clientId"];
-            this.clientId = _data["clientId"];
         }
     }
 
     static fromJS(data: any): ExternalLoginProviderInfoModel {
-    static fromJS(data: any): ExternalLoginProviderInfoModel {
         data = typeof data === 'object' ? data : {};
-        let result = new ExternalLoginProviderInfoModel();
         let result = new ExternalLoginProviderInfoModel();
         result.init(data);
         return result;
@@ -15919,14 +14494,11 @@ export class ExternalLoginProviderInfoModel implements IExternalLoginProviderInf
         data = typeof data === 'object' ? data : {};
         data["name"] = this.name;
         data["clientId"] = this.clientId;
-        data["clientId"] = this.clientId;
         return data;
     }
 
     clone(): ExternalLoginProviderInfoModel {
-    clone(): ExternalLoginProviderInfoModel {
         const json = this.toJSON();
-        let result = new ExternalLoginProviderInfoModel();
         let result = new ExternalLoginProviderInfoModel();
         result.init(json);
         return result;
@@ -15934,10 +14506,103 @@ export class ExternalLoginProviderInfoModel implements IExternalLoginProviderInf
 }
 
 export interface IExternalLoginProviderInfoModel {
-export interface IExternalLoginProviderInfoModel {
     name: string | undefined;
     clientId: string | undefined;
-    clientId: string | undefined;
+}
+
+export class ExternalTransferDto implements IExternalTransferDto {
+    id: number;
+    paymentType: PaymentType;
+    amount: number;
+    commission: number;
+    companyCommission: number;
+    clientCommission: number;
+    date: string | undefined;
+    note: string | undefined;
+    fromTenantId: number | undefined;
+    fromTenantName: string | undefined;
+    outgoingTransferId: number;
+    senderName: string | undefined;
+    beneficiaryName: string | undefined;
+    currencyName: string | undefined;
+
+    constructor(data?: IExternalTransferDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.id = _data["id"];
+            this.paymentType = _data["paymentType"];
+            this.amount = _data["amount"];
+            this.commission = _data["commission"];
+            this.companyCommission = _data["companyCommission"];
+            this.clientCommission = _data["clientCommission"];
+            this.date = _data["date"];
+            this.note = _data["note"];
+            this.fromTenantId = _data["fromTenantId"];
+            this.fromTenantName = _data["fromTenantName"];
+            this.outgoingTransferId = _data["outgoingTransferId"];
+            this.senderName = _data["senderName"];
+            this.beneficiaryName = _data["beneficiaryName"];
+            this.currencyName = _data["currencyName"];
+        }
+    }
+
+    static fromJS(data: any): ExternalTransferDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new ExternalTransferDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["paymentType"] = this.paymentType;
+        data["amount"] = this.amount;
+        data["commission"] = this.commission;
+        data["companyCommission"] = this.companyCommission;
+        data["clientCommission"] = this.clientCommission;
+        data["date"] = this.date;
+        data["note"] = this.note;
+        data["fromTenantId"] = this.fromTenantId;
+        data["fromTenantName"] = this.fromTenantName;
+        data["outgoingTransferId"] = this.outgoingTransferId;
+        data["senderName"] = this.senderName;
+        data["beneficiaryName"] = this.beneficiaryName;
+        data["currencyName"] = this.currencyName;
+        return data;
+    }
+
+    clone(): ExternalTransferDto {
+        const json = this.toJSON();
+        let result = new ExternalTransferDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IExternalTransferDto {
+    id: number;
+    paymentType: PaymentType;
+    amount: number;
+    commission: number;
+    companyCommission: number;
+    clientCommission: number;
+    date: string | undefined;
+    note: string | undefined;
+    fromTenantId: number | undefined;
+    fromTenantName: string | undefined;
+    outgoingTransferId: number;
+    senderName: string | undefined;
+    beneficiaryName: string | undefined;
+    currencyName: string | undefined;
 }
 
 export class FileUploadDto implements IFileUploadDto {
@@ -15947,15 +14612,7 @@ export class FileUploadDto implements IFileUploadDto {
     fileType: string | undefined;
     fileAsBase64: string | undefined;
     fileAsByteArray: string | undefined;
-export class FileUploadDto implements IFileUploadDto {
-    fileName: string | undefined;
-    filePath: string | undefined;
-    fileSize: string | undefined;
-    fileType: string | undefined;
-    fileAsBase64: string | undefined;
-    fileAsByteArray: string | undefined;
 
-    constructor(data?: IFileUploadDto) {
     constructor(data?: IFileUploadDto) {
         if (data) {
             for (var property in data) {
@@ -15973,19 +14630,11 @@ export class FileUploadDto implements IFileUploadDto {
             this.fileType = _data["fileType"];
             this.fileAsBase64 = _data["fileAsBase64"];
             this.fileAsByteArray = _data["fileAsByteArray"];
-            this.fileName = _data["fileName"];
-            this.filePath = _data["filePath"];
-            this.fileSize = _data["fileSize"];
-            this.fileType = _data["fileType"];
-            this.fileAsBase64 = _data["fileAsBase64"];
-            this.fileAsByteArray = _data["fileAsByteArray"];
         }
     }
 
     static fromJS(data: any): FileUploadDto {
-    static fromJS(data: any): FileUploadDto {
         data = typeof data === 'object' ? data : {};
-        let result = new FileUploadDto();
         let result = new FileUploadDto();
         result.init(data);
         return result;
@@ -15999,19 +14648,11 @@ export class FileUploadDto implements IFileUploadDto {
         data["fileType"] = this.fileType;
         data["fileAsBase64"] = this.fileAsBase64;
         data["fileAsByteArray"] = this.fileAsByteArray;
-        data["fileName"] = this.fileName;
-        data["filePath"] = this.filePath;
-        data["fileSize"] = this.fileSize;
-        data["fileType"] = this.fileType;
-        data["fileAsBase64"] = this.fileAsBase64;
-        data["fileAsByteArray"] = this.fileAsByteArray;
         return data;
     }
 
     clone(): FileUploadDto {
-    clone(): FileUploadDto {
         const json = this.toJSON();
-        let result = new FileUploadDto();
         let result = new FileUploadDto();
         result.init(json);
         return result;
@@ -16025,25 +14666,13 @@ export interface IFileUploadDto {
     fileType: string | undefined;
     fileAsBase64: string | undefined;
     fileAsByteArray: string | undefined;
-export interface IFileUploadDto {
-    fileName: string | undefined;
-    filePath: string | undefined;
-    fileSize: string | undefined;
-    fileType: string | undefined;
-    fileAsBase64: string | undefined;
-    fileAsByteArray: string | undefined;
 }
 
 export class FlatPermissionDto implements IFlatPermissionDto {
     name: string | undefined;
     displayName: string | undefined;
     description: string | undefined;
-export class FlatPermissionDto implements IFlatPermissionDto {
-    name: string | undefined;
-    displayName: string | undefined;
-    description: string | undefined;
 
-    constructor(data?: IFlatPermissionDto) {
     constructor(data?: IFlatPermissionDto) {
         if (data) {
             for (var property in data) {
@@ -16058,16 +14687,11 @@ export class FlatPermissionDto implements IFlatPermissionDto {
             this.name = _data["name"];
             this.displayName = _data["displayName"];
             this.description = _data["description"];
-            this.name = _data["name"];
-            this.displayName = _data["displayName"];
-            this.description = _data["description"];
         }
     }
 
     static fromJS(data: any): FlatPermissionDto {
-    static fromJS(data: any): FlatPermissionDto {
         data = typeof data === 'object' ? data : {};
-        let result = new FlatPermissionDto();
         let result = new FlatPermissionDto();
         result.init(data);
         return result;
@@ -16078,26 +14702,17 @@ export class FlatPermissionDto implements IFlatPermissionDto {
         data["name"] = this.name;
         data["displayName"] = this.displayName;
         data["description"] = this.description;
-        data["name"] = this.name;
-        data["displayName"] = this.displayName;
-        data["description"] = this.description;
         return data;
     }
 
     clone(): FlatPermissionDto {
-    clone(): FlatPermissionDto {
         const json = this.toJSON();
-        let result = new FlatPermissionDto();
         let result = new FlatPermissionDto();
         result.init(json);
         return result;
     }
 }
 
-export interface IFlatPermissionDto {
-    name: string | undefined;
-    displayName: string | undefined;
-    description: string | undefined;
 export interface IFlatPermissionDto {
     name: string | undefined;
     displayName: string | undefined;
@@ -16105,7 +14720,6 @@ export interface IFlatPermissionDto {
 }
 
 export class GeneralSettingDto implements IGeneralSettingDto {
-    id: number;
     id: number;
     companyName: string | undefined;
     dbSuffex: string | undefined;
@@ -16123,7 +14737,6 @@ export class GeneralSettingDto implements IGeneralSettingDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
-            this.id = _data["id"];
             this.companyName = _data["companyName"];
             this.dbSuffex = _data["dbSuffex"];
             this.editPassword = _data["editPassword"];
@@ -16139,7 +14752,6 @@ export class GeneralSettingDto implements IGeneralSettingDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
         data["id"] = this.id;
         data["companyName"] = this.companyName;
         data["dbSuffex"] = this.dbSuffex;
@@ -16157,7 +14769,6 @@ export class GeneralSettingDto implements IGeneralSettingDto {
 
 export interface IGeneralSettingDto {
     id: number;
-    id: number;
     companyName: string | undefined;
     dbSuffex: string | undefined;
     editPassword: string | undefined;
@@ -16167,12 +14778,7 @@ export class GetCurrentLoginInformationsOutput implements IGetCurrentLoginInform
     application: ApplicationInfoDto;
     user: UserLoginInfoDto;
     tenant: TenantLoginInfoDto;
-export class GetCurrentLoginInformationsOutput implements IGetCurrentLoginInformationsOutput {
-    application: ApplicationInfoDto;
-    user: UserLoginInfoDto;
-    tenant: TenantLoginInfoDto;
 
-    constructor(data?: IGetCurrentLoginInformationsOutput) {
     constructor(data?: IGetCurrentLoginInformationsOutput) {
         if (data) {
             for (var property in data) {
@@ -16187,16 +14793,11 @@ export class GetCurrentLoginInformationsOutput implements IGetCurrentLoginInform
             this.application = _data["application"] ? ApplicationInfoDto.fromJS(_data["application"]) : <any>undefined;
             this.user = _data["user"] ? UserLoginInfoDto.fromJS(_data["user"]) : <any>undefined;
             this.tenant = _data["tenant"] ? TenantLoginInfoDto.fromJS(_data["tenant"]) : <any>undefined;
-            this.application = _data["application"] ? ApplicationInfoDto.fromJS(_data["application"]) : <any>undefined;
-            this.user = _data["user"] ? UserLoginInfoDto.fromJS(_data["user"]) : <any>undefined;
-            this.tenant = _data["tenant"] ? TenantLoginInfoDto.fromJS(_data["tenant"]) : <any>undefined;
         }
     }
 
     static fromJS(data: any): GetCurrentLoginInformationsOutput {
-    static fromJS(data: any): GetCurrentLoginInformationsOutput {
         data = typeof data === 'object' ? data : {};
-        let result = new GetCurrentLoginInformationsOutput();
         let result = new GetCurrentLoginInformationsOutput();
         result.init(data);
         return result;
@@ -16207,16 +14808,11 @@ export class GetCurrentLoginInformationsOutput implements IGetCurrentLoginInform
         data["application"] = this.application ? this.application.toJSON() : <any>undefined;
         data["user"] = this.user ? this.user.toJSON() : <any>undefined;
         data["tenant"] = this.tenant ? this.tenant.toJSON() : <any>undefined;
-        data["application"] = this.application ? this.application.toJSON() : <any>undefined;
-        data["user"] = this.user ? this.user.toJSON() : <any>undefined;
-        data["tenant"] = this.tenant ? this.tenant.toJSON() : <any>undefined;
         return data;
     }
 
     clone(): GetCurrentLoginInformationsOutput {
-    clone(): GetCurrentLoginInformationsOutput {
         const json = this.toJSON();
-        let result = new GetCurrentLoginInformationsOutput();
         let result = new GetCurrentLoginInformationsOutput();
         result.init(json);
         return result;
@@ -16227,22 +14823,13 @@ export interface IGetCurrentLoginInformationsOutput {
     application: ApplicationInfoDto;
     user: UserLoginInfoDto;
     tenant: TenantLoginInfoDto;
-export interface IGetCurrentLoginInformationsOutput {
-    application: ApplicationInfoDto;
-    user: UserLoginInfoDto;
-    tenant: TenantLoginInfoDto;
 }
 
 export class GetRoleForEditOutput implements IGetRoleForEditOutput {
     role: RoleEditDto;
     permissions: FlatPermissionDto[] | undefined;
     grantedPermissionNames: string[] | undefined;
-export class GetRoleForEditOutput implements IGetRoleForEditOutput {
-    role: RoleEditDto;
-    permissions: FlatPermissionDto[] | undefined;
-    grantedPermissionNames: string[] | undefined;
 
-    constructor(data?: IGetRoleForEditOutput) {
     constructor(data?: IGetRoleForEditOutput) {
         if (data) {
             for (var property in data) {
@@ -16266,24 +14853,10 @@ export class GetRoleForEditOutput implements IGetRoleForEditOutput {
                     this.grantedPermissionNames.push(item);
             }
         }
-            this.role = _data["role"] ? RoleEditDto.fromJS(_data["role"]) : <any>undefined;
-            if (Array.isArray(_data["permissions"])) {
-                this.permissions = [] as any;
-                for (let item of _data["permissions"])
-                    this.permissions.push(FlatPermissionDto.fromJS(item));
-            }
-            if (Array.isArray(_data["grantedPermissionNames"])) {
-                this.grantedPermissionNames = [] as any;
-                for (let item of _data["grantedPermissionNames"])
-                    this.grantedPermissionNames.push(item);
-            }
-        }
     }
 
     static fromJS(data: any): GetRoleForEditOutput {
-    static fromJS(data: any): GetRoleForEditOutput {
         data = typeof data === 'object' ? data : {};
-        let result = new GetRoleForEditOutput();
         let result = new GetRoleForEditOutput();
         result.init(data);
         return result;
@@ -16302,89 +14875,17 @@ export class GetRoleForEditOutput implements IGetRoleForEditOutput {
             for (let item of this.grantedPermissionNames)
                 data["grantedPermissionNames"].push(item);
         }
-        data["role"] = this.role ? this.role.toJSON() : <any>undefined;
-        if (Array.isArray(this.permissions)) {
-            data["permissions"] = [];
-            for (let item of this.permissions)
-                data["permissions"].push(item.toJSON());
-        }
-        if (Array.isArray(this.grantedPermissionNames)) {
-            data["grantedPermissionNames"] = [];
-            for (let item of this.grantedPermissionNames)
-                data["grantedPermissionNames"].push(item);
-        }
         return data;
     }
 
     clone(): GetRoleForEditOutput {
-    clone(): GetRoleForEditOutput {
         const json = this.toJSON();
-        let result = new GetRoleForEditOutput();
         let result = new GetRoleForEditOutput();
         result.init(json);
         return result;
     }
 }
 
-export interface IGetRoleForEditOutput {
-    role: RoleEditDto;
-    permissions: FlatPermissionDto[] | undefined;
-    grantedPermissionNames: string[] | undefined;
-}
-
-export class InactiveClientDto implements IInactiveClientDto {
-    clientId: number;
-    clientName: string | undefined;
-    lastActionDate: moment.Moment | undefined;
-
-    constructor(data?: IInactiveClientDto) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.clientId = _data["clientId"];
-            this.clientName = _data["clientName"];
-            this.lastActionDate = _data["lastActionDate"] ? moment(_data["lastActionDate"].toString()) : <any>undefined;
-        }
-    }
-
-    static fromJS(data: any): InactiveClientDto {
-        data = typeof data === 'object' ? data : {};
-        let result = new InactiveClientDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["clientId"] = this.clientId;
-        data["clientName"] = this.clientName;
-        data["lastActionDate"] = this.lastActionDate ? this.lastActionDate.toISOString() : <any>undefined;
-        return data;
-    }
-
-    clone(): InactiveClientDto {
-        const json = this.toJSON();
-        let result = new InactiveClientDto();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface IInactiveClientDto {
-    clientId: number;
-    clientName: string | undefined;
-    lastActionDate: moment.Moment | undefined;
-}
-
-export class IncomeDto implements IIncomeDto {
-    id: number;
 export interface IGetRoleForEditOutput {
     role: RoleEditDto;
     permissions: FlatPermissionDto[] | undefined;
@@ -16447,7 +14948,6 @@ export class IncomeDto implements IIncomeDto {
     name: string | undefined;
 
     constructor(data?: IIncomeDto) {
-    constructor(data?: IIncomeDto) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -16458,16 +14958,13 @@ export class IncomeDto implements IIncomeDto {
 
     init(_data?: any) {
         if (_data) {
-            this.id = _data["id"];
             this.id = _data["id"];
             this.name = _data["name"];
         }
     }
 
     static fromJS(data: any): IncomeDto {
-    static fromJS(data: any): IncomeDto {
         data = typeof data === 'object' ? data : {};
-        let result = new IncomeDto();
         let result = new IncomeDto();
         result.init(data);
         return result;
@@ -16475,74 +14972,22 @@ export class IncomeDto implements IIncomeDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
         data["id"] = this.id;
         data["name"] = this.name;
         return data;
     }
 
     clone(): IncomeDto {
-    clone(): IncomeDto {
         const json = this.toJSON();
-        let result = new IncomeDto();
         let result = new IncomeDto();
         result.init(json);
         return result;
     }
 }
 
-export interface IIncomeDto {
-    id: number;
 export interface IIncomeDto {
     id: number;
     name: string | undefined;
-}
-
-export class IncomeTransferDetailChangeStatusInput implements IIncomeTransferDetailChangeStatusInput {
-    id: number;
-    status: number;
-
-    constructor(data?: IIncomeTransferDetailChangeStatusInput) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.id = _data["id"];
-            this.status = _data["status"];
-        }
-    }
-
-    static fromJS(data: any): IncomeTransferDetailChangeStatusInput {
-        data = typeof data === 'object' ? data : {};
-        let result = new IncomeTransferDetailChangeStatusInput();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
-        data["status"] = this.status;
-        return data;
-    }
-
-    clone(): IncomeTransferDetailChangeStatusInput {
-        const json = this.toJSON();
-        let result = new IncomeTransferDetailChangeStatusInput();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface IIncomeTransferDetailChangeStatusInput {
-    id: number;
-    status: number;
 }
 
 export class IncomeTransferDetailChangeStatusInput implements IIncomeTransferDetailChangeStatusInput {
@@ -16594,7 +15039,6 @@ export interface IIncomeTransferDetailChangeStatusInput {
 
 export class IncomeTransferDetailDto implements IIncomeTransferDetailDto {
     id: number;
-    id: number;
     index: number;
     status: number;
     toCompanyId: number | undefined;
@@ -16621,7 +15065,6 @@ export class IncomeTransferDetailDto implements IIncomeTransferDetailDto {
 
     init(_data?: any) {
         if (_data) {
-            this.id = _data["id"];
             this.id = _data["id"];
             this.index = _data["index"];
             this.status = _data["status"];
@@ -16650,7 +15093,6 @@ export class IncomeTransferDetailDto implements IIncomeTransferDetailDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["id"] = this.id;
         data["index"] = this.index;
         data["status"] = this.status;
         data["toCompanyId"] = this.toCompanyId;
@@ -16678,7 +15120,6 @@ export class IncomeTransferDetailDto implements IIncomeTransferDetailDto {
 
 export interface IIncomeTransferDetailDto {
     id: number;
-    id: number;
     index: number;
     status: number;
     toCompanyId: number | undefined;
@@ -16697,7 +15138,6 @@ export interface IIncomeTransferDetailDto {
 
 export class IncomeTransferDto implements IIncomeTransferDto {
     id: number;
-    id: number;
     number: number;
     date: string | undefined;
     note: string | undefined;
@@ -16715,7 +15155,6 @@ export class IncomeTransferDto implements IIncomeTransferDto {
 
     init(_data?: any) {
         if (_data) {
-            this.id = _data["id"];
             this.id = _data["id"];
             this.number = _data["number"];
             this.date = _data["date"];
@@ -16739,7 +15178,6 @@ export class IncomeTransferDto implements IIncomeTransferDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["id"] = this.id;
         data["number"] = this.number;
         data["date"] = this.date;
         data["note"] = this.note;
@@ -16762,7 +15200,6 @@ export class IncomeTransferDto implements IIncomeTransferDto {
 
 export interface IIncomeTransferDto {
     id: number;
-    id: number;
     number: number;
     date: string | undefined;
     note: string | undefined;
@@ -16772,10 +15209,7 @@ export interface IIncomeTransferDto {
 
 export class IsTenantAvailableInput implements IIsTenantAvailableInput {
     tenancyName: string;
-export class IsTenantAvailableInput implements IIsTenantAvailableInput {
-    tenancyName: string;
 
-    constructor(data?: IIsTenantAvailableInput) {
     constructor(data?: IIsTenantAvailableInput) {
         if (data) {
             for (var property in data) {
@@ -16788,14 +15222,11 @@ export class IsTenantAvailableInput implements IIsTenantAvailableInput {
     init(_data?: any) {
         if (_data) {
             this.tenancyName = _data["tenancyName"];
-            this.tenancyName = _data["tenancyName"];
         }
     }
 
     static fromJS(data: any): IsTenantAvailableInput {
-    static fromJS(data: any): IsTenantAvailableInput {
         data = typeof data === 'object' ? data : {};
-        let result = new IsTenantAvailableInput();
         let result = new IsTenantAvailableInput();
         result.init(data);
         return result;
@@ -16804,14 +15235,11 @@ export class IsTenantAvailableInput implements IIsTenantAvailableInput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["tenancyName"] = this.tenancyName;
-        data["tenancyName"] = this.tenancyName;
         return data;
     }
 
     clone(): IsTenantAvailableInput {
-    clone(): IsTenantAvailableInput {
         const json = this.toJSON();
-        let result = new IsTenantAvailableInput();
         let result = new IsTenantAvailableInput();
         result.init(json);
         return result;
@@ -16867,6 +15295,61 @@ export class IsTenantAvailableOutput implements IIsTenantAvailableOutput {
 export interface IIsTenantAvailableOutput {
     state: TenantAvailabilityState;
     tenantId: number | undefined;
+}
+
+export class LinkTenantCompanyDto implements ILinkTenantCompanyDto {
+    id: number;
+    firstTenantId: number;
+    secondTenantId: number;
+    companyId: number;
+
+    constructor(data?: ILinkTenantCompanyDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.id = _data["id"];
+            this.firstTenantId = _data["firstTenantId"];
+            this.secondTenantId = _data["secondTenantId"];
+            this.companyId = _data["companyId"];
+        }
+    }
+
+    static fromJS(data: any): LinkTenantCompanyDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new LinkTenantCompanyDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["firstTenantId"] = this.firstTenantId;
+        data["secondTenantId"] = this.secondTenantId;
+        data["companyId"] = this.companyId;
+        return data;
+    }
+
+    clone(): LinkTenantCompanyDto {
+        const json = this.toJSON();
+        let result = new LinkTenantCompanyDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface ILinkTenantCompanyDto {
+    id: number;
+    firstTenantId: number;
+    secondTenantId: number;
+    companyId: number;
 }
 
 export class ManagementDto implements IManagementDto {
@@ -17154,6 +15637,53 @@ export interface IMigrationOutput {
     message: string | undefined;
 }
 
+export class NotCopiedForCompany implements INotCopiedForCompany {
+    name: string | undefined;
+    id: number;
+
+    constructor(data?: INotCopiedForCompany) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.name = _data["name"];
+            this.id = _data["id"];
+        }
+    }
+
+    static fromJS(data: any): NotCopiedForCompany {
+        data = typeof data === 'object' ? data : {};
+        let result = new NotCopiedForCompany();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["id"] = this.id;
+        return data;
+    }
+
+    clone(): NotCopiedForCompany {
+        const json = this.toJSON();
+        let result = new NotCopiedForCompany();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface INotCopiedForCompany {
+    name: string | undefined;
+    id: number;
+}
+
 export class OnDemandGroupInfo implements IOnDemandGroupInfo {
     level: number;
     skip: number;
@@ -17238,6 +15768,7 @@ export class OutgoingTransferDto implements IOutgoingTransferDto {
     instrumentNo: string | undefined;
     reason: string | undefined;
     note: string | undefined;
+    isCopied: boolean;
     beneficiary: CustomerDto;
     sender: CustomerDto;
     images: FileUploadDto[] | undefined;
@@ -17273,6 +15804,7 @@ export class OutgoingTransferDto implements IOutgoingTransferDto {
             this.instrumentNo = _data["instrumentNo"];
             this.reason = _data["reason"];
             this.note = _data["note"];
+            this.isCopied = _data["isCopied"];
             this.beneficiary = _data["beneficiary"] ? CustomerDto.fromJS(_data["beneficiary"]) : <any>undefined;
             this.sender = _data["sender"] ? CustomerDto.fromJS(_data["sender"]) : <any>undefined;
             if (Array.isArray(_data["images"])) {
@@ -17312,6 +15844,7 @@ export class OutgoingTransferDto implements IOutgoingTransferDto {
         data["instrumentNo"] = this.instrumentNo;
         data["reason"] = this.reason;
         data["note"] = this.note;
+        data["isCopied"] = this.isCopied;
         data["beneficiary"] = this.beneficiary ? this.beneficiary.toJSON() : <any>undefined;
         data["sender"] = this.sender ? this.sender.toJSON() : <any>undefined;
         if (Array.isArray(this.images)) {
@@ -17351,6 +15884,7 @@ export interface IOutgoingTransferDto {
     instrumentNo: string | undefined;
     reason: string | undefined;
     note: string | undefined;
+    isCopied: boolean;
     beneficiary: CustomerDto;
     sender: CustomerDto;
     images: FileUploadDto[] | undefined;
@@ -17413,6 +15947,12 @@ export interface IPayDirectTransferInputDto {
     treasuryAction: TreasuryActionDto;
     images: FileUploadDto[] | undefined;
     phoneNumber: string | undefined;
+}
+
+export enum PaymentType {
+    _0 = 0,
+    _1 = 1,
+    _2 = 2,
 }
 
 export class PdfResultOutput implements IPdfResultOutput {
@@ -17727,6 +16267,8 @@ export interface IReadClientDto {
 
 export class ReadCompanyDto implements IReadCompanyDto {
     id: number;
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;
@@ -17743,6 +16285,8 @@ export class ReadCompanyDto implements IReadCompanyDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
+            this.tenantCompanyId = _data["tenantCompanyId"];
+            this.tenantId = _data["tenantId"];
             this.name = _data["name"];
             this.phone = _data["phone"];
             this.address = _data["address"];
@@ -17759,6 +16303,8 @@ export class ReadCompanyDto implements IReadCompanyDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
+        data["tenantCompanyId"] = this.tenantCompanyId;
+        data["tenantId"] = this.tenantId;
         data["name"] = this.name;
         data["phone"] = this.phone;
         data["address"] = this.address;
@@ -17775,6 +16321,8 @@ export class ReadCompanyDto implements IReadCompanyDto {
 
 export interface IReadCompanyDto {
     id: number;
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;
@@ -17970,6 +16518,7 @@ export class ReadOutgoingTransferDto implements IReadOutgoingTransferDto {
     instrumentNo: string | undefined;
     reason: string | undefined;
     note: string | undefined;
+    isCopied: boolean;
     countryId: number;
     country: CountryDto;
     currencyId: number;
@@ -17987,7 +16536,7 @@ export class ReadOutgoingTransferDto implements IReadOutgoingTransferDto {
     fromClientId: number | undefined;
     fromClient: ClientDto;
 
-    constructor(data?: IPermissionDto) {
+    constructor(data?: IReadOutgoingTransferDto) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -18010,6 +16559,7 @@ export class ReadOutgoingTransferDto implements IReadOutgoingTransferDto {
             this.instrumentNo = _data["instrumentNo"];
             this.reason = _data["reason"];
             this.note = _data["note"];
+            this.isCopied = _data["isCopied"];
             this.countryId = _data["countryId"];
             this.country = _data["country"] ? CountryDto.fromJS(_data["country"]) : <any>undefined;
             this.currencyId = _data["currencyId"];
@@ -18029,9 +16579,9 @@ export class ReadOutgoingTransferDto implements IReadOutgoingTransferDto {
         }
     }
 
-    static fromJS(data: any): PermissionDto {
+    static fromJS(data: any): ReadOutgoingTransferDto {
         data = typeof data === 'object' ? data : {};
-        let result = new PermissionDto();
+        let result = new ReadOutgoingTransferDto();
         result.init(data);
         return result;
     }
@@ -18050,6 +16600,7 @@ export class ReadOutgoingTransferDto implements IReadOutgoingTransferDto {
         data["instrumentNo"] = this.instrumentNo;
         data["reason"] = this.reason;
         data["note"] = this.note;
+        data["isCopied"] = this.isCopied;
         data["countryId"] = this.countryId;
         data["country"] = this.country ? this.country.toJSON() : <any>undefined;
         data["currencyId"] = this.currencyId;
@@ -18069,9 +16620,9 @@ export class ReadOutgoingTransferDto implements IReadOutgoingTransferDto {
         return data;
     }
 
-    clone(): PermissionDto {
+    clone(): ReadOutgoingTransferDto {
         const json = this.toJSON();
-        let result = new PermissionDto();
+        let result = new ReadOutgoingTransferDto();
         result.init(json);
         return result;
     }
@@ -18090,6 +16641,7 @@ export interface IReadOutgoingTransferDto {
     instrumentNo: string | undefined;
     reason: string | undefined;
     note: string | undefined;
+    isCopied: boolean;
     countryId: number;
     country: CountryDto;
     currencyId: number;
@@ -18111,7 +16663,6 @@ export interface IReadOutgoingTransferDto {
 export class ReadProvinceDto implements IReadProvinceDto {
     id: number;
     name: string | undefined;
-    name: string | undefined;
 
     constructor(data?: IReadProvinceDto) {
         if (data) {
@@ -18125,7 +16676,6 @@ export class ReadProvinceDto implements IReadProvinceDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
-            this.name = _data["name"];
             this.name = _data["name"];
         }
     }
@@ -18141,7 +16691,6 @@ export class ReadProvinceDto implements IReadProvinceDto {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
         data["name"] = this.name;
-        data["name"] = this.name;
         return data;
     }
 
@@ -18155,7 +16704,6 @@ export class ReadProvinceDto implements IReadProvinceDto {
 
 export interface IReadProvinceDto {
     id: number;
-    name: string | undefined;
     name: string | undefined;
 }
 
@@ -18249,7 +16797,6 @@ export class RegisterInput implements IRegisterInput {
 
     init(_data?: any) {
         if (_data) {
-            this.id = _data["id"];
             this.name = _data["name"];
             this.surname = _data["surname"];
             this.userName = _data["userName"];
@@ -18494,16 +17041,10 @@ export class RoleDtoListResultDto implements IRoleDtoListResultDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["count"] = this.count;
-        if (Array.isArray(this.result)) {
-            data["result"] = [];
-            for (let item of this.result)
-                data["result"].push(item);
-        }
-        if (Array.isArray(this.groupDs)) {
-            data["groupDs"] = [];
-            for (let item of this.groupDs)
-                data["groupDs"].push(item);
+        if (Array.isArray(this.items)) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item.toJSON());
         }
         return data;
     }
@@ -18595,7 +17136,6 @@ export class RoleEditDto implements IRoleEditDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
-            this.id = _data["id"];
             this.name = _data["name"];
             this.displayName = _data["displayName"];
             this.description = _data["description"];
@@ -18613,7 +17153,6 @@ export class RoleEditDto implements IRoleEditDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
         data["id"] = this.id;
         data["name"] = this.name;
         data["displayName"] = this.displayName;
@@ -18813,6 +17352,177 @@ export interface ISearchFilter {
     operator: string | undefined;
 }
 
+export class SendingOutgoingDataManagerRequest implements ISendingOutgoingDataManagerRequest {
+    skip: number;
+    take: number;
+    antiForgery: string | undefined;
+    requiresCounts: boolean;
+    table: string | undefined;
+    group: string[] | undefined;
+    select: string[] | undefined;
+    expand: string[] | undefined;
+    sorted: Sort[] | undefined;
+    search: SearchFilter[] | undefined;
+    where: WhereFilter[] | undefined;
+    aggregates: Aggregate[] | undefined;
+    onDemandGroupInfo: OnDemandGroupInfo;
+    isLazyLoad: boolean;
+    tenantId: number | undefined;
+    fromDate: string | undefined;
+    toDate: string | undefined;
+    companyId: string | undefined;
+    currencyId: number;
+
+    constructor(data?: ISendingOutgoingDataManagerRequest) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.skip = _data["skip"];
+            this.take = _data["take"];
+            this.antiForgery = _data["antiForgery"];
+            this.requiresCounts = _data["requiresCounts"];
+            this.table = _data["table"];
+            if (Array.isArray(_data["group"])) {
+                this.group = [] as any;
+                for (let item of _data["group"])
+                    this.group.push(item);
+            }
+            if (Array.isArray(_data["select"])) {
+                this.select = [] as any;
+                for (let item of _data["select"])
+                    this.select.push(item);
+            }
+            if (Array.isArray(_data["expand"])) {
+                this.expand = [] as any;
+                for (let item of _data["expand"])
+                    this.expand.push(item);
+            }
+            if (Array.isArray(_data["sorted"])) {
+                this.sorted = [] as any;
+                for (let item of _data["sorted"])
+                    this.sorted.push(Sort.fromJS(item));
+            }
+            if (Array.isArray(_data["search"])) {
+                this.search = [] as any;
+                for (let item of _data["search"])
+                    this.search.push(SearchFilter.fromJS(item));
+            }
+            if (Array.isArray(_data["where"])) {
+                this.where = [] as any;
+                for (let item of _data["where"])
+                    this.where.push(WhereFilter.fromJS(item));
+            }
+            if (Array.isArray(_data["aggregates"])) {
+                this.aggregates = [] as any;
+                for (let item of _data["aggregates"])
+                    this.aggregates.push(Aggregate.fromJS(item));
+            }
+            this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
+            this.isLazyLoad = _data["isLazyLoad"];
+            this.tenantId = _data["tenantId"];
+            this.fromDate = _data["fromDate"];
+            this.toDate = _data["toDate"];
+            this.companyId = _data["companyId"];
+            this.currencyId = _data["currencyId"];
+        }
+    }
+
+    static fromJS(data: any): SendingOutgoingDataManagerRequest {
+        data = typeof data === 'object' ? data : {};
+        let result = new SendingOutgoingDataManagerRequest();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["skip"] = this.skip;
+        data["take"] = this.take;
+        data["antiForgery"] = this.antiForgery;
+        data["requiresCounts"] = this.requiresCounts;
+        data["table"] = this.table;
+        if (Array.isArray(this.group)) {
+            data["group"] = [];
+            for (let item of this.group)
+                data["group"].push(item);
+        }
+        if (Array.isArray(this.select)) {
+            data["select"] = [];
+            for (let item of this.select)
+                data["select"].push(item);
+        }
+        if (Array.isArray(this.expand)) {
+            data["expand"] = [];
+            for (let item of this.expand)
+                data["expand"].push(item);
+        }
+        if (Array.isArray(this.sorted)) {
+            data["sorted"] = [];
+            for (let item of this.sorted)
+                data["sorted"].push(item.toJSON());
+        }
+        if (Array.isArray(this.search)) {
+            data["search"] = [];
+            for (let item of this.search)
+                data["search"].push(item.toJSON());
+        }
+        if (Array.isArray(this.where)) {
+            data["where"] = [];
+            for (let item of this.where)
+                data["where"].push(item.toJSON());
+        }
+        if (Array.isArray(this.aggregates)) {
+            data["aggregates"] = [];
+            for (let item of this.aggregates)
+                data["aggregates"].push(item.toJSON());
+        }
+        data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
+        data["isLazyLoad"] = this.isLazyLoad;
+        data["tenantId"] = this.tenantId;
+        data["fromDate"] = this.fromDate;
+        data["toDate"] = this.toDate;
+        data["companyId"] = this.companyId;
+        data["currencyId"] = this.currencyId;
+        return data;
+    }
+
+    clone(): SendingOutgoingDataManagerRequest {
+        const json = this.toJSON();
+        let result = new SendingOutgoingDataManagerRequest();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface ISendingOutgoingDataManagerRequest {
+    skip: number;
+    take: number;
+    antiForgery: string | undefined;
+    requiresCounts: boolean;
+    table: string | undefined;
+    group: string[] | undefined;
+    select: string[] | undefined;
+    expand: string[] | undefined;
+    sorted: Sort[] | undefined;
+    search: SearchFilter[] | undefined;
+    where: WhereFilter[] | undefined;
+    aggregates: Aggregate[] | undefined;
+    onDemandGroupInfo: OnDemandGroupInfo;
+    isLazyLoad: boolean;
+    tenantId: number | undefined;
+    fromDate: string | undefined;
+    toDate: string | undefined;
+    companyId: string | undefined;
+    currencyId: number;
+}
+
 export class Sort implements ISort {
     name: string | undefined;
     direction: string | undefined;
@@ -18919,7 +17629,7 @@ export class TenantDto implements ITenantDto {
     name: string;
     isActive: boolean;
 
-    constructor(data?: IRoleEditDto) {
+    constructor(data?: ITenantDto) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -18937,9 +17647,9 @@ export class TenantDto implements ITenantDto {
         }
     }
 
-    static fromJS(data: any): RoleEditDto {
+    static fromJS(data: any): TenantDto {
         data = typeof data === 'object' ? data : {};
-        let result = new RoleEditDto();
+        let result = new TenantDto();
         result.init(data);
         return result;
     }
@@ -18953,9 +17663,9 @@ export class TenantDto implements ITenantDto {
         return data;
     }
 
-    clone(): RoleEditDto {
+    clone(): TenantDto {
         const json = this.toJSON();
-        let result = new RoleEditDto();
+        let result = new TenantDto();
         result.init(json);
         return result;
     }
@@ -18992,9 +17702,9 @@ export class TenantDtoPagedResultDto implements ITenantDtoPagedResultDto {
         }
     }
 
-    static fromJS(data: any): RoleListDto {
+    static fromJS(data: any): TenantDtoPagedResultDto {
         data = typeof data === 'object' ? data : {};
-        let result = new RoleListDto();
+        let result = new TenantDtoPagedResultDto();
         result.init(data);
         return result;
     }
@@ -19010,9 +17720,9 @@ export class TenantDtoPagedResultDto implements ITenantDtoPagedResultDto {
         return data;
     }
 
-    clone(): RoleListDto {
+    clone(): TenantDtoPagedResultDto {
         const json = this.toJSON();
-        let result = new RoleListDto();
+        let result = new TenantDtoPagedResultDto();
         result.init(json);
         return result;
     }
@@ -19386,6 +18096,7 @@ export class TreasuryActionDataManagerRequest implements ITreasuryActionDataMana
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     number: number | undefined;
     currencyId: number | undefined;
     fromDate: string | undefined;
@@ -19451,6 +18162,7 @@ export class TreasuryActionDataManagerRequest implements ITreasuryActionDataMana
             }
             this.onDemandGroupInfo = _data["onDemandGroupInfo"] ? OnDemandGroupInfo.fromJS(_data["onDemandGroupInfo"]) : <any>undefined;
             this.isLazyLoad = _data["isLazyLoad"];
+            this.tenantId = _data["tenantId"];
             this.number = _data["number"];
             this.currencyId = _data["currencyId"];
             this.fromDate = _data["fromDate"];
@@ -19516,6 +18228,7 @@ export class TreasuryActionDataManagerRequest implements ITreasuryActionDataMana
         }
         data["onDemandGroupInfo"] = this.onDemandGroupInfo ? this.onDemandGroupInfo.toJSON() : <any>undefined;
         data["isLazyLoad"] = this.isLazyLoad;
+        data["tenantId"] = this.tenantId;
         data["number"] = this.number;
         data["currencyId"] = this.currencyId;
         data["fromDate"] = this.fromDate;
@@ -19553,6 +18266,7 @@ export interface ITreasuryActionDataManagerRequest {
     aggregates: Aggregate[] | undefined;
     onDemandGroupInfo: OnDemandGroupInfo;
     isLazyLoad: boolean;
+    tenantId: number | undefined;
     number: number | undefined;
     currencyId: number | undefined;
     fromDate: string | undefined;
@@ -19683,7 +18397,6 @@ export interface ITreasuryActionDto {
 
 export class TreasuryActionStatementOutputDto implements ITreasuryActionStatementOutputDto {
     id: number;
-    id: number;
     number: number;
     actionType: number;
     date: string | undefined;
@@ -19723,7 +18436,6 @@ export class TreasuryActionStatementOutputDto implements ITreasuryActionStatemen
 
     init(_data?: any) {
         if (_data) {
-            this.id = _data["id"];
             this.id = _data["id"];
             this.number = _data["number"];
             this.actionType = _data["actionType"];
@@ -19765,7 +18477,6 @@ export class TreasuryActionStatementOutputDto implements ITreasuryActionStatemen
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["id"] = this.id;
         data["number"] = this.number;
         data["actionType"] = this.actionType;
         data["date"] = this.date;
@@ -19806,7 +18517,6 @@ export class TreasuryActionStatementOutputDto implements ITreasuryActionStatemen
 
 export interface ITreasuryActionStatementOutputDto {
     id: number;
-    id: number;
     number: number;
     actionType: number;
     date: string | undefined;
@@ -19838,7 +18548,6 @@ export interface ITreasuryActionStatementOutputDto {
 
 export class TreasuryBalanceDto implements ITreasuryBalanceDto {
     id: number;
-    id: number;
     initilBalance: number;
     currencyId: number;
     currency: CurrencyDto;
@@ -19856,7 +18565,6 @@ export class TreasuryBalanceDto implements ITreasuryBalanceDto {
 
     init(_data?: any) {
         if (_data) {
-            this.id = _data["id"];
             this.id = _data["id"];
             this.initilBalance = _data["initilBalance"];
             this.currencyId = _data["currencyId"];
@@ -19876,7 +18584,6 @@ export class TreasuryBalanceDto implements ITreasuryBalanceDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["id"] = this.id;
         data["initilBalance"] = this.initilBalance;
         data["currencyId"] = this.currencyId;
         data["currency"] = this.currency ? this.currency.toJSON() : <any>undefined;
@@ -19895,7 +18602,6 @@ export class TreasuryBalanceDto implements ITreasuryBalanceDto {
 
 export interface ITreasuryBalanceDto {
     id: number;
-    id: number;
     initilBalance: number;
     currencyId: number;
     currency: CurrencyDto;
@@ -19904,7 +18610,6 @@ export interface ITreasuryBalanceDto {
 }
 
 export class TreasuryCashFlowDto implements ITreasuryCashFlowDto {
-    id: number;
     id: number;
     creatorUserId: number | undefined;
     creatorUser: string | undefined;
@@ -19925,9 +18630,6 @@ export class TreasuryCashFlowDto implements ITreasuryCashFlowDto {
     name: string | undefined;
     treasuryId: number;
     balance: number;
-    name: string | undefined;
-    treasuryId: number;
-    balance: number;
 
     constructor(data?: ITreasuryCashFlowDto) {
         if (data) {
@@ -19940,7 +18642,6 @@ export class TreasuryCashFlowDto implements ITreasuryCashFlowDto {
 
     init(_data?: any) {
         if (_data) {
-            this.id = _data["id"];
             this.id = _data["id"];
             this.creatorUserId = _data["creatorUserId"];
             this.creatorUser = _data["creatorUser"];
@@ -19961,9 +18662,6 @@ export class TreasuryCashFlowDto implements ITreasuryCashFlowDto {
             this.name = _data["name"];
             this.treasuryId = _data["treasuryId"];
             this.balance = _data["balance"];
-            this.name = _data["name"];
-            this.treasuryId = _data["treasuryId"];
-            this.balance = _data["balance"];
         }
     }
 
@@ -19976,7 +18674,6 @@ export class TreasuryCashFlowDto implements ITreasuryCashFlowDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
         data["id"] = this.id;
         data["creatorUserId"] = this.creatorUserId;
         data["creatorUser"] = this.creatorUser;
@@ -19997,9 +18694,6 @@ export class TreasuryCashFlowDto implements ITreasuryCashFlowDto {
         data["name"] = this.name;
         data["treasuryId"] = this.treasuryId;
         data["balance"] = this.balance;
-        data["name"] = this.name;
-        data["treasuryId"] = this.treasuryId;
-        data["balance"] = this.balance;
         return data;
     }
 
@@ -20012,7 +18706,6 @@ export class TreasuryCashFlowDto implements ITreasuryCashFlowDto {
 }
 
 export interface ITreasuryCashFlowDto {
-    id: number;
     id: number;
     creatorUserId: number | undefined;
     creatorUser: string | undefined;
@@ -20036,66 +18729,7 @@ export interface ITreasuryCashFlowDto {
 }
 
 export class TreasuryDto implements ITreasuryDto {
-    name: string | undefined;
-    treasuryId: number;
-    balance: number;
-}
-
-export class TreasuryDto implements ITreasuryDto {
     id: number;
-    name: string | undefined;
-
-    constructor(data?: ITreasuryDto) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.id = _data["id"];
-            this.name = _data["name"];
-        }
-    }
-
-    static fromJS(data: any): TreasuryDto {
-        data = typeof data === 'object' ? data : {};
-        let result = new TreasuryDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
-        data["name"] = this.name;
-        return data;
-    }
-
-    clone(): TreasuryDto {
-        const json = this.toJSON();
-        let result = new TreasuryDto();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface ITreasuryDto {
-    id: number;
-    name: string | undefined;
-}
-
-export class UpdateClientDto implements IUpdateClientDto {
-    id: number;
-    name: string | undefined;
-    address: string | undefined;
-    activated: boolean;
-    provinceId: number;
-    clientBalances: ClientBalanceDto[] | undefined;
-    clientPhones: ClientPhoneDto[] | undefined;
     name: string | undefined;
 
     constructor(data?: ITreasuryDto) {
@@ -20151,7 +18785,6 @@ export class UpdateClientDto implements IUpdateClientDto {
     clientPhones: ClientPhoneDto[] | undefined;
 
     constructor(data?: IUpdateClientDto) {
-    constructor(data?: IUpdateClientDto) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -20163,7 +18796,6 @@ export class UpdateClientDto implements IUpdateClientDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
-            this.id = _data["id"];
             this.name = _data["name"];
             this.address = _data["address"];
             this.activated = _data["activated"];
@@ -20172,20 +18804,7 @@ export class UpdateClientDto implements IUpdateClientDto {
                 this.clientBalances = [] as any;
                 for (let item of _data["clientBalances"])
                     this.clientBalances.push(ClientBalanceDto.fromJS(item));
-            this.address = _data["address"];
-            this.activated = _data["activated"];
-            this.provinceId = _data["provinceId"];
-            if (Array.isArray(_data["clientBalances"])) {
-                this.clientBalances = [] as any;
-                for (let item of _data["clientBalances"])
-                    this.clientBalances.push(ClientBalanceDto.fromJS(item));
             }
-            if (Array.isArray(_data["clientPhones"])) {
-                this.clientPhones = [] as any;
-                for (let item of _data["clientPhones"])
-                    this.clientPhones.push(ClientPhoneDto.fromJS(item));
-            }
-        }
             if (Array.isArray(_data["clientPhones"])) {
                 this.clientPhones = [] as any;
                 for (let item of _data["clientPhones"])
@@ -20195,9 +18814,7 @@ export class UpdateClientDto implements IUpdateClientDto {
     }
 
     static fromJS(data: any): UpdateClientDto {
-    static fromJS(data: any): UpdateClientDto {
         data = typeof data === 'object' ? data : {};
-        let result = new UpdateClientDto();
         let result = new UpdateClientDto();
         result.init(data);
         return result;
@@ -20205,7 +18822,6 @@ export class UpdateClientDto implements IUpdateClientDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
         data["id"] = this.id;
         data["name"] = this.name;
         data["address"] = this.address;
@@ -20215,18 +18831,6 @@ export class UpdateClientDto implements IUpdateClientDto {
             data["clientBalances"] = [];
             for (let item of this.clientBalances)
                 data["clientBalances"].push(item.toJSON());
-        data["address"] = this.address;
-        data["activated"] = this.activated;
-        data["provinceId"] = this.provinceId;
-        if (Array.isArray(this.clientBalances)) {
-            data["clientBalances"] = [];
-            for (let item of this.clientBalances)
-                data["clientBalances"].push(item.toJSON());
-        }
-        if (Array.isArray(this.clientPhones)) {
-            data["clientPhones"] = [];
-            for (let item of this.clientPhones)
-                data["clientPhones"].push(item.toJSON());
         }
         if (Array.isArray(this.clientPhones)) {
             data["clientPhones"] = [];
@@ -20237,9 +18841,7 @@ export class UpdateClientDto implements IUpdateClientDto {
     }
 
     clone(): UpdateClientDto {
-    clone(): UpdateClientDto {
         const json = this.toJSON();
-        let result = new UpdateClientDto();
         let result = new UpdateClientDto();
         result.init(json);
         return result;
@@ -20257,30 +18859,13 @@ export interface IUpdateClientDto {
 }
 
 export class UpdateCommisionDto implements IUpdateCommisionDto {
-export interface IUpdateClientDto {
-    id: number;
-    name: string | undefined;
-    address: string | undefined;
-    activated: boolean;
-    provinceId: number;
-    clientBalances: ClientBalanceDto[] | undefined;
-    clientPhones: ClientPhoneDto[] | undefined;
-}
-
-export class UpdateCommisionDto implements IUpdateCommisionDto {
     id: number;
     from: number;
     to: number;
     value: number;
     percentage: number;
     currencyId: number;
-    from: number;
-    to: number;
-    value: number;
-    percentage: number;
-    currencyId: number;
 
-    constructor(data?: IUpdateCommisionDto) {
     constructor(data?: IUpdateCommisionDto) {
         if (data) {
             for (var property in data) {
@@ -20338,6 +18923,8 @@ export interface IUpdateCommisionDto {
 
 export class UpdateCompanyDto implements IUpdateCompanyDto {
     id: number;
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;
@@ -20354,12 +18941,9 @@ export class UpdateCompanyDto implements IUpdateCompanyDto {
 
     init(_data?: any) {
         if (_data) {
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
             this.id = _data["id"];
+            this.tenantCompanyId = _data["tenantCompanyId"];
+            this.tenantId = _data["tenantId"];
             this.name = _data["name"];
             this.phone = _data["phone"];
             this.address = _data["address"];
@@ -20372,9 +18956,7 @@ export class UpdateCompanyDto implements IUpdateCompanyDto {
     }
 
     static fromJS(data: any): UpdateCompanyDto {
-    static fromJS(data: any): UpdateCompanyDto {
         data = typeof data === 'object' ? data : {};
-        let result = new UpdateCompanyDto();
         let result = new UpdateCompanyDto();
         result.init(data);
         return result;
@@ -20383,13 +18965,9 @@ export class UpdateCompanyDto implements IUpdateCompanyDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
+        data["tenantCompanyId"] = this.tenantCompanyId;
+        data["tenantId"] = this.tenantId;
         data["name"] = this.name;
-        data["phone"] = this.phone;
-        data["address"] = this.address;
-        if (Array.isArray(this.companyBalances)) {
-            data["companyBalances"] = [];
-            for (let item of this.companyBalances)
-                data["companyBalances"].push(item.toJSON());
         data["phone"] = this.phone;
         data["address"] = this.address;
         if (Array.isArray(this.companyBalances)) {
@@ -20401,9 +18979,7 @@ export class UpdateCompanyDto implements IUpdateCompanyDto {
     }
 
     clone(): UpdateCompanyDto {
-    clone(): UpdateCompanyDto {
         const json = this.toJSON();
-        let result = new UpdateCompanyDto();
         let result = new UpdateCompanyDto();
         result.init(json);
         return result;
@@ -20411,8 +18987,9 @@ export class UpdateCompanyDto implements IUpdateCompanyDto {
 }
 
 export interface IUpdateCompanyDto {
-export interface IUpdateCompanyDto {
     id: number;
+    tenantCompanyId: number | undefined;
+    tenantId: number | undefined;
     name: string | undefined;
     phone: string | undefined;
     address: string | undefined;
@@ -20425,7 +19002,6 @@ export class UpdateCountryDto implements IUpdateCountryDto {
     provinces: ProvinceDto[] | undefined;
 
     constructor(data?: IUpdateCountryDto) {
-    constructor(data?: IUpdateCountryDto) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -20442,20 +19018,12 @@ export class UpdateCountryDto implements IUpdateCountryDto {
                 this.provinces = [] as any;
                 for (let item of _data["provinces"])
                     this.provinces.push(ProvinceDto.fromJS(item));
-            this.id = _data["id"];
-            this.name = _data["name"];
-            if (Array.isArray(_data["provinces"])) {
-                this.provinces = [] as any;
-                for (let item of _data["provinces"])
-                    this.provinces.push(ProvinceDto.fromJS(item));
             }
         }
     }
 
     static fromJS(data: any): UpdateCountryDto {
-    static fromJS(data: any): UpdateCountryDto {
         data = typeof data === 'object' ? data : {};
-        let result = new UpdateCountryDto();
         let result = new UpdateCountryDto();
         result.init(data);
         return result;
@@ -20469,20 +19037,12 @@ export class UpdateCountryDto implements IUpdateCountryDto {
             data["provinces"] = [];
             for (let item of this.provinces)
                 data["provinces"].push(item.toJSON());
-        data["id"] = this.id;
-        data["name"] = this.name;
-        if (Array.isArray(this.provinces)) {
-            data["provinces"] = [];
-            for (let item of this.provinces)
-                data["provinces"].push(item.toJSON());
         }
         return data;
     }
 
     clone(): UpdateCountryDto {
-    clone(): UpdateCountryDto {
         const json = this.toJSON();
-        let result = new UpdateCountryDto();
         let result = new UpdateCountryDto();
         result.init(json);
         return result;
@@ -20493,22 +19053,13 @@ export interface IUpdateCountryDto {
     id: number;
     name: string | undefined;
     provinces: ProvinceDto[] | undefined;
-export interface IUpdateCountryDto {
-    id: number;
-    name: string | undefined;
-    provinces: ProvinceDto[] | undefined;
 }
 
 export class UpdateCurrencyDto implements IUpdateCurrencyDto {
     id: number;
     name: string | undefined;
     isMainCurrency: boolean;
-export class UpdateCurrencyDto implements IUpdateCurrencyDto {
-    id: number;
-    name: string | undefined;
-    isMainCurrency: boolean;
 
-    constructor(data?: IUpdateCurrencyDto) {
     constructor(data?: IUpdateCurrencyDto) {
         if (data) {
             for (var property in data) {
@@ -20523,16 +19074,11 @@ export class UpdateCurrencyDto implements IUpdateCurrencyDto {
             this.id = _data["id"];
             this.name = _data["name"];
             this.isMainCurrency = _data["isMainCurrency"];
-            this.id = _data["id"];
-            this.name = _data["name"];
-            this.isMainCurrency = _data["isMainCurrency"];
         }
     }
 
     static fromJS(data: any): UpdateCurrencyDto {
-    static fromJS(data: any): UpdateCurrencyDto {
         data = typeof data === 'object' ? data : {};
-        let result = new UpdateCurrencyDto();
         let result = new UpdateCurrencyDto();
         result.init(data);
         return result;
@@ -20543,26 +19089,17 @@ export class UpdateCurrencyDto implements IUpdateCurrencyDto {
         data["id"] = this.id;
         data["name"] = this.name;
         data["isMainCurrency"] = this.isMainCurrency;
-        data["id"] = this.id;
-        data["name"] = this.name;
-        data["isMainCurrency"] = this.isMainCurrency;
         return data;
     }
 
     clone(): UpdateCurrencyDto {
-    clone(): UpdateCurrencyDto {
         const json = this.toJSON();
-        let result = new UpdateCurrencyDto();
         let result = new UpdateCurrencyDto();
         result.init(json);
         return result;
     }
 }
 
-export interface IUpdateCurrencyDto {
-    id: number;
-    name: string | undefined;
-    isMainCurrency: boolean;
 export interface IUpdateCurrencyDto {
     id: number;
     name: string | undefined;
@@ -20588,27 +19125,7 @@ export class UpdateExchangeCurrencyDto implements IUpdateExchangeCurrencyDto {
     mainCurrencyId: number | undefined;
     clientId: number | undefined;
     companyId: number | undefined;
-export class UpdateExchangeCurrencyDto implements IUpdateExchangeCurrencyDto {
-    id: number;
-    number: number;
-    amountOfFirstCurrency: number;
-    amoutOfSecondCurrency: number;
-    paidAmountOfFirstCurrency: number;
-    receivedAmountOfFirstCurrency: number;
-    paidAmountOfSecondCurrency: number;
-    receivedAmountOfSecondCurrency: number;
-    exchangePrice: number;
-    paymentType: number;
-    actionType: number;
-    note: string | undefined;
-    date: string | undefined;
-    firstCurrencyId: number | undefined;
-    secondCurrencyId: number | undefined;
-    mainCurrencyId: number | undefined;
-    clientId: number | undefined;
-    companyId: number | undefined;
 
-    constructor(data?: IUpdateExchangeCurrencyDto) {
     constructor(data?: IUpdateExchangeCurrencyDto) {
         if (data) {
             for (var property in data) {
@@ -20638,31 +19155,11 @@ export class UpdateExchangeCurrencyDto implements IUpdateExchangeCurrencyDto {
             this.mainCurrencyId = _data["mainCurrencyId"];
             this.clientId = _data["clientId"];
             this.companyId = _data["companyId"];
-            this.id = _data["id"];
-            this.number = _data["number"];
-            this.amountOfFirstCurrency = _data["amountOfFirstCurrency"];
-            this.amoutOfSecondCurrency = _data["amoutOfSecondCurrency"];
-            this.paidAmountOfFirstCurrency = _data["paidAmountOfFirstCurrency"];
-            this.receivedAmountOfFirstCurrency = _data["receivedAmountOfFirstCurrency"];
-            this.paidAmountOfSecondCurrency = _data["paidAmountOfSecondCurrency"];
-            this.receivedAmountOfSecondCurrency = _data["receivedAmountOfSecondCurrency"];
-            this.exchangePrice = _data["exchangePrice"];
-            this.paymentType = _data["paymentType"];
-            this.actionType = _data["actionType"];
-            this.note = _data["note"];
-            this.date = _data["date"];
-            this.firstCurrencyId = _data["firstCurrencyId"];
-            this.secondCurrencyId = _data["secondCurrencyId"];
-            this.mainCurrencyId = _data["mainCurrencyId"];
-            this.clientId = _data["clientId"];
-            this.companyId = _data["companyId"];
         }
     }
 
     static fromJS(data: any): UpdateExchangeCurrencyDto {
-    static fromJS(data: any): UpdateExchangeCurrencyDto {
         data = typeof data === 'object' ? data : {};
-        let result = new UpdateExchangeCurrencyDto();
         let result = new UpdateExchangeCurrencyDto();
         result.init(data);
         return result;
@@ -20688,56 +19185,17 @@ export class UpdateExchangeCurrencyDto implements IUpdateExchangeCurrencyDto {
         data["mainCurrencyId"] = this.mainCurrencyId;
         data["clientId"] = this.clientId;
         data["companyId"] = this.companyId;
-        data["id"] = this.id;
-        data["number"] = this.number;
-        data["amountOfFirstCurrency"] = this.amountOfFirstCurrency;
-        data["amoutOfSecondCurrency"] = this.amoutOfSecondCurrency;
-        data["paidAmountOfFirstCurrency"] = this.paidAmountOfFirstCurrency;
-        data["receivedAmountOfFirstCurrency"] = this.receivedAmountOfFirstCurrency;
-        data["paidAmountOfSecondCurrency"] = this.paidAmountOfSecondCurrency;
-        data["receivedAmountOfSecondCurrency"] = this.receivedAmountOfSecondCurrency;
-        data["exchangePrice"] = this.exchangePrice;
-        data["paymentType"] = this.paymentType;
-        data["actionType"] = this.actionType;
-        data["note"] = this.note;
-        data["date"] = this.date;
-        data["firstCurrencyId"] = this.firstCurrencyId;
-        data["secondCurrencyId"] = this.secondCurrencyId;
-        data["mainCurrencyId"] = this.mainCurrencyId;
-        data["clientId"] = this.clientId;
-        data["companyId"] = this.companyId;
         return data;
     }
 
     clone(): UpdateExchangeCurrencyDto {
-    clone(): UpdateExchangeCurrencyDto {
         const json = this.toJSON();
-        let result = new UpdateExchangeCurrencyDto();
         let result = new UpdateExchangeCurrencyDto();
         result.init(json);
         return result;
     }
 }
 
-export interface IUpdateExchangeCurrencyDto {
-    id: number;
-    number: number;
-    amountOfFirstCurrency: number;
-    amoutOfSecondCurrency: number;
-    paidAmountOfFirstCurrency: number;
-    receivedAmountOfFirstCurrency: number;
-    paidAmountOfSecondCurrency: number;
-    receivedAmountOfSecondCurrency: number;
-    exchangePrice: number;
-    paymentType: number;
-    actionType: number;
-    note: string | undefined;
-    date: string | undefined;
-    firstCurrencyId: number | undefined;
-    secondCurrencyId: number | undefined;
-    mainCurrencyId: number | undefined;
-    clientId: number | undefined;
-    companyId: number | undefined;
 export interface IUpdateExchangeCurrencyDto {
     id: number;
     number: number;
@@ -20765,14 +19223,7 @@ export class UpdateExchangePriceDto implements IUpdateExchangePriceDto {
     purchasingPrice: number | undefined;
     sellingPrice: number | undefined;
     currencyId: number;
-export class UpdateExchangePriceDto implements IUpdateExchangePriceDto {
-    id: number;
-    mainPrice: number | undefined;
-    purchasingPrice: number | undefined;
-    sellingPrice: number | undefined;
-    currencyId: number;
 
-    constructor(data?: IUpdateExchangePriceDto) {
     constructor(data?: IUpdateExchangePriceDto) {
         if (data) {
             for (var property in data) {
@@ -20789,18 +19240,11 @@ export class UpdateExchangePriceDto implements IUpdateExchangePriceDto {
             this.purchasingPrice = _data["purchasingPrice"];
             this.sellingPrice = _data["sellingPrice"];
             this.currencyId = _data["currencyId"];
-            this.id = _data["id"];
-            this.mainPrice = _data["mainPrice"];
-            this.purchasingPrice = _data["purchasingPrice"];
-            this.sellingPrice = _data["sellingPrice"];
-            this.currencyId = _data["currencyId"];
         }
     }
 
     static fromJS(data: any): UpdateExchangePriceDto {
-    static fromJS(data: any): UpdateExchangePriceDto {
         data = typeof data === 'object' ? data : {};
-        let result = new UpdateExchangePriceDto();
         let result = new UpdateExchangePriceDto();
         result.init(data);
         return result;
@@ -20813,18 +19257,11 @@ export class UpdateExchangePriceDto implements IUpdateExchangePriceDto {
         data["purchasingPrice"] = this.purchasingPrice;
         data["sellingPrice"] = this.sellingPrice;
         data["currencyId"] = this.currencyId;
-        data["id"] = this.id;
-        data["mainPrice"] = this.mainPrice;
-        data["purchasingPrice"] = this.purchasingPrice;
-        data["sellingPrice"] = this.sellingPrice;
-        data["currencyId"] = this.currencyId;
         return data;
     }
 
     clone(): UpdateExchangePriceDto {
-    clone(): UpdateExchangePriceDto {
         const json = this.toJSON();
-        let result = new UpdateExchangePriceDto();
         let result = new UpdateExchangePriceDto();
         result.init(json);
         return result;
@@ -20837,21 +19274,12 @@ export interface IUpdateExchangePriceDto {
     purchasingPrice: number | undefined;
     sellingPrice: number | undefined;
     currencyId: number;
-export interface IUpdateExchangePriceDto {
-    id: number;
-    mainPrice: number | undefined;
-    purchasingPrice: number | undefined;
-    sellingPrice: number | undefined;
-    currencyId: number;
 }
 
 export class UpdateExpenseDto implements IUpdateExpenseDto {
-export class UpdateExpenseDto implements IUpdateExpenseDto {
     id: number;
     name: string | undefined;
-    name: string | undefined;
 
-    constructor(data?: IUpdateExpenseDto) {
     constructor(data?: IUpdateExpenseDto) {
         if (data) {
             for (var property in data) {
@@ -20865,14 +19293,11 @@ export class UpdateExpenseDto implements IUpdateExpenseDto {
         if (_data) {
             this.id = _data["id"];
             this.name = _data["name"];
-            this.name = _data["name"];
         }
     }
 
     static fromJS(data: any): UpdateExpenseDto {
-    static fromJS(data: any): UpdateExpenseDto {
         data = typeof data === 'object' ? data : {};
-        let result = new UpdateExpenseDto();
         let result = new UpdateExpenseDto();
         result.init(data);
         return result;
@@ -20880,7 +19305,6 @@ export class UpdateExpenseDto implements IUpdateExpenseDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
         data["id"] = this.id;
         data["name"] = this.name;
         return data;
@@ -20928,61 +19352,13 @@ export class UpdateIncomeDto implements IUpdateIncomeDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        return data;
-    }
-
-    clone(): UpdateExpenseDto {
-        const json = this.toJSON();
-        let result = new UpdateExpenseDto();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface IUpdateExpenseDto {
-    id: number;
-    name: string | undefined;
-}
-
-export class UpdateIncomeDto implements IUpdateIncomeDto {
-    id: number;
-    name: string | undefined;
-
-    constructor(data?: IUpdateIncomeDto) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.id = _data["id"];
-            this.name = _data["name"];
-        }
-    }
-
-    static fromJS(data: any): UpdateIncomeDto {
-        data = typeof data === 'object' ? data : {};
-        let result = new UpdateIncomeDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
         data["name"] = this.name;
-        data["name"] = this.name;
         return data;
     }
 
     clone(): UpdateIncomeDto {
-    clone(): UpdateIncomeDto {
         const json = this.toJSON();
-        let result = new UpdateIncomeDto();
         let result = new UpdateIncomeDto();
         result.init(json);
         return result;
@@ -20991,103 +19367,11 @@ export class UpdateIncomeDto implements IUpdateIncomeDto {
 
 export interface IUpdateIncomeDto {
     id: number;
-export interface IUpdateIncomeDto {
-    id: number;
     name: string | undefined;
 }
 
 export class UserDto implements IUserDto {
-}
-
-export class UserDto implements IUserDto {
     id: number;
-    userName: string;
-    name: string;
-    surname: string;
-    emailAddress: string;
-    isActive: boolean;
-    fullName: string | undefined;
-    branchId: number | undefined;
-    lastLoginTime: moment.Moment | undefined;
-    creationTime: moment.Moment;
-    roleNames: string[] | undefined;
-
-    constructor(data?: IUserDto) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.id = _data["id"];
-            this.userName = _data["userName"];
-            this.name = _data["name"];
-            this.surname = _data["surname"];
-            this.emailAddress = _data["emailAddress"];
-            this.isActive = _data["isActive"];
-            this.fullName = _data["fullName"];
-            this.branchId = _data["branchId"];
-            this.lastLoginTime = _data["lastLoginTime"] ? moment(_data["lastLoginTime"].toString()) : <any>undefined;
-            this.creationTime = _data["creationTime"] ? moment(_data["creationTime"].toString()) : <any>undefined;
-            if (Array.isArray(_data["roleNames"])) {
-                this.roleNames = [] as any;
-                for (let item of _data["roleNames"])
-                    this.roleNames.push(item);
-            }
-        }
-    }
-
-    static fromJS(data: any): UserDto {
-        data = typeof data === 'object' ? data : {};
-        let result = new UserDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
-        data["userName"] = this.userName;
-        data["name"] = this.name;
-        data["surname"] = this.surname;
-        data["emailAddress"] = this.emailAddress;
-        data["isActive"] = this.isActive;
-        data["fullName"] = this.fullName;
-        data["branchId"] = this.branchId;
-        data["lastLoginTime"] = this.lastLoginTime ? this.lastLoginTime.toISOString() : <any>undefined;
-        data["creationTime"] = this.creationTime ? this.creationTime.toISOString() : <any>undefined;
-        if (Array.isArray(this.roleNames)) {
-            data["roleNames"] = [];
-            for (let item of this.roleNames)
-                data["roleNames"].push(item);
-        }
-        return data;
-    }
-
-    clone(): UserDto {
-        const json = this.toJSON();
-        let result = new UserDto();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface IUserDto {
-    id: number;
-    userName: string;
-    name: string;
-    surname: string;
-    emailAddress: string;
-    isActive: boolean;
-    fullName: string | undefined;
-    branchId: number | undefined;
-    lastLoginTime: moment.Moment | undefined;
-    creationTime: moment.Moment;
-    roleNames: string[] | undefined;
     userName: string;
     name: string;
     surname: string;
@@ -21180,7 +19464,6 @@ export interface IUserDto {
 export class UserDtoPagedResultDto implements IUserDtoPagedResultDto {
     items: UserDto[] | undefined;
     totalCount: number;
-    totalCount: number;
 
     constructor(data?: IUserDtoPagedResultDto) {
         if (data) {
@@ -21198,7 +19481,6 @@ export class UserDtoPagedResultDto implements IUserDtoPagedResultDto {
                 for (let item of _data["items"])
                     this.items.push(UserDto.fromJS(item));
             }
-            this.totalCount = _data["totalCount"];
             this.totalCount = _data["totalCount"];
         }
     }
@@ -21218,7 +19500,6 @@ export class UserDtoPagedResultDto implements IUserDtoPagedResultDto {
                 data["items"].push(item.toJSON());
         }
         data["totalCount"] = this.totalCount;
-        data["totalCount"] = this.totalCount;
         return data;
     }
 
@@ -21232,188 +19513,6 @@ export class UserDtoPagedResultDto implements IUserDtoPagedResultDto {
 
 export interface IUserDtoPagedResultDto {
     items: UserDto[] | undefined;
-    totalCount: number;
-}
-
-export class UserForDropdownDto implements IUserForDropdownDto {
-    id: number;
-    name: string | undefined;
-
-    constructor(data?: IUserForDropdownDto) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.id = _data["id"];
-            this.name = _data["name"];
-        }
-    }
-
-    static fromJS(data: any): UserForDropdownDto {
-        data = typeof data === 'object' ? data : {};
-        let result = new UserForDropdownDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
-        data["name"] = this.name;
-        return data;
-    }
-
-    clone(): UserForDropdownDto {
-        const json = this.toJSON();
-        let result = new UserForDropdownDto();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface IUserForDropdownDto {
-    id: number;
-    name: string | undefined;
-}
-
-export class UserLoginInfoDto implements IUserLoginInfoDto {
-    id: number;
-    name: string | undefined;
-    surname: string | undefined;
-    userName: string | undefined;
-    emailAddress: string | undefined;
-
-    constructor(data?: IUserLoginInfoDto) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.id = _data["id"];
-            this.name = _data["name"];
-            this.surname = _data["surname"];
-            this.userName = _data["userName"];
-            this.emailAddress = _data["emailAddress"];
-        }
-    }
-
-    static fromJS(data: any): UserLoginInfoDto {
-        data = typeof data === 'object' ? data : {};
-        let result = new UserLoginInfoDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
-        data["name"] = this.name;
-        data["surname"] = this.surname;
-        data["userName"] = this.userName;
-        data["emailAddress"] = this.emailAddress;
-        return data;
-    }
-
-    clone(): UserLoginInfoDto {
-        const json = this.toJSON();
-        let result = new UserLoginInfoDto();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface IUserLoginInfoDto {
-    id: number;
-    name: string | undefined;
-    surname: string | undefined;
-    userName: string | undefined;
-    emailAddress: string | undefined;
-}
-
-export class WhereFilter implements IWhereFilter {
-    field: string | undefined;
-    ignoreCase: boolean;
-    isComplex: boolean;
-    operator: string | undefined;
-    condition: string | undefined;
-    value: any | undefined;
-    predicates: WhereFilter[] | undefined;
-
-    constructor(data?: IWhereFilter) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.field = _data["field"];
-            this.ignoreCase = _data["ignoreCase"];
-            this.isComplex = _data["isComplex"];
-            this.operator = _data["operator"];
-            this.condition = _data["condition"];
-            this.value = _data["value"];
-            if (Array.isArray(_data["predicates"])) {
-                this.predicates = [] as any;
-                for (let item of _data["predicates"])
-                    this.predicates.push(WhereFilter.fromJS(item));
-            }
-        }
-    }
-
-    static fromJS(data: any): WhereFilter {
-        data = typeof data === 'object' ? data : {};
-        let result = new WhereFilter();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["field"] = this.field;
-        data["ignoreCase"] = this.ignoreCase;
-        data["isComplex"] = this.isComplex;
-        data["operator"] = this.operator;
-        data["condition"] = this.condition;
-        data["value"] = this.value;
-        if (Array.isArray(this.predicates)) {
-            data["predicates"] = [];
-            for (let item of this.predicates)
-                data["predicates"].push(item.toJSON());
-        }
-        return data;
-    }
-
-    clone(): WhereFilter {
-        const json = this.toJSON();
-        let result = new WhereFilter();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface IWhereFilter {
-    field: string | undefined;
-    ignoreCase: boolean;
-    isComplex: boolean;
-    operator: string | undefined;
-    condition: string | undefined;
-    value: any | undefined;
-    predicates: WhereFilter[] | undefined;
     totalCount: number;
 }
 

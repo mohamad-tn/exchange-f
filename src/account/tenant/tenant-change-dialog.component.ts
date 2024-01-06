@@ -10,7 +10,8 @@ import {
 } from '@shared/service-proxies/service-proxies';
 
 @Component({
-  templateUrl: './tenant-change-dialog.component.html'
+  templateUrl: './tenant-change-dialog.component.html',
+  styleUrls:['./tenant-change-dialog.component.scss']
 })
 export class TenantChangeDialogComponent extends AppComponentBase {
   saving = false;

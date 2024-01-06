@@ -132,8 +132,7 @@ const SYNCFUSION_SERVICES = [
     StatementRoutingModule,
     ...SYNCFUSION_MODULES,
     ...NB_MODULES,
-    NgxPrintModule,
-    PdfViewerModule
+    NgxPrintModule
   ],
   providers: [
     ...SYNCFUSION_SERVICES,

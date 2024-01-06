@@ -113,12 +113,6 @@ const routes: Routes = [
         //data: { permission : 'Pages.SummaryStatements' },
         canActivate: [AppRouteGuard],
       },
-      {
-        path: "report-viewer",
-        component: ReportViewerComponent,
-        //data: { permission : 'Pages.ReportViewer' },
-        canActivate: [AppRouteGuard],
-      },
     ],
   },
 ];

@@ -17,12 +17,18 @@ import { AccountFooterComponent } from './layout/account-footer.component';
 // tenants
 import { TenantChangeComponent } from './tenant/tenant-change.component';
 import { TenantChangeDialogComponent } from './tenant/tenant-change-dialog.component';
-import { NbButtonModule, NbCardModule, NbCheckboxModule, NbIconModule, NbInputModule } from '@nebular/theme';
+import { NbActionsModule, NbAlertModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbDialogModule, NbIconModule, NbInputModule, NbPopoverModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 const NB_MODULES = [
+    NbActionsModule,
     NbIconModule,
-    NbButtonModule,
+    NbEvaIconsModule,
+    NbDialogModule.forChild(),
     NbCardModule,
+    NbButtonModule,
     NbInputModule,
+    NbAlertModule,
+    NbPopoverModule,
     NbCheckboxModule
 ];
 

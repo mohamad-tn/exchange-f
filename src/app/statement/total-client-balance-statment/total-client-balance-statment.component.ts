@@ -46,7 +46,6 @@ export class TotalClientBalanceStatmentComponent
   // Grid
   @ViewChild("cashFlowGrid") public grid: GridComponent;
   baseUrl: string = '';
-  baseUrl: string = '';
   dataSource: TotalClientBalanceStatment[] = [];
   clientCashFlows: ClientCashFlowTotalDto[] = [];
   pdfItems: TotalClientBalancePdf[] = [];
