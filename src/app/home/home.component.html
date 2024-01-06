@@ -1,1 +1,58 @@
 ﻿
+<div class="row">
+    <div class="col-md-4">
+        <ngx-status-card [title]="'OutgoingTransfers' | localize" [destination]="'OutgoingTransfers'">
+            <i [class]="'nb-arrow-thin-up'"></i>
+        </ngx-status-card>
+    </div>
+    <div class="col-md-4">
+        <ngx-status-card [title]="'SendTransfers' | localize" [destination]="'SendTransfers'">
+            <i [class]="'nb-email'"></i>
+        </ngx-status-card>
+    </div>
+    <div class="col-md-4">
+        <ngx-status-card [title]="'IncomeTransfers' | localize" [destination]="'IncomeTransfers'">
+            <i [class]="'nb-arrow-thin-down'"></i>
+        </ngx-status-card>
+    </div>
+    <div class="col-md-4">
+        <ngx-status-card [title]="'IncomeTransferNotAccepted' | localize" [destination]="'IncomeTransferNotAccepted'">
+            <i [class]="'nb-notifications'"></i>
+        </ngx-status-card>
+    </div>
+    <div class="col-md-4">
+        <ngx-status-card [title]="'Treasury' | localize" [destination]="'Treasury'">
+            <i [class]="'nb-e-commerce'"></i>
+        </ngx-status-card>
+    </div>
+    <div class="col-md-4">
+        <ngx-status-card [title]="'ExchangeCurrency' | localize" [destination]="'ExchangeCurrency'">
+            <i [class]="'nb-arrow-retweet'"></i>
+        </ngx-status-card>
+    </div>
+    <div class="col-md-4">
+        <ngx-status-card [title]="'NoneReceivedTransfer' | localize" [destination]="'NoneReceivedTransfer'">
+            <i [class]="'nb-list'"></i>
+        </ngx-status-card>
+    </div>
+    <div class="col-md-4">
+        <ngx-status-card [title]="'Settings' | localize" [destination]="'Setting'">
+            <i [class]="'nb-gear'"></i>
+        </ngx-status-card>
+    </div>
+    <div class="col-md-4">
+        <ngx-status-card [title]="'Statements' | localize" (click)="openPopup()">
+            <i [class]="'nb-compose'"></i>
+        </ngx-status-card>
+    </div>
+    <div class="col-md-4">
+        <ngx-status-card [title]="'Auth' | localize" [destination]="'Auth'">
+            <i [class]="'nb-locked'"></i>
+        </ngx-status-card>
+    </div>
+    <div class="col-md-4">
+        <ngx-status-card [title]="'Tenants' | localize" [destination]="'Tenants'">
+            <i [class]="'nb-person'"></i>
+        </ngx-status-card>
+    </div>
+</div>

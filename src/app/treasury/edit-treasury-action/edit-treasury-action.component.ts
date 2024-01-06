@@ -42,6 +42,7 @@ export class EditTreasuryActionComponent
     text: "name",
     value: "exchangePartyId",
   };
+  previousUrl: string = "";
 
   constructor(
     injector: Injector,
@@ -65,6 +66,10 @@ export class EditTreasuryActionComponent
       { name: "صرف", id: 0 },
       { name: "قبض", id: 1 },
     ];
+
+    this._route.queryParams.subscribe((params) => {
+      this.previousUrl = params.previousUrl;
+    });
 
     this.initialCurrencies();
     this.initialClients();
@@ -108,7 +113,6 @@ export class EditTreasuryActionComponent
         .subscribe((result) => {
           this.treasuryAction = result;
           this.loading == true;
-          console.log(this.treasuryAction)
           this.initialMainAccounts();
           if (this.treasuryAction.mainAccount == 4) {
             this.initialBeneficaries(this.treasuryAction.currencyId);
@@ -136,12 +140,10 @@ export class EditTreasuryActionComponent
           if (selectedExchangeParty != undefined) {
             this.exchangeParty = selectedExchangeParty;
           }
-          
         });
     }
-    
   }
-loading:boolean=false;
+  loading: boolean = false;
   initialExpenses() {
     this._expenseAppService.getAll().subscribe((result) => {
       this.expenses = result;
@@ -181,7 +183,6 @@ loading:boolean=false;
   initialExchangeParties() {
     this._treasuryActionAppService.getExchangeParties().subscribe((result) => {
       this.exchangeParties = result;
-      console.log(result);
     });
   }
 
@@ -536,5 +537,9 @@ loading:boolean=false;
     if (this.treasuryAction.incomeId == undefined) return "";
 
     return this.incomes.find((x) => x.id == this.treasuryAction.incomeId)?.name;
+  }
+
+  goToPreviousUrl(){
+    this._router.navigateByUrl(this.previousUrl);
   }
 }

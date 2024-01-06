@@ -31,7 +31,8 @@ export class DirectTransferComponent extends AppComponentBase  implements OnInit
   toDate: Date = new Date();
   filtering: boolean = false;
   public fields: Object = { text: 'name', value: 'id' };
-  
+  public param: Query;
+
   constructor(
     injector: Injector,
     private _router: Router,
@@ -46,6 +47,10 @@ export class DirectTransferComponent extends AppComponentBase  implements OnInit
   }
 
   ngOnInit(): void {
+    this.param = new Query().addParams(
+      "tenantId",
+      this.appSession.tenantId.toString()
+    );
     
     this.toolbarOption = ['Search'];
     this.searchSettings = {fields:['beneficiary.name']};
@@ -85,6 +90,7 @@ export class DirectTransferComponent extends AppComponentBase  implements OnInit
     }
     if(this.filtering){
       this.grid.query = new Query().where(this.filterParams);
+      this.grid.query.addParams('tenantId', this.appSession.tenantId.toString());
       //this.dataSource.executeQuery(new Query().where(this.filterParams));
       
       this.grid.refresh();

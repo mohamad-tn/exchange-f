@@ -69,8 +69,8 @@ export class ListExchangeCurrencyComponent extends AppComponentBase implements O
         .addParams("clientId",this.clientId)
         .addParams("currencyId", this.currencyId)
         .addParams("fromDate", this.fromDate.toISOString())
-        .addParams("toDate", this.toDate.toISOString());
-
+        .addParams("toDate", this.toDate.toISOString())
+        .addParams("tenantId", this.appSession.tenantId.toString());
         //this.gridInstance.refresh();
     }
   }
@@ -87,11 +87,18 @@ export class ListExchangeCurrencyComponent extends AppComponentBase implements O
 
   openEditPage(id){
     this._router.navigate(
-      ['/app/exchange-currency/edit-exchange-currency',
+      [
+        "/app/exchange-currency/edit-exchange-currency",
         {
-          "id" : id,
-        }
-      ]);
+          id: id,
+        },
+      ],
+      {
+        queryParams: {
+          previousUrl: this._router.url,
+        },
+      }
+    );
   }
 
   delete(id): void {

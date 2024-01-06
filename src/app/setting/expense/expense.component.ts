@@ -4,7 +4,7 @@ import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { AppComponentBase } from '@shared/app-component-base';
 import { API_BASE_URL, ExpenseServiceProxy } from '@shared/service-proxies/service-proxies';
 import { FilterSettingsModel, GridComponent, GroupSettingsModel, PageSettingsModel } from '@syncfusion/ej2-angular-grids';
-import { DataManager, UrlAdaptor   } from '@syncfusion/ej2-data';
+import { DataManager, UrlAdaptor, Query } from '@syncfusion/ej2-data';
 import { finalize } from 'rxjs/operators';
 import { CreateExpenseDialogComponent } from './create-expense/create-expense-dialog.component';
 import { EditExpenseDialogComponent } from './edit-expense/edit-expense-dialog.component';
@@ -15,62 +15,71 @@ setCulture('ar-SY');
 L10n.load(LocalizationHelper.getArabicResources());
 
 @Component({
-  selector: 'app-expense',
-  templateUrl: './expense.component.html',
-  styleUrls: ['./expense.component.scss'],
+  selector: "app-expense",
+  templateUrl: "./expense.component.html",
+  styleUrls: ["./expense.component.scss"],
   animations: [appModuleAnimation()],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpenseComponent extends AppComponentBase implements OnInit {
   // Grid
-  @ViewChild('expenseGrid') public grid: GridComponent;
+  @ViewChild("expenseGrid") public grid: GridComponent;
   public expenses: DataManager;
   public pageSettings: PageSettingsModel;
   public pageSizes: number[] = [6, 20, 100];
   public groupOptions: GroupSettingsModel;
-  public filterOption: FilterSettingsModel = { type: 'Menu' };
+  public filterOption: FilterSettingsModel = { type: "Menu" };
   private baseUrl: string;
+  public param: Query;
   
-  constructor(injector: Injector,
+  constructor(
+    injector: Injector,
     private _modalService: NbDialogService,
     private _expenseAppService: ExpenseServiceProxy,
-    @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+    @Optional() @Inject(API_BASE_URL) baseUrl?: string
+  ) {
     super(injector);
     this.baseUrl = baseUrl;
   }
 
   ngOnInit(): void {
-    this.pageSettings = {pageSize: 6, pageCount: 10, pageSizes: this.pageSizes};
+    this.param = new Query().addParams(
+      "tenantId",
+      this.appSession.tenantId.toString()
+    );
+
+    this.pageSettings = {
+      pageSize: 6,
+      pageCount: 10,
+      pageSizes: this.pageSizes,
+    };
     this.expenses = new DataManager({
-      url: this.baseUrl + '/api/services/app/Expense/GetForGrid',
-      adaptor: new UrlAdaptor()
-  });
-  }
-  showCreateDialog() {
-    this._modalService.open(
-      CreateExpenseDialogComponent
-    ).onClose.subscribe((e:any) => {
-      console.log("close:: "+e);
-      this.refresh();
+      url: this.baseUrl + "/api/services/app/Expense/GetForGrid",
+      adaptor: new UrlAdaptor(),
     });
   }
+  showCreateDialog() {
+    this._modalService
+      .open(CreateExpenseDialogComponent)
+      .onClose.subscribe((e: any) => {
+        this.refresh();
+      });
+  }
   showEditDialog(id) {
-    this._modalService.open(
-      EditExpenseDialogComponent,
-      {
+    this._modalService
+      .open(EditExpenseDialogComponent, {
         context: {
           id: id,
         },
-      }
-    ).onClose.subscribe((e:any) => {
-      console.log("close:: "+e);
-      this.refresh();
-    });
+      })
+      .onClose.subscribe((e: any) => {
+        this.refresh();
+      });
   }
-  
+
   delete(data): void {
     abp.message.confirm(
-      this.l('DoYouWantToRemoveTheExpense', data.name),
+      this.l("DoYouWantToRemoveTheExpense", data.name),
       undefined,
       (result: boolean) => {
         if (result) {
@@ -78,7 +87,7 @@ export class ExpenseComponent extends AppComponentBase implements OnInit {
             .delete(data.id)
             .pipe(
               finalize(() => {
-                abp.notify.success(this.l('SuccessfullyDeleted'));
+                abp.notify.success(this.l("SuccessfullyDeleted"));
                 this.refresh();
               })
             )

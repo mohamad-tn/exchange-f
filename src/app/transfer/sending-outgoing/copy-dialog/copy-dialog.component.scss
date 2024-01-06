@@ -1,0 +1,12 @@
+@import '../../../../@theme/styles/themes';
+
+
+@media (min-width: 800px) {
+        nb-card {
+            width: 38rem;
+        }
+
+        nb-card-body{
+        min-height: 30vh;
+    }
+}

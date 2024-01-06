@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <nb-card class="as-case-card">
-                <nb-card-header>
+                <nb-card-header  class="as-head">
                     <div class="header-container">
                         <nb-actions>
                             <nb-action class="control-item" icon="swap-outline"></nb-action>
@@ -11,8 +11,14 @@
                             </nb-action>
                         </nb-actions>
                     </div>
-                    
+                    <div class="header-container">
+                        <nb-actions class="float">
+                            <nb-action class="control-item" icon="corner-up-left-outline" routerLink="/app/transfer/create-outgoing-transfer"></nb-action>
+                        </nb-actions>
+                    </div>
                 </nb-card-header>
+                <div class="scrollbar">
+                    <div class="mr-4 ml-4">
                 <nb-card-body class="as-case-card-body">
                     <!-- <ejs-accordion #accordion>
                         <e-accordionitems>
@@ -117,7 +123,7 @@
                     <!-- Grid -->
                     <div class="row">
                         <div class="col-md-12">
-                            <ejs-grid id="SearchGrid" #searchGrid [dataSource]="dataSource" [allowPaging]="true"
+                            <ejs-grid id="SearchGrid" #searchGrid [query]="param" [dataSource]="dataSource" [allowPaging]="true"
                                 [enableRtl]='true' height='{{gridHeight}}' width='100%' [pageSettings]="pageSettings">
                                 <e-columns>
                                     <e-column headerText="{{l('Commands')}}" textAlign='Center' width="150">
@@ -158,6 +164,8 @@
                     </div>
 
                 </nb-card-body>
+                    </div>
+                </div>
             </nb-card>
         </div>
     </div>

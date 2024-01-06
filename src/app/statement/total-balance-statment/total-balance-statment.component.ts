@@ -47,6 +47,7 @@ export class TotalBalanceStatmentComponent
   ) {
     super(injector);
     this.baseUrl = baseUrl;
+    this.baseUrl = baseUrl;
   }
 
   ngOnInit(): void {

@@ -117,7 +117,8 @@ export class ExchangeCurrencyStatementComponent
             .addParams("clientId", e.clientId)
             .addParams("currencyId", e.currencyId)
             .addParams("fromDate", e.fromDate)
-            .addParams("toDate", e.toDate);
+            .addParams("toDate", e.toDate)
+            .addParams("tenantId", this.appSession.tenantId.toString());
           this.gridInstance.refresh();
         }
       });

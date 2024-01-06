@@ -146,7 +146,6 @@ const SYNCFUSION_SERVICES = [
     SettingRoutingModule,
     ...SYNCFUSION_MODULES,
     ...NB_MODULES,
-    TabsModule
   ],
   providers: [
     ...SYNCFUSION_SERVICES,
@@ -162,9 +161,6 @@ const SYNCFUSION_SERVICES = [
     ExchangePriceServiceProxy ,
     GeneralSettingServiceProxy ,
     MigrationServiceProxy
-  ],
-  entryComponents: [
-
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA ]
 })

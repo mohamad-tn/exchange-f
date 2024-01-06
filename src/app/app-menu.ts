@@ -7,74 +7,77 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/app/home',
   },
   {
-    title: 'Settings',
-    icon: 'settings-outline',
-    link: '/app/setting'
+    title: "Settings",
+    icon: "settings-outline",
     // children: [
     //   {
-    //     title: 'Countries',
-    //     link: '/app/setting/country',
+    //     title: "Countries",
+    //     link: "/app/setting/country",
     //   },
     //   {
-    //     title: 'Currencies',
-    //     link: '/app/setting/currency',
+    //     title: "Currencies",
+    //     link: "/app/setting/currency",
     //   },
     //   {
-    //     title: 'Companies',
-    //     link: '/app/setting/company',
+    //     title: "Companies",
+    //     link: "/app/setting/company",
     //   },
     //   {
-    //     title: 'Clients',
-    //     link: '/app/setting/client',
+    //     title: "Clients",
+    //     link: "/app/setting/client",
     //   },
     //   {
-    //     title: 'InitialBalance',
-    //     link: '/app/setting/initial-balance',
+    //     title: "InitialBalance",
+    //     link: "/app/setting/initial-balance",
     //   },
     //   {
-    //     title: 'Commision',
-    //     link: '/app/setting/commision',
+    //     title: "Commision",
+    //     link: "/app/setting/commision",
     //   },
     //   {
-    //     title: 'Expenses',
-    //     link: '/app/setting/expense',
+    //     title: "Expenses",
+    //     link: "/app/setting/expense",
     //   },
     //   {
-    //     title: 'Incomes',
-    //     link: '/app/setting/income',
+    //     title: "Incomes",
+    //     link: "/app/setting/income",
     //   },
     //   {
-    //     title: 'ExchangePrice',
-    //     link: '/app/setting/exchange-price',
+    //     title: "ExchangePrice",
+    //     link: "/app/setting/exchange-price",
     //   },
     //   {
-    //     title: 'الاعدادات العامة',
-    //     link: '/app/setting/general-setting',
+    //     title: "الاعدادات العامة",
+    //     link: "/app/setting/general-setting",
     //   },
     // ],
   },
   {
-    title: 'Transfers',
-    icon: 'trending-up-outline',
+    title: "Transfers",
+    icon: "trending-up-outline",
     children: [
       {
-        title: 'OutgoingTransfers',
-        link: '/app/transfer/create-outgoing-transfer',
+        title: "OutgoingTransfers",
+        link: "/app/transfer/create-outgoing-transfer",
       },
       {
-        title: 'IncomeTransfers',
-        link: '/app/transfer/create-income-transfer',
+        title: "IncomeTransfers",
+        link: "/app/transfer/create-income-transfer",
       },
       {
-        title: 'NoneReceivedTransfer',
-        link: '/app/transfer/direct-transfer',
+        title: "NoneReceivedTransfer",
+        link: "/app/transfer/direct-transfer",
+      },
+      {
+        title: "SendTransfers",
+        link: "/app/transfer/sending-outgoing",
       },
     ],
   },
   {
-    title: 'ExchangeCurrency',
-    icon: 'repeat-outline',
-    link: '/app/exchange-currency/create',
+    title: "ExchangeCurrency",
+    icon: "repeat-outline",
+    link: "/app/exchange-currency/create",
   },
   {
     title: 'Treasury',
@@ -124,10 +127,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'ExchangeCurrencyStatement',
         link: '/app/statement/exchange-currency-statement',
+        title: 'ExchangeCurrencyStatement',
+        link: '/app/statement/exchange-currency-statement',
       },
       {
-        title: 'Management',
-        link: '/app/statement/management-statement',
+        title: "Customers",
+        link: "/app/statement/customer-statement",
+      },
+      {
+        title: "Management",
+        link: "/app/statement/management-statement",
       },
       {
         title: 'Summary',

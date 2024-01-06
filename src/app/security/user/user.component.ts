@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, Injector, OnInit, Optional, ViewChild } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { AppComponentBase } from '@shared/app-component-base';
-import { DataManager, UrlAdaptor   } from '@syncfusion/ej2-data';
+import { DataManager, UrlAdaptor, Query } from '@syncfusion/ej2-data';
 import { API_BASE_URL, UserServiceProxy } from '@shared/service-proxies/service-proxies';
 import { FilterSettingsModel, ForeignKeyService, GridComponent, GroupSettingsModel, PageSettingsModel } from '@syncfusion/ej2-angular-grids';
 import { finalize } from 'rxjs/operators';
@@ -16,66 +16,75 @@ setCulture('ar-SY');
 L10n.load(LocalizationHelper.getArabicResources());
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss'],
+  selector: "app-user",
+  templateUrl: "./user.component.html",
+  styleUrls: ["./user.component.scss"],
   animations: [appModuleAnimation()],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ForeignKeyService]
+  providers: [ForeignKeyService],
 })
-
 export class UserComponent extends AppComponentBase implements OnInit {
-  
   // Grid
-  @ViewChild('userGrid') public grid: GridComponent;
+  @ViewChild("userGrid") public grid: GridComponent;
   users: DataManager;
   pageSettings: PageSettingsModel;
   pageSizes: number[] = [6, 20, 100];
   groupOptions: GroupSettingsModel;
-  filterOption: FilterSettingsModel = { type: 'Menu' };
+  filterOption: FilterSettingsModel = { type: "Menu" };
   filter: Object;
   baseUrl: string;
   teamLeaderData: Object[];
-
-constructor(injector: Injector,
+  public param: Query;
+  
+  constructor(
+    injector: Injector,
     private _modalService: NbDialogService,
     private _userAppService: UserServiceProxy,
-    @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+    @Optional() @Inject(API_BASE_URL) baseUrl?: string
+  ) {
     super(injector);
     this.baseUrl = baseUrl;
   }
 
   ngOnInit(): void {
+    this.param = new Query().addParams(
+      "tenantId",
+      this.appSession.tenantId.toString()
+    );
+
     this.filter = { type: "CheckBox" };
-    this.pageSettings = {pageSize: 6, pageCount: 10, pageSizes: this.pageSizes};
+    this.pageSettings = {
+      pageSize: 6,
+      pageCount: 10,
+      pageSizes: this.pageSizes,
+    };
     this.users = new DataManager({
-      url: this.baseUrl + '/api/services/app/User/GetForGrid',
-      adaptor: new UrlAdaptor()
-  });
-  }
-  showCreateDialog() {
-    this._modalService.open(
-      CreateUserDialogComponent
-    ).onClose.subscribe((e:any) => {
-      this.refresh();
+      url: this.baseUrl + "/api/services/app/User/GetForGrid",
+      adaptor: new UrlAdaptor(),
     });
   }
+  showCreateDialog() {
+    this._modalService
+      .open(CreateUserDialogComponent)
+      .onClose.subscribe((e: any) => {
+        this.refresh();
+      });
+  }
   showEditDialog(id) {
-    this._modalService.open(
-      EditUserDialogComponent,
-      {
+    this._modalService
+      .open(EditUserDialogComponent, {
         context: {
           id: id,
         },
-      }
-    ).onClose.subscribe((e:any) => {
-      this.refresh();
-    });
+      })
+      .onClose.subscribe((e: any) => {
+        this.refresh();
+      });
   }
-  
+
   delete(data): void {
     abp.message.confirm(
-      this.l('DoYouWantToRemoveTheUser', data.name),
+      this.l("DoYouWantToRemoveTheUser", data.name),
       undefined,
       (result: boolean) => {
         if (result) {
@@ -83,7 +92,7 @@ constructor(injector: Injector,
             .delete(data.id)
             .pipe(
               finalize(() => {
-                abp.notify.success(this.l('SuccessfullyDeleted'));
+                abp.notify.success(this.l("SuccessfullyDeleted"));
                 this.refresh();
               })
             )
@@ -93,14 +102,11 @@ constructor(injector: Injector,
     );
   }
   showResetPasswordUserDialog(data): void {
-    this._modalService.open(
-      ResetPasswordDialogComponent,
-      {
-        context: {
-          id: data.id,
-        },
-      }
-    );
+    this._modalService.open(ResetPasswordDialogComponent, {
+      context: {
+        id: data.id,
+      },
+    });
   }
   refresh() {
     this.grid.refresh();
@@ -111,5 +117,4 @@ constructor(injector: Injector,
   clearSorts() {
     this.grid.clearSorting();
   }
-  
 }

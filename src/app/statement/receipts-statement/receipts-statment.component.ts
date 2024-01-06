@@ -37,7 +37,6 @@ export class ReceiptsStatmentComponent
   }
 
   initialTreasuryActions(data) {
-    console.log(data);
     this._treasuryActionAppService
       .getFroStatment(
         0,

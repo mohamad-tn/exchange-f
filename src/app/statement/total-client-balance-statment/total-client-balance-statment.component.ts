@@ -18,6 +18,13 @@ import {
   PdfClientServiceProxy,
   TotalClientBalancePdf,
 } from "@shared/service-proxies/service-proxies";
+// import {
+//   API_BASE_URL,
+//   ClientCashFlowServiceProxy,
+//   ClientCashFlowTotalDto,
+//   PdfClientServiceProxy,
+//   TotalClientBalancePdf,
+// } from "@shared/service-proxies/service-proxies";
 import {
   GridComponent,
   PageSettingsModel,
@@ -38,6 +45,7 @@ export class TotalClientBalanceStatmentComponent
 {
   // Grid
   @ViewChild("cashFlowGrid") public grid: GridComponent;
+  baseUrl: string = '';
   baseUrl: string = '';
   dataSource: TotalClientBalanceStatment[] = [];
   clientCashFlows: ClientCashFlowTotalDto[] = [];
@@ -60,6 +68,7 @@ export class TotalClientBalanceStatmentComponent
     @Optional() @Inject(API_BASE_URL) baseUrl?: string
   ) {
     super(injector);
+    this.baseUrl = baseUrl;
     this.baseUrl = baseUrl;
   }
 

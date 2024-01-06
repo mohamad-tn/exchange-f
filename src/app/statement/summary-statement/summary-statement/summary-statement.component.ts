@@ -52,7 +52,6 @@ export class SummaryStatementComponent
       this.clientResult = result.sort((a, b) =>
         a.currency?.name.localeCompare(b.currency?.name)
       );
-      console.log(this.clientResult);
       this.cellWidth =
         result.length > 0 ? 100 / result.length + "%" : this.cellWidth;
     });
@@ -180,7 +179,7 @@ export class SummaryStatementComponent
           } else {
             currencyTotalBalance =
               currencyTotalBalance +
-              z.mainPrice * this.calculatTotal1(z.currencyId);
+              this.calculatTotal1(z.currencyId) / z.mainPrice;
             this.totalAmount = mainCurrencyTotalBalance + currencyTotalBalance;
           }
         });

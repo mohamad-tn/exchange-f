@@ -1,3 +1,4 @@
+import { StatementListComponent } from './statement-list/statement-list.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeModule } from '@theme/theme.module';
@@ -46,8 +47,7 @@ import { SearchExchangeCurrencyStatementComponent } from './exchange-currency-st
 import { NgxPrintDirective, NgxPrintModule } from 'ngx-print';
 import { SearchManagementStatementComponent } from './management-statement/search-management-statement.component';
 import { ManagementStatementComponent } from './management-statement/management-statement.component';
-import { ReportViewerComponent } from './report-viewer/report-viewer.component';
-import { PdfViewerModule } from '@syncfusion/ej2-angular-pdfviewer';
+import { CustomerStatementComponent } from './customer-statement/customer-statement.component';
 
 const NB_MODULES = [
   NbActionsModule,
@@ -118,7 +118,8 @@ const SYNCFUSION_SERVICES = [
     SearchExchangeCurrencyStatementComponent,
     SearchManagementStatementComponent,
     ManagementStatementComponent,
-    ReportViewerComponent
+    CustomerStatementComponent,
+    StatementListComponent,
   ],
   imports: [
     CommonModule,
