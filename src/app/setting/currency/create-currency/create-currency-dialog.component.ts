@@ -12,6 +12,7 @@ import {
   CurrencyServiceProxy
 } from '@shared/service-proxies/service-proxies';
 import { NbDialogRef } from '@nebular/theme';
+import { CurrencyName, CurrencyNameService } from '@core/utils/currency-name.service';
 
 @Component({
   templateUrl: 'create-currency-dialog.component.html',
@@ -22,11 +23,13 @@ export class CreateCurrencyDialogComponent extends AppComponentBase
   implements OnInit {
   saving = false;
   currency: CreateCurrencyDto = new CreateCurrencyDto();
-
+  currenciesNames: CurrencyName[] = [];
   @Output() onSave = new EventEmitter<any>();
+  public fields: Object = { text: 'name', value: 'name' };
 
   constructor(
     injector: Injector,
+    private _currencyNameService: CurrencyNameService,
     public _currencyService: CurrencyServiceProxy,
     public dialogRef: NbDialogRef<CreateCurrencyDialogComponent>
   ) {
@@ -34,6 +37,7 @@ export class CreateCurrencyDialogComponent extends AppComponentBase
   }
 
   ngOnInit(): void {
+    this.currenciesNames = this._currencyNameService.getAll();
   }
 
   save(): void {

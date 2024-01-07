@@ -8,17 +8,21 @@
                 <!--Name-->
                 <div class="form-group row required">
                     <label class="col-md-3 col-form-label" for="name">
-                        {{ "Name" | localize }}
+                        {{ "Currency" | localize }}
                     </label>
                     <div  class="col-md-9">
-                        <input nbInput type="text" class="form-control"
+                        <ejs-dropdownlist id='name' name='name' cssClass="as-sy-input" [dataSource]='currenciesNames'
+                                        [enableRtl]="true" [fields]='fields' required [allowFiltering]='true' 
+                                        [(ngModel)]="currency.name" #nameModel="ngModel" #nameEl>
+                                    </ejs-dropdownlist>
+                        <!-- <input nbInput type="text" class="form-control"
                         name="name" 
                         id="name" 
                         minlength="2" 
-                        required 
+                        required
                         [(ngModel)]="currency.name" 
                         #nameModel="ngModel" 
-                        #nameEl />
+                        #nameEl /> -->
                         <abp-validation-summary [control]="nameModel" [controlEl]="nameEl">
                         </abp-validation-summary>
                     </div>

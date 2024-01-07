@@ -71,6 +71,7 @@ import { CreateCommisionDialogComponent } from './commision/create-commision/cre
 import { EditCommisionDialogComponent } from './commision/edit-commision/edit-commision-dialog.component';
 import { GeneralSettingComponent } from './general-setting/general-setting.component';
 import { CheckEditPasswordComponent } from './general-setting/check-edit-password/check-edit-password.component';
+import { CoreModule } from '@core/core.module';
 
 const NB_MODULES = [
   NbActionsModule,
@@ -145,7 +146,7 @@ const SYNCFUSION_SERVICES = [
     ThemeModule,
     SettingRoutingModule,
     ...SYNCFUSION_MODULES,
-    ...NB_MODULES,
+    ...NB_MODULES
   ],
   providers: [
     ...SYNCFUSION_SERVICES,
